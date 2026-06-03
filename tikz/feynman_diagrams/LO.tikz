@@ -1,0 +1,16 @@
+\begin{feynman}
+    \vertex [label=left:\(q\)] (q);
+    \vertex [below right=of q] (v1);
+    \vertex [below left=of v1, label=left:\(\bar{q}\)] (qbar);
+    \vertex [right=of v1] (v2);
+    \vertex [above right=of v2, label=right:\(\slepton^*_{iB}\)] (lB);
+    \vertex [below right=of v2, label=right:\(\slepton_{iA}\)] (lA);
+    
+    \diagram*{
+        (q) --[fermion, momentum={[arrow style=good_blue]\(p_1\)}] (v1)
+        --[fermion, reversed momentum={[arrow style=good_blue]\(p_2\)}] (qbar);
+        (v1) --[boson, edge label'=\(\gamma / Z\)] (v2);
+        (lB) --[charged scalar, reversed momentum'={[arrow style=good_blue]\(k_1\)}] (v2)
+         --[charged scalar, momentum'={[arrow style=good_blue]\(k_2\)}] (lA);
+    };
+\end{feynman}

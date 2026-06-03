@@ -1,0 +1,14 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+    % \begin{scope}[small, node distance=0.7cm]
+        \vertex (v); % Vertex
+        \vertex[above left=of v, label=left:\(V^1_\mu\)] (i1); % Photon
+        \vertex[below left=of v, label=left:\(V^2_\nu\)] (i2); % Photon
+        \vertex[above right=of v, label=right:\(s_1\)] (f1); % Slepton
+        \vertex[below right=of v, label=right:\(s_2^*\)] (f2); % Conjugate slepton
+    \end{scope}
+    \diagram*{
+        (i1) --[photon] (v) --[photon] (i2);
+        (f1) --[charged scalar] (v) --[charged scalar] (f2);
+    };
+\end{feynman}

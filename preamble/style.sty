@@ -1,0 +1,62 @@
+% \usepackage{babel, textcomp} % From UiO template
+
+%% Text
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{csquotes}
+\MakeOuterQuote{"} % Allow using "quote" instead of ``quote''
+
+% Farger fra NSM presentasjon (originalt fra Tile Codes?) Mulig jeg vil tweake disse!
+\definecolor{good_red}{RGB}{235, 75, 75}
+\definecolor{good_blue}{RGB}{26, 133, 255}
+\definecolor{good_green}{RGB}{69, 169, 109}
+
+%% Graphics
+\usepackage{graphicx}
+
+%% Figures and tables
+\usepackage{multirow}
+\usepackage{subcaption}
+
+%% Math
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools} % Provides some useful math formatting commands
+\usepackage{cancel}
+\usepackage{aligned-overset}
+\usepackage{tensor} % Provides tensor indices with spacing
+\usepackage{slashed} % Provides Dirac slash notation
+% \usepackage{mathabx} % Provides \widebar (note that it also changes a bunch of other math symbols), so I commented it out. Carl Martin implements only the definition of \widebar as found in mathabx, so maybe do this if I need it
+
+% Formatting
+% \usepackage{hyphenat}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{ % No header on first page of new chapters
+  \fancyhf{}                  % clear header/footer
+  \renewcommand{\headrulewidth}{0pt} % no line
+  \fancyfoot[C]{\thepage}     % page number only
+}
+\renewcommand{\headrulewidth}{0.4pt} % Line thickness under header
+
+%% Writing tools
+\usepackage{lipsum}
+\usepackage{comment}
+\usepackage[textsize=footnotesize]{todonotes}
+
+%% Tikz
+\usepackage{tikz-3dplot}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\newcommand{\inputtikz}[2][]{
+    \begin{tikzpicture}[#1]
+        \input{tikz/#2.tikz}
+    \end{tikzpicture}
+}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{positioning}
+
+%% Organizational packages
+\usepackage[capitalize]{cleveref} % Not compatible with showonlyrefs, so will handle equation numbering manually
+\crefname{section}{Sec.}{Secs.} % Sections are not abbreviated by default
+
+% \usepackage{subfiles} % Used to organize chapters and compile them independently

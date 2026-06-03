@@ -1,0 +1,85 @@
+\documentclass[USenglish]{uiotemp/uiomasterthesis}
+% \documentclass[USenglish]{uiotemp/uiomasterthesis_modified} % Removed all sans-serifs
+\usepackage{uiotemp/uiomasterfp}
+% \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{preamble/style}
+\usepackage{preamble/acronyms}
+\usepackage{preamble/commands}
+
+% \usepackage{ragged2e}
+\usepackage{epigraph}
+
+\begin{document}
+\uiomasterfp[
+    author=Brage Andreas Trefjord,
+    title=Sleptons and Where to Find Them,
+    subtitle=NLO QED corrections to the inclusive cross section of slepton pair production in proton--proton collisions,
+    supervisor={Are Raklev},
+    dept=Department of Physics,
+    fac=Faculty of Mathematics and Natural Sciences,
+    program=Theoretical Physics,
+    colour=green,
+    binding,
+    % Image=[CUSTOM IMAGE?],
+    % info=[ADDITIONAL INFORMATION?],
+    date=\today
+]
+
+\frontmatter % Use roman numerals starting here
+
+\chapter*{Abstract}
+
+\tableofcontents
+% \listoffigures
+% \listoftables
+
+\printglossary[
+    type=\acronymtype,
+    title=List of Abbreviations,
+    % nonumberlist
+]
+
+\include{chapters/notations}
+
+\mainmatter % Use arabic numerals starting here
+
+\include{chapters/intro.tex}
+
+%%% THEORY PART
+
+% \subfile{chapters/susy}
+\include{chapters/susy}
+
+% \subfile{chapters/divergences}
+\include{chapters/divergences}
+
+
+%%% CALCULATION PART
+% \subfile{chapters/parton_level}
+\include{chapters/parton_level}
+
+% \subfile{chapters/hadron_level}
+\include{chapters/hadron_level}
+
+% \subfile{chapters/results}
+\include{chapters/results}
+
+%%% Conclusion
+% \subfile{chapters/conclusion}
+\include{chapters/conclusion}
+
+%%% Appendices
+\appendix
+
+% \subfile{chapters/appendix}
+\include{chapters/appendix}
+
+
+%%% Bibliography
+\bibliography{ref}
+\bibliographystyle{JHEP_pat}
+
+
+\end{document}

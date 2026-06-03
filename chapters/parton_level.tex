@@ -1,0 +1,146 @@
+% \documentclass[../main.tex]{subfiles}
+
+% \begin{document}
+
+\newcommand{\slepton}{\tilde{\ell}}
+\newcommand{\amp}{\mathcal{M}}
+
+\chapter{Parton Level QED Corrections to Slepton Pair Production}
+
+Full matrix element for the slepton-side photon radiation:
+\begin{equation}
+    \begin{aligned}
+        \mathcal{M}^{r\slepton} &=
+        \amp_\gamma^{r\slepton_1} + \amp_\gamma^{r\slepton_2} + \amp_\gamma^{r\slepton_{12}}
+        \amp_Z^{r\slepton_1} + \amp_Z^{r\slepton_2} + \amp_Z^{r\slepton_{12}}
+        \\
+        &= \underbrace{2 \left[
+            \frac{2 k_{1\mu} k_2^\nu}{(k_2+k)^2-m_{\slepton_{iA}}^2}
+            + \frac{2 k_{2\mu} k_1^\nu}{(k_1+k)^2-m_{\slepton_{iB}}^2}
+            + \delta^\nu_\mu
+        \right]}_{\equiv C^r(k_1,k_2,k)\indices{^\nu_\mu}} \epsilon^*_\nu(k)
+        \\ &\qquad \times \, \bar{v}^r(p_2) \gamma^\mu \Bigl\{
+            C_{Z,\ell_i}^{AB}(q) \bigl[
+                Z_{q_L} (1-\gamma^5) + Z_{q_R} (1+\gamma^5)
+            \bigr] - C_{\gamma,q}^{AB}(q)
+        \Bigr\} u^s(p_1)
+        \\
+        &= C^r(k_1, k_2, k)\indices{^\nu_\mu} \epsilon^*_\nu(k)
+        \\ &\qquad \times \, \bar{v}^r(p_2) \gamma^\mu \Bigl\{
+            C_{Z,\ell_i}^{AB}(q) \bigl[
+                Z_{q_L} (1-\gamma^5) + Z_{q_R} (1+\gamma^5)
+            \bigr] - C_{\gamma,q}^{AB}(q)
+        \Bigr\} u^s(p_1),
+    \end{aligned}
+    \label{eq:amp_rl}
+\end{equation}
+where $C_{\gamma,q}^{AB} = \frac{Q_q e^3 \delta^{AB}}{q^2}$ and $C_{Z,\ell_i}^{AB}(q) = \frac{e^3 Z_{\ell_i}^{AB}}{\sw^2 \cw^2 (q^2-m_Z^2+im_Z\Gamma_Z)}$. We can make a quick sanity check by seeing whether the Ward identity holds. Replacing $\epsilon^*_\nu(k)$ with $k_\nu$ we find
+\begin{align*}
+    C^r(k_1, k_2, k)\indices{^\nu_\mu} \epsilon^*_\nu(k)
+    &\to C^r(k_1, k_2, k)\indices{^\nu_\mu} k_\nu
+    \\
+    &= 2 \left[
+        \frac{2 k_{1\mu} k_2^\nu k_\nu}{(k_2+k)^2-m_{\slepton_{iA}}^2}
+        + \frac{2 k_{2\mu} k_1^\nu k_\nu}{(k_1+k)^2-m_{\slepton_{iB}}^2}
+        + k_\mu
+    \right]
+    \\
+    &= 2 \left[
+        \frac{2 k_2 \cdot k}{m_{\slepton_{iA}}^2 + 2 k_2 \cdot k - m_{\slepton_{iA}}^2} k_{1\mu} 
+        + \frac{2 k_1 \cdot k}{m_{\slepton_{iB}}^2 + 2k_1 \cdot k - m_{\slepton_{iB}}^2} k_{2\mu}
+        + k_\mu
+    \right]
+    \\
+    &= 2 (k_1+k_2+k)_\mu
+    \\
+    &= 2 (p_1+p_2)_\mu,
+\end{align*}
+which is is zero when contracted with the Dirac trace in \cref{eq:amp_rl} as a result of the Dirac equation.
+
+%%%%%%%%%%%%%%%%%%
+%%% Kinematics %%%
+%%%%%%%%%%%%%%%%%%
+\section{Phase Space Kinematics
+    \\\textcolor{gray}{Introduce d-dimensional phase space for $2\to2$ and $2\to3$ processes, useful kinematic variables like $x, y$ and $z$, and how to transform between quark and slepton rest frames.}
+}
+
+
+
+%%%%%%%%%%
+%%% LO %%%
+%%%%%%%%%%
+\section{Leading Order Cross Section}
+
+\begin{figure}
+    \centering
+    \inputtikz{feynman_diagrams/LO}
+    \caption{Tree-level diagrams for slepton pair production.}
+    \label{fig:LOamp}
+\end{figure}
+
+At \gls{lo} there are two Feynman diagrams contributing to the process $q \bar{q} \to \slepton^* \slepton$, shown in \cref{fig:LOamp}. Using the Feynman rules in \textcolor{red}{[cite/ref]} we can write down their matrix elements:
+\begin{align}
+    i\mlo^\gamma &= \bar{v}_2 (-ieQ_q\gamma^\mu)u_1 \frac{-ig_{\mu\nu}}{\hat{s}} ie(k_2-k_1)^\nu \delta^{AB}
+    \\
+    i\mlo^Z &= \bar{v}_2 \frac{ie}{\sw \cw}\gamma^\mu \bigl[\zql (1-\gamma^5) + \zqr (1+\gamma^5)\bigr] u_1
+    \\\nonumber &\qquad \times \frac{-ig_{\mu\nu}}{\hat{s}-m_Z^2+im_Z\Gamma_Z} \frac{ie}{\sw\cw} \zliab (k_2-k_1)^\nu,
+\end{align}
+where, in order to declutter the notation, I have defined the shorthands $u_1 \equiv u(p_1)$ and $\bar{v}_2 \equiv \bar{v}(p_2)$ for the Dirac spinors; and $\sw \equiv \sin\theta_W$ and $\cw \equiv \cos\theta_W$ for the weak mixing angles.\todo{Remove if these are mentioned earlier!}
+Using conservation of four-momentum, and applying the Dirac equation, the matrix elements can be simplified to
+\begin{align}
+    \mlo^\gamma &= \frac{2e^2 Q_q \delta^{AB}}{\hat{s}} \bar{v}_2 \slashed{k}_1 u_1
+    \\
+    \mlo^Z &= -\frac{2e^2\zliab}{\sw^2\cw^2} \frac{1}{\hat{s}-m_Z^2+im_Z\Gamma_Z} \bar{v}_2 \slashed{k}_1 \bigl[\zql(1-\gamma^5) + \zqr(1+\gamma^5) \bigr] u_1.
+\end{align}
+The square of the amplitude is $|\mlo|^2 = |\mlo^\gamma|^2 + |\mlo^Z|^2 + 2\Re\{\mlo^{\gamma*}\mlo^Z\}$. Averaging over the spin and color of the incoming quarks we find \todo{Mer utregning eller forklar hvorfor $\gamma^5$ forsvinner}
+\begin{align}
+    \overline{|\mlo|^2} &= \frac{1}{4\nc} \sum_{\substack{\mathrm{spin} \\ \mathrm{color}}} |\mlo|^2
+    % \\
+    % &= \frac{e^4}{\nc \hat{s}^2} \biggl[
+    %     Q_q^2 \delta^{AB}
+    %     - 2Q_q \delta^{AB} \frac{\zliab}{\sw^2\cw^2} (\zql+\zqr) \frac{\hat{s}(\hat{s}-m_Z^2}{(\hat{s}-m_Z^2)^2+m_Z^2 \Gamma_Z^2}
+    %     \\
+    %     &\qquad + 2 (\zql^2+\zqr^2) \frac{(\zliab)^2}{\sw^4\cw^4} \frac{\hat{s}^2}{(\hat{s}-m_Z^2)^2+m_Z^2\Gamma_Z^2}
+    % \biggr] \tr[\pslash_2 \kslash_1 \pslash_1 \kslash_2]
+    \\
+    &= \frac{e^4}{\nc \hat{s}^2} \fqliab(\sqrt{\hat{s}}) \tr[\pslash_2 \kslash_1 \pslash_1 \kslash_1],
+\end{align}
+where $\fqliab(\sqrt{\hat{s}})$ is an effective coupling given by
+\begin{align}
+    \fqliab(\sqrt{\hat{s}}) &= Q_q^2 \delta^{AB}
+        - 2Q_q \delta^{AB} \frac{\zliab}{\sw^2\cw^2} (\zql+\zqr) \frac{\hat{s}(\hat{s}-m_Z^2}{(\hat{s}-m_Z^2)^2+m_Z^2 \Gamma_Z^2}
+        \\
+        &\qquad + 2 (\zql^2+\zqr^2) \frac{(\zliab)^2}{\sw^4\cw^4} \frac{\hat{s}^2}{(\hat{s}-m_Z^2)^2+m_Z^2\Gamma_Z^2}.
+\end{align}
+Evaluating the Dirac trace we find
+\begin{equation}
+    \overline{|\mlo|^2} = \frac{4e^4}{\nc \hat{s}^2} \fqliab(\sqrt{\hat{s}}) \Bigl[ 2(p_1 \cdot k_1) (p_2 \cdot k_1) - \mlib^2 (p_1 \cdot p_2) \Bigr].
+\end{equation}
+We now switch to Mandelstam variables, defined by \textcolor{red}{(remove if defined earlier)}
+\begin{align}
+    \hat{s} &= (p_1+p_2)^2=(k_1+k_2)^2, \\
+    \hat{t} &= (p_1-k_1)^2=(p_2+k_2)^2, \\
+    \hat{u} &= (p_1+k_2)^2=(p_2+k_1)^2,
+\end{align}
+and use the relation $s+t+u=\mlia^2+\mlib^2$ to get rid of $\hat{u}$. The final expression for the squared amplitude is then
+\begin{equation}
+    \overline{|\mlo|^2}=\frac{2e^4}{\nc \hat{s}^2} \fqliab(\sqrt{\hat{s}}) \Bigl[ (\mlia^2+\mlib^2-\hat{s})\hat{t} - \hat{t}^2 - \mlia^2\mlib^2 \Bigr].
+\end{equation}
+
+
+%%%%%%%%%%%
+%%% NLO %%%
+%%%%%%%%%%%
+\section{Initial-State Corrections}
+\subsection{Virtual Contribution}
+\subsection{Real Photon Emission}
+
+\section{Final-State Corrections}
+\subsection{Virtual Contribution}
+\subsection{Real Photon Emission}
+
+\section{Initial--Final-State Interference}
+\subsubsection{Box Diagrams}
+\subsubsection{Real Photon Emission}
+
+% \end{document}

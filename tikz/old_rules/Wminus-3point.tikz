@@ -1,0 +1,12 @@
+\begin{feynman}
+    \begin{scope}[node distance=0.7cm]
+        \vertex[label=left:\(W^-_\mu\)] (i); % Photon
+        \vertex[right=of i] (v); % Vertex
+        \vertex[above right=of v, label=right:\(\tilde\nu_{iL}\)] (f1); % Slepton
+        \vertex[below right=of v, label=right:\(\tilde\ell_{iA}^*\)] (f2); % Conjugate slepton
+    \end{scope}
+    \diagram*{
+        (i) --[photon] (v);
+        (f1) --[charged scalar, momentum'=\(p\)] (v) --[charged scalar, reversed momentum'=\(p'\)] (f2);
+    };
+\end{feynman}
