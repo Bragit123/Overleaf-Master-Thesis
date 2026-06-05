@@ -4,33 +4,13 @@
 
 \chapter{Supersymmetry}
 
-\section{The Standard Model \textcolor{gray}{(Short: enough to motivate SUSY as extension and introduce relevant definitions from electroweak theory)}}
+\section{Quantum Field Theory and the Standard Model \textcolor{gray}{(Short: enough QFT to discuss Feynman gauge/lack of Goldstone bosons and enough SM to motivate SUSY as extension and introduce relevant definitions from electroweak theory)}}
 
 \section{Constructing a supersymmetric theory}
 \subsection{Superspace}
 \subsection{Supersymmetric Lagrangians}
-\subsection{Supersymmetry Breaking}
 
-
-\section{The Minimal Supersymmetric Standard Model}
-\subsection{Field Content and Lagrangian Terms}
-\subsection{Feynman Rules for Sleptons}
-\subsection{Slepton Phenomenology \textcolor{gray}{(Mass terms, mixing, decay to neutralinos, missing momentum, detectors, current state of parameter space, current state-of-the art corrections?)}}
-
-4-point vertex rules:
-\begin{align*}
-    \inputtikz[baseline=(v)]{old_rules/4point_photon} &= 2ie^2 \delta^{AB}g^{\mu\nu}
-    \\
-    \inputtikz[baseline=(v)]{old_rules/4point_Z} &= \frac{ie^2}{s_Wc_W} (L_{1A}^i L_{1B}^{i*} - 2\delta^{AB}s_W^2) g^{\mu\nu}
-    = \frac{2ie^2}{s_Wc_W} \zliab g^{\mu\nu}
-\end{align*}
-
-
-\section{SUSY PROJECT \textcolor{red}{REORGANIZE!}}
-\subsection{Preliminaries}\label{sec:preliminaries}
-
-We start off by introducing some necessary background from supersymmetry and electroweak theory needed for the derivations that follow.
-\subsubsection{The supersymmetric Lagrangian}
+\subsubsection{The supersymmetric Lagrangian \textcolor{red}{FROM SUSY PROJECT}}
 We define a general left-handed scalar superfield $\Phi$, a right-handed scalar superfield $\Phi^\dagger$, and a vector superfield $V$ in the Wess-Zumino gauge by\footnote{
     $\Phi$, $\Phi^\dagger$ and $V$ are functions of the superspace coordinates $(x,\theta,\bar\theta)$, and their component fields are functions of the spacetime coordinate $x$. These dependencies are omitted in order to avoid cluttered notation.
 }
@@ -70,34 +50,38 @@ where $K$ is the \emph{K\"ahler potential}, $W$ is the superpotential and $F$ gi
 Note in particular that the K\"ahler potential is the only term that combines vector- and scalar superfields, and thus the only term that can contain slepton--gauge boson interactions.
 
 
-\subsubsection{The K\"ahler potential}\label{sec:kahler}
-In this paper we are interested in the slepton--gauge boson interactions,
-which, as we saw from \cref{eq:general_lagrangian}, can only come from the K\"ahler potential.
-Following the convention of David Tong's lecture notes~\cite{tong:susy} we write the K\"ahler potential for a scalar superfield $\Phi$ transforming in the fundamental representation of some gauge group $G$ as
+\subsubsection{The K\"ahler potential \textcolor{red}{FROM SUSY PROJECT}}\label{sec:kahler}
+We write the K\"ahler potential for a scalar superfield $\Phi$ transforming in the fundamental representation of some gauge group $G$ as
 \begin{equation}
-    \tilde{\mathcal L}_\text{K\"ahler} = \Phi^\dagger e^{2qV^aT_a} \Phi, \label{eq:kahler}
+    \tilde{\mathcal L}_\text{K\"ahler} = \Phi^\dagger e^{-2qV^aT^a} \Phi, \label{eq:kahler}
 \end{equation}
 where $V^a$ are vector superfields needed to keep the K\"ahler potential supergauge invariant, $T_a$ are the generators of $G$, and $q$ is the charge of $\Phi$ under $G$.
 Since $\Phi$ transforms under the fundamental representation of $G$ it is generally a multiplet of scalar superfields.
-In Tong's convention $\Phi$ and $V$ transform as
-\begin{gather}
-    \Phi \to e^{-2iq\Lambda}\Phi \label{eq:gauge_scalar},
-    \\
-    V \to V + i\bigl( \Lambda-\Lambda^\dagger \bigr) - i \bigl[ V,\Lambda+\Lambda^\dagger \bigr] + \cdots, \label{eq:gauge_vector}
-\end{gather}
-where $\Lambda=\Lambda^aT_a$, and $\Lambda^a$ are also (left-handed) scalar superfields.
-We use Tong's convention here in order to restore the usual gauge transformations of ordinary (non-supersymmetric) quantum field theories.
-Due to limited space we will not show that this is the case here, but a more in-depth discussion can be found in section~4 of Tong's lecture notes~\cite{tong:susy}.
+We define the supergauge transformation of a (left-handed) scalar field as
+\begin{equation}
+    \Phi \to e^{2iq\Lambda^a T^a}\Phi \label{eq:gauge_scalar},
+\end{equation}
+where $\Lambda^a$ are also (left-handed) scalar superfields.
+To keep the K\"ahler potential supergauge invariant we must therefore require that the vector superfield transforms according to
+\begin{equation}
+    e^{-2qV^aT_a} \to e^{2iq\Lambda^{a\dagger} T^a} e^{-2qV^a T^a} e^{-2iq\Lambda^a T^a}.
+\end{equation}
+Using the Baker-Campbell-Hausdorff formula \rednote{ref/cite} we can show that this means the vector superfield itself transforms as
+\begin{equation}
+    V^a \to V^a + i\bigl(\Lambda^a - \Lambda^{a\dagger} \bigr) + qf^{abc} V^b (\Lambda^c + \Lambda^{c\dagger}) + \mathcal{O}(\Lambda^2).
+    \label{eq:gauge_vector}
+    % V &\to V + i\bigl( \Lambda-\Lambda^\dagger \bigr) - i \bigl[ V,\Lambda+\Lambda^\dagger \bigr] + \cdots, \label{eq:gauge_vector}
+\end{equation}
 
-The relevant MSSM superfields in the context of this paper are the ones that contain the sleptons and the electroweak gauge bosons.
-The scalar superfields containing sleptons are $\ell_i$, containing the left-handed\footnote{
-    Note that all sleptons are scalar particles, and hence do not possess any chirality. The left- and right-handed notion refers to which superfield they originate from.
-} charged sleptons $\tilde\ell_{iL}$; $\bar E_i$, containing the right-handed charged sleptons $\tilde\ell_{iR}$; and $\nu_i$, containing the left-handed sneutrinos $\tilde\nu_{iL}$, for which there are no right-handed counterpart in the MSSM. The index $i$ denotes the particle's generation.
-$\ell_i$ and $\nu_i$ combine to form an $SU(2)_L$ doublet $L_i = (\nu_i, \ell_i)$, while $\bar E_i$ is an $SU(2)_L$ singlet.
-The vector superfields containing the electroweak gauge bosons are $W^a$ and $B$, with $a=1,2,3$, containing $W^a_\mu$ and $B_\mu$, respectively.
+
+\subsection{Supersymmetry Breaking}
 
 
-\subsubsection{Mixing of eigenstates}
+\section{The Minimal Supersymmetric Standard Model}
+\subsection{Field Content and Lagrangian Terms}
+\subsection{Slepton Phenomenology \textcolor{gray}{(Mass terms, mixing, decay to neutralinos, missing momentum, detectors, current state of parameter space, current state-of-the art corrections?)}}
+
+\subsubsection{Mixing of eigenstates \textcolor{red}{FROM SUSY PROJECT}}
 $W^3_\mu$ and $B_\mu$ mix to give the mass eigenstates $Z_\mu$ (the massive Z boson) and $A_\mu$ (the massless photon), while $W^1_\mu$ and $W^2_\mu$ mix to give the charged W-bosons $W^\pm_\mu$. These mixings are given by
 \begin{subequations}
     \begin{align}
@@ -160,9 +144,10 @@ Following~\cite{Richardson:2000nt} we define the following slepton couplings
 %%%%%%%%%%%%%%%%%%%%%
 %%% Feynman rules %%%
 %%%%%%%%%%%%%%%%%%%%%
-\subsection{Feynman rules for sleptons}\label{sec:feynman_rules}
+\subsection{Feynman Rules for Sleptons}\label{sec:feynman_rules}
 
-\subsubsection{General scalar--vector component interactions from superfields}
+
+\subsubsection{General Scalar--Vector Component Interactions from Superfields}
 We want to find the interaction between sleptons (the scalar component fields of the scalar superfields) and the electroweak gauge bosons (the vector component fields in the vector superfields), thus for our discussion most components in the superfields are irrelevant.
 Considering the general superfields in \cref{eq:superfields} the relevant terms remaining are\footnote{
     Note that we only include terms from $\Phi$ with at most one $\theta$ and one $\bar\theta$ since any other term will give zero when multiplied with the vector superfield.
@@ -197,69 +182,69 @@ and four-point interactions, given by
 \Cref{eq:general_three_point,eq:general_four_point} will be utilized frequently throughout the following discussion.
 
 
-\subsubsection{Feynman rules for slepton--gauge boson interactions}
+\subsubsection{Feynman Rules for Slepton--Gauge Boson Interactions}
 Using that the generators of $SU(2)_L$ are $\frac{1}{2}\sigma_a$,
 and that $L_i$ and $\bar E_i$ have hypercharges $Y=-1$ and $Y=2$,\footnote{
-    In the $Q=T_3+\frac{1}{2}Y$ convention.
+    In the $Q=T_3+\frac{1}{2}Y$ convention. \rednote{Define earlier in theory (section on SM?)}
 } respectively,
 it is fairly straightforward to write down the relevant terms in the MSSM K\"ahler potential using \cref{eq:kahler}:
 \begin{equation*}
-    \tilde{\mathcal{L}} \supset L_i^\dagger e^{g \sigma_a W^a - g'B} L_i + \bar{E}_i^\dagger e^{2g'B} \bar{E}_i.
+    \tilde{\mathcal{L}} \supset L_i^\dagger e^{-g \sigma_a W^a + g'B} L_i + \bar{E}_i^\dagger e^{-2g'B} \bar{E}_i.
 \end{equation*}
 Expanding the exponential and ignoring the kinetic terms gives
 \begin{equation}
     \tilde{\mathcal{L}} \supset
-    \underbrace{L_i^\dagger (g\sigma_a W^a - g'B) L_i}_{\equiv \tilde{\mathcal{L}}_{3L}}
-    + \underbrace{2g'B \bar{E}_i^\dagger \bar{E}_i}_{\equiv \tilde{\mathcal{L}}_{3R}}
-    + \underbrace{\frac{1}{2} L_i^\dagger (g\sigma_a W^a - g'B)^2 L_i}_{\equiv \tilde{\mathcal{L}}_{4L}}
-    + \underbrace{2g'^2 BB \bar{E}_i^\dagger \bar{E}_i}_{\equiv \tilde{\mathcal{L}}_{4R}}.
+    \underbrace{-2g'B \bar{E}_i^\dagger \bar{E}_i}_{\equiv \tilde{\mathcal{L}}_{3R}}
+    + \underbrace{L_i^\dagger (-g\sigma_a W^a + g'B) L_i}_{\equiv \tilde{\mathcal{L}}_{3L}}
+    + \underbrace{2g'^2 BB \bar{E}_i^\dagger \bar{E}_i}_{\equiv \tilde{\mathcal{L}}_{4R}}
+    + \underbrace{\frac{1}{2} L_i^\dagger (g\sigma_a W^a - g'B)^2 L_i}_{\equiv \tilde{\mathcal{L}}_{4L}}.
     \label{eq:mssm_kahler}
 \end{equation}
 
 
-\paragraph{Three-point interactions}\label{sec:three_point}
-The three-point interactions come from $\tilde{\mathcal L}_{3L}$ and $\tilde{\mathcal L}_{3R}$ in the first line of \cref{eq:mssm_kahler}. To find them in terms of component fields we expand $\tilde{\mathcal L}_{3L}$:
+\paragraph{Three-Point Interactions}\label{sec:three_point}
+The three-point interactions come from $\tilde{\mathcal L}_{3R}$ and $\tilde{\mathcal L}_{3L}$ in the first line of \cref{eq:mssm_kahler}. To find them in terms of component fields we expand $\tilde{\mathcal L}_{3L}$:
 \begin{equation}
     \tilde{\mathcal{L}}_{3L} =
-    g (W^1-iW^2)\nu_i^\dagger\ell_i + g(W^1+iW^2)\ell_i^\dagger\nu_i
-    + (gW^3-g'B)\nu_i^\dagger \nu_i
-    -(gW^3+g'B)\ell_i^\dagger\ell_i.
+    -g (W^1-iW^2)\nu_i^\dagger\ell_i - g(W^1+iW^2)\ell_i^\dagger\nu_i
+    + (g'B-gW^3)\nu_i^\dagger \nu_i
+    + (g'B+gW^3)\ell_i^\dagger\ell_i.
     \label{eq:lagrange_3L}
 \end{equation}
 All the interactions in terms of component fields can then be found using \cref{eq:general_three_point} and integrating over the Grassmann coordinates.
 Three-point interactions involving two charged sleptons come from $\tilde{\mathcal{L}}_{3R}$ and the last term of $\tilde{\mathcal{L}}_{3L}$ in \cref{eq:lagrange_3L}:
 \begin{align*}
-    \mathcal{L}_{V\tilde\ell\tilde\ell} &= ig' B^\mu \Bigl( \tilde{\ell}_{iR} \lrpartial{\mu} \tilde{\ell}_{iR}^* \Bigr)
-    -\frac{i}{2} (gW^{3\mu}+g'B^\mu) \Bigl( \tilde{\ell}_{iL}^* \lrpartial{\mu} \tilde{\ell}_{iL} \Bigr)
+    \mathcal{L}_{V\tilde\ell\tilde\ell} &= -ig' B^\mu \Bigl( \tilde{\ell}_{iR} \lrpartial{\mu} \tilde{\ell}_{iR}^* \Bigr)
+    +\frac{i}{2} (gW^{3\mu}+g'B^\mu) \Bigl( \tilde{\ell}_{iL}^* \lrpartial{\mu} \tilde{\ell}_{iL} \Bigr)
     \\
-    &= ie \biggl( \frac{s_W^2}{s_Wc_W}Z^\mu - A^\mu \biggr) \Bigl( \tilde{\ell}_{iR}^* \lrpartial{\mu} \tilde{\ell}_{iR} \Bigr)
+    &= ie \biggl( A^\mu - \frac{s_W^2}{s_Wc_W}Z^\mu \biggr) \Bigl( \tilde{\ell}_{iR}^* \lrpartial{\mu} \tilde{\ell}_{iR} \Bigr)
     % \\ &\quad
-    + \biggl[ -ie A^\mu + \frac{ie}{2s_Wc_W} (2s_W^2-1) Z^\mu \biggr] \Bigl( \tilde{\ell}_{iL}^* \lrpartial{\mu}  \tilde{\ell}_{iL} \Bigr),
+    + \biggl[ ie A^\mu + \frac{ie}{2s_Wc_W} (1-2s_W^2) Z^\mu \biggr] \Bigl( \tilde{\ell}_{iL}^* \lrpartial{\mu}  \tilde{\ell}_{iL} \Bigr),
 \end{align*}
 which can be rewritten in terms of the sleptons' mass eigenstates, giving
 \begin{align}
     \mathcal{L}_{V\tilde\ell\tilde\ell}
-    &= \biggl[ -ieA^\mu \delta^{AB} - \frac{ie}{s_Wc_W} \zliab Z^\mu \biggr] \tilde{\ell}_{iA}^* \lrpartial{\mu} \tilde{\ell}_{iB},
+    &= \biggl[ ieA^\mu \delta^{AB} + \frac{ie}{s_Wc_W} \zliab Z^\mu \biggr] \tilde{\ell}_{iA}^* \lrpartial{\mu} \tilde{\ell}_{iB},
     \label{eq:L_Vll}
 \end{align}
 where $A$ and $B$ label the sleptons' mass eigenstates.
 Three-point interactions involving two sneutrinos come from the third term of $\tilde{\mathcal{L}}_{3L}$ in \cref{eq:lagrange_3L}:
 \begin{align}
-    \mathcal{L}_{V\tilde\nu\tilde\nu} &= \frac{i}{2} (gW^3_\mu-g'B_\mu) \Bigl( \tilde\nu_{iL}^* \lrpartialUpper{\mu} \tilde\nu_{iL} \Bigr)
+    \mathcal{L}_{V\tilde\nu\tilde\nu} &= \frac{i}{2} (g'B_\mu-gW^3_\mu) \Bigl( \tilde\nu_{iL}^* \lrpartialUpper{\mu} \tilde\nu_{iL} \Bigr)
     \nonumber
     \\
-    &= -\frac{ie}{s_Wc_W} \znuiab Z_\mu \Bigl( \tilde\nu_{iA}^* \lrpartialUpper{\mu} \tilde\nu_{iB} \Bigr).
+    &= \frac{ie}{s_Wc_W} \znuiab Z_\mu \Bigl( \tilde\nu_{iA}^* \lrpartialUpper{\mu} \tilde\nu_{iB} \Bigr).
     \label{eq:L_Vnunu}
 \end{align}
 The remaining terms, the first two terms of $\tilde{\mathcal{L}}_{3L}$ in \cref{eq:lagrange_3L}, give the three-point interactions involving both a charged slepton and a sneutrino. The Lagrangian terms are
 \begin{align}
-    \mathcal{L}_{V\tilde\ell\tilde\nu} &= \frac{ig}{2} \biggl[
+    \mathcal{L}_{V\tilde\ell\tilde\nu} &= -\frac{ig}{2} \biggl[
         (W^1_\mu-iW^2_\mu) \Bigl( \tilde\nu_{iL}^* \lrpartialUpper{\mu} \tilde\ell_{iL} \Bigr)
         + (W^1_\mu + iW^2_\mu) \Bigl( \tilde\ell_{iL}^* \lrpartialUpper{\mu} \tilde\nu_{iL} \Bigr)
     \biggr]
     \nonumber
     \\
-    &= \frac{ie}{\sqrt{2}s_W} \biggl[
+    &= -\frac{ie}{\sqrt{2}s_W} \biggl[
         W^+_\mu \Bigl( \tilde\nu_{iL}^* \lrpartialUpper{\mu} \tilde\ell_{iL} \Bigr)
         + W^-_\mu \Bigl( \tilde\ell_{iL}^* \lrpartialUpper{\mu} \tilde\nu_{iL} \Bigr)
     \biggr].
@@ -267,14 +252,10 @@ The remaining terms, the first two terms of $\tilde{\mathcal{L}}_{3L}$ in \cref{
 \end{align}
 
 The resulting Feynman rules from the Lagrangian terms in \cref{eq:L_Vll,eq:L_Vlnu,eq:L_Vnunu} are given in \cref{tab:slepton_rules}.
-We can see that they coincide almost perfectly with \cite{Richardson:2000nt,Rosiek:1989sce}, differing only by a factor of $-1$.
-This difference in sign might be due to the choice of convention for the supergauge transformations in \cref{eq:gauge_scalar,eq:gauge_vector}.
-Had we kept the transformation rule for vector superfields, but flipped the sign for scalar superfields, i.e.\@ making $\Phi \to e^{2iq\Lambda}\Phi$, the K\"ahler potential would also have to change in order to be invariant under the supergauge transformations.
-This new K\"ahler potential would have an extra minus sign in the exponent compared to \cref{eq:kahler}, which would result in an extra factor of $-1$ to all the three-point interaction terms.
+We can see that they coincide perfectly with Refs.~\cite{Richardson:2000nt,Rosiek:1989sce}.
 
-
-\paragraph{Four-point interactions}
-The four-point interactions come from $\tilde{\mathcal L}_{4L}$ and $\tilde{\mathcal L}_{4R}$ in the second line of \cref{eq:mssm_kahler}.
+\paragraph{Four-Point Interactions}
+The four-point interactions come from $\tilde{\mathcal L}_{4R}$ and $\tilde{\mathcal L}_{4L}$ in the second line of \cref{eq:mssm_kahler}.
 Using the anticommutator relation for Pauli matrices:
 $\{\sigma_a,\sigma_b\} = 2 \delta_{ab}$,
 it is easy to show that
@@ -348,16 +329,14 @@ and the terms involving both a charged slepton and a sneutrino come from the las
 \end{equation}
 
 The resulting Feynman rules from the Lagrangian terms in \cref{eq:L_VVll,eq:L_VVlnu,eq:L_VVnunu} are given in \cref{tab:slepton_rules} (note the symmetry factor of $2$ from couplings with $Z^\mu Z_\mu$ and $A^\mu A_\mu$).
-They are exactly the same as the ones found in \cite{Rosiek:1989sce}\footnote{
+They are exactly the same as the ones found in Ref.~\cite{Rosiek:1989sce}\footnote{
     We are not able to cross-check these rules with Richardson's thesis~\cite{Richardson:2000nt} as he does not include four-point interactions.
 }
-This is consistent with a difference in convention for the supergauge transformations, as discussed in \cref{sec:three_point}.
-Introducing a minus sign in the exponent of the K\"ahler potential would not affect the four-point interactions, since these come from the squared term in the expansion, but it would introduce a minus sign to all rules for three-point interactions.
 
 
 \begin{table}[ht]
     \centering
-    \caption{Slepton--gauge boson Feynman rules. $V^i_\mu$ and $s_i$ denote general vectors and charged scalars.}
+    \caption{Feynman rules for slepton--gauge boson interactions. $V^i_\mu$ and $s_i$ denote general vectors and charged scalars.}
     \label{tab:slepton_rules}
     \renewcommand{\arraystretch}{1.8}
     \begin{tabular}{|c|c|c|}
@@ -366,23 +345,23 @@ Introducing a minus sign in the exponent of the K\"ahler potential would not aff
         \\ \hline
         Coupling & Feynman rule & Diagram
         \\ \hline
-        $A\tilde\ell_{iA}^*\tilde\ell_{iB}$ & $-ie (p-p')^\mu \delta^{AB}$ & \multirow{5}{*}{\inputtikz[baseline=(v)]{rules/general-3point}}
+        $\gamma\tilde\ell_{iA}^*\tilde\ell_{iB}$ & $ie (p+p')^\mu \delta^{AB}$ & \multirow{5}{*}{\inputtikz[baseline=(v)]{rules/general-3point}}
         \\
-        $Z\tilde\ell_{iA}^*\tilde\ell_{iB}$ & $-\frac{ie}{s_Wc_W} Z_{\tilde\ell_{i}}^{AB} (p-p')^\mu$ &
+        $Z\tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{ie}{s_Wc_W} Z_{\tilde\ell_{i}}^{AB} (p+p')^\mu$ &
         \\
-        $Z\tilde\nu_{iA}^*\tilde\nu_{iB}$ & $-\frac{ie}{s_Wc_W} \znuiab (p-p')^\mu$ &
+        $Z\tilde\nu_{iA}^*\tilde\nu_{iB}$ & $\frac{ie}{s_Wc_W} \znuiab (p+p')^\mu$ &
         \\
-        $W^-\tilde\ell_{iA}^*\tilde\nu_{iL}$ & $\frac{ie}{\sqrt{2} s_W} L^{i*}_{LA} (p-p')^\mu$ &
+        $W^-\tilde\ell_{iA}^*\tilde\nu_{iL}$ & $-\frac{ie}{\sqrt{2} s_W} L^{i*}_{LA} (p+p')^\mu$ &
         \\
-        $W^+\tilde\nu_{iL}^*\tilde\ell_{iA}$ & $\frac{ie}{\sqrt{2} s_W} L^i_{LA} (p-p')^\mu$ &
+        $W^+\tilde\nu_{iL}^*\tilde\ell_{iA}$ & $-\frac{ie}{\sqrt{2} s_W} L^i_{LA} (p+p')^\mu$ &
         \\ \hline\hline
         \multicolumn{3}{|c|}{\textbf{Four-point interactions}}
         \\ \hline
         Coupling & Feynman rule & Diagram
         \\ \hline
-        $A A\tilde\ell_{iA}^*\tilde\ell_{iB}$ & $2ie^2\delta^{AB}g^{\mu\nu}$ & \multirow{10}{*}{\inputtikz[baseline=(v)]{rules/general-4point}}
+        $\gamma\gamma \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $2ie^2\delta^{AB}g^{\mu\nu}$ & \multirow{10}{*}{\inputtikz[baseline=(v)]{rules/general-4point}}
         \\
-        $A Z \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{2ie^2}{s_Wc_W} \zliab g^{\mu\nu}$ &
+        $\gamma Z \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{2ie^2}{s_Wc_W} \zliab g^{\mu\nu}$ &
         \\
         $Z Z \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{2ie^2}{c_W^2} \Bigl( \frac{1-4s_W^2}{4s_W^2} L_{LA}^{i*}L_{LB}^i + s_W^2 \delta^{AB} \Bigr) g^{\mu\nu}$ &
         \\
@@ -392,16 +371,15 @@ Introducing a minus sign in the exponent of the K\"ahler potential would not aff
         \\
         $Z Z \tilde\nu_{iL}^*\tilde\nu_{iL}$ & $\frac{ie^2}{2s_W^2c_W^2} g^{\mu\nu}$ &
         \\
-        $W^- A \tilde\ell_{iA}^*\tilde\nu_{iL}$ & $-\frac{ie^2}{\sqrt{2}s_W} L^{i*}_{LA} g^{\mu\nu}$ &
+        $\gamma W^- \tilde\ell_{iA}^*\tilde\nu_{iL}$ & $-\frac{ie^2}{\sqrt{2}s_W} L^{i*}_{LA} g^{\mu\nu}$ &
         \\
-        $W^+ A \tilde\nu_{iL}^*\tilde\ell_{iA}$ & $-\frac{ie^2}{\sqrt{2}s_W} L^i_{LA} g^{\mu\nu}$ &
+        $\gamma W^+ \tilde\nu_{iL}^*\tilde\ell_{iA}$ & $-\frac{ie^2}{\sqrt{2}s_W} L^i_{LA} g^{\mu\nu}$ &
         \\
-        $W^- Z \tilde\ell_{iA}^*\tilde\nu_{iL}$ & $\frac{ie^2}{\sqrt{2}c_W} L^{i*}_{LA} g^{\mu\nu}$ &
+        $Z W^- \tilde\ell_{iA}^*\tilde\nu_{iL}$ & $\frac{ie^2}{\sqrt{2}c_W} L^{i*}_{LA} g^{\mu\nu}$ &
         \\
-        $W^+ Z \tilde\nu_{iL}^*\tilde\ell_{iA}$ & $\frac{ie^2}{\sqrt{2}c_W} L^i_{LA} g^{\mu\nu}$ &
+        $Z W^+ \tilde\nu_{iL}^*\tilde\ell_{iA}$ & $\frac{ie^2}{\sqrt{2}c_W} L^i_{LA} g^{\mu\nu}$ &
         \\ \hline
     \end{tabular}
 \end{table}
-
 
 % \end{document}

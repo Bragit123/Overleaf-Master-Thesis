@@ -8,6 +8,6 @@
     \end{scope}
     \diagram*{
         (i) --[photon] (v);
-        (f1) --[charged scalar, momentum'=\(p\)] (v) --[charged scalar, reversed momentum'=\(p'\)] (f2);
+        (f1) --[charged scalar, momentum'=\(p\)] (v) --[charged scalar, momentum'=\(p'\)] (f2);
     };
 \end{feynman}

@@ -60,8 +60,7 @@ which is is zero when contracted with the Dirac trace in \cref{eq:amp_rl} as a r
 %%%%%%%%%%%%%%%%%%
 %%% Kinematics %%%
 %%%%%%%%%%%%%%%%%%
-\section{Phase Space Kinematics
-    \\\textcolor{gray}{Introduce d-dimensional phase space for $2\to2$ and $2\to3$ processes, useful kinematic variables like $x, y$ and $z$, and how to transform between quark and slepton rest frames.}
+\section{Phase Space Kinematics \textcolor{gray}{(Introduce d-dimensional phase space for $2\to2$ and $2\to3$ processes, useful kinematic variables like $x, y$ and $z$, and how to transform between quark and slepton rest frames. Also good place to mention propagator gauge choice and Goldstone bosons?)}
 }
 
 
@@ -85,14 +84,14 @@ At \gls{lo} there are two Feynman diagrams contributing to the process $q \bar{q
     i\mlo^Z &= \bar{v}_2 \frac{ie}{\sw \cw}\gamma^\mu \bigl[\zql (1-\gamma^5) + \zqr (1+\gamma^5)\bigr] u_1
     \\\nonumber &\qquad \times \frac{-ig_{\mu\nu}}{\hat{s}-m_Z^2+im_Z\Gamma_Z} \frac{ie}{\sw\cw} \zliab (k_2-k_1)^\nu,
 \end{align}
-where, in order to declutter the notation, I have defined the shorthands $u_1 \equiv u(p_1)$ and $\bar{v}_2 \equiv \bar{v}(p_2)$ for the Dirac spinors; and $\sw \equiv \sin\theta_W$ and $\cw \equiv \cos\theta_W$ for the weak mixing angles.\todo{Remove if these are mentioned earlier!}
+where, in order to declutter the notation, I have defined the shorthands $u_1 \equiv u(p_1)$ and $\bar{v}_2 \equiv \bar{v}(p_2)$ for the Dirac spinors; and $\sw \equiv \sin\theta_W$ and $\cw \equiv \cos\theta_W$ for the weak mixing angles. \rednote{Remove if these are mentioned earlier!}
 Using conservation of four-momentum, and applying the Dirac equation, the matrix elements can be simplified to
 \begin{align}
     \mlo^\gamma &= \frac{2e^2 Q_q \delta^{AB}}{\hat{s}} \bar{v}_2 \slashed{k}_1 u_1
     \\
     \mlo^Z &= -\frac{2e^2\zliab}{\sw^2\cw^2} \frac{1}{\hat{s}-m_Z^2+im_Z\Gamma_Z} \bar{v}_2 \slashed{k}_1 \bigl[\zql(1-\gamma^5) + \zqr(1+\gamma^5) \bigr] u_1.
 \end{align}
-The square of the amplitude is $|\mlo|^2 = |\mlo^\gamma|^2 + |\mlo^Z|^2 + 2\Re\{\mlo^{\gamma*}\mlo^Z\}$. Averaging over the spin and color of the incoming quarks we find \todo{Mer utregning eller forklar hvorfor $\gamma^5$ forsvinner}
+The square of the amplitude is $|\mlo|^2 = |\mlo^\gamma|^2 + |\mlo^Z|^2 + 2\Re\{\mlo^{\gamma*}\mlo^Z\}$. Averaging over the spin and color of the incoming quarks we find \rednote{Mer utregning eller forklar hvorfor $\gamma^5$ forsvinner}
 \begin{align}
     \overline{|\mlo|^2} &= \frac{1}{4\nc} \sum_{\substack{\mathrm{spin} \\ \mathrm{color}}} |\mlo|^2
     % \\
@@ -131,16 +130,19 @@ and use the relation $s+t+u=\mlia^2+\mlib^2$ to get rid of $\hat{u}$. The final 
 %%%%%%%%%%%
 %%% NLO %%%
 %%%%%%%%%%%
-\section{Initial-State Corrections}
-\subsection{Virtual Contribution}
-\subsection{Real Photon Emission}
+\section{Next-To-Leading Order Corrections}
+\subsection{Initial-State Corrections}
+\subsubsection{Virtual Contribution}
+\subsubsection{Real Photon Emission}
 
-\section{Final-State Corrections}
-\subsection{Virtual Contribution}
-\subsection{Real Photon Emission}
+\subsection{Final-State Corrections}
+\subsubsection{Virtual Contribution}
+\subsubsection{Real Photon Emission}
 
-\section{Initial--Final-State Interference}
+\subsection{Initial--Final-State Interference}
 \subsubsection{Box Diagrams}
 \subsubsection{Real Photon Emission}
+
+\section{Summary}
 
 % \end{document}

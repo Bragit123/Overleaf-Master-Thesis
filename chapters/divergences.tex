@@ -18,10 +18,9 @@
 \section{Renormalization Group Equations \textcolor{gray}{(Short, but enough to discuss running of $\alpha$ and $\alpha_s$ later)}}
 
 \section{Passarino-Veltman Functions}
-\subsection{Definition of Passarino-Veltman Functions}
-\subsection{Reduction of Tensor to Scalar PV Functions}
 
-\todo{Decide on PV notation (NOT FeynCalc's!)}
+\subsection{Definition of Passarino-Veltman Functions}
+
 Passarino-Veltman integrals as defined in \texttt{FeynCalc}:
 \begin{equation}
     T_0^N \bigl( p_i^2, (p_i-p_j)^2 ; m_0^2, m_i^2 \bigr)
@@ -29,7 +28,6 @@ Passarino-Veltman integrals as defined in \texttt{FeynCalc}:
     \frac{1}{k^2-m_0^2} \prod_{i=1}^{N-1} \frac{1}{(k+p_i)^2-m_i^2}.
 \end{equation}
 For some reason, \texttt{FeynCalc} uses a very weird ordering of the arguments. The scalar Passarino-Veltman integrals up to $N=4$ are given in \texttt{FeynCalc} as
-\todo{Maybe don't include $D_0$ unless it is used (should appear in box-diagrams)}
 \begin{subequations}
 \begin{align}
     T_0^1 &\equiv A_0 \bigl(m_0^2 \bigr)
@@ -41,7 +39,6 @@ For some reason, \texttt{FeynCalc} uses a very weird ordering of the arguments. 
     T_0^4 &\equiv D_0 \bigl(p_1^2, (p_1-p_2)^2, (p_2-p_3)^2, p_3^2, p_2^2, (p_1-p_3)^2; m_0^2, m_1^2, m_2^2, m_3^2 \bigr).
 \end{align}
 \end{subequations}
-\todo{Maybe include expressions for $B_1$, $C_1$, and $C_2$ reduced to $A_0$, $B_0$ and $C_0$? (But maybe in Appendix...)}
 
 Alternatively, using the shorthand notation $p_{ij}=(p_i-p_j)$:
 \begin{subequations}
@@ -55,5 +52,7 @@ Alternatively, using the shorthand notation $p_{ij}=(p_i-p_j)$:
     T_0^4 &\equiv D_0 \bigl(p_1^2, p_{12}^2, p_{23}^2, p_3^2, p_2^2, p_{13}^2; m_0^2, m_1^2, m_2^2, m_3^2 \bigr).
 \end{align}
 \end{subequations}
+
+\subsection{Reduction of Tensor to Scalar PV Functions}
 
 % \end{document}
