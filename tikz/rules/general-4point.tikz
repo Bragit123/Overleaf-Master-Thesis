@@ -1,5 +1,5 @@
 \begin{feynman}
-    \begin{scope}[node distance=1.4cm]
+    \begin{scope}
     % \begin{scope}[small, node distance=0.7cm]
         \vertex (v); % Vertex
         \vertex[above left=of v, label=left:\(V^1_\mu\)] (i1); % Photon

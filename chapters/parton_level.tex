@@ -23,42 +23,48 @@
     \centering
     \inputtikz{feynman_diagrams/LO}
     \caption{Tree-level diagrams for slepton pair production.}
-    \label{fig:LOamp}
+    \label{fig:M_lo}
 \end{figure}
 
-At \gls{lo} there are two Feynman diagrams contributing to the process $q \bar{q} \to \slepton^* \slepton$, shown in \cref{fig:LOamp}. Using the Feynman rules in \textcolor{red}{[cite/ref]} we can write down their matrix elements:
+At \gls{lo} there are two Feynman diagrams contributing to the process $q \bar{q} \to \slepton^* \slepton$, shown in \cref{fig:M_lo}. Using the Feynman rules in \textcolor{red}{[cite/ref]} we can write down their matrix elements:
 \begin{align}
-    i\M_\gamma &= \bar{v}_2 (-ieQ_q\gamma^\mu)u_1 \frac{-ig_{\mu\nu}}{\hat{s}} ie(k_2-k_1)^\nu \delta^{AB}
+    i\M_\gamma &= \widebar{v}_2 (-ieQ_q\gamma^\mu)u_1 \frac{-ig_{\mu\nu}}{\hat{s}} ie(k_2-k_1)^\nu \delta^{AB}
     \\
-    i\M_Z &= \bar{v}_2 \frac{ie}{\sw \cw}\gamma^\mu \bigl[\zql (1-\gamma^5) + \zqr (1+\gamma^5)\bigr] u_1
+    i\M_Z &= \widebar{v}_2 \frac{ie}{\sw \cw}\gamma^\mu \chiralgamma u_1
     \\\nonumber &\qquad \times \frac{-ig_{\mu\nu}}{\hat{s}-m_Z^2+im_Z\Gamma_Z} \frac{ie}{\sw\cw} \zliab (k_2-k_1)^\nu,
 \end{align}
-where, in order to declutter the notation, I have defined the shorthands $u_1 \equiv u(p_1)$ and $\bar{v}_2 \equiv \bar{v}(p_2)$ for the Dirac spinors; and $\sw \equiv \sin\theta_W$ and $\cw \equiv \cos\theta_W$ for the weak mixing angles. \rednote{Remove if these are mentioned earlier!}
+where, in order to declutter the notation, I have defined the shorthands $u_1 \equiv u(p_1)$ and $\widebar{v}_2 \equiv \widebar{v}(p_2)$ for the Dirac spinors; and $\sw \equiv \sin\theta_W$ and $\cw \equiv \cos\theta_W$ for the weak mixing angles. \rednote{Remove if these are mentioned earlier!}
 Using conservation of four-momentum, and applying the Dirac equation, the matrix elements can be simplified to
 \begin{align}
-    \M_\gamma &= \frac{2e^2 Q_q \delta^{AB}}{\hat{s}} \bar{v}_2 \slashed{k}_1 u_1
+    \M_\gamma &= \frac{2e^2 Q_q \delta^{AB}}{\hat{s}} \widebar{v}_2 \slashed{k}_1 u_1
     \\
-    \M_Z &= -\frac{2e^2\zliab}{\sw^2\cw^2} \frac{1}{\hat{s}-m_Z^2+im_Z\Gamma_Z} \bar{v}_2 \slashed{k}_1 \bigl[\zql(1-\gamma^5) + \zqr(1+\gamma^5) \bigr] u_1.
+    \M_Z &= -\frac{2e^2\zliab}{\sw^2\cw^2} \frac{1}{\hat{s}-m_Z^2+im_Z\Gamma_Z} \widebar{v}_2 \slashed{k}_1 \Gamma^5 u_1,
 \end{align}
+where we have defined $\Gamma^5=\chiralgamma$.
 The spin- and color averaged squared amplitude is $\overline{|\M|^2} = \overline{|\M_\gamma|^2} + \overline{|\M_Z|^2} + 2\Re\{\overline{\M^*_\gamma \M_Z}\}$. Using the completeness relation for spinors these can be shown to be
 \begin{align}
-    \overline{|\M_\gamma|^2} &= \frac{e^4 Q_q^2 \delta^{AB}}{N \hat{s}^2} \Tr\bigl[\slashed{p}{}_2 \slashed{k}{}_1 \slashed{p}{}_1\slashed{k}{}_1\bigr]
+    \overline{|\M_\gamma|^2} &= \frac{e^4 Q_q^2 \delta^{AB}}{N \hat{s}^2} \Tr\Bigl[\ptwoslash \koneslash \poneslash\koneslash\Bigr]
     \\
     \overline{|\M_Z|^2} &= \frac{e^4 \bigl(\zliab\bigr)^2}{N \sw^2\cw^2[(\hat{s}-m_Z^2)^2+m_Z^2\Gamma_Z^2]}
-    \nonumber\\ &\quad\times\Tr\Bigl[
-        \slashed{p}{}_2 \slashed{k}{}_1 \Bigl(\zql(1-\gamma^5)+\zqr(1+\gamma^5)\Bigr) \slashed{p}{}_1\slashed{k}{}_1 \Bigl(\zql(1-\gamma^5)+\zqr(1+\gamma^5)\Bigr)
+    \Tr\Bigl[
+        \ptwoslash \koneslash
+        \Gamma^5
+        \poneslash\koneslash
+        \Gamma^5
     \Bigr]
     \\
     2\Re\{\overline{\M^*_\gamma \M_Z}\} &= -\frac{2 e^4 Q_q\delta^{AB}\zliab (\hat{s} - m_Z^2)}{N\sw\cw \hat{s} [(\hat{s}-m_Z^2)^2+m_Z^2\Gamma_Z^2]}
     \Tr\Bigl[
-        \slashed{p}{}_2 \slashed{k}{}_1 \Bigl(\zql(1-\gamma^5)+\zqr(1+\gamma^5)\Bigr) \slashed{p}{}_1\slashed{k}{}_1
+        \ptwoslash \koneslash
+        \Gamma^5
+        \poneslash\koneslash
     \Bigr].
 \end{align}
-The traces can be shown to be proportional to each other using that $\gamma^5$ anticommutes with the other Dirac matrices, that its square is zero, and that $\Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^5] \propto \varepsilon^{\mu\nu\rho\sigma}$, allowing us to simplify the full squared \gls{lo} amplitude to
+The traces can be shown to be proportional to each other using that $\gamma^5$ anticommutes with all $\gamma^\mu$, that its square is zero, and that $\Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^5] \propto \varepsilon^{\mu\nu\rho\sigma}$, allowing us to simplify the full squared \gls{lo} amplitude to
 \begin{align}
     \overline{|\M|^2} &= \overline{|\M_\gamma|^2} + \overline{|\M_Z|^2} + 2\Re\{\overline{\M^*_\gamma \M_Z}\}
     \\
-    &= \frac{e^4}{N\hat{s}^2}\fqliab(\hat{s}) \Tr[\slashed{p}{}_2\slashed{k}{}_1\slashed{p}{}_1\slashed{k}{}_1],
+    &= \frac{e^4}{N\hat{s}^2}\fqliab(\hat{s}) \Tr[\ptwoslash\koneslash\poneslash\koneslash],
     \label{eq:MLO_squared_trace}
 \end{align}
 where we have defined the effective coupling
@@ -84,7 +90,119 @@ At \gls{lo} we have $\hat{s}=Q^2$, so we can insert $\delta(Q^2-\hat{s})dQ^2$, w
 \rednote{Might scrap this section and only use the factored version, since that's where we get the general d-dimensional case.}
 
 
-\section{The Factored Version}
+\section{Factorization of diagram and phase space}
+
+\begin{figure}
+    \centering
+    \inputtikz{feynman_diagrams/factorized}
+    \caption{
+        General sketch of a diagram for the process $q\bar{q} \to \slepton_{iB}^*\slepton_{iA} (+\gamma)$. The possible addition of an emitted photon with momentum $k$ is represented by light gray external photon lines.
+    }
+    \label{fig:M_factorized}
+\end{figure}
+
+We can simplify the calculation of \gls{nlo} corrections immensely by factoring the cross section.
+
+\subsection{Factoring the Amplitude}
+\Cref{fig:M_factorized} considers a slightly more general version of the \gls{lo} diagram in \cref{fig:M_lo}.
+This diagram also includes the possible emission of an extra photon of momentum $k$, as needed when considering the inclusive cross section. At \gls{nlo} only one such photon can be emitted, so the external gray photon lines in \cref{fig:M_factorized} should be understood as including only one of them (for the $2\to3$ process), or none of them (for the $2\to2$ process), and never both.
+Next, we note that for the diagrams we consider in this thesis, we will only consider \gls{qed} corrections, i.e.\@ corrections that add photon lines to the existing \gls{lo} diagrams in \cref{fig:M_lo}. Therefore, even at \gls{nlo} our diagrams will still contain the $q\bar{q}(\gamma/Z)$ vertex, and must either contain the $\slepton\slepton^*(\gamma/Z)$ coupling, or the four-point $\slepton\slepton^*\gamma(\gamma/Z)$ vertex. We can therefore factor out part of the "blob" coupling, which will be common to all considered diagrams. The effective blob couplings can thus be written
+\begin{align}
+    \inputtikz[baseline=(v.base)]{rules/factor_left}
+    &= \begin{cases}
+        -ieQ_q \Gamma^\mu \,,\quad (\gamma)
+        \\
+        \frac{ie}{\sw\cw} \Gamma^\mu  \Gamma^5 \,,\quad (Z)
+    \end{cases} \label{eq:factor_left}
+    \\
+    \inputtikz[baseline=(v.base)]{rules/factor_right}
+    &= \begin{cases}
+        ie \delta^{AB} K^\mu \,,\quad (\gamma)
+        \\
+        \frac{ie}{\sw\cw} \zliab K^\mu \,,\quad (Z)
+    \end{cases}, \label{eq:factor_right}
+\end{align}
+Where $\Gamma^\mu$ and $K^\mu$ represent effective couplings containing the remaining part of the diagrams. Note in particular that $\Gamma^\mu$ has Dirac structure, as it will contain gamma matrices, and depends exclusively on the momenta $p_1$, $p_2$, $q$ and possibly $k$; meanwhile $K^\mu$ has no Dirac structure, and depends only on $k_1$, $k_2$, $q$ and possibly $k$. In the \gls{lo} case they reduce to $\Gamma^\mu=\gamma^\mu$ and $K^\mu=(k_2-k_1)^\mu$.
+Note also that the chiral part $\Gamma^5$ in the $q\bar{q}Z$ coupling of \cref{eq:factor_left} has been moved to the right. With each addition of a photon propagating from the quark line in \cref{fig:M_lo} we will get an extra quark propagator, as well as an extra $q\bar{q}\gamma$ vertex.
+We therefore always get an even number of extra gamma matrices, and can safely move $\Gamma^5$ past them. To allow for the blobs to include cases of photon emission, the couplings $\Gamma^\mu$ and $K^\mu$ can also include an external photon polarization vector.
+
+Using the effective couplings in \cref{eq:factor_left,eq:factor_right} we can write down the matrix elements for the diagram in \cref{fig:M_factorized}. Anticipating the use of dimensional regularization for \gls{nlo} corrections we will consider the diagram in $d=4-2\varepsilon$ dimensions, giving
+\begin{align}
+    \M_\gamma &= -\frac{e^2Q_q\mu^{4-d}\delta^{AB}}{q^2} \widebar{v}_2\Gamma^\mu u_1 K_\mu
+    \\
+    \M_Z &= \frac{e^2\mu^{4-d}\zliab}{\sw^2\cw^2}\frac{1}{q^2-m_Z^2+im_Z\Gamma_Z}\widebar{v}_2\Gamma^\mu\Gamma^5 u_1 K_\mu
+    \\
+    \M = \M_\gamma+\M_Z &= -e^2\mu^{4-d}K_\mu \biggl\{
+        \frac{Q_q\delta^{AB}}{q^2}\widebar{v}_2\Gamma^\mu u_1 - \frac{\zliab}{\sw^2\cw^2}\frac{1}{q^2-m_Z^2+im_Z\Gamma_Z}\widebar{v}_2\Gamma^\mu\Gamma^5 u_1
+    \biggr\}.
+\end{align}
+From this we can find the differential cross section using \rednote{ref $d\sigma$}. Note that we must also consider interferences between different diagrams, where $\Gamma^\mu$, $K^\mu$ might be different. We use a prime to denote these possible differences. The differential cross section is then
+\begin{align}
+    d\hat\sigma &= \frac{1}{2\hat{s}} \overline{|\M|^2} d\Pi
+    \\
+    &= \frac{1}{2\hat{s}} e^4\mu^{2(4-d)}K_\mu K'_\nu \frac{1}{4N} \Biggl\{
+        \frac{Q_q^2\delta^{AB}}{(q^2)^2}\Tr\Bigl[\ptwoslash\Gamma^\mu \poneslash\widebar\Gamma'^\nu \Bigr]
+        \nonumber \\
+        &\quad - 2\Re\biggl\{ \frac{Q_q\delta^{AB}\zliab}{\sw^2\cw^2}\frac{1}{q^2\bigl[ q^2-m_Z^2+im_Z\Gamma_Z \bigr]} \Tr\Bigl[ \ptwoslash\Gamma^\mu\poneslash\widebar\Gamma'^\nu\Gamma^5 \Bigr] \biggr\}
+        \nonumber \\
+        &\quad + \frac{(\zliab)^2}{\sw^4\cw^4}\frac{1}{(q^2-m_Z^2)^2+m_Z^2\Gamma_Z^2}\Tr\Bigl[ \ptwoslash\Gamma^\mu\poneslash\widebar\Gamma'^\nu \Gamma^5\Gamma^5 \Bigr]
+    \Biggr\} d\Pi, \label{eq:dsigma_factorized_traces}
+\end{align}
+where we define $\widebar\Gamma^\mu$ to be $\Gamma^\mu$ with all gamma matrices in reverse order. Note also that, in the $2\to3$ case where an extra photon is emitted, there is an implicit sum over photon polarization vectors.
+
+The trace of $\gamma^5$ with an even number of $\gamma^\mu$ reduces to a sum of terms proportional to the levi-civita tensor $\varepsilon^{\mu_1\mu_2\mu_3\mu_4}$, where each term has a different permutation of the available Lorentz indices from the trace.
+Since the differential cross section is a scalar quantity, those Lorentz indices must be contracted with Lorentz indices from the remaining expression in \cref{eq:dsigma_factorized_traces}, whose available tensor quantities (after integrating out $k_1$ and $k_2$, of which the trace is independent) are the four-momenta $p_1^\mu$, $p_2^\mu$, and $q^\mu$;\footnote{$k^\mu$ can be eliminated by momentum conservation: $k=p_1+p_2-q$.} and the metric tensor $g^{\mu\nu}$.
+From the available tensor quantities we can not create a tensor with an even number of indices, for which four indices are not symmetric \rednote{Litt upresist, og ikke helt riktig sånn det er formulert her...}, so all terms with a Levi-Civita (and thus more importantly: all traces with a single $\gamma^5$) will give zero. Using this, and that $\gamma^5$ squares to unity, we can show that the three terms in \cref{eq:dsigma_factorized_traces} are proportional:
+\begin{align}
+    d\hat\sigma = \frac{8\pi^2\alpha^2\mu^{2(4-d)}}{\hat{s}(q^2)^2}\fqliab(q^2) \frac{1}{4N} K_\mu K'_\nu \Tr\Bigl[ \ptwoslash\Gamma^\mu\poneslash\widebar\Gamma'^\nu \Bigr] d\Pi. \label{eq:dsigma_factorized}
+\end{align}
+
+\subsection{Factoring the Phase Space}
+\Cref{eq:dsigma_factorized} works well when considering final-state corrections, since $\Gamma^\mu=\Gamma'^\mu=\gamma^\mu$, so all phase space momenta are contained inside $K^\mu$ and $K'^\mu$. When considering corrections to the initial-state, $k_1$ and $k_2$ are still contained in $K^\mu=K'^\mu=(k_2-k_1)^\mu$, but $\Gamma^\mu$ and $\Gamma'^\mu$ can depend on $k$. Therefore, in the latter case, we will want to factorize the phase space in such a way that we can integrate over the initial-state and final-state separately. The $2\to3$ phase space is given in \rednote{ref $d\Pi_{2\to3}$}:
+\begin{equation}
+    d\Pi_{2\to3} = (2\pi)^d\delta^d(k_1+k_2+k-p_1-p_2) \frac{d^{d-1}k}{(2\pi)^{d-1}}\frac{1}{2\omega}\frac{d^{d-1}k_1}{(2\pi)^{d-1}}\frac{1}{2E_1}\frac{d^{d-1}k_2}{(2\pi)^{d-1}}\frac{1}{2E_2}.
+\end{equation}
+The phase space can be multiplied by the following factors:
+\begin{align*}
+    \frac{d^d q}{(2\pi)^d} (2\pi)^d \delta^d(k+q-p_1-p_2), \quad \delta(q^2-Q^2)dQ^2,
+\end{align*}
+which both integrate to unity, as $q=k_1+k_2$ when only considering initial-state corrections. We then get
+\begin{align}
+    d\Pi_{2\to3} &= (2\pi)^d \delta^d(q+k-p_1-p_2) \frac{d^dq}{(2\pi)^d}\frac{d^{d-1}k}{(2\pi)^{d-1}}\frac{1}{2\omega} \delta(q^2-Q^2)dQ^2
+    \nonumber \\ &\quad \times (2\pi)^d \delta^d(k_1+k_2-q) \frac{d^{d-1}k_1}{(2\pi)^{d-1}}\frac{1}{2E_1}\frac{d^{d-1}k_2}{(2\pi)^{d-1}}\frac{1}{2E_2}.
+\end{align}
+We can use $\delta(q^2-Q^2)$ to get rid of the integral over zeroth component of $d^dq$, leaving us with the factored phase space
+\begin{equation}
+    d\Pi_{2\to3} = \frac{1}{2\pi} d\Pi_L d\Pi_H dQ^2,
+    \label{eq:phase_space_factorized}
+\end{equation}
+where
+\begin{align}
+    d\Pi_L &= (2\pi)^d \delta^d(k_1+k_2-q) \frac{d^{d-1}k_1}{(2\pi)^{d-1}}\frac{1}{2E_1}\frac{d^{d-1}k_2}{(2\pi)^{d-1}}\frac{1}{2E_2}
+    \\
+    d\Pi_H &= (2\pi)^d \delta^d(q+k-p_1-p_2) \frac{d^{d-1}q}{(2\pi)^{d-1}}\frac{1}{2q^2}\frac{d^{d-1}k}{(2\pi)^{d-1}}\frac{1}{2\omega}.
+\end{align}
+
+Inserting the factorized phase space into \cref{eq:dsigma_factorized} we have
+\begin{equation}
+    \frac{d\hat\sigma_i}{dQ^2} = \frac{4\pi\alpha^2}{\hat{s}Q^4}\fqliab(Q^2) H^{\mu\nu}L_{\mu\nu},
+\end{equation}
+where the index $i$ signifies that the expression is valid when corrections are done exclusively to the initial-state, and we have defined
+\begin{align}
+    H^{\mu\nu} &= \frac{\mu^{4-d}}{4N}\int d\Pi_H \Tr\Bigl[ \ptwoslash\Gamma^\mu\poneslash\widebar\Gamma'^\nu \Bigr]
+    \\
+    L^{\mu\nu} &= \mu^{4-d} \int d\Pi_L (k_2-k_1)^\mu(k_2-k_1)^\nu.
+\end{align}
+Similarly, in the case where we only consider corrections to the final-state, we have that $q^2=\hat{s}$ and $\Gamma^\mu=\Gamma'^\mu=\gamma^\mu$, and we can rewrite \cref{eq:dsigma_factorized} as
+\begin{equation}
+    d\sigma_f = \frac{8\pi^2\alpha^2}{\hat{s}^3}\fqliab(\hat{s})\frac{\mu^{4-d}}
+    {4N}\Tr\Bigl[ \ptwoslash\gamma^\mu\poneslash\gamma^\nu \Bigr]
+    \Bigl(\mu^{4-d} K_\mu K'^\nu d\Pi \Bigr),
+\end{equation}
+where the index $f$ signifies that the expression is valid when we only consider final-state corrections, and the last parenthesis is the only factor containing the integration variables of $d\Pi$.
+We have essentially reduced the problem of a $2\to3$ scattering down to a $1\to3$ process for final-state corrections, and two $2\to2$ processes for initial-state corrections, which will vastly simplify calculations. 
+
+
 
 %%%%%%%%%%%
 %%% NLO %%%
