@@ -1,0 +1,13 @@
+\begin{feynman}
+    \begin{scope}[small]
+        \vertex[label=left:\(\gamma^*\)] (p);
+        \vertex[right=of p] (v);
+        \vertex[above right=of v, label=right:\(\slepton_{iB}^*\)] (lB);
+        \vertex[below right=of v, label=right:\(\slepton_{iA}\)] (lA);
+    \end{scope}
+    \diagram*{
+        (p) --[photon] (v);
+        (lB) --[charged scalar, reversed momentum'={[arrow style=teal]\(k_1\)}] (v)
+         --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+    };
+\end{feynman}

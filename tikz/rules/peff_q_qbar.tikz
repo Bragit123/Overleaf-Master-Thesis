@@ -1,0 +1,12 @@
+\begin{feynman}
+    \begin{scope}[small]
+        \vertex (v);
+        \vertex[left=of v, label=left:\(\gamma^*\)] (p);
+        \vertex[above right=of v, label=right:\(q\)] (q);
+        \vertex[below right=of v, label=right:\(\bar{q}\)] (qbar);
+    \end{scope}
+    \diagram*{
+        (q) --[fermion] (v) --[fermion] (qbar);
+        (v) --[photon] (p);
+    };
+\end{feynman}
