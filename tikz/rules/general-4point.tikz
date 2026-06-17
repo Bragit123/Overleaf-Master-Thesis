@@ -1,6 +1,5 @@
 \begin{feynman}
-    \begin{scope}
-    % \begin{scope}[small, node distance=0.7cm]
+    \begin{scope}[node distance=1.4cm]
         \vertex (v); % Vertex
         \vertex[above left=of v, label=left:\(V^1_\mu\)] (i1); % Photon
         \vertex[below left=of v, label=left:\(V^2_\nu\)] (i2); % Photon
@@ -9,6 +8,7 @@
     \end{scope}
     \diagram*{
         (i1) --[photon] (v) --[photon] (i2);
-        (f1) --[charged scalar] (v) --[charged scalar] (f2);
+        (v) --[anti charged scalar] (f1);
+        (v) --[charged scalar] (f2);
     };
 \end{feynman}

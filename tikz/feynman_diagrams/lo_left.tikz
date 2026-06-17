@@ -1,0 +1,13 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (v);
+        \vertex [above left=of v, label=left:\(q\)] (q);
+        \vertex [below left=of v, label=left:\(\bar{q}\)] (qbar);
+        \vertex [right=of v, label=right:\(\gamma^*\)] (p);
+    \end{scope}
+    \diagram*{
+        (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (v)
+        --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
+        (v) --[boson, momentum={[arrow style=orange]\(q\)}] (p);
+    };
+\end{feynman}

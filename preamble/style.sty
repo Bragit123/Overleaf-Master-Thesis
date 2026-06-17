@@ -1,7 +1,8 @@
 % \usepackage{babel, textcomp} % From UiO template
 
 %% Text
-\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{url}
 \usepackage{csquotes}
 \MakeOuterQuote{"} % Allow using "quote" instead of ``quote''
@@ -27,6 +28,7 @@
 \usepackage{aligned-overset}
 \usepackage{tensor} % Provides tensor indices with spacing
 \usepackage{slashed} % Provides Dirac slash notation
+\usepackage{cancel}
 % \usepackage{mathabx} % Provides \widebar (note that it also changes a bunch of other math symbols), so I commented it out. Carl Martin implements only the definition of \widebar as found in mathabx, so maybe do this if I need it
 
 % Formatting
@@ -50,16 +52,21 @@
 \usepackage{tikz-3dplot}
 \usepackage[compat=1.1.0]{tikz-feynman}
 \tikzfeynmanset{
-    every blob={/tikz/preaction={/tikz/fill=white!50!gray}, /tikz/pattern=north west lines, /tikz/pattern color=black}
+    every blob={
+        /tikz/preaction={/tikz/fill=white!50!gray}, /tikz/pattern=north west lines, /tikz/pattern color=black
+    },
+    every diagram={
+        /tikz/graphs/node distance=3.5cm
+    }
 }
+\usetikzlibrary{backgrounds, positioning, angles, quotes, calc}
 \usepackage{contour}
-\newcommand{\inputtikz}[2][]{
+\newcommand*{\inputtikz}[2][]{
     \begin{tikzpicture}[#1]
         \input{tikz/#2.tikz}
     \end{tikzpicture}
 }
-\usetikzlibrary{backgrounds}
-\usetikzlibrary{positioning}
+% \newcommand{\inputtikz}[2][]{\text{[tikz disabled]}}
 
 %% Organizational packages
 \usepackage[capitalize]{cleveref} % Not compatible with showonlyrefs, so will handle equation numbering manually

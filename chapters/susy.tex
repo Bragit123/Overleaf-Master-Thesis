@@ -1,18 +1,8 @@
-% \documentclass[../main.tex]{subfiles}
+\chapter{The Minimal Supersymmetric Standard Model}
 
-% \begin{document}
+\section{Supersymmetry: Definition and Motivation \textcolor{gray}{(Use supercharges to explain what susy is, and introduce what's necessary regarding superspace/superfields)}}
 
-\chapter{Supersymmetry}
-
-\section{Quantum Field Theory and the Standard Model \textcolor{gray}{(Enough QFT to discuss Feynman gauge/lack of Goldstone bosons and reading off Feynman rules; and enough SM to motivate SUSY as extension and introduce relevant definitions from electroweak theory)}}
-
-\section{Supersymmetry: Definition and Motivation}
-
-\section{Constructing a Supersymmetric Theory}
-\subsection{Superspace}
-\subsection{Supersymmetric Lagrangians}
-
-\subsubsection{The supersymmetric Lagrangian \textcolor{red}{FROM SUSY PROJECT}}
+\subsubsection{The supersymmetric Lagrangian \rednote{FROM SUSY PROJECT}}
 We define a general left-handed scalar superfield $\Phi$, a right-handed scalar superfield $\Phi^\dagger$, and a vector superfield $V$ in the Wess-Zumino gauge by\footnote{
     $\Phi$, $\Phi^\dagger$ and $V$ are functions of the superspace coordinates $(x,\theta,\bar\theta)$, and their component fields are functions of the spacetime coordinate $x$. These dependencies are omitted in order to avoid cluttered notation.
 }
@@ -52,7 +42,7 @@ where $K$ is the \emph{K\"ahler potential}, $W$ is the superpotential and $F$ gi
 Note in particular that the K\"ahler potential is the only term that combines vector- and scalar superfields, and thus the only term that can contain slepton--gauge boson interactions.
 
 
-\subsubsection{The K\"ahler potential \textcolor{red}{FROM SUSY PROJECT}}\label{sec:kahler}
+\subsubsection{The K\"ahler potential \rednote{FROM SUSY PROJECT}}\label{sec:kahler}
 We write the K\"ahler potential for a scalar superfield $\Phi$ transforming in the fundamental representation of some gauge group $G$ as
 \begin{equation}
     \tilde{\mathcal L}_\text{K\"ahler} = \Phi^\dagger e^{-2qV^aT^a} \Phi, \label{eq:kahler}
@@ -76,14 +66,10 @@ Using the Baker-Campbell-Hausdorff formula \rednote{ref/cite} we can show that t
 \end{equation}
 
 
-\subsection{Supersymmetry Breaking}
+\section{Field Content and Lagrangian Terms}
+\section{Slepton Phenomenology \textcolor{gray}{(Mass terms, mixing, decay to neutralinos, missing momentum, detectors, current state of parameter space, current state-of-the art corrections?)}}
 
-
-\section{The Minimal Supersymmetric Standard Model}
-\subsection{Field Content and Lagrangian Terms}
-\subsection{Slepton Phenomenology \textcolor{gray}{(Mass terms, mixing, decay to neutralinos, missing momentum, detectors, current state of parameter space, current state-of-the art corrections?)}}
-
-\subsubsection{Mixing of eigenstates \textcolor{red}{FROM SUSY PROJECT}}
+\subsubsection{Mixing of eigenstates \rednote{FROM SUSY PROJECT}}
 $W^3_\mu$ and $B_\mu$ mix to give the mass eigenstates $Z_\mu$ (the massive Z boson) and $A_\mu$ (the massless photon), while $W^1_\mu$ and $W^2_\mu$ mix to give the charged W-bosons $W^\pm_\mu$. These mixings are given by
 \begin{subequations}
     \begin{align}
@@ -146,7 +132,7 @@ Following~\cite{Richardson:2000nt} we define the following slepton couplings
 %%%%%%%%%%%%%%%%%%%%%
 %%% Feynman rules %%%
 %%%%%%%%%%%%%%%%%%%%%
-\subsection{Feynman Rules for Sleptons}\label{sec:feynman_rules}
+\section{Feynman Rules for Sleptons}\label{sec:feynman_rules}
 
 
 \subsubsection{General Scalar--Vector Component Interactions from Superfields}
@@ -383,5 +369,3 @@ They are exactly the same as the ones found in Ref.~\cite{Rosiek:1989sce}\footno
         \\ \hline
     \end{tabular}
 \end{table}
-
-% \end{document}

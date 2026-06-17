@@ -8,8 +8,8 @@
 \usepackage{preamble/acronyms}
 \usepackage{preamble/commands}
 
-% \usepackage{ragged2e}
-\usepackage{epigraph}
+
+% \includeonly{chapters/parton_level}
 
 \begin{document}
 \uiomasterfp[
@@ -22,14 +22,14 @@
     program=Theoretical Physics,
     colour=green,
     binding,
-    % Image=[CUSTOM IMAGE?],
-    % info=[ADDITIONAL INFORMATION?],
     date=\today
 ]
 
 \frontmatter % Use roman numerals starting here
 
 \chapter*{Abstract}
+
+\include{chapters/preface}
 
 \tableofcontents
 % \listoffigures
@@ -41,39 +41,30 @@
     % nonumberlist
 ]
 
-\include{chapters/notations}
-
 \mainmatter % Use arabic numerals starting here
 
 \include{chapters/intro.tex}
 
 %%% THEORY PART
 
-% \subfile{chapters/susy}
 \include{chapters/susy}
 
-% \subfile{chapters/divergences}
 \include{chapters/divergences}
 
 
 %%% CALCULATION PART
-% \subfile{chapters/parton_level}
 \include{chapters/parton_level}
 
-% \subfile{chapters/hadron_level}
 \include{chapters/hadron_level}
 
-% \subfile{chapters/results}
 \include{chapters/results}
 
 %%% Conclusion
-% \subfile{chapters/conclusion}
 \include{chapters/conclusion}
 
 %%% Appendices
 \appendix
 
-% \subfile{chapters/appendix}
 \include{chapters/appendix}
 
 

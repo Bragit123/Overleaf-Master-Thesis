@@ -1,0 +1,13 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (v);
+        \vertex [left=of v, label=left:\(\gamma^*\)] (p);
+        \vertex [above right=of v, label=right:\(\slepton^*_{iB}\)] (lB);
+        \vertex [below right=1.4of v, label=right:\(\slepton_{iA}\)] (lA);
+    \end{scope}
+    \diagram*{
+        (p) --[boson, momentum={[arrow style=orange]\(p\)}] (v);
+        (v) --[charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
+        (v) --[anti charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+    };
+\end{feynman}

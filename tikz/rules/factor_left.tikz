@@ -1,8 +1,7 @@
 \begin{feynman}
-    \begin{scope}
-    % \begin{scope}[small, node distance=0.7cm]
-        \vertex[label=left:\(q\)] (q);
-        \vertex[below right=of q, blob] (v) {};
+    \begin{scope}[node distance=1.4cm]
+        \vertex[blob] (v) {};
+        \vertex[above left=of v, label=left:\(q\)] (q);
         \vertex[below left=of v, label=left:\(\bar{q}\)] (qbar);
         \vertex[right=of v, label=right:\(\gamma/Z\)] (p);
     \end{scope}

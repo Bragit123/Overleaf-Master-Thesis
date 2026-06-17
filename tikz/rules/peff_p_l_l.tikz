@@ -1,14 +1,14 @@
 \begin{feynman}
-    \begin{scope}[small]
-        \vertex[label=left:\(\gamma^*\)] (peff);
-        \vertex[below right=of peff] (v);
+    \begin{scope}[node distance=1cm]
+        \vertex (v);
+        \vertex[above left=of v, label=left:\(\gamma^*\)] (peff);
         \vertex[above right=of v, label=right:\(\slepton_{iB}^*\)] (lB);
         \vertex[below right=of v, label=right:\(\slepton_{iA}\)] (lA);
         \vertex[below left=of v, label=left:\(\gamma\)] (p);
     \end{scope}
     \diagram*{
         (peff) --[photon] (v) --[photon] (p);
-        (lB) --[charged scalar] (v)
-         --[charged scalar] (lA);
+        (v) --[anti charged scalar] (lB);
+        (v) --[charged scalar] (lA);
     };
 \end{feynman}

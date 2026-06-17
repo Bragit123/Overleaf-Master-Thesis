@@ -1,18 +1,19 @@
 \begin{feynman}
-    \vertex (v1);
-    \vertex [right=of v1, blob] (v2) {};
-    \vertex [above left=of v1, label=left:\(q\)] (q);
-    \vertex [below left=of v1, label=left:\(\bar{q}\)] (qbar);
-    \vertex [above right=of v2, label=right:\(\slepton^*_{iB}\)] (lB);
-    \vertex [below right=of v2, label=right:\(\slepton_{iA}\)] (lA);
-    \vertex [right=of v2] (p); % Emitted photon
-    
+    \begin{scope}[node distance=1.4cm]
+        \vertex (v1);
+        \vertex [right=of v1, blob] (v2) {};
+        \vertex [above left=of v1, label=left:\(q\)] (q);
+        \vertex [below left=of v1, label=left:\(\bar{q}\)] (qbar);
+        \vertex [above right=of v2, label=right:\(\slepton^*_{iB}\)] (lB);
+        \vertex [below right=of v2, label=right:\(\slepton_{iA}\)] (lA);
+        \vertex [right=of v2] (p); % Emitted photon
+    \end{scope}
     \diagram*{
         (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (v1)
         --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
         (v1) --[boson, edge label'=\(\gamma / Z\), momentum={[arrow style=orange]\(p\)}] (v2);
-        (lB) --[charged scalar, reversed momentum'={[arrow style=teal]\(k_1\)}] (v2)
-         --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
-         (v2) --[photon, color=gray!50, momentum={[arrow style=gray!50]\(k\)}] (p);
+        (v2) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
+        (v2) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        (v2) --[photon, color=gray!50, momentum={[arrow style=gray!50]\(k\)}] (p);
     };
 \end{feynman}

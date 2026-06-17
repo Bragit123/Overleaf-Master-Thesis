@@ -1,0 +1,26 @@
+\tikzset{>={Stealth[scale=1]}}
+
+\coordinate (0) at (0,0,0);
+\coordinate (pk) at (-2,0,0);
+\coordinate (q1) at (2.5,2,3);
+\coordinate (q1xy) at (0,2,3);
+\coordinate (q1x) at (0,2,0);
+\coordinate (q1y) at (0,0,3);
+\coordinate (q2) at ($(0)-(q1)$);
+\coordinate (z) at (1.5,0,0);
+\coordinate (x) at (0,2.2,0);
+\coordinate (y) at (0,0,3.3);
+
+\draw[->] (0) -- (z) node[right] {$z^*$};
+\draw[->] (0) -- (x) node[right] {$x^*$};
+\draw[->] (0) -- (y) node[left] {$y^*$};
+\draw[Bittersweet, ->] (0) -- (pk) node[below] {$\vec{p}^*$};
+\draw[RoyalBlue, dashed, ->] (0) -- (pk) node[above] {$\vec{k}^*$};
+\draw[teal, ->] (0) -- (q1) node[above] {$\vec{q}_1^*$};
+\draw[teal, ->] (0) -- (q2) node[left] {$\vec{q}_2^*$};
+\draw[dashed] (q1) -- (q1xy);
+\draw[dashed] (0) -- (q1xy);
+\draw[dashed] (q1x) -- (q1xy);
+\draw[dashed] (q1y) -- (q1xy);
+\pic[draw, Purple, angle eccentricity=1.5, angle radius=0.7cm, pic text=$\theta^*$] {angle= z--0--q1};
+\pic[draw, Purple, angle eccentricity=1.5, angle radius=0.4cm, pic text=$\phi^*$] {angle= x--0--q1xy};
