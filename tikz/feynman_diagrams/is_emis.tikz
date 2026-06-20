@@ -1,0 +1,34 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        %%% t-channel vertices %%%
+        \vertex (tt);
+        \vertex [above left=of tt, label=left:\(q\)] (tq);
+        \vertex [below=of tt] (tb);
+        \vertex [below left=of tb, label=left:\(\bar{q}\)] (tqbar);
+        \vertex [above right=of tt, label=right:\(\gamma\)] (tp);
+        \vertex [below right=of tb, label=right:\(\gamma^*\)] (tpast);
+        %%% u-channel vertices %%%
+        \vertex [right=5 of tt] (ut);
+        \vertex [above left=of ut, label=left:\(q\)] (uq);
+        \vertex [below=of ut] (ub);
+        \vertex [below left=of ub, label=left:\(\bar{q}\)] (uqbar);
+        \vertex [above right=of ut, label=right:\(\gamma\)] (up);
+        \vertex [below right=of ub, label=right:\(\gamma^*\)] (upast);
+        \vertex (umidbp) at ($(ub)!0.291!(up)$); % 0.291 seems to best hide the midpoint discrepancy
+        \vertex (umidtpast) at ($(ut)!0.291!(upast)$);
+    \end{scope}
+    \diagram*{
+        %%% t-channel lines %%%
+        (tq) --[fermion, momentum'={[arrow style=teal]\(p_1\)}] (tt)
+        -- [fermion, momentum'={[arrow style=Bittersweet]\(p_1-k\)}] (tb)
+        -- [fermion, reversed momentum'={[arrow style=teal]\(p_2\)}] (tqbar);
+        (tt) -- [boson, momentum'={[arrow style=teal]\(k\)}] (tp);
+        (tb) -- [boson, momentum={[arrow style=teal]\(q\)}] (tpast);
+        %%% u-channel lines %%%
+        (uq) --[fermion, momentum'={[arrow style=teal]\(p_1\)}] (ut)
+        -- [fermion, momentum'={[arrow style=Bittersweet]\(k-p_2\)}] (ub)
+        -- [fermion, reversed momentum'={[arrow style=teal]\(p_2\)}] (uqbar);
+        (ut) -- [boson] (umidtpast) -- [boson, momentum={[arrow style=teal]\(q\)}] (upast);
+        (ub) -- [boson] (umidbp) -- [boson, momentum'={[arrow style=teal]\(k\)}] (up);
+    };
+\end{feynman}

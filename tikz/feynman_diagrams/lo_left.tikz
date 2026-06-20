@@ -8,6 +8,6 @@
     \diagram*{
         (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (v)
         --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
-        (v) --[boson, momentum={[arrow style=orange]\(q\)}] (p);
+        (v) --[boson, momentum={[arrow style=Bittersweet]\(q\)}] (p);
     };
 \end{feynman}

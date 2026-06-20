@@ -12,6 +12,15 @@
 \DeclareMathAccent{\widebar}{0}{mathx}{"73}
 
 
+%% Sizes (stolen from stackexchange)
+% https://tex.stackexchange.com/questions/6794/about-big-parenthesis-larger-than-bigg/6796#6796
+\makeatletter
+\newcommand*{\vast}{\bBigg@{3}}
+\newcommand*{\vastl}{\mathopen\vast}
+\newcommand*{\vastr}{\mathclose\vast}
+\makeatother
+
+
 %% Notation redefinitions
 \renewcommand*{\vec}[1]{\boldsymbol{#1}}
 
@@ -35,6 +44,7 @@
 \newcommand*{\M}{\mathcal{M}}
 
 
+
 %% Z-boson couplings
 \newcommand{\chiralgamma}{\ensuremath{\zql(1-\gamma^5) + \zqr(1+\gamma^5)}}
 \newcommand*{\zql}{Z_{q_L}}
@@ -48,10 +58,14 @@
 %% QFT shorthands
 \newcommand*{\slepton}{\tilde{\ell}}
 \newcommand*{\amp}{\mathcal{M}}
+\newcommand*{\varepsilonIR}{\varepsilon_{\mathrm{IR}}}
+\newcommand*{\varepsilonUV}{\varepsilon_{\mathrm{UV}}}
 
 
 %% Kinematics shorthands
 \newcommand*{\shat}{\hat{s}}
+\newcommand*{\that}{\hat{t}}
+\newcommand*{\uhat}{\hat{u}}
 \newcommand*{\sqrtshat}{\sqrt{\shat}}
 \newcommand*{\kiabs}{\abs{\vec{k}_1^*}}
 \newcommand*{\kabs}{\abs{\vec{k}}}
@@ -59,14 +73,26 @@
 \newcommand*{\ptwoslash}{\slashed{p}{}_2}
 \newcommand*{\koneslash}{\slashed{k}{}_1}
 \newcommand*{\ktwoslash}{\slashed{k}{}_2}
+\newcommand*{\pislash}{\slashed{p}{}_i}
 \newcommand*{\kslash}{\slashed{k}}
 \newcommand*{\qslash}{\slashed{q}}
+
+\newcommand*{\mt}{\tilde{m}}
+\newcommand*{\xm}{x^-}
+\newcommand*{\xp}{x^+}
+\newcommand*{\xpm}{x^\pm}
 
 
 %% Div
 \newcommand*{\sw}{\ensuremath{s_W}}
 \newcommand*{\cw}{\ensuremath{c_W}}
-\newcommand*{\MSbar}{\ensuremath{\widebar{\text{MS}}}}
+\newcommand*{\MSbar}{\ensuremath{\overline{\text{MS}}}}
+
+
+%% Plus distributions
+\newcommand*{\plusdist}{\Biggl( \frac{1}{1-z} \Biggr)_{\!\!+}}
+\newcommand*{\plusdistlog}{\Biggl( \frac{\log(1-z)}{1-z} \Biggr)_{\!\!+}}
+\newcommand*{\plusdistf}{\Biggl( \frac{f(z)}{1-z} \Biggr)_{\!\!+}}
 
 
 %% Grassmann coordinates

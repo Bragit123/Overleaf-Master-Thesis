@@ -1,0 +1,20 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (t);
+        \vertex [above left=of t, label=left:\(q\)] (q);
+        \vertex [below=of t] (b);
+        \vertex [below left=of b, label=left:\(\bar{q}\)] (qbar);
+        \vertex [above right=of t, label=right:\(\gamma\)] (p);
+        \vertex [below right=of b, label=right:\(\gamma^*\)] (past);
+        \vertex (midbp) at ($(b)!0.291!(p)$); % 0.291 seems to best hide the midpoint discrepancy
+        \vertex (midtpast) at ($(t)!0.291!(past)$);
+        \vertex (eqanchor) at ($(t)!0.5!(b)$); % Anchor for inline equations
+    \end{scope}
+    \diagram*{
+        (q) --[fermion, momentum'={[arrow style=teal]\(p_1\)}] (t)
+        -- [fermion, momentum'={[arrow style=Bittersweet]\(k-p_2\)}] (b)
+        -- [fermion, reversed momentum'={[arrow style=teal]\(p_2\)}] (qbar);
+        (t) -- [boson] (midtpast) -- [boson, momentum={[arrow style=teal]\(q\)}] (past);
+        (b) -- [boson] (midbp) -- [boson, momentum'={[arrow style=teal]\(k\)}] (p);
+    };
+\end{feynman}

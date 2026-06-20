@@ -6,7 +6,7 @@
         \vertex[below right=of v, label=right:\(\slepton_{iA}\)] (lA);
     \end{scope}
     \diagram*{
-        (p) --[photon, momentum={[arrow style=orange]\(p\)}] (v);
+        (p) --[photon, momentum={[arrow style=Bittersweet]\(p\)}] (v);
         (v) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
         (v) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
     };

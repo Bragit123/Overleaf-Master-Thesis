@@ -10,7 +10,7 @@
     \diagram*{
         (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (v1)
         --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
-        (v1) --[boson, edge label'=\(\gamma / Z\), momentum={[arrow style=orange]\(q\)}] (v2);
+        (v1) --[boson, edge label'=\(\gamma / Z\), momentum={[arrow style=Bittersweet]\(q\)}] (v2);
         (v2) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
         (v2) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
     };

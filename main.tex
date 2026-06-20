@@ -1,7 +1,7 @@
 \documentclass[USenglish]{uiotemp/uiomasterthesis}
 % \documentclass[USenglish]{uiotemp/uiomasterthesis_modified} % Removed all sans-serifs
-\usepackage{uiotemp/uiomasterfp}
 % \usepackage[utf8]{inputenc}
+\usepackage{uiotemp/uiomasterfp}
 \usepackage[T1]{fontenc}
 
 \usepackage{preamble/style}
@@ -9,18 +9,19 @@
 \usepackage{preamble/commands}
 
 
-% \includeonly{chapters/parton_level}
+\includeonly{chapters/parton_level}
 
 \begin{document}
 \uiomasterfp[
     author=Brage Andreas Trefjord,
+    % title=Sleptons and Where to Find Them,
     title=Sleptons and Where to Find Them,
-    subtitle=NLO QED corrections to the inclusive cross section of slepton pair production in proton--proton collisions,
+    subtitle=Next-to-Leading Order  QED Corrections to the Inclusive Cross Section for Slepton Pair Production in Proton--Proton Collisions,
     supervisor={Are Raklev},
     dept=Department of Physics,
     fac=Faculty of Mathematics and Natural Sciences,
     program=Theoretical Physics,
-    colour=green,
+    color=green,
     binding,
     date=\today
 ]
@@ -32,14 +33,14 @@
 \include{chapters/preface}
 
 \tableofcontents
-% \listoffigures
-% \listoftables
 
 \printglossary[
     type=\acronymtype,
     title=List of Abbreviations,
     % nonumberlist
 ]
+% \listoffigures
+% \listoftables
 
 \mainmatter % Use arabic numerals starting here
 
