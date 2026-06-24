@@ -1,0 +1,14 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (i);
+        \vertex [right=of i] (v1);
+        \vertex [right=of v1] (v2);
+        \vertex [right=of v2] (f);
+    \end{scope}
+    \diagram*{
+        (i) --[charged scalar, momentum'={[arrow style=teal]\(p\)}] (v1)
+        --[charged scalar, momentum'={[arrow style=Purple]\(k+p\)}] (v2)
+        --[charged scalar, momentum'={[arrow style=teal]\(p\)}] (f);
+        (v1) --[boson, half left, looseness=1.5, reversed momentum={[arrow shorten=0.2, arrow style=Purple]\(k\)}] (v2);
+    };
+\end{feynman}

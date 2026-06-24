@@ -1,0 +1,23 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (v);
+        \vertex [left=1 of v, label=left:\(\gamma^*\)] (past);
+        \vertex [above right=of v] (t);
+        \vertex [above right=0.7 of t, label=right:\(\slepton_{iB}^*\)] (lB);
+        \vertex [below right=of v] (b);
+        \vertex [below right=0.7 of b, label=right:\(\slepton_{iA}\)] (lA);
+    \end{scope}
+    \diagram*{
+        % (past) --[boson] (v);
+        % (v) --[anti charged scalar, reversed momentum'={[arrow style=teal]\(k\)}] (t)
+        % --[anti charged scalar] (lB);
+        % (v) --[charged scalar] (lA);
+        % (v) --[half left, boson, momentum={[arrow shorten=0.3, arrow style=teal]\(k+k_1\)}] (t);
+        %
+        (past) --[boson, momentum'={[arrow style=teal]\(p\)}] (v);
+        (v) --[anti charged scalar, reversed momentum'={[arrow style=Purple]\(k\)}] (t)
+        --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
+        (v) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        (v) --[half left, boson, momentum={[arrow shorten=0.3, arrow style=Purple]\(k+k_1\)}] (t);
+    };
+\end{feynman}

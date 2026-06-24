@@ -9,6 +9,6 @@
         (i) --[fermion, momentum'={[arrow style=teal]\(p\)}] (v1)
         --[fermion, momentum'={[arrow style=Purple]\(k+p\)}] (v2)
         --[fermion, momentum'={[arrow style=teal]\(p\)}] (f);
-        (v1) --[boson, half left, looseness=1.5, reversed momentum={[arrow style=Purple]\(k\)}] (v2);
+        (v1) --[boson, half left, looseness=1.5, reversed momentum={[arrow shorten=0.2, arrow style=Purple]\(k\)}] (v2);
     };
 \end{feynman}

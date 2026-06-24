@@ -2,21 +2,36 @@
     \begin{scope}[node distance=1.4cm]
         \vertex (v1);
         \vertex [above left=of v1] (t);
-        \vertex [left=of t, label=left:\(q\)] (q);
+        % \vertex [left=of t, label=left:\(q\)] (q);
+        \vertex [above left=0.7 of t, label=left:\(q\)] (q);
         \vertex [below left=of v1] (b);
-        \vertex [left=of b, label=left:\(\bar{q}\)] (qbar);
+        % \vertex [left=of b, label=left:\(\bar{q}\)] (qbar);
+        \vertex [below left=0.7 of b, label=left:\(\bar{q}\)] (qbar);
         \vertex [right=2 of v1] (v2);
+        % \vertex [right=of v1] (v2);
         \vertex [above right=of v2, label=right:\(\slepton^*_{iB}\)] (lB);
         \vertex [below right=of v2, label=right:\(\slepton_{iA}\)] (lA);
+        % \vertex [above right=of v2] (rt);
+        % \vertex [below right=of v2] (rb);
+        % \vertex [above right=0.7 of rt, label=right:\(\slepton^*_{iB}\)] (lB);
+        % \vertex [below right=0.7 of rb, label=right:\(\slepton_{iA}\)] (lA);
     \end{scope}
     \diagram*{
-        (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (t);
+        % (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (t);
+        % (v1) --[anti charged scalar, edge label'=\(\tilde{q}\)] (t);
+        % (v1) --[charged scalar, edge label=\(\tilde{q}\)] (b);
+        % (b) --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
+        % (t) --[plain, boson, edge label'=\(\tilde\chi^0\)] (b);
+        % (v1) --[boson, edge label'=\(\gamma / Z\), momentum={[arrow style=Bittersweet]\(p\)}] (v2);
+        % (v2) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
+        % (v2) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        (q) --[fermion] (t);
         (v1) --[anti charged scalar, edge label'=\(\tilde{q}\)] (t);
         (v1) --[charged scalar, edge label=\(\tilde{q}\)] (b);
-        (b) --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
+        (b) --[fermion] (qbar);
         (t) --[plain, boson, edge label'=\(\tilde\chi^0\)] (b);
-        (v1) --[boson, edge label'=\(\gamma / Z\), momentum={[arrow style=Bittersweet]\(p\)}] (v2);
-        (v2) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
-        (v2) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        (v1) --[boson, edge label'=\(\gamma / Z\)] (v2);
+        (v2) --[anti charged scalar] (lB);
+        (v2) --[charged scalar] (lA);
     };
 \end{feynman}

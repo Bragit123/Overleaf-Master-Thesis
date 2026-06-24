@@ -1,0 +1,19 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (v);
+        \vertex [left=1 of v, label=left:\(\gamma^*\)] (past);
+        \vertex [above right=of v] (t);
+        \vertex [above right=0.7 of t, label=right:\(\slepton_{iB}^*\)] (lB);
+        \vertex [below right=of v] (b);
+        \vertex [below right=0.7 of b, label=right:\(\slepton_{iA}\)] (lA);
+        \vertex [below right=of t, label=right:\(\gamma\)] (p);
+        \vertex (thirdp) at ($(v)!0.3!(p)$);
+    \end{scope}
+    \diagram*{
+        (past) --[boson, momentum={[arrow style=teal]\(p\)}] (v);
+        (v) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
+        (v) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        (v) --[boson] (p);
+        (thirdp) --[opacity=0.0, momentum={[arrow style=teal]\(k\)}] (p);
+    };
+\end{feynman}
