@@ -18,6 +18,9 @@
 \newcommand*{\vast}{\bBigg@{3}}
 \newcommand*{\vastl}{\mathopen\vast}
 \newcommand*{\vastr}{\mathclose\vast}
+\newcommand*{\Vast}{\bBigg@{4}}
+\newcommand*{\Vastl}{\mathopen\Vast}
+\newcommand*{\Vastr}{\mathclose\Vast}
 \makeatother
 
 
@@ -31,6 +34,7 @@
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\Rot}{Rot}
 \DeclareMathOperator{\Boost}{Boost}
+\DeclareMathOperator{\Litwo}{Li_2}
 
 
 %% Useful math shorthands
@@ -58,8 +62,17 @@
 %% QFT shorthands
 \newcommand*{\slepton}{{\tilde{\ell}}}
 \newcommand*{\amp}{\mathcal{M}}
-\newcommand*{\varepsilonIR}{\varepsilon_{\mathrm{IR}}}
-\newcommand*{\varepsilonUV}{\varepsilon_{\mathrm{UV}}}
+\newcommand*{\eps}{\varepsilon}
+\newcommand*{\bareps}{\widebar{\varepsilon}}
+\newcommand*{\epsIR}{\varepsilon_{\mathrm{IR}}}
+\newcommand*{\epsUV}{\varepsilon_{\mathrm{UV}}}
+\newcommand*{\barepsIR}{\bareps_{\mathrm{IR}}}
+\newcommand*{\barepsUV}{\bareps_{\mathrm{UV}}}
+
+% \newcommand*{\varepsilonIR}{\varepsilon_{\mathrm{IR}}}
+% \newcommand*{\varepsilonUV}{\varepsilon_{\mathrm{UV}}}
+% \newcommand*{\barvarepsilonIR}{\bareps{\mathrm{IR}}}
+% \newcommand*{\barvarepsilonUV}{\bareps{\mathrm{UV}}}
 
 
 %% Kinematics shorthands
@@ -93,7 +106,7 @@
 
 %% Plus distributions
 \newcommand*{\plusdist}{\Biggl( \frac{1}{1-z} \Biggr)_{\!\!+}}
-\newcommand*{\plusdistlog}{\Biggl( \frac{\log(1-z)}{1-z} \Biggr)_{\!\!+}}
+\newcommand*{\plusdistln}{\Biggl( \frac{\ln(1-z)}{1-z} \Biggr)_{\!\!+}}
 \newcommand*{\plusdistf}{\Biggl( \frac{f(z)}{1-z} \Biggr)_{\!\!+}}
 
 

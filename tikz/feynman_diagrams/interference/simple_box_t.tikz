@@ -1,0 +1,23 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (q);
+        \vertex [right=0.8 of q] (tl);
+        \vertex [below=of tl] (bl);
+        \vertex [left=0.8 of bl] (qbar);
+        \vertex [right=of tl] (tr);
+        \vertex [right=0.8 of tr] (lB);
+        \vertex [right=of bl] (br);
+        \vertex [right=0.8 of br] (lA);
+        \vertex (m) at ($(tl)!0.5!(bl)$);
+    \end{scope}
+    \diagram*{
+        (q) --[fermion] (tl)
+        --[fermion] (bl)
+        --[fermion] (qbar);
+        (tr) --[boson, edge label'=\(\gamma/\gamma/Z\)] (tl);
+        (bl) --[boson, edge label'=\(\gamma/Z/\gamma\)] (br);
+        (lB) --[charged scalar] (tr)
+        -- [charged scalar] (br)
+        -- [charged scalar] (lA);
+    };
+\end{feynman}

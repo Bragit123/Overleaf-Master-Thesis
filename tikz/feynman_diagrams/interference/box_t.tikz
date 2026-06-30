@@ -1,0 +1,22 @@
+\begin{feynman}
+    \begin{scope}[node distance=2.2cm]
+        \vertex [label=left:\(q\)] (q);
+        \vertex [right=0.9 of q] (tl);
+        \vertex [below=of tl] (bl);
+        \vertex [left=0.9 of bl, label=left:\(\widebar{q}\)] (qbar);
+        \vertex [right=of tl] (tr);
+        \vertex [right=0.9 of tr, label=right:\(\slepton_{iB}^*\)] (lB);
+        \vertex [right=of bl] (br);
+        \vertex [right=0.9 of br, label=right:\(\slepton_{iA}\)] (lA);
+    \end{scope}
+    \diagram*{
+        (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (tl)
+        --[fermion, momentum'={[arrow style=Purple]\(k+p_1\)}] (bl)
+        --[fermion, rmomentum={[arrow style=teal]\(p_2\)}] (qbar);
+        (tr) --[boson, edge label=\(\gamma/\gamma/Z\), momentum'={[arrow style=Purple]\(k\)}] (tl);
+        (bl) --[boson, edge label=\(\gamma/Z/\gamma\), momentum'={[arrow style=Purple]\(k+p_1+p_2\)}] (br);
+        (lB) --[charged scalar, rmomentum'={[arrow style=teal]\(k_1\)}] (tr)
+        -- [charged scalar, rmomentum={[arrow style=Purple]\(k+k_1\)}] (br)
+        -- [charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+    };
+\end{feynman}

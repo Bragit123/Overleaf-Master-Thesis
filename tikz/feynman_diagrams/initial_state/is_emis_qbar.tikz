@@ -14,7 +14,9 @@
         (q) --[fermion, momentum'={[arrow style=teal]\(p_1\)}] (t)
         -- [fermion, momentum'={[arrow style=Bittersweet]\(k-p_2\)}] (b)
         -- [fermion, reversed momentum'={[arrow style=teal]\(p_2\)}] (qbar);
-        (t) -- [boson] (midtpast) -- [boson, momentum={[arrow style=teal]\(q\)}] (past);
-        (b) -- [boson] (midbp) -- [boson, momentum'={[arrow style=teal]\(k\)}] (p);
+        (t) -- [boson] (past);
+        (midtpast) -- [opacity=0.0, momentum={[arrow style=teal]\(q\)}] (past);
+        (b) -- [boson] (p);
+        (midbp) -- [opacity=0.0, momentum'={[arrow style=teal]\(k\)}] (p);
     };
 \end{feynman}

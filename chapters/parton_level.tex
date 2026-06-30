@@ -3,17 +3,17 @@
 In this chapter we shift our focus to the hard scattering process for slepton pair production, where the colliding particles are proton-constituents.
 We will calculate the partonic cross section at \gls{nlo} in \gls{qed}, and use the methods described in \cref{ch:divergences} to handle the various divergences that appear.
 
-We start by discussing the kinematics of our scattering process in \cref{sec:phase_space}, before factoring the cross section in \cref{sec:factorization}. We then calculate the hard scattering cross section at \gls{lo} and \gls{nlo} in \cref{sec:lo,sec:nlo}. The matrix elements in this chapter are acquired from their associated Feynman diagrams using the Feynman rules given in \rednote{ref mssm-kapittel}.
+We start by discussing the kinematics of our scattering process in \cref{sec:phase_space}, before factoring the cross section in \cref{sec:factorization}. We then calculate the hard scattering cross section at \gls{lo} and \gls{nlo} in \cref{sec:lo,sec:nlo}. The matrix elements in this chapter are acquired from their associated Feynman diagrams using the Feynman rules given in \rednote{ref mssm-kapittel}. All Feynman diagrams were drawn using \texttt{TikZ-Feynman}~\cite{Ellis:2016jkw}.
 
-The calculations that follow have been done by hand, with help from the computer program \texttt{Mathematica}~\cite{Mathematica}, using the following packages: \texttt{FeynArts}~\cite{Hahn:2000kx,Hahn:2001rv} for drawing Feynman diagrams, and extracting their amplitudes; \texttt{FeynCalc}~\cite{Shtabovenko:2016sxi,Shtabovenko:2020gxv,Shtabovenko:2023idz,Mertig:1990an} for simplifying the amplitudes by utilizing four-vectors and Dirac algebra, and rewriting loop-integrals in terms of Passarino--Veltman functions; and \texttt{PackageX}~\cite{Patel:2015tea,Patel:2016fam} for extracting divergent (and finite) expressions from the Passarino--Veltman functions.
-The \texttt{Mathematica} code used in this thesis is available \texttt{GitHub}.\footnote{\url{https://github.com/Bragit123/Master_Thesis}}
+The calculations that follow have been done by hand, with help from the computer program \texttt{Mathematica}~\cite{Mathematica}, using the following packages: \texttt{FeynArts}~\cite{Hahn:2000kx,Hahn:2001rv} for drawing Feynman diagrams, and extracting their amplitudes; \texttt{FeynCalc}~\cite{Shtabovenko:2016sxi,Shtabovenko:2020gxv,Shtabovenko:2023idz,Mertig:1990an} for simplifying the amplitudes by utilizing four-vectors and Dirac algebra, and rewriting loop-integrals in terms of Passarino--Veltman functions; and \texttt{PackageX}~\cite{Patel:2015tea,Patel:2016fam} for extracting divergent expressions from the Passarino--Veltman functions.
+The \texttt{Mathematica} code used in this thesis is available on \texttt{GitHub}.\footnote{\url{https://github.com/Bragit123/Master_Thesis}}
 
 
 %%%%%%%%%%%%%%%%%%
 %%% Kinematics %%%
 %%%%%%%%%%%%%%%%%%
 \section{Phase Space Kinematics}\label{sec:phase_space}
-Start by considering a $2 \to n$~scattering process with inital- and final momenta $p_i$ and $k_i$, respectively; where particle $k_i$ has mass $m_i$ and energy $E_i$, and the particles $p_i$ are all massless. We further define the \gls{com} energy $\sqrtshat = (p_1+p_2)^2$.
+Start by considering a $2 \to n$~scattering process with inital- and final momenta $p_i$ and $k_i$, respectively; where particle $k_i$ has mass $m_i$ and energy $E_i$, and the particles $p_i$ are all massless. We further define the \gls{com} energy $\shat = (p_1+p_2)^2$.
 The differential cross section for such a process is~\cite{ParticleDataGroup:2026aaa}
 \begin{equation}
     d\hat{\sigma} = \frac{1}{2\shat} \abs{\M}^2 d\Pi_{2 \to n},
@@ -70,19 +70,19 @@ where $z=\frac{Q^2}{\shat}$ is the amount of initial-state momenta held by the o
 \end{equation}
 
 We will also need to know the momenta in the sleptons' \gls{rf}. We can transform from the quarks' to the sleptons' \gls{rf} by performing a rotation and a subsequent boost.
-A rotation of an angle $\theta$ around the $y$-axis is given by the rotation matrix $\Rot_y(\theta)$; and we define the Lorentz boost such that, if a coordinate $x$ in reference frame $S$ transforms to $x^*$ in $S^*$, where $S^*$ moves with a velocity $\vec{\beta} = \beta\ez$ relative to $S$, then we have $x^* = \Boost_z(\beta)x$. On matrix form, the rotation and boosts are given by
+A rotation of an angle $\theta$ around the $y$-axis is given by the rotation matrix $\Rot_y(\theta)$; and we define the Lorentz boost such that, if a coordinate $x$ in reference frame $S$ transforms to $x^*$ in $S^*$, where $S^*$ moves with a velocity $\vec{\beta} = \beta\ez$ relative to $S$, then we have $x^* = \Boost_z(\beta)x$. On matrix form, the rotation and boost are given by
 \begin{align}
-    \Boost_z(\beta) = \begin{pmatrix}
-        \gamma & 0 & 0 & -\gamma\beta \\
-        0 & 1 & 0 & 0 \\
-        0 & 0 & 1 & 0 \\
-        -\gamma\beta & 0 & 0 & \gamma
-    \end{pmatrix}, \quad
     \Rot_y(\theta) = \begin{pmatrix}
         1 & 0 & 0 & 0 \\
         0 & \cos\theta & 0 & \sin\theta \\
         0 & 0 & 1 & 0 \\
         0 & -\sin\theta & 0 & \cos\theta
+    \end{pmatrix}, \quad
+    \Boost_z(\beta) = \begin{pmatrix}
+        \gamma & 0 & 0 & -\gamma\beta \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        -\gamma\beta & 0 & 0 & \gamma
     \end{pmatrix},
 \end{align}
 where $\gamma = (1-\beta^2)^{-1/2}$ is the Lorentz factor.
@@ -297,7 +297,7 @@ Substituting $\theta^* \to x$ we can rewrite \cref{eq:dPi_13_before_x} as
 
 \subsection{Effective Couplings for Initial- and Final-State Diagrams}
 The process considered in this thesis is the inclusive production of two sleptons, $q\widebar{q}\to\slepton_{iB}^*\slepton_{iA}(+X)$.
-At \gls{lo} there are two diagrams contributing, namely the s-channel diagrams with an intermediate photon or Z-boson, as shown in \cref{fig:M_lo}.
+At \gls{lo} there are two diagrams contributing, namely the s-channel diagrams with an intermediate photon or $Z$~boson, as shown in \cref{fig:M_lo}.
 We can simplify the calculation of \gls{nlo} corrections immensely by factoring the \gls{lo} cross section. We will do this in two distinct ways: one where we allow corrections to the initial-state of \cref{fig:M_lo} while keeping the final-state fixed, and one where we allow corrections to the final-state while keeping the initial-state fixed.
 In \cref{fig:M_factored} we present the Feynman diagrams for these corrections, 
 where the blobs are to be understood as effective couplings, encompassing all \gls{qed} corrections at \gls{nlo} that come from adding photon-lines to the \gls{lo} diagrams.
@@ -344,7 +344,7 @@ The other assumption we made, which is important for the way we wrote down the e
 
 \subsection{The Squared Amplitude}
 Let us first consider the case where we leave the final-state as it was at \gls{lo}, while allowing corrections to the initial-state. This process is encapsulated in \cref{fig:factor_left}, and using our newfound Feynman rules for the effective coupling in \cref{eq:factor_left}, we can write down the amplitude. 
-To declutter notation we introduce the shorthands $u_1 \equiv u(p_1)$ and $\widebar{v}_2 \equiv \widebar{v}(p_2)$ for the Dirac spinors, and---anticipating the use of dimensional regularization at \gls{nlo}---we work in $d=4-2\varepsilon$ dimensions:
+To declutter notation we introduce the shorthands $u_1 \equiv u(p_1)$ and $\widebar{v}_2 \equiv \widebar{v}(p_2)$ for the Dirac spinors, and---anticipating the use of dimensional regularization at \gls{nlo}---we work in $d=4-2\eps$ dimensions:
 \begin{subequations}
 \begin{align}
     \M^i_\gamma &= -\frac{e^2Q_q\mu^{4-d}\delta^{AB}}{Q^2} \widebar{v}_2\Gamma^\mu u_1 (k_2-k_1)_\mu,
@@ -381,10 +381,10 @@ The trace of $\gamma^5$ with an even number of $\gamma^\mu$ reduces to a sum of 
 \begin{equation}
     \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_n}\gamma^5] = 
     \sum_{\mathclap{ \substack{\text{permutations} \\ \text{of }\mu_1,\ldots,\mu_n}}} 
-    \Bigl(\propto\varepsilon^{\mu_1\mu_2\mu_3\mu_4} g^{\mu_5\mu_6}\cdots g^{\mu_{n-1}\mu_n}\Bigr),
+    \Bigl(\propto\eps^{\mu_1\mu_2\mu_3\mu_4} g^{\mu_5\mu_6}\cdots g^{\mu_{n-1}\mu_n}\Bigr),
 \end{equation}
 Since the squared amplitude is a scalar quantity, those Lorentz indices must be contracted with Lorentz indices from the remaining expression in \cref{eq:Mi_squared_pre_trace}, whose available tensor quantities (after integrating out $k_1$ and $k_2$, of which the trace is independent) are the four-momenta $p_1^\mu$, $p_2^\mu$, and $q^\mu$;\footnote{$k^\mu$ can be eliminated by momentum conservation: $k=p_1+p_2-q$.} and the metric tensor $g^{\mu\nu}$.
-Consider the term with $\varepsilon^{\mu_1\mu_2\mu_3\mu_4}$. Contracting this Levi-Civita tensor with anything that is symmetric in two of those indices yield zero, so the only possible non-zero case is if the tensor it is contracted with contains all the available tensors: $p_{1\mu_1}p_{2\mu_2}q_{\mu_3}g_{\mu_4\mu_5}$. However, since $n$ is even, and there are only metric tensors left to contract with our expression, $g_{\mu_4\mu_5}$ must at some point get contracted with $p_1^{\mu_5}$, $p_2^{\mu_5}$ or $q^{\mu_5}$, resulting in a tensor that is symmetric in at least two of the indices $\mu_1,\ldots,\mu_4$. Therefore, all traces with a single $\gamma^5$ becomes zero when contracted with the remaining part of the cross section.\rednote{Flytt argumentet til appendix?}
+Consider the term with $\eps^{\mu_1\mu_2\mu_3\mu_4}$. Contracting this Levi-Civita tensor with anything that is symmetric in two of those indices yield zero, so the only possible non-zero case is if the tensor it is contracted with contains all the available tensors: $p_{1\mu_1}p_{2\mu_2}q_{\mu_3}g_{\mu_4\mu_5}$. However, since $n$ is even, and there are only metric tensors left to contract with our expression, $g_{\mu_4\mu_5}$ must at some point get contracted with $p_1^{\mu_5}$, $p_2^{\mu_5}$ or $q^{\mu_5}$, resulting in a tensor that is symmetric in at least two of the indices $\mu_1,\ldots,\mu_4$. Therefore, all traces with a single $\gamma^5$ becomes zero when contracted with the remaining part of the cross section.\rednote{Flytt argumentet til appendix?}
 Using this, and the fact that $\gamma^5$ squares to unity, we can show that the three terms in \cref{eq:Mi_squared_pre_trace} are actually proportional, and we can rewrite the squared amplitude as
 \begin{align}
     \overline{|\M^i|^2} = \frac{16\pi^2\alpha^2\mu^{2(4-d)}}{Q^4}\fqliab(Q^2) \frac{1}{4N} \Tr\Bigl[ \ptwoslash\Gamma^\mu\poneslash\widebar\Gamma^\nu \Bigr] (k_2-k_1)_\mu (k_2-k_1)_\nu, \label{eq:Mi_squared}
@@ -532,16 +532,16 @@ The remaining tensors $H^{\mu\nu}$ and $L^{\mu\nu}$ in \cref{eq:dsigmaf_tensor,e
 From these Feynman rules we have:\footnote{Note that we average over the incoming quark--anti-quark pair in $H^{\mu\nu}$, but not in $L^{\mu\nu}$.}
 \begin{subequations}
 \begin{align}
-    \varepsilon_\mu(q) \varepsilon_\nu^*(q) H^{\mu\nu} &\equiv \mu^{4-d} \int d\Pi_H \overline{|\M(q\widebar{q} \to \gamma^*(+\gamma)|^2},
+    \eps_\mu(q) \eps_\nu^*(q) H^{\mu\nu} &\equiv \mu^{4-d} \int d\Pi_H \overline{|\M(q\widebar{q} \to \gamma^*(+\gamma)|^2},
     \label{eq:H_munu}
     \\
-    \varepsilon_\mu(p) \varepsilon_\nu^*(p) L^{\mu\nu} &\equiv \mu^{4-d} \int d\Pi_L |\M(\gamma^* \to \slepton_{iB}^*\slepton_{iA} (+\gamma)|^2.
+    \eps_\mu(p) \eps_\nu^*(p) L^{\mu\nu} &\equiv \mu^{4-d} \int d\Pi_L |\M(\gamma^* \to \slepton_{iB}^*\slepton_{iA} (+\gamma)|^2.
     \label{eq:L_munu}
 \end{align}
 \end{subequations}
-Using that $-g_{\mu\nu}$ is equal to the sum of polarizations $\varepsilon_\mu\varepsilon^*_\nu$, we can simplify the initial-state cross section in \cref{eq:dsigmai_tensor} even further, giving
+Using that $-g_{\mu\nu}$ is equal to the sum of polarizations $\eps_\mu\eps^*_\nu$, we can simplify the initial-state cross section in \cref{eq:dsigmai_tensor} even further, giving
 \begin{align}
-    \frac{d\hat{\sigma}^i}{dQ^2} &= \frac{4\alpha^2 \kiabs^3}{3\shat Q^5}\fqliab(Q^2) \varepsilon_\mu(q)\varepsilon^*_\nu(q) H^{\mu\nu}
+    \frac{d\hat{\sigma}^i}{dQ^2} &= \frac{4\alpha^2 \kiabs^3}{3\shat Q^5}\fqliab(Q^2) \eps_\mu(q)\eps^*_\nu(q) H^{\mu\nu}
     \nonumber \\
     &= \frac{4\alpha^2 \mu^{4-d} \kiabs^3}{3\shat Q^5}\fqliab(Q^2) 
     \int d\Pi_H \overline{\abs{\M(q\widebar{q}\to\gamma^*(+\gamma)}^2}.
@@ -551,17 +551,17 @@ Using that $-g_{\mu\nu}$ is equal to the sum of polarizations $\varepsilon_\mu\v
 To summarize this section: we have laid the groundwork for doing calculations at \gls{nlo}, by simplifying in two major ways:
 \begin{itemize}
     \item We have reduced what was originally a $2\to2(3)$~scattering process down to a $2\to1(2)$~scattering for initial-state corrections, given in \cref{eq:dsigmai_scalar}; and $1\to2(3)$ decay for final-state corrections, given in \cref{eq:dsigmaf_tensor}; greatly simplifying the phase space integration.
-    \item To begin with, we had to consider two versions of all diagrams, one with an intermediate photon, and one with a Z-boson. This has now been reduced to a single effective photon $\gamma^*$ which incorporates both vector bosons.
+    \item To begin with, we had to consider two versions of all diagrams, one with an intermediate photon, and one with a $Z$~boson. This has now been reduced to a single effective photon $\gamma^*$ which incorporates both vector bosons.
 \end{itemize}
 
 
 \section{The Leading Order Cross Section}\label{sec:lo}
 We will calculate the cross section at \gls{lo} in two ways, using the initial-state and final-state expressions in \cref{eq:dsigmaf_tensor,eq:dsigmai_tensor}.
-Both methods will produce the same result,\footnote{At least in four spacetime dimensions. Since we set $d=4$ in part of \cref{eq:dsigmaf_tensor,eq:dsigmai_scalar}, the result will be slightly different in the two cases when working in $d=4-2\varepsilon$ dimensions.}
+Both methods will produce the same result,\footnote{At least in four spacetime dimensions. Since we set $d=4$ in part of \cref{eq:dsigmaf_tensor,eq:dsigmai_scalar}, the result will be slightly different in the two cases when working in $d=4-2\eps$ dimensions.}
 since $\shat$ and $Q^2$ are equal---there is no photon emission at \gls{lo}---but keeping track of how $\shat$ and $Q^2$ originate in the two expressions will be helpful when writing \gls{nlo} calculations in terms of the \gls{lo} result.
 % Because there is no photon emission at \gls{lo}, these will actually turn out to be the same,
 % \footnote{At least in four spacetime dimensions. Since we set $d=4$ in part of \cref{eq:dsigmaf_tensor,eq:dsigmai_scalar},
-% the result will be slightly different in the two cases when working in $d=4-2\varepsilon$ dimensions.} but keeping track of $\shat$ and $Q^2$ in the two expressions will be helpful when writing \gls{nlo} calculations in terms of the \gls{lo} result.
+% the result will be slightly different in the two cases when working in $d=4-2\eps$ dimensions.} but keeping track of $\shat$ and $Q^2$ in the two expressions will be helpful when writing \gls{nlo} calculations in terms of the \gls{lo} result.
 
 \begin{figure}
     \centering
@@ -584,7 +584,7 @@ since $\shat$ and $Q^2$ are equal---there is no photon emission at \gls{lo}---bu
 \subsection{The Initial-State Way}
 The initial-state \gls{lo} Feynman diagram is shown in \cref{fig:M_lo_left}, giving the amplitude
 \begin{align}
-    i\M^i_0 &= \widebar{v}_2\gamma^\mu u_1 \varepsilon^*_\mu(q).
+    i\M^i_0 &= \widebar{v}_2\gamma^\mu u_1 \eps^*_\mu(q).
 \end{align}
 The spin- and color averaged squared amplitude is then
 \begin{align}
@@ -609,7 +609,7 @@ where the factor in curly brackets reduces to unity in $d=4$ spacetime dimension
 \subsection{The Final-State Way}
 The final-state \gls{lo} Feynman diagram is shown in \cref{fig:M_lo_right}, and we can write down its amplitude:
 \begin{align}
-    i\M^f_0 &= (k_2-k_1)^\mu\varepsilon_\mu(p).
+    i\M^f_0 &= (k_2-k_1)^\mu\eps_\mu(p).
     \label{eq:Mf0}
 \end{align}
 Inserting into \cref{eq:L_munu} we have
@@ -692,19 +692,32 @@ In this section we will compute corrections to slepton pair production at \gls{n
 
 As a reminder, for initial-state corrections we use the differential cross section defined in \cref{eq:dsigmai_scalar}. Consequently, all diagrams considered for initial-state corrections are understood to signify the process $q\widebar{q} \to \gamma^*(+\gamma)$, for which matrix elements correspond to the matrix element in \cref{eq:dsigmai_scalar}.
 
+\begin{figure}
+    \centering
+    \inputtikz{feynman_diagrams/initial_state/is_virt}
+    \caption{Feynman diagram for virtual \gls{qed} correction to the initial-state.}
+    \label{fig:is_virt}
+\end{figure}
+
 \subsubsection{Virtual Contribution}
-There is only one initial-state diagram involving a virtual photon, given by
-\begin{align}
-    i\M^i_v &= \inputtikz[baseline=(v.base)]{feynman_diagrams/initial_state/is_virt}
-    \nonumber \\
-    &= -ie^2Q_q^2 \mu^{4-d} \varepsilon^*_\mu(q) \widebar{v}_2
+There is only one initial-state diagram involving a virtual photon, shown in \cref{fig:is_virt}. Its matrix element is given by
+\begin{equation}
+    i\M^i_v = -ie^2Q_q^2 \mu^{4-d} \eps^*_\mu(q) \widebar{v}_2
     \Biggl(
         \int\frac{d^dk}{(2\pi)^d} \frac{\gamma^\nu (\kslash-\ptwoslash)\gamma^\mu(\kslash+\poneslash)\gamma_\nu}{k^2(k+p_1)^2(k-p_2)^2}
     \Biggr) u_1.
-\end{align}
+\end{equation}
+% \begin{align}
+%     i\M^i_v &= \inputtikz[baseline=(v.base)]{feynman_diagrams/initial_state/is_virt}
+%     \nonumber \\
+%     &= -ie^2Q_q^2 \mu^{4-d} \eps^*_\mu(q) \widebar{v}_2
+%     \Biggl(
+%         \int\frac{d^dk}{(2\pi)^d} \frac{\gamma^\nu (\kslash-\ptwoslash)\gamma^\mu(\kslash+\poneslash)\gamma_\nu}{k^2(k+p_1)^2(k-p_2)^2}
+%     \Biggr) u_1.
+% \end{align}
 The integral can be solved by introducing Feynman parameters, as described in \rednote{ref divergens-kapittel}, and shifting the integration momentum $k \to k-xp_1+yp_2$, resulting in
 \begin{equation}
-    i\M^i_v = -2ie^2Q_q^2\mu^{4-d} \varepsilon^*_\mu(q) \int_0^1 dx \int_0^{1-x}dy \int\frac{d^dk}{(2\pi)^d} \frac{\widebar{v}_2 N^\mu u_1}{\bigl[ k^2+xy\shat \bigr]^3},
+    i\M^i_v = -2ie^2Q_q^2\mu^{4-d} \eps^*_\mu(q) \int_0^1 dx \int_0^{1-x}dy \int\frac{d^dk}{(2\pi)^d} \frac{\widebar{v}_2 N^\mu u_1}{\bigl[ k^2+xy\shat \bigr]^3},
     \label{eq:M_virt_Nmu}
 \end{equation}
 where we have defined
@@ -718,13 +731,13 @@ Using \rednote{ref $\gamma^\lambda\gamma^\mu\gamma^\nu\gamma^\rho\gamma_\lambda$
 Inserting this back into \cref{eq:M_virt_Nmu} gives
 \begin{equation}
 \begin{split}
-    i\M^i_v &= -2ie^2Q_q^2\mu^{4-d} \widebar{v}_2 \gamma^\mu u_1 \varepsilon^*_\mu(q)
+    i\M^i_v &= -2ie^2Q_q^2\mu^{4-d} \widebar{v}_2 \gamma^\mu u_1 \eps^*_\mu(q)
     \\ &\qquad \times
     \int_0^1 dx \int_0^{1-x}dy \int\frac{d^dk}{(2\pi)^d} \frac{\frac{(d-2)^2}{d} k^2 + \shat \Bigl((2-d)xy + 2x + 2y - 2 \Bigr)}{\bigl[ k^2+xy\shat \bigr]^3}.
     \label{eq:M_virt_k}
 \end{split}
 \end{equation}
-We recognize $\widebar{v}_2\gamma^\mu u_1\varepsilon^*_\mu(q) = i\M^i_0$, and obtain the integrals over $d^dk$ from \rednote{ref Schwartz B.38 og B.39}. We can then write the amplitude as
+We recognize $\widebar{v}_2\gamma^\mu u_1\eps^*_\mu(q) = i\M^i_0$, and obtain the integrals over $d^dk$ from \rednote{ref Schwartz B.38 og B.39}. We can then write the amplitude as
 \begin{equation}
     \M^i_v = \M^i_0 f(\shat)
 \end{equation}
@@ -768,27 +781,27 @@ to solve the integral over $x$. This leaves us with
 \end{equation}
 where we have also substituted $\shat = Q^2/z$.
 Take notice of how the divergence at $d=4$ differs in the two terms in curly brackets. The first term originates from the $k^2$ term in \cref{eq:M_virt_k}, which is \gls{uv} divergent, while the remaining term is \gls{uv} finite, but is instead \gls{ir} divergent.
-If we set $d=4-2\varepsilon$, and expand around $\varepsilon=0$, we find\footnote{Outside of the curly brackets, $\varepsilon$ should be understood as being either \gls{uv} or \gls{ir}, so as to match the term it is multiplied with. To the pedantic reader, yes\ldots it would indeed be less ambiguous to include all dimension-dependent factors inside the curly brackets with their proper subscripts, but I hope we can all agree the choice made here is both readable and more aesthetically pleasing.}
+If we set $d=4-2\eps$, and expand around $\eps=0$, we find\footnote{Outside of the curly brackets, $\eps$ should be understood as being either \gls{uv} or \gls{ir}, so as to match the term it is multiplied with. To the pedantic reader, yes\ldots it would indeed be less ambiguous to include all dimension-dependent factors inside the curly brackets with their proper subscripts, but I hope we can all agree the choice made here is both readable and more aesthetically pleasing.}
 \begin{align}
-    2f(\shat) &= \frac{\alpha Q_q^2}{\pi} G(\varepsilon) (-z)^\varepsilon \Biggl\{
-        -\frac{1}{\varepsilonIR^2} - \frac{2}{\varepsilonIR} + \frac{1}{2\varepsilonUV} - 4 - \frac{\pi^2}{6}
+    2f(\shat) &= \frac{\alpha Q_q^2}{\pi} G(\eps) (-z)^\eps \Biggl\{
+        -\frac{1}{\epsIR^2} - \frac{2}{\epsIR} + \frac{1}{2\epsUV} - 4 - \frac{\pi^2}{6}
     \Biggr\},
     \label{eq:fvirt}
 \end{align}
 where we have defined
 \begin{equation}
 \begin{split}
-    G(\varepsilon) &= \Biggl( \frac{4\pi\mu^2}{Q^2} \Biggr)^\varepsilon \frac{\Gamma(1-\varepsilon)}{\Gamma(1-2\varepsilon)}
+    G(\eps) &= \Biggl( \frac{4\pi\mu^2}{Q^2} \Biggr)^\eps \frac{\Gamma(1-\eps)}{\Gamma(1-2\eps)}
     \\
-    &= 1 + \biggl( \log\frac{\mu^2}{Q^2} + \log(4\pi)-\gamma_E \biggr) \varepsilon + \mathcal{O}(\varepsilon^2).
+    &= 1 + \biggl( \ln\frac{\mu^2}{Q^2} + \ln(4\pi)-\gamma_E \biggr) \eps + \mathcal{O}(\eps^2).
 \end{split}
 \label{eq:G_eps}
 \end{equation}
-We only want the real part of \cref{eq:fvirt}, which can be obtained by expanding $(-1)^\varepsilon = 1 + i\pi\varepsilon - \frac{\pi^2}{2} \varepsilon^2 + \mathcal{O}(\varepsilon^3)$. Using \cref{eq:sigma0i}, and setting $z=1$ (as allowed by the delta function), we end up with the following virtual contribution:
+We only want the real part of \cref{eq:fvirt}, which can be obtained by expanding $(-1)^\eps = 1 + i\pi\eps - \frac{\pi^2}{2} \eps^2 + \mathcal{O}(\eps^3)$. Using \cref{eq:sigma0i}, and setting $z=1$ (as allowed by the delta function), we end up with the following virtual contribution:
 \begin{equation}
-    \frac{d\hat\sigma^i_{\mathrm{v}}}{dQ^2} = \hat\sigma^i_0 \delta(1-z) \frac{\alpha Q_q^2}{\pi} G(\varepsilon)
+    \frac{d\hat\sigma^i_{\mathrm{v}}}{dQ^2} = \hat\sigma^i_0 \delta(1-z) \frac{\alpha Q_q^2}{\pi} G(\eps)
     \Biggl\{
-        -\frac{1}{\varepsilonIR^2} - \frac{2}{\varepsilonIR} + \frac{1}{2\varepsilonUV} - 4 + \frac{\pi^2}{3}
+        -\frac{1}{\epsIR^2} - \frac{2}{\epsIR} + \frac{1}{2\epsUV} - 4 + \frac{\pi^2}{3}
     \Biggr\}.
     \label{eq:dsigmai_virt}
 \end{equation}
@@ -820,52 +833,55 @@ Inserting \cref{eq:Sigma2q} into \cref{eq:deltaq_def} gives
 The remaining integration over $d^dk$ is both \gls{uv} and \gls{ir} divergent, so after performing a Wick rotation and integrating out the angular parts, we will split the final Euclidean integral in two parts: $\int_0^\infty dk_E = \int_0^\Lambda dk_E + \int_\Lambda^\infty dk_E$, where $\Lambda \in \mathbb{R}^+$ can be chosen arbitrarily, and will fall out of calculations.
 The result after integrating is
 \begin{equation}
-    \delta_q = \frac{\alpha Q_q^2}{4\pi} \biggl( \frac{1}{\varepsilonIR} - \frac{1}{\varepsilonUV} \biggr),
+    \delta_q = \frac{\alpha Q_q^2}{4\pi} \biggl( \frac{1}{\epsIR} - \frac{1}{\epsUV} \biggr),
 \end{equation}
 and the counterterm contribution to our differential cross section is
 \begin{equation}
-    2\Re\{ \delta_q \} \frac{d\hat\sigma^i_{\mathrm{LO}}}{dQ^2} = \hat\sigma^i_0 \delta(1-z) \frac{\alpha Q_q^2}{2\pi} \biggl( \frac{1}{\varepsilonIR} - \frac{1}{\varepsilonUV} \biggr).
+    2\Re\{ \delta_q \} \frac{d\hat\sigma^i_{\mathrm{LO}}}{dQ^2} = \hat\sigma^i_0 \delta(1-z) \frac{\alpha Q_q^2}{2\pi} \biggl( \frac{1}{\epsIR} - \frac{1}{\epsUV} \biggr).
 \end{equation}
 Adding this to our virtual contribution in \cref{eq:dsigmai_virt} gives
 \begin{align}
-    \frac{d\hat\sigma^i_{\mathrm{v+c.t.}}}{dQ^2} &= \hat\sigma^i_0 \delta(1-z) \frac{\alpha Q_q^2}{\pi} G(\varepsilon)
+    \frac{d\hat\sigma^i_{\mathrm{v+c.t.}}}{dQ^2} &= \hat\sigma^i_0 \delta(1-z) \frac{\alpha Q_q^2}{\pi} G(\eps)
     \Biggl\{
-        -\frac{1}{\varepsilonIR^2} - \frac{2}{\varepsilonIR} + \frac{1}{2\varepsilonUV} - 4 + \frac{\pi^2}{3} + \frac{1}{2\varepsilonIR} - \frac{1}{2\varepsilonUV}
+        -\frac{1}{\epsIR^2} - \frac{2}{\epsIR} + \frac{1}{2\epsUV} - 4 + \frac{\pi^2}{3} + \frac{1}{2\epsIR} - \frac{1}{2\epsUV}
     \Biggr\}
     \nonumber \\
-    &= \hat\sigma^i_0 \delta(1-z) \frac{\alpha Q_q^2}{\pi} G(\varepsilon)
+    &= \hat\sigma^i_0 \delta(1-z) \frac{\alpha Q_q^2}{\pi} G(\eps)
     \Biggl\{
-        -\frac{1}{\varepsilonIR^2} - \frac{3}{2\varepsilonIR} - 4 + \frac{\pi^2}{3}
+        -\frac{1}{\epsIR^2} - \frac{3}{2\epsIR} - 4 + \frac{\pi^2}{3}
     \Biggr\}.
     \label{eq:dsigmai_virt_ct}
 \end{align}
-Thus the counterterm essentially converts the \gls{uv} divergence from the virtual contribution into an \gls{ir} divergence. Since $\varepsilonUV=\varepsilonIR$, nothing has changed numerically with our expression in \cref{eq:dsigmai_virt}.
+Thus the counterterm essentially converts the \gls{uv} divergence from the virtual contribution into an \gls{ir} divergence. Since $\epsUV=\epsIR$, nothing has changed numerically with our expression in \cref{eq:dsigmai_virt}.
 
 
 \subsubsection{Real Photon Emission}
 
-% \begin{figure}
-%     \centering
-%     \begin{subfigure}[b]{0.3\linewidth}
-%         \centering
-%         \inputtikz{feynman_diagrams/is_emis_q} 
-%     \end{subfigure}
-%     \begin{subfigure}[b]{0.3\linewidth}
-%         \centering
-%         \inputtikz{feynman_diagrams/is_emis_qbar}
-%     \end{subfigure}
-%     \caption{Initial-state Feynman diagrams for real photon emission.}
-%     \label{fig:is_emis}
-% \end{figure}
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \inputtikz{feynman_diagrams/initial_state/is_emis_q} 
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \inputtikz{feynman_diagrams/initial_state/is_emis_qbar}
+    \end{subfigure}
+    \caption{Initial-state Feynman diagrams for real photon emission.}
+    \label{fig:is_emis}
+\end{figure}
 
-For the initial-state process involving real photon emission, $q\widebar{q} \to \gamma^*\gamma$, there are two contributions, one $t$- and one $u$-channel diagram, giving:
-\begin{align}
-    i\M^i_r &= \quad \inputtikz[baseline=(eqanchor.base)]{feynman_diagrams/initial_state/is_emis_q}
-    + \quad
-    \inputtikz[baseline=(eqanchor.base)]{feynman_diagrams/initial_state/is_emis_qbar}
-    \nonumber \\
-    &= eQ_q \mu^{\frac{4-d}{2}} \varepsilon^*_\mu(q) \varepsilon^*_\nu(k) \widebar{v}_2 S^{\mu\nu} u_1,
-\end{align}
+For the initial-state process involving real photon emission, $q\widebar{q} \to \gamma^*\gamma$, there are two contributions, one $t$- and one $u$-channel diagram. Their Feynman diagrams are shown in \cref{fig:is_emis}, and their matrix element yields
+\begin{equation}
+    i\M^i_r = eQ_q \mu^{\frac{4-d}{2}} \eps^*_\mu(q) \eps^*_\nu(k) \widebar{v}_2 S^{\mu\nu} u_1,
+\end{equation}
+% \begin{align}
+%     i\M^i_r &= \quad \inputtikz[baseline=(eqanchor.base)]{feynman_diagrams/initial_state/is_emis_q}
+%     + \quad
+%     \inputtikz[baseline=(eqanchor.base)]{feynman_diagrams/initial_state/is_emis_qbar}
+%     \nonumber \\
+%     &= eQ_q \mu^{\frac{4-d}{2}} \eps^*_\mu(q) \eps^*_\nu(k) \widebar{v}_2 S^{\mu\nu} u_1,
+% \end{align}
 where
 \begin{equation}
     S^{\mu\nu} = \frac{\gamma^\mu (\poneslash-\kslash) \gamma^\nu}{(p_1-k)^2} - \frac{\gamma^\nu (\ptwoslash-\kslash) \gamma^\mu}{(k-p_2)^2}.
@@ -873,10 +889,10 @@ where
 In addition to $\shat$, we define $\that$ and $\uhat$ to be
 \begin{equation}
     \that \equiv (p_1-k)^2, \quad \uhat \equiv (p_2-k)^2,
-    \label{eq:that_uhat}
+    \label{eq:is_mandelstam}
 \end{equation}
 so that $\shat$, $\that$ and $\uhat$ act as Mandelstam variables for our initial-state partonic process.
-The spin- and color averaged square of $\M^i_r$ becomes:\footnote{Note that the interchange $(p_1 \leftrightarrow p_2)$ directly implies interchanging $(\that \leftrightarrow \uhat)$ as well. This follows directly from \cref{eq:that_uhat}.}
+The spin- and color averaged square of $\M^i_r$ becomes:\footnote{Note that the interchange $(p_1 \leftrightarrow p_2)$ directly implies interchanging $(\that \leftrightarrow \uhat)$ as well. This follows directly from \cref{eq:is_mandelstam}.}
 \begin{align}
     \overline{\abs{\M^i_r}^2} &= \frac{e^2 Q_q^2 \mu^{4-d}}{4N} g_{\mu\rho}g_{\nu\sigma}
     \Tr\Bigl[ \ptwoslash S^{\mu\nu} \poneslash S^{\sigma\rho} \Bigr]
@@ -921,7 +937,7 @@ The initial-state partonic differential cross section was given in \cref{eq:dsig
 \end{split}
 \label{eq:dsigmai_emis_yint_stu}
 \end{align}
-Inserting \cref{eq:momenta_quark_rf} into \cref{eq:that_uhat}, we can show that
+Inserting \cref{eq:momenta_quark_rf} into \cref{eq:is_mandelstam}, we can show that
 \begin{subequations}
 \begin{align}
     \that &= -\frac{Q^2}{z}(1-z)(1-y),
@@ -943,30 +959,30 @@ which inserted into \cref{eq:dsigmai_emis_yint_stu} gives
 \end{split}
 \label{eq:dsigmai_emis_yint}
 \end{equation}
-The integral over $y$ is solved using the Euler beta function in \cref{eq:beta_func}. Setting $d=4-2\varepsilon$ we find\footnote{There are no \gls{uv} divergences for the real emission diagrams, so we can omit the subscript on $\varepsilon$.}
+The integral over $y$ is solved using the Euler beta function in \cref{eq:beta_func}. Setting $d=4-2\eps$ we find\footnote{There are no \gls{uv} divergences for the real emission diagrams, so we can omit the subscript on $\eps$.}
 \begin{equation}
-    \frac{d\hat\sigma^i_r}{dQ^2} = \hat\sigma_0 \frac{\alpha Q_q^2}{\pi} G(\varepsilon) 
+    \frac{d\hat\sigma^i_r}{dQ^2} = \hat\sigma_0 \frac{\alpha Q_q^2}{\pi} G(\eps) 
     \Biggl\{
-        \frac{-\frac{1}{\varepsilon}+2 - 2\varepsilon}{1-2\varepsilon}(1-z)^{1-2\varepsilon}z^\varepsilon
-        - \frac{2}{\varepsilon} z^{1+\varepsilon} (1-z)^{-1-2\varepsilon}
+        \frac{-\frac{1}{\eps}+2 - 2\eps}{1-2\eps}(1-z)^{1-2\eps}z^\eps
+        - \frac{2}{\eps} z^{1+\eps} (1-z)^{-1-2\eps}
     \Biggr\},
     \label{eq:dsigmai_emis_eps}
 \end{equation}
-where $G(\varepsilon)$ was defined in \cref{eq:G_eps}. The factor $(1-z)^{-1-2\varepsilon}$ can be expanded in $\varepsilon$ using the plus distribution: \rednote{ref/def}
+where $G(\eps)$ was defined in \cref{eq:G_eps}. The factor $(1-z)^{-1-2\eps}$ can be expanded in $\eps$ using the plus distribution: \rednote{ref/def}
 \begin{equation}
-    (1-z)^{-1-2\varepsilon} = -\frac{1}{2\varepsilon} \delta(1-z) + \plusdist - 2\varepsilon \plusdistlog + \mathcal{O}(\varepsilon^2).
+    (1-z)^{-1-2\eps} = -\frac{1}{2\eps} \delta(1-z) + \plusdist - 2\eps \plusdistln + \mathcal{O}(\eps^2).
     \label{eq:1-z_plusdist_expansion}
 \end{equation}
 Expanding also the other terms in \cref{eq:dsigmai_emis_eps}, we end up with
 \begin{equation}
 \begin{split}
-    \frac{d\hat\sigma^i_r}{dQ^2} = \hat\sigma^i_0 \frac{\alpha Q_q^2}{\pi} G(\varepsilon)
+    \frac{d\hat\sigma^i_r}{dQ^2} = \hat\sigma^i_0 \frac{\alpha Q_q^2}{\pi} G(\eps)
     &\vastl\{
-        \frac{1}{\varepsilon^2} \delta(1-z)
-        - \frac{1}{\varepsilon} (1+z^2) \plusdist
+        \frac{1}{\eps^2} \delta(1-z)
+        - \frac{1}{\eps} (1+z^2) \plusdist
         \\ &\qquad
-        - \frac{(1+z^2) \log z}{1-z}
-        + 2(1+z^2) \plusdistlog
+        - \frac{(1+z^2) \ln z}{1-z}
+        + 2(1+z^2) \plusdistln
     \vastr\},
 \end{split}
 \label{eq:dsigmai_emis}
@@ -974,13 +990,14 @@ Expanding also the other terms in \cref{eq:dsigmai_emis_eps}, we end up with
 where we have also used that, for functions $g(z)$ such that $g(1)=0$, we have\footnote{Assuming, of course, that the expression is integrated over, or else the notion of plus distribution is nonsensical.}
 \begin{equation}
     g(z) \frac{f(z)}{1-z} = g(z) \plusdistf.
+    \label{eq:g_1-z_plusdist_relation}
 \end{equation}
 
 It is useful to see where the divergences in \cref{eq:dsigmai_emis} originate. There are two types of divergences at play; a soft divergence, occurring when the energy of the emitted photon goes to zero, and a collinear divergence, which appears when the photon travels collinearly to one of the quarks. The former is captured by the limit $z\to1$, and the latter by $y\to0$ and $y\to1$, or equivalently: $\cos\theta\to\pm1$.
-The collinear divergences come from integrating over $y$ in \cref{eq:dsigmai_emis_yint}, and are exposed in \cref{eq:dsigmai_emis_eps} as factors of $1/\varepsilon$; while the soft divergence comes only from the expansion in \cref{eq:1-z_plusdist_expansion}, and is proportional to $\delta(1-z)$.\footnote{The $\delta(1-z)$ should not be surprising to see here, since it is only in the limit $z\to1$ that a soft divergence occurrs.}
-The $1/\varepsilon^2$ term in \cref{eq:dsigmai_emis} contains both a soft and collinear divergence, stemming from the last term in the curly brackets of \cref{eq:dsigmai_emis_eps}.
-There are no soft $1/\varepsilon$ terms surviving from \cref{eq:dsigmai_emis_eps}, since the remaining factor after expanding $z^{1+\varepsilon}$ would be proportional to $\log{z}$, which is zero in the soft limit.
-Thus the remaining $1/\varepsilon$ divergence in \cref{eq:dsigmai_emis} is collinear.
+The collinear divergences come from integrating over $y$ in \cref{eq:dsigmai_emis_yint}, and are exposed in \cref{eq:dsigmai_emis_eps} as factors of $1/\eps$; while the soft divergence comes only from the expansion in \cref{eq:1-z_plusdist_expansion}, and is proportional to $\delta(1-z)$.\footnote{The $\delta(1-z)$ should not be surprising to see here, since it is only in the limit $z\to1$ that a soft divergence occurrs.}
+The $1/\eps^2$ term in \cref{eq:dsigmai_emis} contains both a soft and collinear divergence, stemming from the last term in the curly brackets of \cref{eq:dsigmai_emis_eps}.
+There are no soft $1/\eps$ terms surviving from \cref{eq:dsigmai_emis_eps}, since the remaining factor after expanding $z^{1+\eps}$ would be proportional to $\ln{z}$, which is zero in the soft limit.
+Thus the remaining $1/\eps$ divergence in \cref{eq:dsigmai_emis} is collinear.
 
 
 
@@ -989,18 +1006,18 @@ The differential partonic cross section for initial-state corrections is now rea
 The resulting expression is then
 \begin{equation}
     \begin{split}
-    \frac{d\hat\sigma^i}{dQ^2} &= \hat\sigma^i_0 \frac{\alpha Q_q^2}{\pi} G(\varepsilon)
+    \frac{d\hat\sigma^i}{dQ^2} &= \hat\sigma^i_0 \frac{\alpha Q_q^2}{\pi} G(\eps)
     \vastl\{
         \Biggl(\frac{\pi^2}{3} - 4\Biggr)\delta(1-z)
-        - \frac{(1+z^2)\log z}{1-z}
+        - \frac{(1+z^2)\ln z}{1-z}
         \\ &\hspace{3em}
-        + 2(1+z^2) \plusdistlog
-        - \frac{1}{\varepsilon}\Biggl[ (1+z^2)\plusdist + \frac{3}{2}\delta(1-z) \Biggr]
+        + 2(1+z^2) \plusdistln
+        - \frac{1}{\eps}\Biggl[ (1+z^2)\plusdist + \frac{3}{2}\delta(1-z) \Biggr]
     \vastr\}.
     \end{split}
     \label{eq:dsigmai_nlo}
 \end{equation}
-The soft divergence from \cref{eq:dsigmai_emis} canceled against the virtual contribution, as expected, but a $1/\varepsilon$ divergence still persists. We will postpone its treatment until \cref{ch:hadron_level}, where the hadronic cross section will be made finite by renormalizing the \glspl{pdf}.
+The soft divergence from \cref{eq:dsigmai_emis} canceled against the virtual contribution, as expected, but a $1/\eps$ divergence still persists. We will postpone its treatment until \cref{ch:hadron_level}, where the hadronic cross section will be made finite by renormalizing the \glspl{pdf}.
 
 It is worth noting the, perhaps unsurprising, relation between \cref{eq:dsigmai_nlo} and the corresponding \gls{qcd} correction at \gls{nlo}, which can be found in \rednote{ref Tores master/artikkel}.
 The \gls{qcd} correction is equal to \cref{eq:dsigmai_nlo} up to a change of coupling $\alpha Q_q^2 \leftrightarrow \alpha_s C_F$, where $C_F$ is the quadratic Casimir of $SU(3)$ in the fundamental representation. \rednote{Kanskje bedre å putte dette avsnittet i \cref{ch:hadron_level}, for å få med hele det renormaliserte uttrykket}
@@ -1043,7 +1060,7 @@ There are three contributing final-state diagrams involving a virtual photon. Th
 \begin{equation}
 \begin{split}
     i\M^f_v &=
-    \frac{\alpha}{2\pi} \varepsilon_\mu(p) \frac{(2\pi\mu)^{4-d}}{i\pi^2}
+    \frac{\alpha}{2\pi} \eps_\mu(p) \frac{(2\pi\mu)^{4-d}}{i\pi^2}
     \int d^dk \Biggl\{
         \frac{k^\mu(k-k_1)\cdot(k+k_1+2k_2)}{(k^2-m_1^2)(k+k_1)^2\bigl[ (k+k_1+k_2)^2-m_2^2 \bigr]}
         \\ &\hspace{7.5em}
@@ -1059,7 +1076,7 @@ By the Ward identity, the terms proportional to $p^\mu$ will become zero when co
 Using \rednote{Denner (4.6--4.7)}, the tensor functions can be further reduced to scalar functions, and rewriting $k_2^\mu=p^\mu-k_1^\mu$ we end up with
 \begin{equation}
     i\M^f_v = -
-    \frac{\alpha}{\pi} g(\shat,m_1^2,m_2^2) k_1^\mu \varepsilon_\mu(p)  + \Bigl(\sim \varepsilon_\mu(p) p^\mu \Bigr),
+    \frac{\alpha}{\pi} g(\shat,m_1^2,m_2^2) k_1^\mu \eps_\mu(p)  + \Bigl(\sim \eps_\mu(p) p^\mu \Bigr),
 \end{equation}
 where we have collected the Passarino--Veltman functions inside the function $g$ defined by
 \begin{equation}
@@ -1085,13 +1102,13 @@ Furthermore, we can rewrite $k_1^\mu = \frac{1}{2}\bigl(p^\mu - (k_2-k_1)^\mu\bi
 \begin{align}
     2\Re\{\M^{f*}_0 \M^f_v\} &=
     \Re\Biggl\{ \frac{\alpha}{\pi} g(\shat,m_1^2,m_2^2)
-    \varepsilon_\mu(p) \varepsilon_\nu^*(p)
+    \eps_\mu(p) \eps_\nu^*(p)
     \Bigl[ (k_2-k_1)^\mu (k_2-k_1)^\nu
     + \bigl(\sim p^\mu \bigr) \Bigr] \Biggr\}
     \nonumber \\
     &= \abs{\M^f_0}^2 \, \frac{\alpha}{\pi}
     \Re\bigl\{g(\shat,m_1^2,m_2^2)\bigr\}
-    + \Bigl( \sim \varepsilon_\mu(p)\varepsilon_\nu^*(p) p^\mu \Bigr).
+    + \Bigl( \sim \eps_\mu(p)\eps_\nu^*(p) p^\mu \Bigr).
 \end{align}
 The virtual correction to the differential cross section is then
 \begin{equation}
@@ -1107,15 +1124,17 @@ The divergent terms from $g(\shat,m_1^2,m_2^2)$ are extracted in \texttt{Mathema
     \hat\sigma^f_0 \frac{\alpha}{\pi} \delta(1-z)
     &\vastl\{
         \Re\Bigl\{ g^{\mathrm{finite}}(\shat,m_1^2,m_2^2) \Bigr\}
-        -\frac{1}{\varepsilonUV}
+        -\frac{1}{\barepsUV}
         \\ &\quad
-        - \frac{1}{\varepsilonIR} \frac{\shat-m_1^2-m_2^2}{\lambda^{\frac{1}{2}}(\shat,m_1^2,m_2^2)} \log\Biggl[
+        - \frac{1}{\barepsIR} \frac{\shat-m_1^2-m_2^2}{\lambda^{\frac{1}{2}}(\shat,m_1^2,m_2^2)} \ln\Biggl[
             \frac{\shat-m_1^2-m_2^2-\lambda^{\frac{1}{2}}(\shat,m_1^2,m_2^2)}{2m_1m_2}
         \Biggr]
     \vastr\}.
 \end{split}
 \label{eq:dsigmaf_virt_dim}
 \end{equation}
+Note that we have extracted $\bareps$, not $\eps$, from the Passarino--Veltman functions, meaning that $g^{\mathrm{finite}}$ contains the finite part of $g$ as defined by the \MSbar\ scheme.
+This choice allows us to cancel a few extra terms from the real emission contribution.
 We can set $\shat=Q^2$ by exploiting the delta function, and use the dimensionless mass $\mt_i=m_i/Q$ to rewrite \cref{eq:dsigmaf_virt_dim} as
 \begin{equation}
 \begin{split}
@@ -1123,9 +1142,9 @@ We can set $\shat=Q^2$ by exploiting the delta function, and use the dimensionle
     \hat\sigma^f_0 \frac{\alpha}{\pi} \delta(1-z)
     &\vastl\{
         \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
-        -\frac{1}{\varepsilonUV}
+        -\frac{1}{\barepsUV}
         \\ &\quad
-        - \frac{1}{\varepsilonIR} \frac{1-\mt_1^2-\mt_2^2}{\lambda^{\frac{1}{2}}(1,\mt_1^2,\mt_2^2)} \log\Biggl[
+        - \frac{1}{\barepsIR} \frac{1-\mt_1^2-\mt_2^2}{\lambda^{\frac{1}{2}}(1,\mt_1^2,\mt_2^2)} \ln\Biggl[
             \frac{1-\mt_1^2-\mt_2^2-\lambda^{\frac{1}{2}}(1,\mt_1^2,\mt_2^2)}{2\mt_1\mt_2}
         \Biggr]
     \vastr\}.
@@ -1140,7 +1159,7 @@ We define the slepton's field strength renormalization $Z_\slepton$, such that $
     \delta_\slepton = -\frac{d}{dp^2} \Sigma^\slepton_2(p^2) \biggr\vert_{p^2 = m^2}.
     \label{eq:deltal_def}
 \end{equation}
-The one-loop slepton self-energy $\Sigma^\slepton_2(\pslash)$ is given by
+The one-loop slepton self-energy $\Sigma^\slepton_2(p^2)$ is given by
 \begin{align}
     i\Sigma^\slepton_2(p^2) &= \inputtikz[baseline=(i.base)]{feynman_diagrams/final_state/fs_slepton_self_energy}
     \nonumber \\
@@ -1149,7 +1168,7 @@ The one-loop slepton self-energy $\Sigma^\slepton_2(\pslash)$ is given by
     \label{eq:slepton_self_energy_diagram}
 \end{align}
 Note that we use $p$ and $m$ to denote the slepton's momentum and mass, respectively. This notation is restricted to the current discussion of the counterterm; it should not cause any confusion, as the combined quark-momentum---which also uses the notation $p$---does not appear in the present discussion.
-Expanding the numerator in \cref{eq:slepton_self_energy_diagram}, and using $2k\cdot p = (k+p)^2-m^2-k^2-p^2+m^2$, we can get rid of the loop-momentum in the denominator:
+Expanding the numerator in \cref{eq:slepton_self_energy_diagram}, and using $2k\cdot p = (k+p)^2-m^2-k^2-p^2+m^2$, we can get rid of the loop-momentum in the numerator:
 \begin{equation}
     i\Sigma^\slepton_2(p^2) = -4\pi\alpha\mu^{4-d} \int \frac{d^dk}{(2\pi)^d}\Biggl\{
         \frac{1}{k^2-m^2}
@@ -1159,7 +1178,7 @@ Expanding the numerator in \cref{eq:slepton_self_energy_diagram}, and using $2k\
     \Biggr\}.
     \label{eq:slepton_self_energy_expanded}
 \end{equation}
-The first three terms in \cref{eq:slepton_self_energy_expanded} disappear when we differentiate with respect to $\pslash$.
+The first three terms in \cref{eq:slepton_self_energy_expanded} disappear when we differentiate with respect to $p^2$.
 The remaining term is rewritten using Feynman parameterization, giving the counterterm
 \begin{equation}
     \delta_\slepton = -4\pi i\alpha\mu^{4-d} \int_0^1 dx \int \frac{d^dk}{(2\pi)^d} \frac{d}{dp^2} \frac{2(p^2+m^2)}{\bigl[k^2+(1-x)(xp^2-m^2)\bigr]^2} \Biggr\vert_{p^2=m^2}.
@@ -1170,13 +1189,13 @@ Differentiating and setting $p^2=m^2$ leaves the following integral:
 \end{equation}
 which can be solved using \rednote{schwartz loop-integrals}. In the end, we end up with the counterterm
 \begin{equation}
-    \delta_\slepton = \frac{\alpha}{2\pi} \Biggl( \frac{1}{\varepsilonUV} - \frac{1}{\varepsilonIR} \Biggr),
+    \delta_\slepton = \frac{\alpha}{2\pi} \Biggl( \frac{1}{\epsUV} - \frac{1}{\epsIR} \Biggr),
 \end{equation}
 whose contribution to the differential cross section is
 \begin{equation}
     2\Re\{\delta_\slepton\} \frac{d\hat\sigma^f_{\mathrm{LO}}}{dQ^2}
     = \hat\sigma^f_0 \delta(1-z) \frac{\alpha}{\pi}
-    \Biggl( \frac{1}{\varepsilonUV} - \frac{1}{\varepsilonIR} \Biggr).
+    \Biggl( \frac{1}{\epsUV} - \frac{1}{\epsIR} \Biggr).
 \end{equation}
 Adding the counterterm contribution to the virtual cross section in \cref{eq:dsigmaf_virt} gives
 \begin{equation}
@@ -1185,9 +1204,9 @@ Adding the counterterm contribution to the virtual cross section in \cref{eq:dsi
     \hat\sigma^f_0 \frac{\alpha}{\pi} \delta(1-z)
     &\vastl\{
         \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
-        -\frac{1}{\varepsilonIR}
+        -\frac{1}{\epsIR}
         \\ &\quad
-        - \frac{1}{\varepsilonIR} \frac{1-\mt_1^2-\mt_2^2}{\lambda^{\frac{1}{2}}(1,\mt_1^2,\mt_2^2)} \log\Biggl[
+        - \frac{1}{\epsIR} \frac{1-\mt_1^2-\mt_2^2}{\lambda^{\frac{1}{2}}(1,\mt_1^2,\mt_2^2)} \ln\Biggl[
             \frac{1-\mt_1^2-\mt_2^2-\lambda^{\frac{1}{2}}(1,\mt_1^2,\mt_2^2)}{2\mt_1\mt_2}
         \Biggr]
     \vastr\}.
@@ -1220,15 +1239,15 @@ Just like in the initial-state case in \cref{eq:dsigmai_virt_ct}, the slepton fi
 The final-state process for real photon emission is given by $\gamma^*\to\slepton_{iB}^*\slepton_{iA}\gamma$.
 There are three diagrams contributing to this process, which are shown in \cref{fig:fs_real}, and their matrix element is given by
 \begin{equation}
-    i\M^f_r = e\mu^{\frac{4-d}{2}}\varepsilon_\mu(p)\varepsilon_\rho^*(k) \Biggl\{
+    i\M^f_r = e\mu^{\frac{4-d}{2}}\eps_\mu(p)\eps_\rho^*(k) \Biggl\{
         \frac{(k_2-k_1-k)^\mu (k+2k_1)^\rho}{(k+k_1)^2-m_1^2}
         + \frac{(k_1-k_2-k)^\mu (k+2k_2)^\rho}{(k+k_2)^2-m_2^2}
         + 2g^{\mu\rho}
     \Biggr\}.
 \end{equation}
-This can be simplified by expanding the denominators, rewriting the numerators in terms of $p^\mu$ by conservation of four-momentum, and using that $k^\rho\varepsilon_\rho^*(k)=0$ for massless on-shell vector bosons, such as the emitted photon. We then find
+This can be simplified by expanding the denominators, rewriting the numerators in terms of $p^\mu$ by conservation of four-momentum, and using that $k^\rho\eps_\rho^*(k)=0$ for massless on-shell vector bosons, such as the emitted photon. We then find
 \begin{equation}
-    i\M^f_r = 2e\mu^{\frac{4-d}{2}}\varepsilon_\mu(p)\varepsilon_\rho^*(k) \Biggl\{
+    i\M^f_r = 2e\mu^{\frac{4-d}{2}}\eps_\mu(p)\eps_\rho^*(k) \Biggl\{
         \frac{(2k_2-p)^\mu k_1^\rho}{2k_1\cdot k}
         + \frac{(2k_1-p)^\mu k_2^\rho}{2k_2\cdot k}
         + g^{\mu\rho}
@@ -1245,7 +1264,7 @@ Note in particular that the Ward identity would not hold if we did not include t
 
 Taking the square of \cref{eq:Mf_emis} gives
 \begin{equation}
-    \abs{\M^f_r}^2 = -4e^2\mu^{4-d} \varepsilon_\mu(p) \varepsilon_\nu^*(p) \tilde{K}^{\mu\rho} \tilde{K}\indices{^\nu_\rho} + (\sim p^\mu,p^\nu),
+    \abs{\M^f_r}^2 = -4e^2\mu^{4-d} \eps_\mu(p) \eps_\nu^*(p) \tilde{K}^{\mu\rho} \tilde{K}\indices{^\nu_\rho} + (\sim p^\mu,p^\nu),
     \label{eq:Mf_emis_squared}
 \end{equation}
 where we have defined the tensor
@@ -1275,13 +1294,13 @@ where we in the last equality have rewritten $k_1\cdot k_2 = \frac{1}{2}(p^2-m_1
 \Cref{eq:dsigmaf_tensor} gives the differential cross section as
 \begin{equation}
     \frac{d\hat{\sigma}^f_r}{dQ^2} = \frac{8\pi^2\alpha^2}{N\shat^3}\fqliab(\shat) \biggl(p_{1\mu} p_{2\nu} + p_{1\nu} p_{2\mu} - \frac{\shat}{2}g_{\mu\nu} \biggr) L^{\mu\nu},
-    \label{eq:dsigmaf_emis_def}
+    \label{eq:_def}
 \end{equation}
 where $L^{\mu\nu}$ is given by inserting \cref{eq:Mf_emis_squared} into \cref{eq:L_munu}, giving
 \begin{equation}
     L^{\mu\nu} = -16\pi\alpha\mu^{2(4-d)} \int d\Pi_L K^{\mu\nu}.
 \end{equation}
-We have removed the terms proportional to $p^\mu$ or $p^\nu$ from \cref{eq:Mf_emis_squared}, since these disappear when contracted with the initial-state tensor in \cref{eq:dsigmaf_emis_def}.
+We have removed the terms proportional to $p^\mu$ or $p^\nu$ from \cref{eq:Mf_emis_squared}, since these disappear when contracted with the initial-state tensor in \cref{eq:_def}.
 
 By Lorentz covariance and the available tensors we know that $L^{\mu\nu}$ must have the form
 \begin{equation}
@@ -1304,7 +1323,7 @@ which can be solved for $L_1(\sqrtshat)$, giving
     \Bigr].
     \label{eq:L1_tensor}
 \end{equation}
-We could solve for $L_2$ as well, only the $L_1$ term survives when contracting with the initial-state tensor in \cref{eq:dsigmaf_emis_def} due to the Ward identity.
+We could solve for $L_2$ as well, only the $L_1$ term survives when contracting with the initial-state tensor in \cref{eq:_def} due to the Ward identity.
 
 Writing out the contractions in \cref{eq:L1_tensor}, we get
 \begin{equation}
@@ -1472,7 +1491,7 @@ We then find
 \end{align}
 The first term of the integrand is finite, and can be integrated in $d=4$ dimensions.
 
-We can insert $L^{\mu\nu}$ from \cref{eq:L_munu_emis} into the differential cross section in \cref{eq:dsigmaf_emis_def}, and rewrite it in terms of the \gls{lo} cross section in \cref{eq:sigma0f} to give
+We can insert $L^{\mu\nu}$ from \cref{eq:L_munu_emis} into the differential cross section in \cref{eq:_def}, and rewrite it in terms of the \gls{lo} cross section in \cref{eq:sigma0f} to give
 \begin{align}
 % \begin{split}
 %     \frac{d\hat{\sigma}^f_r}{dQ^2} &= -\frac{8\pi^2\alpha^2}{N\shat^3}\fqliab(\shat)
@@ -1571,525 +1590,583 @@ We can insert $L^{\mu\nu}$ from \cref{eq:L_munu_emis} into the differential cros
     \vastr\}.
 \end{split}
 \end{align}
-Inserting $d=4-2\varepsilon$ we have
+We introduce the shorthands $\lambda\equiv\lambda(1,\mt_1^2,\mt_2^2)$ and $\lambda_z\equiv\lambda(1,z\mt_1^2,z\mt_2^2)$, and insert $d=4-2\eps$, giving
 \begin{align}
 \begin{split}
     \frac{d\hat{\sigma}^f_r}{dQ^2} &=
     \hat\sigma^f_0
     \frac{\alpha}{\pi}
-    \biggl(\frac{16\pi\mu^2}{\shat}\biggr)^\varepsilon
-    \frac{\lambda^\varepsilon(1,\mt_1^2,\mt_2^2)}{\Gamma(1-\varepsilon)}
+    \biggl(\frac{16\pi\mu^2}{\shat}\biggr)^\eps
+    \frac{\lambda^\eps}{\Gamma(1-\eps)}
+    \\ &\qquad\times
     \vastl\{
-        \frac{2(1-z)}{z \lambda(1,\mt_1^2,\mt_2^2)}
-        \\ &\qquad
-        + \frac{2z^3 \lambda(1,z\mt_1^2,z\mt_2^2)}{\lambda^{\frac{3}{2}}(1,\mt_1^2,\mt_2^2)}
-        \underbrace{(1-z)^{-1-2\varepsilon} \int dx \frac{\Bigl[(\xp-x)(x-\xm)\Bigr]^{1-\varepsilon}}{(1+x)^2 (1-x)^2}}_{I_r}
+        \frac{2(1-z)}{z \lambda}
+        + \frac{2z^3 \lambda_z}{\lambda^{\frac{3}{2}}}
+        \underbrace{(1-z)^{-1-2\eps} \int dx \frac{\Bigl[(\xp-x)(x-\xm)\Bigr]^{1-\eps}}{(1+x)^2 (1-x)^2}}_{I^r}
     \vastr\}.
 \end{split}
+\label{eq:_Ir}
 \end{align}
-If we expand the integral part $I^{\mathrm{emis}}$ in $\varepsilon$, we get
+If we expand the integral part $I^r$ in $\eps$, we get
 \begin{align}
-    I_r &= (1-z)^{-1-2\varepsilon} \int dx \frac{\Bigl[(\xp-x)(x-\xm)\Bigr]^{1-\varepsilon}}{(1+x)^2 (1-x)^2}
-    \\
+    I^r &= (1-z)^{-1-2\eps} \int dx \frac{\Bigl[(\xp-x)(x-\xm)\Bigr]^{1-\eps}}{(1+x)^2 (1-x)^2}
+    \nonumber \\
     \begin{split}
-        &= \Biggl\{ -\frac{1}{2\varepsilon}\delta(1-z) + \plusdist \Biggr\}
+        &= \Biggl\{ -\frac{1}{2\eps}\delta(1-z) + \plusdist \Biggr\}
         \Biggl\{
-            \int dx \frac{(\xp-x)(x-\xm)}{(1+x)^2(1-x)^2}
+            \overbrace{\int dx \frac{(\xp-x)(x-\xm)}{(1+x)^2(1-x)^2}}^{I^r_1}
             \\ &\qquad
-            - \varepsilon \int dx \frac{(\xp-x)(x-\xm)}{(1+x)^2(1-x)^2} \log\Bigl[ (\xp-x)(x-\xm) \Bigr]
-        \Biggr\} + \mathcal{O}(\varepsilon)
+            - \eps \underbrace{\int dx \frac{(\xp-x)(x-\xm)}{(1+x)^2(1-x)^2} \ln\Bigl[ (\xp-x)(x-\xm) \Bigr]}_{I^r_2}
+        \Biggr\} + \mathcal{O}(\eps)
     \end{split}
+    \nonumber \\
+    \begin{split}
+        &= -\frac{1}{2\eps}\delta(1-z)I^r_1
+        + \plusdist I^r_1
+        + \frac{1}{2}\delta(1-z)I^r_2 + \mathcal{O}(\eps).
+    \end{split}
+    \label{eq:Ir}
+\end{align}
+Inserting this back into \cref{eq:_Ir}, and expanding the remaining $\eps$-dependent factors, we find
+\begin{equation}
+% \begin{split}
+%     \frac{d\hat\sigma^f_r}{dQ^2} &= \hat\sigma^f_0 \frac{\alpha}{\pi}
+%     \vastl\{
+%         - \frac{1}{\eps} \frac{1}{\sqrt{\lambda}} \delta(1-z) I^r_1
+%         - \frac{1}{\sqrt{\lambda}} \delta(1-z) \Biggl[
+%             \ln(4\pi)
+%             + \ln(4\lambda)
+%             + \ln\Biggl( \frac{\mu^2}{Q^2} \Biggr)
+%         \Biggr] I^r_1
+%         \\ &\hspace{5em}
+%         + \frac{1}{\sqrt{\lambda}} \delta(1-z) I^r_2
+%         + \frac{2z^3\lambda_z}{\lambda^{\frac{3}{2}}} \plusdist I^r_1
+%         + \frac{2(1-z)}{z\lambda}
+%     \vastr\} + \mathcal{O}(\eps)
+% \end{split}
+% \\
+\begin{split}
+    \frac{d\hat\sigma^f_r}{dQ^2} &= \hat\sigma^f_0 \frac{\alpha}{\pi}
+    \vastl\{
+        - \frac{\delta(1-z)}{\sqrt{\lambda}} \Biggl[
+            \Biggl(
+                \frac{1}{\widebar\eps}
+                + \ln(4\lambda)
+                + \ln\frac{\mu^2}{Q^2}
+            \Biggr) I^r_1
+            - I^r_2
+        \Biggr]
+        \\ &\qquad
+        + \frac{2}{\lambda}\plusdist \Biggl(
+            \frac{z^3\lambda_z}{\sqrt{\lambda}} I^r_1
+            + \frac{(1-z)^2}{z}
+        \Biggr)
+    \vastr\} + \mathcal{O}(\eps),
+\end{split}
+\label{eq:_Ir12}
+\end{equation}
+where we have again simplified using \cref{eq:g_1-z_plusdist_relation}.
+
+The integrals $I^r_1$ and $I^r_2$ defined in \cref{eq:Ir} are solved in Mathematica, giving
+\begin{subequations}
+\begin{align}
+    I^r_1 &= -\bigl( 1-\mt_1^2-\mt_2^2 \bigr) \ln\Biggl[
+        \frac{1-\mt_1^2-\mt_2^2-\sqrt{\lambda}}{2\mt_1\mt_2}
+    \Biggr] - \sqrt{\lambda},
+    \label{eq:Ir1}
     \\
     \begin{split}
-        &= -\frac{1}{2\varepsilon}\delta(1-z) \overbrace{\int dx \frac{(\xp-x)(x-\xm)}{(1+x)^2(1-x)^2}}^{I_r^\varepsilon}
-        + \plusdist \overbrace{\int dx \frac{(\xp-x)(x-\xm)}{(1+x)^2(1-x)^2}}^{I_r^+}
+        I^r_2 &=
+        \bigl( 1-\mt_1^2-\mt_2^2 \bigr)
+        \Biggl[
+            \Litwo\Biggl( \frac{1-\xp}{1-\xm} \Biggr) - \Litwo\Biggl( \frac{1+\xp}{1+\xm} \Biggr)
+        \Biggr]
         \\ &\qquad
-        +\frac{1}{2}\delta(1-z) \underbrace{\int dx \frac{(\xp-x)(x-\xm)}{(1+x)^2(1-x)^2} \log\Bigl[ (\xp-x)(x-\xm) \Bigr]}_{I_r^{\log}}
-        + \mathcal{O}(\varepsilon)
+        -\sqrt{\lambda}\ln(4\lambda) + i\pi\bigl( 1-\mt_1^2-\mt_2^2 \bigr) \ln\Biggl( \frac{1+\xm}{1+\xp} \Biggr)
+        \\ &\quad
+        + \frac{1}{2}\bigl( \mt_1^2-\mt_2^2 \bigr) \ln\Biggl( \frac{1-(\xm)^2}{1-(\xp)^2} \Biggr)
+        + \frac{1}{2}\ln\Biggl( \frac{(1-\xm)(1+\xp)}{(1+\xm)(1-\xp)} \Biggr)
+        \\
+        &+ \bigl( 1-\mt_1^2-\mt_2^2 \bigr) \Biggl[
+            \ln^2(1-\xm) - \ln^2(1+\xm)
+            + \ln^2(\mt_2^2) - \ln^2(\mt_1^2)
+            - \ln(4)\ln\Biggl( \frac{\mt_1}{\mt_2} \Biggr)
+        \Biggr],
     \end{split}
+    \label{eq:Ir2_def}
 \end{align}
+\end{subequations}
+where $\Litwo$ is the dilogarithm, defined by
+\begin{equation}
+    \Litwo(z) \equiv -\int_0^z \frac{\ln(1-u)}{u} \, du,
+    \label{eq:dilog}
+\end{equation}
+for $z\in\mathbb{C}$.
+The dilogarithms appearing in \cref{eq:Ir2_def} only takes real numbers $z\in\mathbb{R}$ as input, but their output is still complex-valued for $z>1$. To find only the real component of $I^r_2$, we will extract the imaginary parts of the dilogarithms.
+Recall the following relation for dilogarithms: \rednote{ref, or derive in appendix}
+\begin{equation}
+    \Litwo(z) = -\frac{\pi^2}{6} - \frac{\ln^2(-z)}{2} - \Litwo\Biggl(\frac{1}{z}\Biggr).
+\end{equation}
+This relation allows us to rewrite one of the dilogarithms appearing in \cref{eq:Ir2_def} as
+\begin{equation}
+    \Litwo\Biggl( \frac{1+\xp}{1+\xm} \Biggr) = \frac{\pi^2}{3}
+    - \frac{1}{2}\ln^2\Biggl(\frac{1+\xp}{1+\xm}\Biggr)
+    - \Litwo\Biggl(\frac{1+\xm}{1+\xp}\Biggr)
+    - i\pi\ln\Biggl( \frac{1+\xp}{1+\xm} \Biggr).
+    \label{eq:dilog_rewrite}
+\end{equation}
+From \cref{eq:xpm_lim}, it follows that $\frac{1+\xm}{1+\xp} < 1$ and $\frac{1-\xp}{1-\xm} < 1$, thus we are left with only real-valued dilogarithms. The imaginary term in \cref{eq:dilog_rewrite} cancels the imaginary term in \cref{eq:Ir2_def}, and we are left with the purely real-valued function
+\begin{equation}
+\begin{split}
+    I^r_2 &=
+    \bigl( 1-\mt_1^2-\mt_2^2 \bigr) \Biggl[
+        \Litwo\Biggl( \frac{1-\xp}{1-\xm} \Biggr)
+        + \Litwo\Biggl( \frac{1+\xm}{1+\xp} \Biggr)
+        - \frac{\pi^2}{3}
+        + \frac{1}{2}\ln^2\Biggl( \frac{1+\xp}{1+\xm} \Biggr)
+        \\ &\hspace{10em}
+        + \ln^2(1-\xm) - \ln^2(1+\xm)
+        + \ln(2\mt_1^2\mt_2^2) \ln\Biggl( \frac{\mt_2^2}{\mt_1^2} \Biggr)
+    \Biggr]
+    \\ &\qquad
+    - \sqrt{\lambda}\ln(4\lambda)
+    + \frac{1}{2}(\mt_1^2-\mt_2^2) \ln\Biggl( \frac{1-(\xm)^2}{1-(\xp)^2} \Biggr)
+    + \frac{1}{2} \ln\Biggl( \frac{(1-\xm)(1+\xp)}{(1+\xm)(1-\xp)} \Biggr).
+\end{split}
+\label{eq:Ir2}
+\end{equation}
 
+We can add the virtual cross section in \cref{eq:dsigmaf_virt_ct_dim} to the real photon emission in \cref{eq:_Ir12}, and insert the expressions for $I^r_1$ and $I^r_2$ in \cref{eq:Ir1,eq:Ir2}.
+The resulting differential cross section is
+\begin{equation}
+\begin{split}
+    \frac{d\hat\sigma^f}{dQ^2} &= \hat\sigma^f_0 \frac{\alpha}{\pi} \vastl\{
+        \frac{2}{\lambda}\plusdist \Biggl(
+            \frac{z^3\lambda_z}{\sqrt{\lambda}} I^r_1
+            + \frac{(1-z)^2}{z}
+        \Biggr)
+        \\ &\qquad
+        + \delta(1-z) \Biggl[
+            \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
+            - \frac{1}{\sqrt{\lambda}} \Biggl(
+                \ln(4\lambda)
+                + \ln\frac{\mu^2}{Q^2}
+            \Biggr) I^r_1
+            + \frac{1}{\sqrt{\lambda}} I^r_2
+        \Biggr]
+    \vastr\}.
+\end{split}
+\label{eq:dsigmaf_nlo}
+\end{equation}
+In contrast to the initial-state case in \cref{eq:dsigmai_nlo}, there are now no divergences remaining in \cref{eq:dsigmaf_nlo}.
+The final-state corrections lack the collinear divergences that appear in the initial-state, due to the massive nature of sleptons. The soft divergence cancels with the virtual diagrams as normal, and we are left with a purely finite differential cross section.
 
-% \begin{align}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &= -\frac{8\pi^2\alpha^2}{N\shat^3}\fqliab(\shat)
-%     \frac{d-2}{2} \shat^2 L_1\bigl(\sqrtshat\bigr)
-%     \nonumber \\
-%     &= -\hat\sigma^f_0 \frac{Q}{\kiabs^3} \frac{(d-1)\Gamma(d-2)}{\Gamma(\frac{d-2}{2})} \biggl(\frac{4\pi\mu^2}{Q^2}\biggr)^{\frac{d-4}{2}}\frac{1}{\lambda^{\frac{d-4}{2}}} \shat^2 L_1\bigl(\sqrtshat\bigr)
-%     \nonumber \\
-%     &= -\hat\sigma^f_0 \frac{8(d-1)\Gamma(d-2)}{\Gamma(\frac{d-2}{2}) Q^2} \biggl(\frac{4\pi\mu^2}{Q^2}\biggr)^{\frac{d-4}{2}}\frac{1}{\lambda^{\frac{d-1}{2}}} \shat^2 L_1\bigl(\sqrtshat\bigr)
-%     \nonumber \\
-%     &= -\hat\sigma^f_0 \frac{8(d-1)\Gamma(d-2)}{z\Gamma(\frac{d-2}{2})} \biggl(\frac{4\pi\mu^2}{Q^2}\biggr)^{\frac{d-4}{2}}\frac{1}{\lambda^{\frac{d-1}{2}}} \shat L_1\bigl(\sqrtshat\bigr).
-%     \label{eq:dsigma_emis_L1}
-% \end{align}
-% Furthermore, inserting \cref{eq:L1_dx} into \cref{eq:dsigma_emis_L1} gives
-% \begin{align}
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &= 
-%     -\hat\sigma^f_0 \frac{8(d-1)\Gamma(d-2)}{z\Gamma(\frac{d-2}{2})} \biggl(\frac{4\pi\mu^2}{Q^2}\biggr)^{\frac{d-4}{2}}\frac{1}{\lambda^{\frac{d-1}{2}}} \shat
-%     \frac{16\pi\alpha}{\shat(d-1)}
-%     \biggl(\frac{4\pi\mu^2}{Q^2}\biggr)^{\frac{4-d}{2}}
-%     \biggl(\frac{4\pi\mu^2}{\shat}\biggr)^{\frac{4-d}{2}}
-%     \frac{(1-z)^{d-3}}{16\pi^3 \cdot 2^d \Gamma(d-2)}
-%     \\ &\hspace{-3em} \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}}
-%     \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \nonumber \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &= 
-%     -\hat\sigma^f_0 \frac{8\Gamma(d-2)}{z\Gamma(\frac{d-2}{2})} \frac{1}{\lambda^{\frac{d-1}{2}}}
-%     \alpha
-%     \biggl(\frac{4\pi\mu^2}{\shat}\biggr)^{\frac{4-d}{2}}
-%     \frac{(1-z)^{d-3}}{\pi^2 \cdot 2^d \Gamma(d-2)}
-%     \\ &\hspace{-3em} \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}}
-%     \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \nonumber \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &= 
-%     \hat\sigma^f_0
-%     \frac{1}{z\Gamma(\frac{d-2}{2})} \frac{1}{\lambda^{\frac{d-1}{2}}}
-%     \alpha
-%     \biggl(\frac{16\pi\mu^2}{\shat}\biggr)^{\frac{4-d}{2}}
-%     \frac{(1-z)^{d-3}}{\pi^2}
-%     \\ &\hspace{-3em} \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}}
-%     \vastl\{
-%         \frac{(d-2)}{2}
-%         +\frac{2z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \end{align}
-
-% \begin{align}
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &= -\hat\sigma^f_0 \frac{8(d-1)\Gamma(d-2)}{3z\Gamma(\frac{d-2}{2})} \biggl(\frac{4\pi\mu^2}{Q^2}\biggr)^{\frac{d-4}{2}}\frac{1}{\lambda^{\frac{d-1}{2}}} \shat
-%     \\ &\qquad \times
-%     \frac{16\pi\alpha\mu^{2(4-d)}}{\shat(d-1)}
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{d-4}{2}}
-%     \biggl(\frac{\shat}{4\pi}\biggr)^{\frac{d-4}{2}}
-%     \frac{(1-z)^{d-3}}{16\pi^3 \cdot 2^d \Gamma(d-2)}
-%     \\ &\qquad \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}}
-%     \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &= \hat\sigma^f_0 \frac{8(d-1)\Gamma(d-2)}{3z\Gamma(\frac{d-2}{2})} \biggl(\frac{4\pi\mu^2}{Q^2}\biggr)^{\frac{d-4}{2}}\frac{1}{\lambda^{\frac{d-1}{2}}} \shat
-%     \nonumber \\ &\qquad \times
-%     \frac{16\pi\alpha\mu^{2(4-d)}}{\shat(d-1)}
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{d-4}{2}}
-%     \biggl(\frac{\shat}{4\pi}\biggr)^{\frac{d-4}{2}}
-%     \frac{(1-z)^{d-3}}{16\pi^3 \cdot 2^d \Gamma(d-2)}
-%     \nonumber \\ &\qquad \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}}
-%     \vastl\{
-%         (d-2)
-%         +\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \end{align}
-
-
-% \begin{align}
-%     \frac{d\hat{\sigma}^f_\mathrm{LO}}{dQ^2}
-%     &= \Biggl\{
-%         \frac{3(d-2)\Gamma\bigl(\frac{d-2}{2}\bigr)}{2(d-1)\Gamma(d-2)}
-%         \biggl(\frac{4\pi \mu^2}{Q^2}\biggr)^{\frac{4-d}{2}} \lambda^{\frac{d-4}{2}}(1,\mt_1^2,\mt_2^2)
-%     \Biggr\}
-%     \frac{8\pi\alpha^2 \kiabs^3}{3N\shat^3 Q}\fqliab(\shat)
-%     \delta(1-z)
-%     \nonumber \\
-%     &\equiv \hat{\sigma}^f_0 \delta(1-z),
-%     \label{eq:sigma0f}
-% \end{align}
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% We can insert $L^{\mu\nu}$ from \cref{eq:L_munu_emis} into the differential cross section in \cref{eq:dsigmaf_emis_def}, and rewrite it in terms of the \gls{lo} cross section in \cref{eq:sigma0f} to give
-% \begin{align}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &= 
-%     -\frac{8\pi^2\alpha^2}{N\shat^3}\fqliab(\shat) \frac{d-2}{2}
-%     \shat^2 L_1\bigl(\sqrtshat\bigr)
-%     % \nonumber \\
-%     % &= -\hat\sigma^f_0 \frac{(d-1)\pi \shat^{5/2}\Gamma(d-2)}{\kiabs^3\Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     % \biggl( \frac{\kiabs^2}{\pi\mu^2} \biggr)^{\frac{4-d}{2}} L_1\bigl(\sqrtshat\bigr).
-%     % \nonumber \\
-%     % &= -\hat\sigma^f_0 \frac{(d-1) \pi \shat^{5/2}\Gamma(d-2)}{\Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     % \frac{\kiabs^{1-d}}{\pi^{\frac{4-d}{2}}\mu^{4-d}}
-%     % L_1\bigl(\sqrtshat\bigr).
-%     % \nonumber \\
-%     % &= -\hat\sigma^f_0 \frac{(d-1) \pi^{\frac{d-2}{2}} \shat^{5/2}\Gamma(d-2)}{\Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     % \frac{\kiabs^{1-d}}{\mu^{4-d}}
-%     % L_1\bigl(\sqrtshat\bigr).
-%     % \nonumber \\
-%     % &= -\hat\sigma^f_0 \frac{(d-1) \pi^{\frac{d-2}{2}} \shat^{5/2}\Gamma(d-2)}{\Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     % \frac{1}{\mu^{4-d}}
-%     % \frac{2^{d-1}}{Q^{d-1} \lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2)}
-%     % L_1\bigl(\sqrtshat\bigr).
-%     % \nonumber \\
-%     % &= -\hat\sigma^f_0 \frac{(d-1) \pi^{\frac{d-2}{2}} Q^3\Gamma(d-2)}{z^{\frac{3}{2}}\Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     % \frac{1}{\mu^{4-d}}
-%     % \frac{2^{d-1}}{Q^{d-1} \lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2)}
-%     % \shat L_1\bigl(\sqrtshat\bigr).
-%     % \nonumber \\
-%     % &= -\hat\sigma^f_0 \frac{(d-1) \Gamma(d-2)}{z^{\frac{3}{2}}\Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     % \frac{1}{\mu^{4-d}}
-%     % \frac{1}{\lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2)}
-%     % \frac{8\pi Q^{4-d}}{2^{4-d}\pi^{\frac{4-d}{2}}}
-%     % \shat L_1\bigl(\sqrtshat\bigr).
-%     % \nonumber \\
-%     % &= -\hat\sigma^f_0 \frac{(d-1) \Gamma(d-2)}{z^{\frac{3}{2}}\Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     % \frac{1}{\mu^{4-d}}
-%     % \frac{1}{\lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2)}
-%     % 8\pi \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{4-d}{2}}
-%     % \shat
-%     % L_1\bigl(\sqrtshat\bigr).
-%     \nonumber \\
-%     &= -\hat\sigma^f_0 \frac{8\pi}{\lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{4-d}{2}}
-%     \frac{\shat (d-1) \Gamma(d-2)}{z^{3/2}\mu^{4-d}}
-%     L_1\bigl(\sqrtshat\bigr).
-% \end{align}
-% Furthermore, we insert \cref{eq:L1_x} to get
-% \begin{align}
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2}
-%     &= -\hat\sigma^f_0
-%     \frac{8\pi}{\lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{4-d}{2}}
-%     \frac{\shat (d-1) \Gamma(d-2)}{z^{3/2}\mu^{4-d}}
-%     \frac{16\pi\alpha\mu^{2(4-d)}}{\shat(d-1)}
-%     \\ &\qquad \times
-%     \int d\Pi_L \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2}
-%     &= -\hat\sigma^f_0
-%     \frac{8\pi}{\lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{4-d}{2}}
-%     \frac{\Gamma(d-2)}{z^{3/2}}
-%     16\pi\alpha\mu^{4-d}
-%     \\ &\qquad \times
-%     \int d\Pi_L \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2}
-%     &= -\hat\sigma^f_0
-%     \frac{8 \cdot 16\pi^2 \alpha \mu^{4-d} \Gamma(d-2)}{z^{3/2} \lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{4-d}{2}}
-%     \\ &\qquad \times
-%     \int d\Pi_L \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \label{eq:dsigmaf_emis_0}
-% \end{align}
-% The phase space $d\Pi_L$ can be recognized by removing $dQ^2$ from \cref{eq:dPi_13}, as described in \cref{eq:dPi_L_def}, giving
-% \begin{equation}
-%     d\Pi_L =
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{d-4} \frac{z^{\frac{4-d}{2}} (1-z)^{d-3}}{16\pi^3 \cdot 2^d \Gamma(d-2)}
-%     \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}} dx
-%     % \label{eq:dPi_L_x}
-% \end{equation}
-% \begin{equation}
-%     d\Pi_L =
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{d-4}{2}} \biggl(\frac{\shat}{4\pi}\biggr)^{\frac{d-4}{2}} \frac{(1-z)^{d-3}}{16\pi^3 \cdot 2^d \Gamma(d-2)}
-%     \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}} dx
-%     \label{eq:dPi_L_x}
-% \end{equation}
-% where the integration limits on $x$ were given in \cref{eq:xpm}. Inserting this into \cref{eq:dsigmaf_emis_0} gives
-% \begin{align}
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2}
-%     &= -\hat\sigma^f_0
-%     \frac{8 \cdot 16\pi^2 \alpha \mu^{4-d} \Gamma(d-2)}{z^{3/2} \lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{4-d}{2}}
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{d-4} \frac{z^{\frac{4-d}{2}} (1-z)^{d-3}}{16\pi^3 \cdot 2^d \Gamma(d-2)}
-%     \\ &\qquad \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}} \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \nonumber \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2}
-%     &= -\hat\sigma^f_0
-%     \frac{\alpha \Gamma(d-2)}{2z^{3/2} \lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     % \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{4-d}{2}}
-%     % \biggl(\frac{Q^2}{4\pi}\biggr)^{d-4}
-%     \biggl( \frac{16\pi\mu^2}{Q^2} \biggr)^{\frac{4-d}{2}}
-%     \frac{z^{\frac{4-d}{2}} (1-z)^{d-3}}{\pi \Gamma(d-2)}
-%     \\ &\qquad \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}} \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \nonumber \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2}
-%     &= -\hat\sigma^f_0
-%     \frac{\alpha}{2 z^{\frac{d-1}{2}} \lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl( \frac{16\pi\mu^2}{Q^2} \biggr)^{\frac{4-d}{2}}
-%     \frac{(1-z)^{d-3}}{\pi}
-%     \\ &\qquad \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}} \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \nonumber \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2}
-%     &= \hat\sigma^f_0
-%     \frac{\alpha}{z^{\frac{d-1}{2}} \lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl( \frac{16\pi\mu^2}{Q^2} \biggr)^{\frac{4-d}{2}}
-%     \frac{(1-z)^{d-3}}{\pi}
-%     \\ &\qquad \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}} \vastl\{
-%         \frac{d-2}{2}
-%         +\frac{2z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \end{align}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \begin{align}
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2}
-%     &= -\hat\sigma^f_0
-%     \frac{8 \cdot 16\pi^2 \alpha \mu^{4-d} \Gamma(d-2)}{z^{3/2} \lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{4-d}{2}}
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{d-4} \frac{z^{\frac{4-d}{2}} (1-z)^{d-3}}{16\pi^3 \cdot 2^d \Gamma(d-2)}
-%     \\ &\qquad \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}} \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \nonumber \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2}
-%     &= -\hat\sigma^f_0
-%     \frac{\alpha \Gamma(d-2)}{2z^{3/2} \lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     % \biggl(\frac{Q^2}{4\pi}\biggr)^{\frac{4-d}{2}}
-%     % \biggl(\frac{Q^2}{4\pi}\biggr)^{d-4}
-%     \biggl( \frac{16\pi\mu^2}{Q^2} \biggr)^{\frac{4-d}{2}}
-%     \frac{z^{\frac{4-d}{2}} (1-z)^{d-3}}{\pi \Gamma(d-2)}
-%     \\ &\qquad \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}} \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \nonumber \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2}
-%     &= -\hat\sigma^f_0
-%     \frac{\alpha}{2 z^{\frac{d-1}{2}} \lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl( \frac{16\pi\mu^2}{Q^2} \biggr)^{\frac{4-d}{2}}
-%     \frac{(1-z)^{d-3}}{\pi}
-%     \\ &\qquad \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}} \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \nonumber \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2}
-%     &= \hat\sigma^f_0
-%     \frac{\alpha}{z^{\frac{d-1}{2}} \lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2) \Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl( \frac{16\pi\mu^2}{Q^2} \biggr)^{\frac{4-d}{2}}
-%     \frac{(1-z)^{d-3}}{\pi}
-%     \\ &\qquad \times
-%     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}} \vastl\{
-%         \frac{d-2}{2}
-%         +\frac{2z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \end{align}
-
-
-
-
-% \begin{align}
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &=
-%     -\hat\sigma^f_0 \frac{(d-1)\pi \shat^{5/2}\Gamma(d-2)}{\kiabs^3\Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl( \frac{\kiabs^2}{\pi\mu^2} \biggr)^{\frac{4-d}{2}}
-%     \frac{16\pi\alpha\mu^{2(4-d)}}{\shat(d-1)}
-%     \\ &\qquad \times
-%     \int d\Pi_L \vastl\{
-%         (2-d)
-%         -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &=
-%     \hat\sigma^f_0 \frac{16\pi^2\alpha\mu^{4-d} \shat^{3/2}\Gamma(d-2)}{\kiabs^3\Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl( \frac{\kiabs^2}{\pi} \biggr)^{\frac{4-d}{2}}
-%     \\ &\qquad \times
-%     \int d\Pi_L \vastl\{
-%         (d-2)
-%         +\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \label{eq:dsigmaf_emis_0}
-% \end{align}
-% The phase space $d\Pi_L$ can be recognized by removing $dQ^2$ from \cref{eq:dPi_13}, as described in \cref{eq:dPi_L_def}, giving
-% \begin{equation}
-%     d\Pi_{1\to3} =
-%     \biggl(\frac{Q^2}{4\pi}\biggr)^{d-4} \frac{z^{\frac{4-d}{2}} (1-z)^{d-3}}{16\pi^3 \cdot 2^d \Gamma(d-2)}
-%     \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}}
-%     dx dQ^2
-%     \label{eq:dPi_L_x}
-% \end{equation}
-% where the integration limits on $x$ were given in \cref{eq:xpm}.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%
-
-% The first term in the integrand of \cref{eq:dsigmaf_emis_0} is finite, and can be integrated trivially in $d=4$ dimensions, while the second term requires some more care.
-% \begin{align}
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &=
-%     \hat\sigma^f_0 \frac{16\pi^2\alpha\mu^{4-d} \shat^{3/2}\Gamma(d-2)}{\kiabs^3\Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \biggl( \frac{\kiabs^2}{\pi} \biggr)^{\frac{4-d}{2}}
-%     \frac{\lambda^{\frac{3-d}{2}}(1,\mt_1^2,\mt_2^2)}{8z(2\pi)^{d-1} \Gamma(d-2)} \frac{\omega^{d-3}\kiabs^{d-3}}{\sqrtshat Q}
-%     \\ &\qquad \times
-%     \int dx
-%     \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}}
-%     \vastl\{
-%         (d-2)
-%         +\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \\
-% \begin{split}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &=
-%     \hat\sigma^f_0
-%     \frac{\alpha}{\pi} \biggl( \frac{16\pi\mu^2}{Q^2} \biggr)^{\frac{4-d}{2}} \frac{(1-z)^{d-3}}{z^{\frac{d+1}{2}}\lambda^{\frac{d-1}{2}}(1,\mt_1^2,\mt_2^2)\Gamma\bigl(\frac{d-2}{2}\bigr)}
-%     \\ &\qquad \times
-%     \int dx
-%     \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}}
-%     \vastl\{
-%         (d-2)
-%         +\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
-%         (\xp-x)(x-\xm)
-%     \vastr\}.
-% \end{split}
-% \end{align}
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% \begin{align}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} &= \frac{8\pi^2\alpha^2}{N\shat^3}\fqliab(\shat) \biggl(p_{1\mu} p_{2\nu} + p_{1\nu} p_{2\mu} - \frac{\shat}{2}g_{\mu\nu} \biggr) \shat g^{\mu\nu} L_1\bigl(\sqrtshat\bigr)
-%     \\
-%     &= \frac{8\pi^2\alpha^2}{N\shat^3}\fqliab(\shat) \biggl(\shat - \frac{d}{2}\shat \biggr) \shat L_1\bigl(\sqrtshat\bigr)
-%     \\
-%     &= -\frac{8\pi^2\alpha^2}{N\shat^3}\fqliab(\shat) \frac{d-2}{2} \shat^2 L_1\bigl(\sqrtshat\bigr)
-%     \\
-%     &= -\frac{8\pi\alpha^2\kiabs^3}{3N\shat^{7/2}}\fqliab(\shat) \frac{d-2}{2} \shat^2 L_1\bigl(\sqrtshat\bigr) \frac{3\pi\sqrtshat}{\kiabs^3}
-%     \\
-%     &= -\frac{8\pi\alpha^2\kiabs^3}{3N\shat^{7/2}}\fqliab(\shat)
-%     \frac{3(d-2)\Gamma(\frac{d-2}{2})}{2(d-1)\Gamma(d-2)} \Biggl(\frac{\pi\mu^2}{\kiabs^2}\Biggr)^{\frac{4-d}{2}} 
-%     \shat^2 \frac{(d-1)\pi\sqrtshat\Gamma(d-2)}{\kiabs^3\Gamma(\frac{d-2}{2})}\Biggl(\frac{\kiabs^2}{\pi\mu^2}\Biggr)^{\frac{d-4}{2}}
-%     L_1\bigl(\sqrtshat\bigr)
-%     \\
-%     &= -\hat\sigma^f_0
-%     \frac{(d-1)\pi\shat^{3/2}\Gamma(d-2)}{\kiabs^3\Gamma(\frac{d-2}{2})}\Biggl(\frac{\kiabs^2}{\pi\mu^2}\Biggr)^{\frac{d-4}{2}}
-%     \shat L_1\bigl(\sqrtshat\bigr)
-% \end{align}
-
-
-
-% \begin{equation}
-%     \frac{d\hat{\sigma}^f_r}{dQ^2} = \frac{8\pi^2\alpha^2}{N\shat^3}\fqliab(\shat) \biggl(p_{1\mu} p_{2\nu} + p_{1\nu} p_{2\mu} - \frac{\shat}{2}g_{\mu\nu} \biggr) L^{\mu\nu},
-%     % \label{eq:dsigmaf_emis_def}
-% \end{equation}
-
-% \begin{align}
-%     \hat{\sigma}^f_\mathrm{LO} &= \frac{8\pi^2\alpha^2}{N\shat^3}\fqliab(\shat)
-%     2\shat \kiabs^2
-%     \frac{\kiabs}{6\pi\sqrtshat}
-%     \frac{3(d-2)\Gamma\bigl(\frac{d-2}{2}\bigr)}{2(d-1)\Gamma(d-2)}
-%     \biggl(\frac{\pi \mu^2}{\kiabs^2}\biggr)^{\frac{4-d}{2}}
-%     \\
-%     \frac{d\hat{\sigma}^f_\mathrm{LO}}{dQ^2}
-%     &= \Biggl\{
-%         \frac{3(d-2)\Gamma\bigl(\frac{d-2}{2}\bigr)}{2(d-1)\Gamma(d-2)}
-%         \biggl(\frac{\pi \mu^2}{\kiabs^2}\biggr)^{\frac{4-d}{2}}
-%     \Biggr\}
-%     \frac{8\pi\alpha^2 \kiabs^3}{3N\shat^{7/2}}\fqliab(\shat)
-%     \delta(1-z)
-%     \\
-%     &\equiv \hat{\sigma}^f_0 \delta(1-z),
-% \end{align}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Interference corrections %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Initial--Final-State Interference}\label{sec:interference_diagrams}
-\subsubsection{Box Diagrams}
+
+The method of factoring the cross section that we introduced in \cref{sec:factorization}, and have exploited in \cref{sec:initial_state,sec:final_state}, breaks down for the corrections we encounter in the present section.
+We therefore have to consider the full matrix element for the $q\widebar{q} \to \slepton_{iB}^*\slepton_{iA}(+\gamma)$ in the calculations that follow.
+This complicates the expressions significantly, and in principle one would have to deal with complications arising from dealing with the full phase space integration for a $2\to3$ scattering process.
+Luckily, using some clever trickery, we will find that the initial--final-state contribution turns out to be surprisingly simple.
+
+
+\subsubsection{Virtual Contribution}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.8\linewidth}
+        \centering
+        \inputtikz[baseline=(v.base)]{feynman_diagrams/interference/triangle}
+        \caption{}
+        \label{fig:ifs_triangle}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \inputtikz[baseline=(v.base)]{feynman_diagrams/interference/box_t}
+        \caption{}
+        \label{fig:ifs_box_t}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \inputtikz[baseline=(v.base)]{feynman_diagrams/interference/box_u}
+        \caption{}
+        \label{fig:ifs_box_u}
+    \end{subfigure}
+    \caption{Feynman diagrams for virtual corrections that are not factorizable. From top-left to bottom-right they are the triangle diagram, and the $t$- and $u$-style box diagrams, and the two vector bosons appearing in each diagram can be two photons or one photon and one $Z$~boson.}
+    \label{fig:interference_diagrams}
+\end{figure}
+
+We start of with the virtual contribution, which we subdivide into two categories, the triangle- and box diagrams, shown in \cref{fig:interference_diagrams}.\footnote{Sticking to pure \gls{qed} corrections, where only a photon is added to the \gls{lo} diagram in \cref{fig:M_lo}, we do not include the diagrams involving two $Z$~bosons.}
+Consider first the triangle diagrams in \cref{fig:ifs_triangle}. The matrix element for the diagram with two photons is proportional to
+\begin{equation}
+    \int d^dk \frac{\widebar{v}_2  \gamma^\mu(\kslash+\poneslash)\gamma_\mu u_1}{k^2(k+p_1)^2(k+p_1+p_2)^2}
+    % \nonumber \\ &\qquad =
+    % 2(2-d) \int_0^1 dx \int_0^{1-x} dy \int d^dk \frac{\widebar{v}_2 \kslash u_1}{\Bigl[
+    %     x(k+p_1)^2+y(k+p_1+p_2)^2+(1-x-y)k^2
+    % \Bigr]^3}
+    % \nonumber \\ &\qquad =
+    % 2(2-d) \int_0^1 dx \int_0^{1-x} dy \int d^dk \frac{\widebar{v}_2 \kslash u_1}{\Bigl[
+    %     k^2 +2xk\cdot p_1+ 2yk\cdot(p_1+p_2)
+    % \Bigr]^3}
+    % \nonumber \\ &\qquad =
+    % 2(2-d) \int_0^1 dx \int_0^{1-x} dy \int d^dk \frac{\widebar{v}_2 \kslash u_1}{\Bigl[
+    %     \bigl(k+xp_1+y(p_1+p_2)\bigr)^2
+    %     -y(x+y)\shat
+    % \Bigr]^3}
+    % \\ &\qquad =
+    = 2(2-d) \int_0^1 dx \int_0^{1-x} dy \int d^dk \frac{\widebar{v}_2 \kslash u_1}{\bigl[
+        k^2 - y(x+y)\shat
+    \bigr]^3},
+    \label{eq:triangle_loop_integral}
+\end{equation}
+where we have introduced the Feynman parameters $x$ and $y$, removed $\poneslash$ and $\ptwoslash$ from the numerator by the Dirac equation, and shifted $k \to k-xp_1-y(p_1+p_2)$.
+The resulting integrand is antisymmetric, and thus the integral is zero.
+Changing one of the photons into a $Z$~boson adds a (complex) mass in the denominator, and a $\gamma^5$ to the numerator. These changes do not affect the argument made above, and the resulting integrals are also zero.
+It should be noted, however, that this argument assumes massless quarks. If we include quark masses, the Dirac equation will not simply remove $\poneslash$ and $\ptwoslash$ in \cref{eq:triangle_loop_integral}, but give contributions proportional to the quark masses.
+These contributions are, nevertheless, suppressed by the \gls{com} energy $\shat$ in the denominator, and are thus negligible.
+We can therefore continue to work in the ultra-relativistic regime where the quark masses are set to zero, and consequently, the triangle diagrams in \cref{fig:ifs_triangle} do not contribute.
+
+Next, we turn to the box diagrams in \cref{fig:ifs_box_t,fig:ifs_box_u}, which require a bit more care. We will denote the matrix elements by $i\M_{VV'}$ where the subscripts $V$ and $V'$ denote the upper- and lower vector bosons in the box diagrams, respectively, i.e.\ such that
+\begin{equation}
+    i\M_{\gamma\gamma/\gamma Z/Z\gamma} =
+    \inputtikz[baseline=(m.base)]{feynman_diagrams/interference/simple_box_t}
+    + \inputtikz[baseline=(m.base)]{feynman_diagrams/interference/simple_box_u}.
+\end{equation}
+The matrix element for the diagrams with two photons is then\footnote{Recall that the photon does not mix the mass eigenstates of the outgoing sleptons, so $m_1=m_2$ in this case.}
+\begin{equation}
+\begin{split}
+    i\M_{\gamma\gamma} &= i\alpha^2 Q_q^2 \delta^{AB} \mu^{4-d}
+    \\ &\quad \times
+    \vastl\{
+        \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk
+        \frac{\widebar{v}_2(\kslash+\koneslash-\ktwoslash)(\kslash+\poneslash)(\kslash+2\koneslash)u_1}{k^2(k+p_1)^2(k+p_1+p_2)^2\bigl[(k+k_1)^2-m_1^2\bigr]}
+        + (k_1 \leftrightarrow k_2)
+    \vastr\}.
+\end{split}
+\end{equation}
+We can simplify the numerator using Dirac algebra and the Dirac equation, and after recognizing the tensorial Passarino--Veltman functions in \rednote{ref PV} we get
+\begin{equation}
+% \begin{split}
+%     i\M_{\gamma\gamma} &= i\alpha^2 Q_q^2 \delta^{AB} \mu^{4-d} \vastl\{
+%         \widebar{v}_2\gamma^\rho u_1 g^{\mu\nu} D^{\gamma\gamma}_{\mu\nu\rho}
+%         + 2\Bigl(
+%             2\widebar{v}_2\koneslash u_1 g^{\mu\nu} + p_1^\mu \widebar{v}_2\gamma^\nu u_1
+%         \Bigr) D^{\gamma\gamma}_{\mu\nu}
+%         \\ &\hspace{-1em}
+%         + 4\Bigl(
+%             2k_1^\mu \widebar{v}_2 \koneslash u_1 + (2p_1\cdot k_1 - m_1^2) \widebar{v}_2 \gamma^\mu u_1
+%         \Bigr) D^{\gamma\gamma}_\mu
+%         + 8(p_1\cdot k_1) \widebar{v}_2\koneslash u_1 D^{\gamma\gamma}_0
+%         + (k_1 \leftrightarrow k_2)
+%     \vastr\},
+% \end{split}
+\begin{split}
+    i\M_{\gamma\gamma} &= -\frac{i\alpha^2 Q_q \zliab \mu^{4-d}}{s_W^2c_W^2} \biggl\{
+        \widebar{v}_2\gamma^\rho u_1 g^{\mu\nu} D^{\gamma\gamma}_{\mu\nu\rho}
+        + 2\Bigl(
+            2\widebar{v}_2\koneslash u_1 g^{\mu\nu} + p_1^\mu \widebar{v}_2\gamma^\nu u_1
+        \Bigr) D^{\gamma\gamma}_{\mu\nu}
+        % \\ &\hspace{-1em}
+        \\ &\qquad
+        + 4\Bigl(
+            2k_1^\mu \widebar{v}_2 \koneslash u_1 - \that \widebar{v}_2 \gamma^\mu u_1
+        \Bigr) D^{\gamma\gamma}_\mu
+        - 4(\that-m_1^2) \widebar{v}_2\koneslash u_1 D^{\gamma\gamma}_0
+        + (k_1 \leftrightarrow k_2)
+    \biggr\},
+\end{split}
+\label{eq:M_box_photon}
+\end{equation}
+where the four-point Passarino--Veltman functions were defined in \rednote{ref PV}, and we have defined the Mandelstam variables\footnote{This definition differs from the initial-state case in \cref{eq:is_mandelstam}. In both cases it denotes the standard Mandelstam $\that$ for the relevant $2\to2$~scattering, so reusing the notation should not cause confusion.}
+\begin{equation}
+    \that \equiv (p_1-k_1)^2, \quad \uhat \equiv (p_2-k_1)^2,
+    \label{eq:box_mandelstam}
+\end{equation}
+The arguments of the Passarino--Veltman functions are given by the superscript, as defined in \cref{tab:D_arguments}, where $\mu_Z^2 \equiv m_Z^2-im_Z\Gamma_Z$ is the $Z$-boson mass in the complex-mass scheme.
+The matrix elements for the box diagrams containing one photon and one $Z$~boson are found in the same way as \cref{eq:M_box_photon}, resulting in
+\begin{equation}
+\begin{split}
+    i\M_{\gamma Z/Z\gamma} &= -\frac{i\alpha^2 Q_q \zliab \mu^{4-d}}{s_W^2c_W^2} \biggl\{
+        - 4(\that-m_1^2) \widebar{v}_2\koneslash\Gamma^5 u_1 D^{\gamma Z/Z\gamma}_0
+        \\ &\qquad
+        + 2\Bigl(
+            2\widebar{v}_2\koneslash\Gamma^5 u_1 g^{\mu\nu} + p_1^\mu \widebar{v}_2\gamma^\nu\Gamma^5 u_1
+        \Bigr) D^{\gamma Z/Z\gamma}_{\mu\nu}
+        \\
+        &+ 4\Bigl(
+            2k_1^\mu \widebar{v}_2 \koneslash\Gamma^5 u_1 - \that \widebar{v}_2 \gamma^\mu\Gamma^5 u_1
+        \Bigr) D^{\gamma Z/Z\gamma}_\mu
+        \widebar{v}_2\gamma^\rho\Gamma^5 u_1 g^{\mu\nu} D^{\gamma Z/Z\gamma}_{\mu\nu\rho}
+        + (k_1 \leftrightarrow k_2)
+    \biggr\}.
+\end{split}
+\label{eq:M_box_photon_Z}
+\end{equation}
+
+\begin{table}[t]
+    \centering
+    \caption{Shorthands for four-point Passarino--Veltman functions appearing in box diagrams, and their respective arguments.}
+    \label{tab:D_arguments}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{|c|c|}
+        \hline
+        Function & Arguments
+        \\\hline
+        $D^{\gamma\gamma}$ & $(0,0,m_2^2,m_1^2,\shat,\that; 0,0,0,m_1^2)$
+        \\
+        $D^{\gamma Z}$ & $(0,0,m_2^2,m_1^2,\shat,\that; 0,0,\mu_Z^2,m_1^2)$
+        \\
+        $D^{Z\gamma}$ & $(0,0,m_2^2,m_1^2,\shat,\that; \mu_Z^2,0,0,m_2^2)$
+        \\\hline
+    \end{tabular}
+\end{table}
+
+The tensorial Passarino--Veltman functions appearing in \cref{eq:M_box_photon,eq:M_box_photon_Z} can be reduced to scalar functions using the expressions given in \rednote{ref PV tensor reduction}.
+We can then recognize the \gls{lo} matrix elements, which are found from \cref{fig:M_lo}, given by
+\begin{align}
+    \M^{\mathrm{LO}}_\gamma &= \frac{8\pi\alpha Q_q \delta^{AB} \mu^{4-d}}{\shat} \widebar{v}_2 \koneslash u_1,
+    \\
+    \M^{\mathrm{LO}}_Z &= -\frac{8\pi\alpha\zliab \mu^{4-d}}{s_W^2c_W^2} \frac{1}{\shat-\mu_Z^2} \widebar{v}_2 \koneslash \Gamma^5 u_1.
+    \label{eq:M_lo}
+\end{align}
+After tensor reduction, the amplitudes for the box diagrams become
+\begin{subequations}
+\begin{align}
+    \M_{\gamma\gamma} &= \M^{\mathrm{LO}}_\gamma \frac{\shat\alpha Q_q}{8\pi} \Delta^{\gamma\gamma},
+    \\
+    \M_{\gamma Z/Z\gamma} &= \M^{\mathrm{LO}}_Z \frac{(\shat-\mu_Z^2)\alpha Q_q}{8\pi} \Delta^{\gamma Z/Z\gamma},
+\end{align}
+\end{subequations}
+where we have defined
+\begin{equation}
+\begin{split}
+    \Delta &= \Bigl[
+        (d+2)D_{003} + \shat(D_{123}+D_{223})
+        - (\that-m_1^2)D_{133} - (\that+\uhat-2m_1^2)D_{233} + m_1^2D_{333}
+    \Bigr]
+    \\ &\qquad
+    + 4 \Bigl[
+        dD_{00} + \shat(D_{12}+D_{22})
+        - (\that-m_1^2)D_{13} - (\that+\uhat-2m_1^2) D_{23} + m_1^2D_{33}
+    \Bigr]
+    \\ &\qquad\qquad
+    + \Bigl[
+        \shat D_{23} - (\that-m_1^2)D_{33}
+    \Bigr] - 4\Bigl[
+        (\that-m_1^2)D_1 + (\that+\uhat-2m_1^2)D_2 + 2m_1^2 D_3
+    \Bigr]
+    \\ &\qquad\qquad\qquad
+    - 4 \that D_3 - 4(\that-m_1^2) D_0
+    - (k_1 \leftrightarrow k_2),
+\end{split}
+\end{equation}
+and the superscripts on $\Delta$ are passed on to the $D$-functions.
+Note in particular here that we have changed the sign in front of $(k_1 \leftrightarrow k_2)$. This was done by factoring out $\widebar{v}_2\koneslash u_1$, which appears in all terms, and realizing that the interchange of $k_1$ and $k_2$ changes this to $\widebar{v}_2\ktwoslash u_1 = -\widebar{v}_2\koneslash u_1$, after applying the Dirac equation.
+
+The interference between box- and \gls{lo} amplitudes give
+\begin{subequations}
+\begin{align}
+    \overline{\M^{\mathrm{LO}*}\M_{\gamma\gamma}} &= \Bigl(
+        \overline{\abs{\M^{\mathrm{LO}}_\gamma}^2} + \overline{\M^{\mathrm{LO}*}_Z \M^{\mathrm{LO}}_\gamma}
+    \Bigr) \frac{\shat\alpha Q_q}{8\pi} \Delta^{\gamma\gamma},
+    \\
+    \overline{\M^{\mathrm{LO}*}\M_{\gamma Z/Z\gamma}} &= \Bigl(
+        \overline{\M^{\mathrm{LO}*}_\gamma \M^{\mathrm{LO}}_Z} + \overline{\abs{\M^{\mathrm{LO}}_Z}^2}
+    \Bigr) \frac{(\shat-\mu_Z^2)\alpha Q_q}{8\pi} \Delta^{\gamma Z/Z\gamma}.
+\end{align}
+\label{eq:M_box_interference}
+\end{subequations}
+When taking the spin- and color averaged square of the \gls{lo} amplitude, and removing Dirac traces containing a single $\gamma^5$ matrix, we find that all the terms are proportional to $\Tr\bigl[ \ptwoslash\koneslash\poneslash\koneslash \bigr]$, which is symmetric under the interchange $(k_1 \leftrightarrow k_2)$.\footnote{Remember that $\koneslash=\poneslash+\ptwoslash-\ktwoslash$. Since $\poneslash^2=\ptwoslash^2=0$, we are left with only $-\ktwoslash$, and since there are two of them in the trace, the minus-signs cancel.}
+Since $\Delta$ is antisymmetric under the interchange of $k_1$ and $k_2$, the box diagram interferences in \cref{eq:M_box_interference} are also antisymmetric.
+Thus when integrating over the two-body phase space to get the box diagrams' cross section contribution, the integrand is antisymmetric under the interchange of integration variables $k_1$ and $k_2$, and we find---just as we did for the triangle diagrams---that the contribution from box diagrams is zero.
+
+
 \subsubsection{Real Photon Emission}
 
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \inputtikz{feynman_diagrams/interference/ifs_emis_q}
+        \caption{}
+        \label{fig:ifs_emis_q}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \inputtikz{feynman_diagrams/interference/ifs_emis_qbar}
+        \caption{}
+        \label{fig:ifs_emis_qbar}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \inputtikz{feynman_diagrams/interference/ifs_emis_B}
+        \caption{}
+        \label{fig:ifs_emis_B}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \inputtikz{feynman_diagrams/interference/ifs_emis_A}
+        \caption{}
+        \label{fig:ifs_emis_A}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \inputtikz{feynman_diagrams/interference/ifs_emis_4}
+        \caption{}
+        \label{fig:ifs_emis_4}
+    \end{subfigure}
+    \caption{Feynman diagrams for real photon emission without factorization. The top two diagrams show emission from the initial-state, and the bottom three show emission from the final-state.}
+    \label{fig:ifs_emis}
+\end{figure}
+
+The non-factored Feynman diagrams for real photon emission are shown in \cref{fig:ifs_emis}, where \cref{fig:ifs_emis_q,fig:ifs_emis_qbar} show initial-state emission, and the final-state emission diagrams are displayed in \cref{fig:ifs_emis_B,fig:ifs_emis_A,fig:ifs_emis_4}.
+We denote the matrix elements for initial- and final-state emission by $\M^q$ and $\M^\slepton$, respectively, and after some simplifications using conservation of four-momentum and the Dirac equation, we find
+\begin{subequations}
+\begin{align}
+    i\M^q &= \frac{1}{2}e^3Q_q\mu^{\frac{3(4-d)}{2}} (k_2-k_1)_\mu \eps_\nu^*(k)
+    \Biggl\{
+        \frac{Q_q\delta^{AB}}{Q^2} \widebar{v}_2 S^{\mu\nu} u_1
+        - \frac{\zliab}{s_W^2c_W^2(Q^2-\mu_Z^2)} \widebar{v}_2 S^{\mu\nu} \Gamma^5 u_1
+    \Biggr\},
+    \\
+    i\M^\slepton &= -2e^3\mu^{\frac{3(4-d)}{2}} \eps^{*\nu}(k) \Bigl( T_{\mu\nu} + g_{\mu\nu} \Bigr)
+    \Biggl\{
+        \frac{Q_q\delta^{AB}}{\shat} \widebar{v}_2\gamma^\mu u_1
+        - \frac{\zliab}{s_W^2c_W^2(\shat-\mu_Z^2)} \widebar{v}_2\gamma^\mu\Gamma^5 u_1
+    \Biggr\},
+\end{align}
+\end{subequations}
+where
+\begin{equation}
+    S^{\mu\nu} \equiv \gamma^\mu \frac{\poneslash-\kslash}{p_1\cdot k} \gamma^\nu
+    - \gamma^\nu \frac{\ptwoslash-\kslash}{p_2\cdot k} \gamma^\mu
+    \quad \text{and} \quad
+    T^{\mu\nu} \equiv \frac{k_2^\mu k_1^\nu}{k_1\cdot k} + (k_1 \leftrightarrow k_2).
+\end{equation}
+We can show---remembering that Dirac traces with a single $\gamma^5$ matrix gives zero---that the interference between initial- and final-state emission is proportional to
+% \footnote{The prefactor is not really relevant, so we only include the factor dependent on $k_i$ here.}
+\begin{align}
+    \overline{\M^q\M^{\slepton*}} &\propto (k_2-k_1)_\mu T_{\rho\nu} \Tr\Bigl[
+        \ptwoslash S^{\mu\nu} \poneslash \gamma^\rho
+    \Bigr]
+    \nonumber \\
+    &= \Biggl\{
+        \frac{1}{(p_1\cdot k)(k_1\cdot k)}
+        \Tr\Bigl[ \ptwoslash(\ktwoslash-\koneslash)(\poneslash-\kslash)\koneslash\poneslash\ktwoslash \Bigr]
+        - (p_1 \leftrightarrow p_2)
+    \Biggr\} - (k_1 \leftrightarrow k_2).
+\end{align}
+Thus $\overline{\M^q\M^{\slepton*}}$ is antisymmetric under the interchange of $k_1$ and $k_2$, while the three-body phase space, stated in its general form in \cref{eq:dPi_3_general}, is symmetric. When integrating over the phase space to acquire the cross section contribution, we therefore get zero, just as we did for the box diagrams.
+
+
+
 \section{Summary}
+
+In the preceding section we have calculated the partonic cross section for slepton pair production at \gls{nlo} in \gls{qed}. For the reader's convenience, we restate the important expressions here. The initial- and final-state cross sections are
+\begin{subequations}
+\begin{align}
+    \begin{split}
+        \frac{d\hat\sigma^i}{dQ^2} &= \hat\sigma^i_0 \frac{\alpha Q_q^2}{\pi} G(\eps)
+        \vastl\{
+            \Biggl(\frac{\pi^2}{3} - 4\Biggr)\delta(1-z)
+            - \frac{(1+z^2)\ln z}{1-z}
+            \\ &\hspace{3em}
+            + 2(1+z^2) \plusdistln
+            - \frac{1}{\eps}\Biggl[ (1+z^2)\plusdist + \frac{3}{2}\delta(1-z) \Biggr]
+        \vastr\},
+    \end{split}
+    \label{eq:summary_dsigmai_nlo}
+    \\
+    \begin{split}
+        \frac{d\hat\sigma^f}{dQ^2} &= \hat\sigma^f_0 \frac{\alpha}{\pi} \vastl\{
+            \frac{2}{\lambda}\plusdist \Biggl(
+                \frac{z^3\lambda_z}{\sqrt{\lambda}} I^r_1
+                + \frac{(1-z)^2}{z}
+            \Biggr)
+            \\ &\qquad
+            + \delta(1-z) \Biggl[
+                \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
+                - \frac{1}{\sqrt{\lambda}} \Biggl(
+                    \ln(4\lambda)
+                    + \ln\frac{\mu^2}{Q^2}
+                \Biggr) I^r_1
+                + \frac{1}{\sqrt{\lambda}} I^r_2
+            \Biggr]
+        \vastr\},
+    \end{split}
+    \label{eq:summary_dsigmaf_nlo}
+\end{align}
+\end{subequations}
+where the \gls{lo} prefactors are
+\begin{subequations}
+\begin{align}
+    \hat{\sigma}^i_{0} &= \biggl\{ \frac{d-2}{2} \mu^{4-d} \biggr\}
+    \frac{8\pi\alpha^2 \kiabs^3}{3N\shat Q^5}\fqliab(Q^2),
+    \label{eq:summary_sigma0i}
+    \\
+    \hat{\sigma}^f_0 &= \Biggl\{
+        \frac{3(d-2)\Gamma\bigl(\frac{d-2}{2}\bigr)}{2(d-1)\Gamma(d-2)}
+        \biggl(\frac{4\pi \mu^2}{Q^2}\biggr)^{\frac{4-d}{2}} \lambda^{\frac{d-4}{2}}(1,\mt_1^2,\mt_2^2)
+    \Biggr\}
+    \frac{8\pi\alpha^2 \kiabs^3}{3N\shat^3 Q}\fqliab(\shat),
+    \label{eq:summary_sigma0f}
+\end{align}
+\end{subequations}
+the initial-state $\eps$-dependent function $G(\eps)$ is given by
+\begin{equation}
+    G(\eps) = \Biggl( \frac{4\pi\mu^2}{Q^2} \Biggr)^\eps \frac{\Gamma(1-\eps)}{\Gamma(1-2\eps)}
+    = 1 + \biggl( \ln\frac{\mu^2}{Q^2} + \ln(4\pi)-\gamma_E \biggr) \eps + \mathcal{O}(\eps^2),
+\label{eq:summary_G_eps}
+\end{equation}
+the final-state virtual function $g$ is given by
+\begin{equation}
+\begin{split}
+    g(\shat,m_1^2,m_2^2) &=
+    - (\shat-m_1^2-m_2^2) \Biggl[
+        \frac{2\shat}{\lambda(\shat,m_1^2,m_2^2)} B_0(\shat;m_1^2,m_2^2)
+        +C_0(m_1^2,m_2^2,\shat;m_1^2,0,m_2^2)
+    \Biggr]
+    \\ &\hspace{-4.5em}
+    +\Biggl[
+        \frac{1}{2}
+        + \frac{2m_1^2(\shat+m_2^2-m_1^2)}{\lambda(\shat,m_1^2,m_2^2)} 
+    \Biggr] B_0(m_1^2;0,m_1^2)
+    + \Biggl[
+        \frac{1}{2}
+        + \frac{2m_2^2(\shat+m_1^2-m_2^2)}{\lambda(\shat,m_1^2,m_2^2)} 
+    \Biggr] B_0(m_2^2;0,m_2^2),
+\end{split}
+\label{eq:summary_g}
+\end{equation}
+and the final-state emission integrals $I^r_1$ and $I^r_2$ are given by
+\begin{align}
+    I^r_1 &= -\bigl( 1-\mt_1^2-\mt_2^2 \bigr) \ln\Biggl[
+        \frac{1-\mt_1^2-\mt_2^2-\sqrt{\lambda}}{2\mt_1\mt_2}
+    \Biggr] - \sqrt{\lambda},
+    \label{eq:summary_Ir1}
+    \\
+    \begin{split}
+        I^r_2 &=
+        \bigl( 1-\mt_1^2-\mt_2^2 \bigr) \Biggl[
+            \Litwo\Biggl( \frac{1-\xp}{1-\xm} \Biggr)
+            + \Litwo\Biggl( \frac{1+\xm}{1+\xp} \Biggr)
+            - \frac{\pi^2}{3}
+            + \frac{1}{2}\ln^2\Biggl( \frac{1+\xp}{1+\xm} \Biggr)
+            \\ &\hspace{10em}
+            + \ln^2(1-\xm) - \ln^2(1+\xm)
+            + \ln(2\mt_1^2\mt_2^2) \ln\Biggl( \frac{\mt_2^2}{\mt_1^2} \Biggr)
+        \Biggr]
+        \\ &\qquad
+        - \sqrt{\lambda}\ln(4\lambda)
+        + \frac{1}{2}(\mt_1^2-\mt_2^2) \ln\Biggl( \frac{1-(\xm)^2}{1-(\xp)^2} \Biggr)
+        + \frac{1}{2} \ln\Biggl( \frac{(1-\xm)(1+\xp)}{(1+\xm)(1-\xp)} \Biggr).
+    \end{split}
+    \label{eq:summary_Ir2}
+\end{align}
+The remaining initial--final-state interference contribution was shown to be zero in the limit of massless quarks.

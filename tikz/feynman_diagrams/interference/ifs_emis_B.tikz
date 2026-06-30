@@ -1,0 +1,44 @@
+% \begin{feynman}
+%     \begin{scope}[node distance=1.4cm]
+%         \vertex (v1);
+%         \vertex [above left=of v1, label=left:\(q\)] (q);
+%         \vertex [below left=of v1, label=left:\(\bar{q}\)] (qbar);
+%         \vertex [right=of v1] (v2);
+%         \vertex [above right=of v2, label=right:\(\slepton^*_{iB}\)] (lB);
+%         \vertex [below right=of v2, label=right:\(\slepton_{iA}\)] (lA);
+%         \vertex (lBmid) at ($(lB)!0.5!(v2)$);
+%         \vertex [right=of v2, label=right:\(\gamma\)] (p);
+%         \vertex (pmid) at ($(lBmid)!0.5!(p)$);
+%     \end{scope}
+%     \diagram*{
+%         (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (v1)
+%         --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
+%         (v1) --[boson, edge label'=\(\gamma / Z\), momentum={[arrow style=Bittersweet]\(p\)}] (v2);
+%         (v2) --[anti charged scalar] (lBmid);
+%         (lBmid) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
+%         (v2) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+%         (lBmid) --[boson] (p);
+%         (pmid) --[opacity=0.0, momentum'={[arrow style=teal]\(k\)}] (p);
+%     };
+% \end{feynman}
+\begin{feynman}
+    \begin{scope}[small]
+        \vertex (v1);
+        \vertex [above left=of v1, label=left:\(q\)] (q);
+        \vertex [below left=of v1, label=left:\(\bar{q}\)] (qbar);
+        \vertex [right=of v1] (v2);
+        \vertex [above right=of v2, label=right:\(\slepton^*_{iB}\)] (lB);
+        \vertex [below right=of v2, label=right:\(\slepton_{iA}\)] (lA);
+        \vertex (lBmid) at ($(lB)!0.5!(v2)$);
+        \vertex [right=of v2, label=right:\(\gamma\)] (p);
+    \end{scope}
+    \diagram*{
+        (q) --[fermion] (v1)
+        --[fermion] (qbar);
+        (v1) --[boson, edge label'=\(\gamma / Z\)] (v2);
+        (v2) --[anti charged scalar] (lBmid);
+        (lBmid) --[anti charged scalar] (lB);
+        (v2) --[charged scalar] (lA);
+        (lBmid) --[boson] (p);
+    };
+\end{feynman}
