@@ -52,12 +52,7 @@
 \usepackage{tikz-3dplot}
 \usepackage[compat=1.1.0]{tikz-feynman}
 \tikzfeynmanset{
-    every blob={
-        /tikz/preaction={/tikz/fill=white!50!gray}, /tikz/pattern=north west lines, /tikz/pattern color=black
-    },
-    every diagram={
-        /tikz/graphs/node distance=3.5cm
-    }
+    every blob={/tikz/fill=gray!70}
 }
 \usetikzlibrary{backgrounds, positioning, angles, quotes, calc}
 \usepackage{contour}
@@ -66,7 +61,6 @@
         \input{tikz/#2.tikz}
     \end{tikzpicture}
 }
-% \newcommand{\inputtikz}[2][]{\text{[tikz disabled]}}
 
 %% Organizational packages
 \usepackage[capitalize]{cleveref} % Not compatible with showonlyrefs, so will handle equation numbering manually

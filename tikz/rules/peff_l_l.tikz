@@ -7,7 +7,7 @@
     \end{scope}
     \diagram*{
         (p) --[photon] (v);
-        (v) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
-        (v) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        (v) --[anti charged scalar, momentum={[arrow style=NavyBlue]\(k_1\)}] (lB);
+        (v) --[charged scalar, momentum'={[arrow style=NavyBlue]\(k_2\)}] (lA);
     };
 \end{feynman}

@@ -6,8 +6,8 @@
         \vertex [right=of v, label=right:\(\gamma^*\)] (p);
     \end{scope}
     \diagram*{
-        (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (v)
-        --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
-        (v) --[boson, momentum={[arrow style=Bittersweet]\(q\)}] (p);
+        (q) --[fermion, momentum={[arrow style=PineGreen]\(p_1\)}] (v)
+        --[fermion, reversed momentum={[arrow style=PineGreen]\(p_2\)}] (qbar);
+        (v) --[boson, momentum={[arrow style=BrickRed]\(q\)}] (p);
     };
 \end{feynman}

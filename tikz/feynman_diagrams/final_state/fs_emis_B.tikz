@@ -9,10 +9,10 @@
         \vertex [below right=of t, label=right:\(\gamma\)] (p);
     \end{scope}
     \diagram*{
-        (past) --[boson, momentum'={[arrow style=teal]\(p\)}] (v);
-        (v) --[anti charged scalar, momentum={[arrow style=Bittersweet]\(k_1+k\)}] (t)
-        --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
-        (v) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
-        (t) --[boson, momentum'={[arrow style=teal]\(k\)}] (p);
+        (past) --[boson, momentum'={[arrow style=BrickRed]\(p\)}] (v);
+        (v) --[anti charged scalar, momentum={[arrow style=BrickRed]\(k_1+k\)}] (t)
+        --[anti charged scalar, momentum={[arrow style=PineGreen]\(k_1\)}] (lB);
+        (v) --[charged scalar, momentum'={[arrow style=PineGreen]\(k_2\)}] (lA);
+        (t) --[boson, momentum'={[arrow style=PineGreen]\(k\)}] (p);
     };
 \end{feynman}

@@ -8,12 +8,12 @@
 %         \vertex [right=of v, label=right:\(\gamma^*\)] (past);
 %     \end{scope}
 %     \diagram*{
-%         (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (t);
+%         (q) --[fermion, momentum={[arrow style=PineGreen]\(p_1\)}] (t);
 %         (t) --[fermion, momentum={[arrow style=Purple]\(k+p_1\)}] (v);
 %         (v) --[fermion, momentum={[arrow style=Purple]\(k-p_2\)}] (b);
-%         (b) --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
+%         (b) --[fermion, reversed momentum={[arrow style=PineGreen]\(p_2\)}] (qbar);
 %         (b) --[boson, momentum={[arrow style=Purple]\(k\)}] (t);
-%         (v) --[boson, momentum'={[arrow style=Bittersweet]\(q\)}] (past);
+%         (v) --[boson, momentum'={[arrow style=BrickRed]\(q\)}] (past);
 %     };
 % \end{feynman}
 \begin{feynman}
@@ -28,11 +28,11 @@
         \vertex [right=of v, label=right:\(\gamma^*\)] (past);
     \end{scope}
     \diagram*{
-        (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (t);
+        (q) --[fermion, momentum={[arrow style=PineGreen]\(p_1\)}] (t);
         (t) --[fermion, momentum={[arrow style=Purple]\(k+p_1\)}] (v);
         (v) --[fermion, momentum={[arrow style=Purple]\(k-p_2\)}] (b);
-        (b) --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
+        (b) --[fermion, reversed momentum={[arrow style=PineGreen]\(p_2\)}] (qbar);
         (b) --[boson, momentum={[arrow style=Purple]\(k\)}] (t);
-        (v) --[boson, momentum={[arrow style=teal]\(q\)}] (past);
+        (v) --[boson, momentum={[arrow style=BrickRed]\(q\)}] (past);
     };
 \end{feynman}

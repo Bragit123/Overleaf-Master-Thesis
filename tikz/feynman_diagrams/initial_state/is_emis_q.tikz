@@ -9,10 +9,10 @@
         \vertex (eqanchor) at ($(t)!0.5!(b)$); % Anchor for inline equations
     \end{scope}
     \diagram*{
-        (q) --[fermion, momentum'={[arrow style=teal]\(p_1\)}] (t)
-        -- [fermion, momentum'={[arrow style=Bittersweet]\(p_1-k\)}] (b)
-        -- [fermion, reversed momentum'={[arrow style=teal]\(p_2\)}] (qbar);
-        (t) -- [boson, momentum'={[arrow style=teal]\(k\)}] (p);
-        (b) -- [boson, momentum={[arrow style=teal]\(q\)}] (past);
+        (q) --[fermion, momentum'={[arrow style=PineGreen]\(p_1\)}] (t)
+        -- [fermion, momentum'={[arrow style=BrickRed]\(p_1-k\)}] (b)
+        -- [fermion, reversed momentum'={[arrow style=PineGreen]\(p_2\)}] (qbar);
+        (t) -- [boson, momentum'={[arrow style=PineGreen]\(k\)}] (p);
+        (b) -- [boson, momentum={[arrow style=BrickRed]\(q\)}] (past);
     };
 \end{feynman}

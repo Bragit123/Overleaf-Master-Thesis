@@ -12,14 +12,14 @@
 %         \vertex (pmid) at ($(qmid)!0.5!(p)$);
 %     \end{scope}
 %     \diagram*{
-%         (q) --[fermion, momentum'={[arrow style=teal]\(p_1\)}] (qmid)
+%         (q) --[fermion, momentum'={[arrow style=PineGreen]\(p_1\)}] (qmid)
 %         -- [fermion] (v1)
-%         --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
-%         (v1) --[boson, edge label'=\(\gamma / Z\), momentum={[arrow style=Bittersweet]\(q\)}] (v2);
-%         (v2) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
-%         (v2) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+%         --[fermion, reversed momentum={[arrow style=PineGreen]\(p_2\)}] (qbar);
+%         (v1) --[boson, edge label'=\(\gamma / Z\), momentum={[arrow style=BrickRed]\(q\)}] (v2);
+%         (v2) --[anti charged scalar, momentum={[arrow style=PineGreen]\(k_1\)}] (lB);
+%         (v2) --[charged scalar, momentum'={[arrow style=PineGreen]\(k_2\)}] (lA);
 %         (qmid) --[boson] (p);
-%         (pmid) --[opacity=0.0, momentum={[arrow style=teal]\(k\)}] (p);
+%         (pmid) --[opacity=0.0, momentum={[arrow style=PineGreen]\(k\)}] (p);
 %     };
 % \end{feynman}
 \begin{feynman}

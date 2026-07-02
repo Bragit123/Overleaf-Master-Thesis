@@ -19,16 +19,16 @@
     \end{scope}
     \diagram*{
         %%% t-channel lines %%%
-        (tq) --[fermion, momentum'={[arrow style=teal]\(p_1\)}] (tt)
-        -- [fermion, momentum'={[arrow style=Bittersweet]\(p_1-k\)}] (tb)
-        -- [fermion, reversed momentum'={[arrow style=teal]\(p_2\)}] (tqbar);
-        (tt) -- [boson, momentum'={[arrow style=teal]\(k\)}] (tp);
-        (tb) -- [boson, momentum={[arrow style=teal]\(q\)}] (tpast);
+        (tq) --[fermion, momentum'={[arrow style=PineGreen]\(p_1\)}] (tt)
+        -- [fermion, momentum'={[arrow style=BrickRed]\(p_1-k\)}] (tb)
+        -- [fermion, reversed momentum'={[arrow style=PineGreen]\(p_2\)}] (tqbar);
+        (tt) -- [boson, momentum'={[arrow style=PineGreen]\(k\)}] (tp);
+        (tb) -- [boson, momentum={[arrow style=PineGreen]\(q\)}] (tpast);
         %%% u-channel lines %%%
-        (uq) --[fermion, momentum'={[arrow style=teal]\(p_1\)}] (ut)
-        -- [fermion, momentum'={[arrow style=Bittersweet]\(k-p_2\)}] (ub)
-        -- [fermion, reversed momentum'={[arrow style=teal]\(p_2\)}] (uqbar);
-        (ut) -- [boson] (umidtpast) -- [boson, momentum={[arrow style=teal]\(q\)}] (upast);
-        (ub) -- [boson] (umidbp) -- [boson, momentum'={[arrow style=teal]\(k\)}] (up);
+        (uq) --[fermion, momentum'={[arrow style=PineGreen]\(p_1\)}] (ut)
+        -- [fermion, momentum'={[arrow style=BrickRed]\(k-p_2\)}] (ub)
+        -- [fermion, reversed momentum'={[arrow style=PineGreen]\(p_2\)}] (uqbar);
+        (ut) -- [boson] (umidtpast) -- [boson, momentum={[arrow style=PineGreen]\(q\)}] (upast);
+        (ub) -- [boson] (umidbp) -- [boson, momentum'={[arrow style=PineGreen]\(k\)}] (up);
     };
 \end{feynman}

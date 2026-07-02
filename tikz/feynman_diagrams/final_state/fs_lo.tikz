@@ -6,8 +6,8 @@
         \vertex [below right=1.4of v, label=right:\(\slepton_{iA}\)] (lA);
     \end{scope}
     \diagram*{
-        (p) --[boson, momentum={[arrow style=Bittersweet]\(p\)}] (v);
-        (v) --[charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
-        (v) --[anti charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        (p) --[boson, momentum={[arrow style=BrickRed]\(p\)}] (v);
+        (v) --[charged scalar, momentum={[arrow style=PineGreen]\(k_1\)}] (lB);
+        (v) --[anti charged scalar, momentum'={[arrow style=PineGreen]\(k_2\)}] (lA);
     };
 \end{feynman}

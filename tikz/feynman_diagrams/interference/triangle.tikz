@@ -11,14 +11,14 @@
         \vertex (midB) at ($(vr)!0.4!(lB)$);
     \end{scope}
     \diagram*{
-        (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (t)
+        (q) --[fermion, momentum={[arrow style=PineGreen]\(p_1\)}] (t)
         --[fermion, momentum'={[arrow style=Purple]\(k+p_1\)}] (b)
-        --[fermion, rmomentum={[arrow style=teal]\(p_2\)}] (qbar);
+        --[fermion, rmomentum={[arrow style=PineGreen]\(p_2\)}] (qbar);
         (b) --[boson, momentum'={[arrow style=Purple]}] (vr)
         --[boson, momentum'={[arrow style=Purple]\(k\)}] (t);
         (vr) --[anti charged scalar] (lB);
         (vr) --[charged scalar] (lA);
-        (midB) --[opacity=0.0, momentum'={[arrow style=teal]\(k_1\)}] (lB);
-        (midA) --[opacity=0.0, momentum={[arrow style=teal]\(k_2\)}] (lA);
+        (midB) --[opacity=0.0, momentum'={[arrow style=PineGreen]\(k_1\)}] (lB);
+        (midA) --[opacity=0.0, momentum={[arrow style=PineGreen]\(k_2\)}] (lA);
     };
 \end{feynman}

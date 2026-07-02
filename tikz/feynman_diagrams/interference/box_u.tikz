@@ -11,15 +11,15 @@
         \vertex (midr) at ($(lB)!0.5!(br)$);
     \end{scope}
     \diagram*{
-        (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (tl)
+        (q) --[fermion, momentum={[arrow style=PineGreen]\(p_1\)}] (tl)
         --[fermion, momentum'={[arrow style=Purple]\(k+p_1\)}] (bl)
-        --[fermion, rmomentum={[arrow style=teal]\(p_2\)}] (qbar);
+        --[fermion, rmomentum={[arrow style=PineGreen]\(p_2\)}] (qbar);
         (tr) --[boson, edge label=\(\gamma/\gamma/Z\), momentum'={[arrow style=Purple]\(k\)}] (tl);
         (bl) --[boson, edge label=\(\gamma/Z/\gamma\), momentum'={[arrow style=Purple]\(k+p_1+p_2\)}] (br);
-        (lB) --[charged scalar, rmomentum'={[arrow style=teal]\(k_1\)}] (midr)
+        (lB) --[charged scalar, rmomentum'={[arrow style=PineGreen]\(k_1\)}] (midr)
         --[scalar] (br)
         --[charged scalar, momentum={[arrow style=Purple]\(k+k_2\)}] (tr)
         --[scalar] (midr)
-        --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        --[charged scalar, momentum'={[arrow style=PineGreen]\(k_2\)}] (lA);
     };
 \end{feynman}

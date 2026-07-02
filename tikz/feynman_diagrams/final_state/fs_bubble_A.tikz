@@ -10,14 +10,14 @@
     \diagram*{
         % (past) --[boson] (v);
         % (v) --[anti charged scalar] (lB);
-        % (v) --[charged scalar, reversed momentum={[arrow style=teal]\(k\)}] (b)
+        % (v) --[charged scalar, reversed momentum={[arrow style=PineGreen]\(k\)}] (b)
         % --[charged scalar] (lA);
-        % (v) --[half right, boson, momentum'={[arrow shorten=0.3, arrow style=teal]\(k+k_2\)}] (b);
+        % (v) --[half right, boson, momentum'={[arrow shorten=0.3, arrow style=PineGreen]\(k+k_2\)}] (b);
         %
-        (past) --[boson, momentum={[arrow style=teal]\(p\)}] (v);
-        (v) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
+        (past) --[boson, momentum={[arrow style=BrickRed]\(p\)}] (v);
+        (v) --[anti charged scalar, momentum={[arrow style=PineGreen]\(k_1\)}] (lB);
         (v) --[charged scalar, reversed momentum={[arrow style=Purple]\(k\)}] (b)
-        --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        --[charged scalar, momentum'={[arrow style=PineGreen]\(k_2\)}] (lA);
         (v) --[half right, boson, momentum'={[arrow shorten=0.3, arrow style=Purple]\(k+k_2\)}] (b);
     };
 \end{feynman}

@@ -17,14 +17,14 @@
         % \vertex [below right=0.7 of rb, label=right:\(\slepton_{iA}\)] (lA);
     \end{scope}
     \diagram*{
-        % (q) --[fermion, momentum={[arrow style=teal]\(p_1\)}] (t);
+        % (q) --[fermion, momentum={[arrow style=PineGreen]\(p_1\)}] (t);
         % (v1) --[anti charged scalar, edge label'=\(\tilde{q}\)] (t);
         % (v1) --[charged scalar, edge label=\(\tilde{q}\)] (b);
-        % (b) --[fermion, reversed momentum={[arrow style=teal]\(p_2\)}] (qbar);
+        % (b) --[fermion, reversed momentum={[arrow style=PineGreen]\(p_2\)}] (qbar);
         % (t) --[plain, boson, edge label'=\(\tilde\chi^0\)] (b);
-        % (v1) --[boson, edge label'=\(\gamma / Z\), momentum={[arrow style=Bittersweet]\(p\)}] (v2);
-        % (v2) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
-        % (v2) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        % (v1) --[boson, edge label'=\(\gamma / Z\), momentum={[arrow style=BrickRed]\(p\)}] (v2);
+        % (v2) --[anti charged scalar, momentum={[arrow style=PineGreen]\(k_1\)}] (lB);
+        % (v2) --[charged scalar, momentum'={[arrow style=PineGreen]\(k_2\)}] (lA);
         (q) --[fermion] (t);
         (v1) --[anti charged scalar, edge label'=\(\tilde{q}\)] (t);
         (v1) --[charged scalar, edge label=\(\tilde{q}\)] (b);

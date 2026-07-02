@@ -8,11 +8,11 @@
         \vertex [below right=0.7 of b, label=right:\(\slepton_{iA}\)] (lA);
     \end{scope}
     \diagram*{
-        (past) --[boson, momentum={[arrow style=teal]\(p\)}] (v);
+        (past) --[boson, momentum={[arrow style=BrickRed]\(p\)}] (v);
         (v) --[anti charged scalar, reversed momentum={[arrow style=Purple]\(k\)}] (t)
-        --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
+        --[anti charged scalar, momentum={[arrow style=PineGreen]\(k_1\)}] (lB);
         (v) --[charged scalar, momentum'={[arrow style=Purple]\(k+k_1+k_2\)}] (b)
-        --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        --[charged scalar, momentum'={[arrow style=PineGreen]\(k_2\)}] (lA);
         (b) --[boson, momentum'={[arrow style=Purple]\(k+k_1\)}] (t);
     };
 \end{feynman}

@@ -10,10 +10,10 @@
         \vertex (thirdp) at ($(v)!0.3!(p)$);
     \end{scope}
     \diagram*{
-        (past) --[boson, momentum={[arrow style=teal]\(p\)}] (v);
-        (v) --[anti charged scalar, momentum={[arrow style=teal]\(k_1\)}] (lB);
-        (v) --[charged scalar, momentum'={[arrow style=teal]\(k_2\)}] (lA);
+        (past) --[boson, momentum={[arrow style=BrickRed]\(p\)}] (v);
+        (v) --[anti charged scalar, momentum={[arrow style=PineGreen]\(k_1\)}] (lB);
+        (v) --[charged scalar, momentum'={[arrow style=PineGreen]\(k_2\)}] (lA);
         (v) --[boson] (p);
-        (thirdp) --[opacity=0.0, momentum={[arrow style=teal]\(k\)}] (p);
+        (thirdp) --[opacity=0.0, momentum={[arrow style=PineGreen]\(k\)}] (p);
     };
 \end{feynman}
