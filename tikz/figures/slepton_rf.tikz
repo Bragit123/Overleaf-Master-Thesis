@@ -16,7 +16,7 @@
 \draw[->] (0) -- (x) node[right] {$x^*$};
 \draw[->] (0) -- (y) node[left] {$y^*$};
 \draw[BrickRed, ->] (p) node[above right] {$\vec{p}^*$} -- (0);
-\draw[RoyalBlue, ->] (0) -- (k) node[above] {$\vec{k}^*$};
+\draw[NavyBlue, ->] (0) -- (k) node[above] {$\vec{k}^*$};
 \draw[PineGreen, ->] (0) -- (k1) node[above] {$\vec{k}_1^*$};
 \draw[PineGreen, ->] (0) -- (k2) node[left] {$\vec{k}_2^*$};
 \draw[dashed] (k1) -- (k1xy);

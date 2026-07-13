@@ -1,0 +1,18 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (v);
+        \vertex [left=1 of v, label=left:\(A\)] (A);
+        \vertex [above right=of v] (t);
+        \vertex [right=1 of t, label=right:\(V\)] (Vt);
+        \vertex [below right=of v] (b);
+        \vertex [right=1 of b, label=right:\(V\)] (Vb);
+    \end{scope}
+    \diagram*{
+        (A) --[boson] (v);
+        (v) --[fermion] (t)
+        --[fermion] (b)
+        --[fermion] (v);
+        (t) --[boson] (Vt);
+        (b) --[boson] (Vb);
+    };
+\end{feynman}

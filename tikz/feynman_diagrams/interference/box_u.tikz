@@ -16,10 +16,12 @@
         --[fermion, rmomentum={[arrow style=PineGreen]\(p_2\)}] (qbar);
         (tr) --[boson, edge label=\(\gamma/\gamma/Z\), momentum'={[arrow style=Purple]\(k\)}] (tl);
         (bl) --[boson, edge label=\(\gamma/Z/\gamma\), momentum'={[arrow style=Purple]\(k+p_1+p_2\)}] (br);
+        % (tr) --[scalar] (midr) --[charged scalar, momentum'={[arrow style=PineGreen]\(k_2\)}] (lA);
+        (tr) --[scalar] (midr);
+        (lA) --[anti charged scalar, rmomentum={[arrow style=PineGreen]\(k_2\)}] (midr);
+        (lB) --[draw=white, line width=5pt] (br);
         (lB) --[charged scalar, rmomentum'={[arrow style=PineGreen]\(k_1\)}] (midr)
         --[scalar] (br)
-        --[charged scalar, momentum={[arrow style=Purple]\(k+k_2\)}] (tr)
-        --[scalar] (midr)
-        --[charged scalar, momentum'={[arrow style=PineGreen]\(k_2\)}] (lA);
+        --[charged scalar, momentum={[arrow style=Purple]\(k+k_2\)}] (tr);
     };
 \end{feynman}

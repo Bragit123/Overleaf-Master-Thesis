@@ -1,0 +1,12 @@
+\begin{feynman}
+    \begin{scope}[node distance=1cm]
+        \vertex (v);
+        \vertex[above left=of v, label=left:\(\phi\)] (phi1);
+        \vertex[below left=of v, label=left:\(\phi\)] (phi2);
+        \vertex[right=of v, label=right:\(\chi\)] (chi);
+    \end{scope}
+    \diagram*{
+        (phi1) --[scalar] (v) --[scalar] (phi2);
+        (v) --[scalar, rmomentum={[arrow style=NavyBlue]\(p\)}] (chi);
+    };
+\end{feynman}

@@ -11,12 +11,12 @@
         \vertex (eqanchor) at ($(t)!0.5!(b)$); % Anchor for inline equations
     \end{scope}
     \diagram*{
+        (t) -- [boson] (past);
+        (midtpast) -- [opacity=0.0, momentum={[arrow style=BrickRed]\(q\)}] (past);
+        (b) -- [boson, preaction={draw=white, line width=5pt}] (p);
+        (midbp) -- [opacity=0.0, momentum'={[arrow style=PineGreen]\(k\)}] (p);
         (q) --[fermion, momentum'={[arrow style=PineGreen]\(p_1\)}] (t)
         -- [fermion, momentum'={[arrow style=BrickRed]\(k-p_2\)}] (b)
         -- [fermion, reversed momentum'={[arrow style=PineGreen]\(p_2\)}] (qbar);
-        (t) -- [boson] (past);
-        (midtpast) -- [opacity=0.0, momentum={[arrow style=BrickRed]\(q\)}] (past);
-        (b) -- [boson] (p);
-        (midbp) -- [opacity=0.0, momentum'={[arrow style=PineGreen]\(k\)}] (p);
     };
 \end{feynman}

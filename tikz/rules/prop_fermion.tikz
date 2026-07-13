@@ -1,0 +1,9 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (a);
+        \vertex[right=of a] (b);
+    \end{scope}
+    \diagram*{
+        (a) --[fermion, momentum={[arrow style=NavyBlue]\(p\)}] (b)
+    };
+\end{feynman}

@@ -1,0 +1,40 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex [blob, minimum size=0.7cm] (blob) {};
+        \vertex [above right=of blob] (j);
+        \vertex [above right=of blob, label=right:\(j\)] (j);
+        \vertex [left=1.2 of blob] (left_blob);
+        \vertex [above left=of blob, label=left:\(p\)] (p1);
+        \vertex [below=0.4 of left_blob, label=left:\(p\)] (p2);
+        %% Upper slepton
+        \vertex [right=of blob] (slt1);
+        \vertex [above right=of slt1, label=right:\(\ell^-\)] (lt1);
+        \vertex [right=of slt1] (right_slt1);
+        \vertex [below=0.6 of right_slt1] (chi2t);
+        \vertex [above right=of chi2t, label=right:\(\ell^+\)] (lt2);
+        \vertex [below right=of chi2t] (slt2);
+        \vertex [right=of slt2] (right_slt2);
+        \vertex [above=0.7 of right_slt2, label=right:\(\tilde\chi_1^0\)] (chi1t);
+        \vertex [below=0.7 of right_slt2, label=right:\(\ell^-\)] (lt3);
+        %% Lower slepton
+        \vertex [below right=of blob] (slb);
+        \vertex [right=of slb] (right_slb);
+        \vertex [below=of slb] (below_slb);
+        \vertex [below=0.6 of right_slb, label=right:\(\ell^+\)] (lb);
+        \vertex [right=0.4 of below_slb, label=right:\(\tilde\chi_1^0\)] (chib);
+    \end{scope}
+    \diagram*{
+        (blob) -- (j);
+        (p1) --[double distance=1.5pt] (blob);
+        (p1) --[fermion] (blob);
+        (p2) --[double distance=1.5pt] (blob);
+        (p2) --[fermion] (blob);
+        (blob) --[charged scalar, edge label=\(\slepton\)] (slt1) --[plain, boson, edge label=\(\tilde\chi_2^0\)] (chi2t)
+        --[charged scalar, edge label=\(\slepton\)] (slt2) --[plain, boson] (chi1t);
+        (chi2t) --[anti fermion] (lt2);
+        (slt2) --[fermion] (lt3);
+        (blob) --[anti charged scalar, edge label'=\(\slepton^*\)] (slb) --[plain, boson] (chib);
+        (slt) --[fermion] (lt);
+        (slb) --[anti fermion] (lb);
+    };
+\end{feynman}

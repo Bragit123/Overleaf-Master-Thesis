@@ -29,6 +29,7 @@
 
 
 %% Operators
+\DeclareMathOperator{\diag}{diag}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 \DeclareMathOperator{\Tr}{Tr}
@@ -39,6 +40,8 @@
 
 %% Useful math shorthands
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}
+\DeclarePairedDelimiter{\bra}{\langle}{\rvert}
 \newcommand*{\ex}{\vec{\hat{x}}}
 \newcommand*{\ey}{\vec{\hat{y}}}
 \newcommand*{\ez}{\vec{\hat{z}}}
@@ -116,7 +119,10 @@
 
 
 %% Grassmann coordinates
-\newcommand*{\thetafour}{\theta\theta\bar\theta\bar\theta}
+\newcommand*{\thetabar}{\widebar\theta}
+\newcommand*{\thetatwo}{\theta\theta}
+\newcommand*{\thetabartwo}{\widebar\theta\widebar\theta}
+\newcommand*{\thetafour}{\theta\theta\widebar\theta\widebar\theta}
 
 
 %% Differential operators

@@ -1,1 +1,27 @@
-\chapter{Some appendices?}
+\chapter{Grassmann Numbers and Weyl Spinors}\label{app:grassmann}
+
+By the anticommuting nature of Grassmann numbers, the square of any of $\theta^A$ or $\widebar\theta_{\dot{A}}$ are zero.
+This has the very useful implication that any function of Grassmann coordinates can be written as
+\begin{equation}
+    f(\theta_A) = c_0 + c_1\theta_A.
+\end{equation}
+In addition, we can do calculus on Grassmann numbers, defining the derivative and integral with respect to Grassmann numbers by
+\begin{subequations}
+\begin{gather}
+    \partial_A \theta^B \equiv \frac{\partial \theta^B}{\partial\theta^A} = \delta^B_A,
+    \\
+    \int d\theta_A \equiv 0, \quad \int d\theta_A \theta_A \equiv 1.
+\end{gather}
+\end{subequations}
+In addition, we normalize the integrals over contracted Grassmann coordinates, such that
+\begin{equation}
+    \int d^2\theta \; \thetatwo = \int d^2\widebar\theta \; \thetabartwo = \int d^4\theta \; \thetafour = 1,
+\end{equation}
+where we have defined Weyl spinor contractions such that for two Weyl spinors $\psi$ and $\chi$ we have
+\begin{subequations}
+\begin{align}
+    \psi\chi &\equiv \psi^A\chi_A = \psi_2\chi_1-\psi_1\chi_2,
+    \\
+    \widebar\psi\widebar\chi &\equiv \widebar\psi_{\dot{A}}\widebar\chi^{\dot{A}} = \widebar\psi_{\dot{1}}\widebar\chi_{\dot{2}} - \widebar\psi_{\dot{2}}\widebar\chi_{\dot{1}}.
+\end{align}
+\end{subequations}

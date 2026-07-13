@@ -2,6 +2,51 @@
 
 \section{Regularization \textcolor{gray}{(Introduce UV and IR divergences, and give examples of regularization methods, with focus on dimreg (also: mention DRED?))}}
 
+When calculating Feynman diagrams at higher orders in perturbation theory, the results are generally not finite. This fact is most easily shown by an example.
+
+Consider a complex scalar field $\phi$ with mass $m$ which interacts through a quartic ($\phi^4$) coupling. The Lagrangian for this toy model is given by
+\begin{equation}
+    \mathcal{L} = (\partial^\mu\phi^*)(\partial_\mu\phi) - m^2\phi^*\phi - \frac{\lambda}{4} (\phi^*\phi)^2,
+\end{equation}
+and the Feynman rule for the interaction is easily read off as
+\begin{equation}
+    \inputtikz[baseline=(v.base)]{divergences/phi4_rule} = -i\lambda
+\end{equation}
+If we denote a particle by $\phi^-$ and its corresponding anti-particle by $\phi^+$, we can calculate the matrix element for the scattering process $\phi^+\phi^- \to \phi^+\phi^-$.
+The \gls{lo} Feynman diagram for this process is shown in \cref{fig:phi4_lo}, giving
+\begin{equation}
+    i\M_{\mathrm{LO}}(\phi^+\phi^- \to \phi^+\phi^-) = -i\lambda.
+\end{equation}
+So far, no problems.
+Now let's move to the \gls{nlo} corrections, to which there are two contributing diagrams shown in \cref{fig:phi4_nlo_s,fig:phi4_nlo_t}. 
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \inputtikz[baseline=(v.base)]{divergences/phi4_lo}
+        \caption{}
+        \label{fig:phi4_lo}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \inputtikz[baseline=(vl.base)]{divergences/phi4_nlo_s}
+        \caption{}
+        \label{fig:phi4_nlo_s}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \inputtikz[baseline=(v.base)]{divergences/phi4_nlo_t}
+        \caption{}
+        \label{fig:phi4_nlo_t}
+    \end{subfigure}
+    \caption{Feynman diagrams for \gls{lo} (\cref{fig:phi4_lo}) and \gls{nlo} corrections to $\phi^+\phi^-\to\phi^+\phi^-$ in complex $\phi^4$ theory. In the loop diagrams we have defined the momenta $p_s=p_1+p_2=p_3+p_4$ and $p_t=p_1-p_3=p_4-p_2$.}
+    \label{fig:phi4}
+\end{figure}
+
+
 \section{Renormalization}
 \subsection{Counterterms}
 \subsection{On-Shell Scheme}

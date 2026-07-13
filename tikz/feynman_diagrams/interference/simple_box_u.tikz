@@ -16,10 +16,10 @@
         --[fermion] (qbar);
         (tr) --[boson, edge label'=\(\gamma/\gamma/Z\)] (tl);
         (bl) --[boson, edge label'=\(\gamma/Z/\gamma\)] (br);
-        (lB) --[charged scalar] (midr)
-        --[scalar] (br)
-        --[charged scalar] (tr)
-        --[scalar] (midr)
-        --[charged scalar] (lA);
+        (tr) --[scalar] (midr);
+        (lA) --[anti charged scalar] (midr);
+        (lB) --[draw=white, line width=6pt] (br);
+        (lB) --[charged scalar] (midr) --[scalar] (br);
+        (br) --[charged scalar] (tr);
     };
 \end{feynman}

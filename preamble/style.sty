@@ -3,7 +3,7 @@
 %% Text
 \usepackage[T1]{url}\urlstyle{sf}
 \usepackage[hidelinks,hypertexnames=false]{hyperref}
-\usepackage[dvipsnames]{xcolor}
+\usepackage[dvipsnames,table]{xcolor}
 \usepackage{csquotes}
 \MakeOuterQuote{"} % Allow using "quote" instead of ``quote''
 
@@ -14,6 +14,8 @@
 
 %% Graphics
 \usepackage{graphicx}
+\usepackage{diagbox}
+\usepackage{nicematrix}
 
 %% Figures and tables
 \usepackage{multirow}
@@ -66,5 +68,6 @@
 \usepackage[capitalize]{cleveref} % Not compatible with showonlyrefs, so will handle equation numbering manually
 \crefname{section}{Sec.}{Secs.} % Sections are not abbreviated by default
 \usepackage{cite}
+\usepackage{siunitx}
 
 % \usepackage{subfiles} % Used to organize chapters and compile them independently

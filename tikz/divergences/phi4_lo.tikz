@@ -1,0 +1,13 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (v); % Vertex
+        \vertex[above left=of v, label=left:\(\phi^-\)] (tl);
+        \vertex[below left=of v, label=left:\(\phi^+\)] (bl);
+        \vertex[above right=of v, label=right:\(\phi^-\)] (tr);
+        \vertex[below right=of v, label=right:\(\phi^+\)] (br);
+    \end{scope}
+    \diagram*{
+        (tl) --[charged scalar, momentum={[arrow style=PineGreen]\(p_1\)}] (v) --[charged scalar, momentum'={[arrow style=PineGreen]\(p_3\)}] (tr);
+        (br) --[charged scalar, rmomentum={[arrow style=PineGreen]\(p_4\)}] (v) --[charged scalar, rmomentum'={[arrow style=PineGreen]\(p_2\)}] (bl);
+    };
+\end{feynman}

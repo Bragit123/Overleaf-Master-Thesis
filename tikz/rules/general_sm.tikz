@@ -1,0 +1,12 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (v); % Vertex
+        \vertex[above left=of v, label=left:\(q\)] (f1); % Slepton
+        \vertex[below left=of v, label=left:\(\widebar{q}\)] (f2); % Conjugate slepton
+        \vertex[right=of v, label=right:\(V_\mu\)] (i); % Photon
+    \end{scope}
+    \diagram*{
+        (f1) --[fermion] (v) --[fermion] (f2);
+        (i) --[photon] (v);
+    };
+\end{feynman}
