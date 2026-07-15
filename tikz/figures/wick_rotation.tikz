@@ -1,0 +1,37 @@
+\tikzset{>={Stealth[scale=1]}}
+
+\coordinate (0) at (0,0);
+\coordinate (xmax) at (3,0);
+\coordinate (xmin) at ($(0)-(xmax)$);
+\coordinate (ymax) at (0,3);
+\coordinate (ymin) at ($(0)-(ymax)$);
+\coordinate (dx) at (0.5,0);
+\coordinate (dy) at (0,0.5);
+\coordinate (reinf) at ($(xmax)-(dx)$);
+\coordinate (-reinf) at ($(xmin)+(dx)$);
+\coordinate (iminf) at ($(ymax)-(dy)$);
+\coordinate (-iminf) at ($(ymin)+(dy)$);
+\coordinate (-pole) at ($(0)!0.3!(xmin)+(dy)$);
+\coordinate (+pole) at ($(0)!0.3!(xmax)-(dy)$);
+
+\draw[->] (xmin) -- (xmax) node[right] {$\Re(k^0)$};
+\draw[->] (ymin) -- (ymax) node[above] {$\Im(k^0)$};
+\draw[thick, BrickRed, postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{Stealth}}}}]
+    (-reinf) -- (0);
+\draw[thick, BrickRed, postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{Stealth}}}}]
+    (0) -- (reinf) node[below] {$+\infty$};
+\draw[thick, BrickRed, postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{Stealth}}}}]
+    (iminf) -- (0);
+\draw[thick, BrickRed, postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{Stealth}}}}]
+    (0) -- (-iminf) node[right] {$-i\infty$};
+\draw[thick, BrickRed, postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{Stealth}}}}]
+    (reinf) to[bend right=45] (iminf) node[left] {$+i\infty$};
+\draw[thick, BrickRed, postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow{Stealth}}}}]
+    (-iminf) to[bend left=45] (-reinf) node[above] {$-\infty$};
+
+\draw[fill] (-pole) circle (2pt) node[above left] {$-\sqrt{\vec{k}^2+\Delta} + i\alpha\eps$};
+\draw[fill] (+pole) circle (2pt) node[below right] {$\sqrt{\vec{k}^2+\Delta} - i\alpha\eps$};
+% \draw[fill] (-pole) circle (2pt) node[above left] {$-\sqrt{\vec{k}^2+\Delta} + i\eps \frac{1}{2}(\vec{k}^2+\Delta)^{-\frac{1}{2}}$};
+% \draw[fill] (+pole) circle (2pt) node[below right] {$\sqrt{\vec{k}^2+\Delta} - i\eps \frac{1}{2}(\vec{k}^2+\Delta)^{-\frac{1}{2}}$};
+% \draw[fill] (-pole) circle (2pt) node[above left] {$-\sqrt{\vec{k}^2+\Delta} + \frac{i\eps}{2\sqrt{\vec{k}^2+\Delta}}$};
+% \draw[fill] (+pole) circle (2pt) node[below right] {$\sqrt{\vec{k}^2+\Delta} - \frac{i\eps}{2\sqrt{\vec{k}^2+\Delta}}$};

@@ -1,11 +1,12 @@
 \usepackage[acronym, nopostdot, nonumberlist]{glossaries}
+\usepackage{glossaries-prefix}
 \setacronymstyle{long-short}
 % \setglossarystyle{index}
 \makeglossaries
 
 %% General QFT
 \newacronym[longplural={quantum field theories}, description={Quantum Field Theory}]{qft}{QFT}{quantum field theory}
-\newacronym[description={Ultraviolet (Divergence)}]{uv}{UV}{ultraviolet}
+\newacronym[description={Ultraviolet (Divergence)}, prefixfirst={an\ }, prefix={a\ }]{uv}{UV}{ultraviolet}
 \newacronym[description={Infrared (Divergence)}]{ir}{IR}{infrared}
 \newacronym[description={Parton Distribution Function}]{pdf}{PDF}{parton distribution function}
 \newacronym[description=Irreducible Representation]{irrep}{irrep}{irreducible representation}

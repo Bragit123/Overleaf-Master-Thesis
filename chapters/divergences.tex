@@ -1,24 +1,27 @@
 \chapter{Infinities and Where to Hide Them}\label{ch:divergences}
 
-\section{Regularization \textcolor{gray}{(Introduce UV and IR divergences, and give examples of regularization methods, with focus on dimreg (also: mention DRED?))}}
+\section{Regularization}
+% \textcolor{gray}{(Introduce UV and IR divergences, and give examples of regularization methods, with focus on dimreg (also: mention DRED?))}
 
 When calculating Feynman diagrams at higher orders in perturbation theory, the results are generally not finite. This fact is most easily shown by an example.
 
-Consider a complex scalar field $\phi$ with mass $m$ which interacts through a quartic ($\phi^4$) coupling. The Lagrangian for this toy model is given by
-\begin{equation}
-    \mathcal{L} = (\partial^\mu\phi^*)(\partial_\mu\phi) - m^2\phi^*\phi - \frac{\lambda}{4} (\phi^*\phi)^2,
+\subsection{Example: Complex \texorpdfstring{$\phi^4$}{ϕ4} Theory}\label{sec:phi4}
+Consider a massless complex scalar field $\phi$ with a quartic interaction. The Lagrangian for this toy model---the complex $\phi^4$ theory---is given by
+\begin{equation}\label{eq:phi4_lagrangian}
+    \mathcal{L} = (\partial^\mu\phi^*)(\partial_\mu\phi) - \frac{\lambda}{4} (\phi^*\phi)^2,
 \end{equation}
 and the Feynman rule for the interaction is easily read off as
 \begin{equation}
     \inputtikz[baseline=(v.base)]{divergences/phi4_rule} = -i\lambda
 \end{equation}
-If we denote a particle by $\phi^-$ and its corresponding anti-particle by $\phi^+$, we can calculate the matrix element for the scattering process $\phi^+\phi^- \to \phi^+\phi^-$.
+If we denote a particle by $\phi^-$ and its corresponding anti-particle by $\phi^+$, we can calculate the matrix element for the scattering process $\phi^-\phi^+ \to \phi^-\phi^+$.
 The \gls{lo} Feynman diagram for this process is shown in \cref{fig:phi4_lo}, giving
 \begin{equation}
-    i\M_{\mathrm{LO}}(\phi^+\phi^- \to \phi^+\phi^-) = -i\lambda.
+    % i\M_{\mathrm{LO}}(\phi^+\phi^- \to \phi^+\phi^-) = -i\lambda.
+    % i\M_{\phi^+\phi^- \to \phi^+\phi^-}^{\mathrm{LO}} = -i\lambda.
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^{\mathrm{LO}} = -i\lambda.
 \end{equation}
 So far, no problems.
-Now let's move to the \gls{nlo} corrections, to which there are two contributing diagrams shown in \cref{fig:phi4_nlo_s,fig:phi4_nlo_t}. 
 
 \begin{figure}
     \centering
@@ -42,9 +45,167 @@ Now let's move to the \gls{nlo} corrections, to which there are two contributing
         \caption{}
         \label{fig:phi4_nlo_t}
     \end{subfigure}
-    \caption{Feynman diagrams for \gls{lo} (\cref{fig:phi4_lo}) and \gls{nlo} corrections to $\phi^+\phi^-\to\phi^+\phi^-$ in complex $\phi^4$ theory. In the loop diagrams we have defined the momenta $p_s=p_1+p_2=p_3+p_4$ and $p_t=p_1-p_3=p_4-p_2$.}
+    \caption{Feynman diagrams for \acrshort{lo} and \acrshort{nlo} corrections to $\phi^-\phi^+\to\phi^-\phi^+$ in complex $\phi^4$ theory. In the loop diagrams we have defined the momenta $p_s=p_1+p_2=p_3+p_4$ and $p_t=p_1-p_3=p_4-p_2$.}
     \label{fig:phi4}
 \end{figure}
+
+We now move to the \gls{nlo} corrections, to which there are two contributing diagrams shown in \cref{fig:phi4_nlo_s,fig:phi4_nlo_t}.
+The expression for the two diagrams are similar, differing only by the interchange $p_s \leftrightarrow p_t$.
+We therefore consider both contributions simultaneously using a general momentum $p$.
+\begin{equation}\label{eq:phi4_nlo_before_feynman}
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \lambda^2 \int\frac{d^4k}{(2\pi)^4} \frac{1}{(k^2+i\eps)[(k+p)^2+i\eps]}.
+\end{equation}
+To solve this integral, we introduce Feynman parameters~\cite{Peskin:1995ev}
+\begin{equation}
+    \frac{1}{A_1\cdots A_n} = \int_0^1dx_1\cdots dx_n \delta(\sum_i x_i - 1) \frac{(n-1)!}{[x_1A_1+\cdots x_nA_n]^n},
+\end{equation}
+allowing us to rewrite \cref{eq:phi4_nlo_before_feynman} as
+\begin{equation}
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \lambda^2 \int_0^1 dx \int\frac{d^4k}{(2\pi)^4} \frac{1}{[x(k+p)^2 + (1-x)k^2 + i\eps]^2}.
+\end{equation}
+We rewrite the denominator
+\begin{equation}
+    [x(k+p)^2+(1-x)k^2+i\eps]^2 = [k^2 + 2xk\cdot p + xp^2 + i\eps]^2 = [(k+xp)^2 + x(1-x)p^2 + i\eps]^2,
+\end{equation}
+and shift the integration momentum $k \to k-xp$, resulting in
+\begin{equation}\label{eq:phi4_nlo_before_wick}
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \lambda^2 \int_0^1 dx \int\frac{d^4k}{(2\pi)^4} \frac{1}{[k^2 - \Delta(x) + i\eps]^2},
+\end{equation}
+where $\Delta(x) \equiv -x(1-x)p^2$.
+
+The loop integral in \cref{eq:phi4_nlo_before_wick} has two simple poles, located at
+\begin{equation}
+    % k^0 = \pm\sqrt{\vec{k}^2+\Delta(x)-i\eps} \simeq \pm\sqrt{\vec{k}^2+\Delta(x)} \mp \frac{i\eps}{2\sqrt{\vec{k}^2+\Delta}} \equiv \pm\sqrt{\vec{k}^2+\Delta(x)} \mp i\alpha\eps.
+    k^0 = \pm\sqrt{\vec{k}^2+\Delta(x)-i\eps} \simeq \pm\sqrt{\vec{k}^2+\Delta(x)} \mp i\alpha\eps,
+    \quad \alpha \equiv \frac{1}{2\sqrt{\vec{k}^2+\Delta(x)}},
+\end{equation}
+where we have used the Taylor expansion $\sqrt{1-x}\simeq 1-\frac{x}{2}$.
+We can solve this integral by performing a \emph{Wick rotation}, where we---as intimated by the $i\eps$ Feynman prescription---move our integration bounds into the complex plane.
+Since the Feynman prescription shifts the poles outside the real line, we can form a closed integration contour that avoids both poles, as shown in \cref{fig:wick_rotation}.
+The integral over the full contour is then zero, and so are the integrals over the two quarter-circles.\footnote{This can be shown by Jordan's lemma, assuming the integrand decays sufficiently fast as $|k^0|\to\infty$, which in our case it does.}
+The two remaining integration curves, $(-\infty,\infty)$ and $(-i\infty,i\infty)$ (where I have changed the order of the imaginary bounds) are then equal.
+Thus we can "rotate" our integration to the imaginary axis\footnote{Hence the name Wick rotation.} by shifting $k^0\to ik^0$, which gives $k^2 \to -k_E^2$, where $k_E^2 = (k^0)^2 + \vec{k}^2$ is the four-dimensional Euclidean momentum.
+Performing the Wick lets us rewrite \cref{eq:phi4_nlo_before_wick} as
+\begin{equation}\label{eq:phi4_nlo_euclidean}
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = i\lambda^2 \int_0^1 dx \int\frac{d^4k_E}{(2\pi)^4} \frac{1}{[k_E^2 + \Delta(x)]^2},
+\end{equation}
+which is now an integration solely over Euclidean space (and the Feynman parameter).
+Notice also that we have set $i\eps=0$ since the poles in the denominator are now gone.
+
+\begin{figure}
+    \centering
+    \inputtikz{figures/wick_rotation}
+    \caption{The Wick rotation for integration over the time-component $k^0$ of the loop momentum. The integral over the real line $(-\infty,\infty)$ is \emph{rotated} to the imaginary axis, which corresponds to a shift $k^0\to ik^0$.}
+    \label{fig:wick_rotation}
+\end{figure}
+
+The remaining momentum integral in \cref{eq:phi4_nlo_euclidean} is only dependent on the norm $k_E$. We can therefore change to four-dimensional spherical coordinates, and use that the surface area of a four-dimensional unit sphere is $\Omega_4 = 2\pi^2$. We then find
+\begin{equation}\label{eq:phi4_nlo_spherical}
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \frac{\lambda^2}{8\pi^2} \int_0^1 dx \int_0^\infty dk_E \frac{k_E^3}{[k_E^2 + \Delta(x)]^2}.
+\end{equation}
+In the limit where $k_E\to\infty$, we can neglect $\Delta(x)$, and the integral behaves as
+\begin{equation}
+    \int \frac{dk_E}{k_E} \xrightarrow[k_E\to\infty]{} \infty,
+\end{equation}
+thus the integral is \emph{divergent}.
+More specifically, since the divergence occurs in the high-energy limit when $k_E\to\infty$, we call this \pgls{uv} divergence.
+
+% \Cref{eq:phi4_nlo_spherical} also diverges in the limit $k_E\to0$. Since this is a low-energy divergence, it is called an \gls{ir} divergence.
+
+The goal of \gls{qft} calculations is to make predictions that can be compared with experiment. This means, of course, that we can not allow infinities to hang around in our theory, but must find ways to get rid of them, leaving only finite contributions.
+In the following section, we will see how we can use \emph{regularization} to extract the divergent behavior.
+% There are more than one way to regularize divergences, but the focus in this thesis will be on \emph{dimensional regularization}.
+
+
+\subsection{Shifting the Spacetime Dimensions}
+In the preceding section we found
+\begin{equation}\label{eq:loop_int_4_dim}
+    \int d^4k \frac{1}{[k^2-\Delta(x)+i\eps]^2} \propto \int_0^\infty dk_E \frac{k_E^3}{[k_E^2+\Delta(x)]^2}.
+\end{equation}
+This loop integral is \gls{uv} divergent, but what if we change the number of spacetime dimensions?
+In three dimensions, for instance, the integrand behaves as $1/k_E^2$ as $k_E\to\infty$, and is therefore \gls{uv} finite.
+This motivates the introduction of \emph{dimensional regularization}---first introduced in 1972 by 't Hooft and Veltman~\cite{tHooft:1972tcz}, and independently by Bollini and Giambiagi~\cite{Bollini:1972ui} the same year.
+In dimensional regularization, we shift the spacetime dimensions by an infinitesimal amount, working in $d=4-2\eps$ dimensions,\footnote{The factor of two here is unimportant, as it will disappear when we set $\eps\to0$. The choice made here is a convention to avoid some factors in later calculations.} rather than four. Divergences are then be captured by the limit $\eps\to0$.
+
+\subsubsection{Fields and Couplings in $d$ Dimensions}
+Models in \gls{qft} are described by the action $S=\int d^4x\,\mathcal{L}$, or equivalently, by the Lagrangian.
+When changing from four to $d$ spacetime dimensions, the action becomes $S=\int d^dx\,\mathcal{L}$, and since the action must be dimensionless (and $[x]=-1$), the Lagrangian must now have mass dimension $[\mathcal{L}]=d$. This has implications on the fields and couplings of the Lagrangian.
+
+Consider again complex $\phi^4$ theory, described by the Lagrangian in \cref{eq:phi4_lagrangian}. The derivatives $\partial_\mu \equiv \partial/(\partial x^\mu)$ have mass dimension $[\partial_\mu]=1$, thus from the kinetic term it follows that---for $\mathcal{L}$ to have mass dimension $d$---the scalar fields must have mass dimension $[\phi]=\frac{d-2}{2}$. Furthermore, this implies that the coupling $\lambda$ must have mass dimension $[\lambda]=4-d$.
+This poses a problem, as we want to calculate observables in \gls{qft} perturbatively, i.e.\ we want to calculate expansions in the coupling $\lambda$.
+We therefore redefine our coupling $\lambda \to \mu^{4-d}\lambda$, where $[\mu]=1$.
+In this way, $\lambda$ remains dimensionless, at the cost of introducing a new parameter $\mu$, called the \emph{renormalization scale}. Since $\mu$ was just some arbitrarily introduced parameter, no observable quantities can depend on it.\footnote{Unfortunately (at least to finite orders in perturbation theory) they do, as will be discussed very briefly in \rednote{ref RGE}.}
+% Using this, we can calculate the loop integral of \cref{eq:loop_int_4_dim}.
+
+\subsubsection{Complex $\phi^4$ Revisited}
+The matrix element for the process $\phi^-\phi^+\to\phi^-\phi^+$ in four spacetime dimensions was given in \cref{eq:phi4_nlo_before_feynman}. In $d$ dimensions, the matrix element is
+\begin{equation}\label{eq:phi4_nlo_before_feynman_d_dim}
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \mu^{2(4-d)} \lambda^2 \int\frac{d^dk}{(2\pi)^d} \frac{1}{(k^2+i\eps)[(k+p)^2+i\eps]}.
+\end{equation}
+Note the addition of the renormalization scale $\mu$, and the change of integration measure $d^dk/(2\pi)^d$.
+Introducing a Feynman parameter in the same way as we did in \cref{sec:phi4} gives
+\begin{equation}\label{eq:phi4_nlo_before_wick_d_dim}
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \mu^{2(4-d)} \lambda^2 \int_0^1 dx \int\frac{d^dk}{(2\pi)^d} \frac{1}{[k^2 - \Delta(x) + i\eps]^2},
+\end{equation}
+where $\Delta(x)$ is the same as in \cref{eq:phi4_nlo_before_wick}.
+
+We evaluate the momentum integral in \cref{eq:phi4_nlo_before_wick_d_dim} by following the same procedure as we did for the four-dimensional case in \cref{sec:phi4}, using Wick rotations and spherical coordinates.
+% We can find the loop integral in \cref{eq:loop_int_4_dim} in $d$ dimensions by following the same procedure as we did for four dimensions in \cref{sec:phi4}.
+However, when integrating out the angular dependence of the Euclidean momentum $k_E$ to arrive at \cref{eq:phi4_nlo_spherical}, we used the surface area of a four-dimensional unit sphere $\Omega_4$. We must now generalize this to the $d$-dimensional case, giving~\cite{Schwartz:2014sze}
+% The integration over Euclidean momentum is still found by going to spherical coordinates, but we now need the surface area of the general $d$-dimensional unit sphere. We have~\cite{Schwartz:2014sze}
+\begin{equation}\label{eq:d_dim_spherical_integral}
+    \int d^dk_E=\int d\Omega_d\int_0^\infty dk_E k_E^{d-1},
+    \quad
+    \Omega_d = \int d\Omega_d = \frac{2\pi^{\frac{d}{2}}}{\Gamma(\frac{d}{2})},
+\end{equation}
+where $\Gamma(x)$ is the Euler Gamma function. The $d$-dimensional version of \cref{eq:phi4_nlo_spherical} is then
+% where $\Gamma(x)$ is the Euler Gamma function. The $d$-dimensional version of \cref{eq:loop_int_4_dim} is then
+\begin{equation}\label{eq:phi4_nlo_spherical_d_dim}
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \frac{2\mu^{2(4-d)}\lambda^2}{(4\pi)^{\frac{d}{2}}\Gamma(\frac{d}{2})} \int_0^1 dx \int_0^\infty dk_E \, \frac{k_E^{d-1}}{[k_E^2 + \Delta(x)]^2}.
+\end{equation}
+
+% The integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim} is part of a larger class of integrals that can be written $\int_0^\infty dk_E \, k_E^a/[k_E^2+\Delta(x)]^b$.
+% The integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim} is part of a larger class of integrals that can be solved by making a substitution $y=\Delta/\bigl(k_E^2+\Delta(x)\bigr)$
+% The integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim} can be solved by making a substitution $y=\Delta(x)/\bigl(k_E^2+\Delta(x)\bigr)$. It is part of a larger class of integrals, and we give the generalized result as:
+The integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim} is part of a larger class of integrals, given by
+\begin{equation}
+    \int_0^\infty dk_E \, \frac{k_E^a}{[k_E^2+\Delta(x)]^b}, \quad 0 < \frac{a+1}{2} < b.
+\end{equation}
+This integral can be solved by performing the substitution $y=\Delta(x)/\bigl(k_E^2+\Delta(x)\bigr)$, giving
+% To solve the integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim}, we perform the substitution $y=\Delta/(k_E^2+\Delta)$. We give the generalized result
+\begin{equation}
+    \int_0^\infty dk_E \frac{k_E^a}{[k_E^2+\Delta(x)]^b}
+    = \frac{1}{2}\Delta(x)^{\frac{a+1}{2}-b} \int_0^1 dy (1-y)^{\frac{a-1}{2}}y^{b-\frac{a+3}{2}}.
+\end{equation}
+% where $a,b\in\mathbb{R}$ such that $b>\frac{a+1}{2}>0$.
+Using the Euler beta function, given by~\cite{Schwartz:2014sze}
+\begin{equation}
+    \beta(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)} = \int_0^1 dx(1-x)^{a-1}x^{b-1}, \quad a,b > 0,
+\end{equation}
+we find
+\begin{equation}
+    \int_0^\infty dk_E \frac{k_E^a}{[k_E^2+\Delta(x)]^b}
+    = \Delta(x)^{\frac{a+1}{2}-b} \, \frac{\Gamma(\frac{a+1}{2})\Gamma(b-\frac{a+1}{2})}{2\Gamma(b)},
+\end{equation}
+which for \cref{eq:phi4_nlo_spherical_d_dim} gives
+% which for \cref{eq:loop_int_d_dim} gives
+% \begin{equation}
+%     \int d^dk \frac{1}{[k^2-\Delta(x)+i\eps]^2} = \frac{i\pi^{\frac{d}{2}}}{\Gamma(\frac{d}{2})} \Delta(x)^{\frac{d-4}{2}} \Gamma\biggl(\frac{d}{2}\biggr)\Gamma\biggl(\frac{4-d}{2}\biggr).
+% \end{equation}
+% We can now insert $d=4-2\eps$, and expand around $\eps=0$. We will need to make use of the expansion of $\Gamma(\eps)$, given by~\cite{Schwartz:2014sze}
+% \begin{equation}
+%     \Gamma(\eps) = \frac{1}{\eps} - \gamma_E + \mathcal{O}(\eps),
+% \end{equation}
+% where $\gamma_E \approx 0.577$ is the \emph{Euler-Mascheroni constant}. Using also the geometric series $1/(1+x)=1+x+x^2+\cdots$, we find
+% \begin{align}\label{eq:loop_int_d_dim_final}
+%     \int d^dk \frac{1}{[k^2-\Delta(x)+i\eps]^2} &= \frac{i\pi^{2-\eps}}{\Gamma(2-2\eps)} \Delta(x)^{-\eps} \Gamma(2-\eps)\Gamma(\eps).
+%     \\ &\qquad
+%     = i\pi^2 (1-\eps \pi)(1-\eps\ln(\Delta(x))) (1+\eps(1-\gamma_E)) (\frac{1}{\eps}-\gamma_E) + \mathcal{O}(\eps).
+%     \\ &\qquad
+%     = i\pi^2 \biggl\{ \frac{1}{\eps} - \gamma_E + 1 - \gamma_E - \ln[\Delta(x)] \biggr\} + \mathcal{O}(\eps).
+% \end{align}
+
+
 
 
 \section{Renormalization}
