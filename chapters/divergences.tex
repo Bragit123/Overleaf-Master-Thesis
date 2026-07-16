@@ -25,7 +25,7 @@ So far, no problems.
 
 \begin{figure}
     \centering
-    \begin{subfigure}[b]{0.3\linewidth}
+    \begin{subfigure}[b]{0.8\linewidth}
         \centering
         \inputtikz[baseline=(v.base)]{divergences/phi4_lo}
         \caption{}
@@ -44,6 +44,13 @@ So far, no problems.
         \inputtikz[baseline=(v.base)]{divergences/phi4_nlo_t}
         \caption{}
         \label{fig:phi4_nlo_t}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\linewidth}
+        \centering
+        \inputtikz[baseline=(v.base)]{divergences/phi4_nlo_u}
+        \caption{}
+        \label{fig:phi4_nlo_u}
     \end{subfigure}
     \caption{Feynman diagrams for \acrshort{lo} and \acrshort{nlo} corrections to $\phi^-\phi^+\to\phi^-\phi^+$ in complex $\phi^4$ theory. In the loop diagrams we have defined the momenta $p_s=p_1+p_2=p_3+p_4$ and $p_t=p_1-p_3=p_4-p_2$.}
     \label{fig:phi4}
@@ -138,11 +145,14 @@ In this way, $\lambda$ remains dimensionless, at the cost of introducing a new p
 % Using this, we can calculate the loop integral of \cref{eq:loop_int_4_dim}.
 
 \subsubsection{Complex $\phi^4$ Revisited}
-The matrix element for the process $\phi^-\phi^+\to\phi^-\phi^+$ in four spacetime dimensions was given in \cref{eq:phi4_nlo_before_feynman}. In $d$ dimensions, the matrix element is
+The matrix element for the process $\phi^-\phi^+\to\phi^-\phi^+$ in four spacetime dimensions was given in \cref{eq:phi4_nlo_before_feynman}.
+% In $d$ dimensions, the matrix element is
+% In $d$ dimensions, we must change the integration measure to $d^dk/(2\pi)^d$, and update the coupling $\lambda\to\mu^{4-d}\lambda$. The resulting matrix element is then
+In $d$ dimensions, the integration measure becomes $\frac{d^dk}{(2\pi)^d}$, and we must update the coupling $\lambda\to\mu^{4-d}\lambda$. The resulting matrix element is then
 \begin{equation}\label{eq:phi4_nlo_before_feynman_d_dim}
     i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \mu^{2(4-d)} \lambda^2 \int\frac{d^dk}{(2\pi)^d} \frac{1}{(k^2+i\eps)[(k+p)^2+i\eps]}.
 \end{equation}
-Note the addition of the renormalization scale $\mu$, and the change of integration measure $d^dk/(2\pi)^d$.
+% Note the addition of the renormalization scale $\mu$, and the change of integration measure $d^dk/(2\pi)^d$.
 Introducing a Feynman parameter in the same way as we did in \cref{sec:phi4} gives
 \begin{equation}\label{eq:phi4_nlo_before_wick_d_dim}
     i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \mu^{2(4-d)} \lambda^2 \int_0^1 dx \int\frac{d^dk}{(2\pi)^d} \frac{1}{[k^2 - \Delta(x) + i\eps]^2},
@@ -151,7 +161,7 @@ where $\Delta(x)$ is the same as in \cref{eq:phi4_nlo_before_wick}.
 
 We evaluate the momentum integral in \cref{eq:phi4_nlo_before_wick_d_dim} by following the same procedure as we did for the four-dimensional case in \cref{sec:phi4}, using Wick rotations and spherical coordinates.
 % We can find the loop integral in \cref{eq:loop_int_4_dim} in $d$ dimensions by following the same procedure as we did for four dimensions in \cref{sec:phi4}.
-However, when integrating out the angular dependence of the Euclidean momentum $k_E$ to arrive at \cref{eq:phi4_nlo_spherical}, we used the surface area of a four-dimensional unit sphere $\Omega_4$. We must now generalize this to the $d$-dimensional case, giving~\cite{Schwartz:2014sze}
+However, when integrating out the angular dependence of the Euclidean momentum $k_E$ to arrive at \cref{eq:phi4_nlo_spherical}, we used the surface area of a four-dimensional unit sphere $\Omega_4$. We must now generalize this to the $d$-dimensional sphere, where~\cite{Schwartz:2014sze}
 % The integration over Euclidean momentum is still found by going to spherical coordinates, but we now need the surface area of the general $d$-dimensional unit sphere. We have~\cite{Schwartz:2014sze}
 \begin{equation}\label{eq:d_dim_spherical_integral}
     \int d^dk_E=\int d\Omega_d\int_0^\infty dk_E k_E^{d-1},
@@ -167,15 +177,15 @@ where $\Gamma(x)$ is the Euler Gamma function. The $d$-dimensional version of \c
 % The integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim} is part of a larger class of integrals that can be written $\int_0^\infty dk_E \, k_E^a/[k_E^2+\Delta(x)]^b$.
 % The integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim} is part of a larger class of integrals that can be solved by making a substitution $y=\Delta/\bigl(k_E^2+\Delta(x)\bigr)$
 % The integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim} can be solved by making a substitution $y=\Delta(x)/\bigl(k_E^2+\Delta(x)\bigr)$. It is part of a larger class of integrals, and we give the generalized result as:
-The integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim} is part of a larger class of integrals, given by
+The integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim} is part of a larger class of integrals, given by\footnote{We omit the functional dependence of $\Delta$ here, as it is irrelevant for the momentum integral. In addition, its dependence on a single Feynman parameter is a special case of loops with two propagators. In general, $\Delta$ can be a function of several Feynman parameters.}
 \begin{equation}
-    \int_0^\infty dk_E \, \frac{k_E^a}{[k_E^2+\Delta(x)]^b}, \quad 0 < \frac{a+1}{2} < b.
+    \int_0^\infty dk_E \, \frac{k_E^a}{[k_E^2+\Delta]^b}, \quad 0 < \frac{a+1}{2} < b.
 \end{equation}
-This integral can be solved by performing the substitution $y=\Delta(x)/\bigl(k_E^2+\Delta(x)\bigr)$, giving
+This integral can be solved by performing the substitution $y=\Delta/\bigl(k_E^2+\Delta\bigr)$, giving
 % To solve the integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim}, we perform the substitution $y=\Delta/(k_E^2+\Delta)$. We give the generalized result
 \begin{equation}
-    \int_0^\infty dk_E \frac{k_E^a}{[k_E^2+\Delta(x)]^b}
-    = \frac{1}{2}\Delta(x)^{\frac{a+1}{2}-b} \int_0^1 dy (1-y)^{\frac{a-1}{2}}y^{b-\frac{a+3}{2}}.
+    \int_0^\infty dk_E \frac{k_E^a}{[k_E^2+\Delta]^b}
+    = \frac{1}{2}\Delta^{\frac{a+1}{2}-b} \int_0^1 dy (1-y)^{\frac{a-1}{2}}y^{b-\frac{a+3}{2}}.
 \end{equation}
 % where $a,b\in\mathbb{R}$ such that $b>\frac{a+1}{2}>0$.
 Using the Euler beta function, given by~\cite{Schwartz:2014sze}
@@ -184,10 +194,36 @@ Using the Euler beta function, given by~\cite{Schwartz:2014sze}
 \end{equation}
 we find
 \begin{equation}
-    \int_0^\infty dk_E \frac{k_E^a}{[k_E^2+\Delta(x)]^b}
-    = \Delta(x)^{\frac{a+1}{2}-b} \, \frac{\Gamma(\frac{a+1}{2})\Gamma(b-\frac{a+1}{2})}{2\Gamma(b)},
+    \int_0^\infty dk_E \frac{k_E^a}{[k_E^2+\Delta]^b}
+    = \Delta^{\frac{a+1}{2}-b} \, \frac{\Gamma(\frac{a+1}{2})\Gamma(b-\frac{a+1}{2})}{2\Gamma(b)},
 \end{equation}
-which for \cref{eq:phi4_nlo_spherical_d_dim} gives
+% which for \cref{eq:phi4_nlo_spherical_d_dim} gives
+and inserting this back into \cref{eq:phi4_nlo_spherical_d_dim} results in
+\begin{equation}\label{eq:phi4_nlo_no_momentum_d_dim}
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \frac{\mu^{2(4-d)}\lambda^2}{(4\pi)^{\frac{d}{2}}} \Gamma\biggl(\frac{4-d}{2}\biggr) \int_0^1 dx \, \Delta(x)^{\frac{d-4}{2}}.
+\end{equation}
+
+Finally, we insert $d=4-2\eps$ in \cref{eq:phi4_nlo_no_momentum_d_dim}, and Taylor expand around $\eps=0$. We then need the expansion of $\Gamma(\eps)$, which is given by~\cite{Schwartz:2014sze}
+\begin{equation}\label{eq:Gamma_expansion}
+    \Gamma(\eps) = \frac{1}{\eps} - \gamma_E + \mathcal{O}(\eps),
+\end{equation}
+and we use that $a^\eps = 1 + \eps\ln a + \mathcal{O}(\eps^2)$.
+The resulting matrix element is then
+\begin{equation}
+\begin{split}\label{eq:phi4_nlo_eps}
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^p &= \frac{\lambda^2}{16\pi^2} \Biggl\{ \frac{1}{\eps} - \gamma_E + \ln(4\pi) + \ln\frac{\mu^4}{p^2} + i\pi - \int_0^1 dx\, \ln\Bigl[x(1-x)\Bigr] \Biggr\}
+    \\
+    &= \frac{\lambda^2}{16\pi^2} \Biggl\{ \frac{1}{\eps} - \gamma_E + \ln(4\pi) + \ln\frac{\mu^4}{p^2} + 2 + i\pi \Biggr\}.
+\end{split}
+\end{equation}
+Adding together the $s$- and $t$-channel contributions from \cref{fig:phi4_nlo_s,fig:phi4_nlo_t} by inserting $p^2=s$ and $p^2=t$ respectively, we get
+\begin{equation}
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^{\mathrm{NLO}} = \frac{\lambda^2}{8\pi^2} \Biggl\{ \frac{1}{\eps} - \gamma_E + \ln(4\pi) + 2 +i\pi + \frac{1}{2} \biggl(\ln\frac{\mu^4}{s} + \ln\frac{\mu^4}{t}\biggr) \Biggr\}.
+\end{equation}
+
+We have now extracted the divergence from the loop integral as a $\frac{1}{\eps}$ term, but before we discuss how to remove the divergence, there are a couple of things worth noting about the remaining terms of \cref{eq:phi4_nlo_eps}.
+Firstly, the amplitude has an imaginary component $\Im\{\M_{\phi^-\phi^+\to\phi^-\phi^+}^p\} = \lambda^2/(8\pi)$.
+
 % which for \cref{eq:loop_int_d_dim} gives
 % \begin{equation}
 %     \int d^dk \frac{1}{[k^2-\Delta(x)+i\eps]^2} = \frac{i\pi^{\frac{d}{2}}}{\Gamma(\frac{d}{2})} \Delta(x)^{\frac{d-4}{2}} \Gamma\biggl(\frac{d}{2}\biggr)\Gamma\biggl(\frac{4-d}{2}\biggr).
