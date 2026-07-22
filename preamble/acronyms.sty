@@ -4,12 +4,24 @@
 % \setglossarystyle{index}
 \makeglossaries
 
+\makeatletter
+\let\acrfull@orig\acrfull
+\renewcommand{\acrfull}[1]{\acrfull@orig{#1}\glsunset{#1}}
+\makeatother
+
 %% General QFT
 \newacronym[longplural={quantum field theories}, description={Quantum Field Theory}]{qft}{QFT}{quantum field theory}
 \newacronym[description={Ultraviolet (Divergence)}, prefixfirst={an\ }, prefix={a\ }]{uv}{UV}{ultraviolet}
 \newacronym[description={Infrared (Divergence)}]{ir}{IR}{infrared}
 \newacronym[description={Parton Distribution Function}]{pdf}{PDF}{parton distribution function}
 \newacronym[description=Irreducible Representation]{irrep}{irrep}{irreducible representation}
+\newacronym[description={Minimal Subtraction}]{ms}{MS}{minimal subtraction}
+\newacronym[description={Modified Minimal Subtraction}, sort={msbar}]{msbar}{$\overline{\text{MS}}$}{modified minimal subtraction}
+\newacronym[description={Leading Order}]{lo}{LO}{leading order}
+\newacronym[description={Next-to-Leading Order}]{nlo}{NLO}{next-to-leading order}
+\newacronym[description={Next-to-Next-to-Leading Order}]{nnlo}{NNLO}{next-to-next-to-leading order}
+\newacronym[description={One-Particle Irreducible}]{1pi}{1PI}{one-particle irreducible}
+\newacronym[description={Naive Dimensional Regularization}]{ndr}{NDR}{naive dimensional regularization}
 
 %% Standard model
 \newacronym[description={Standard Model}]{sm}{SM}{standard model}
@@ -31,9 +43,6 @@
 \newacronym[description={Degrees of Freedom}]{dof}{d.o.f.}{degrees of freedom}
 % \newacronym[description={Independent Kinematic Variable}]{ikv}{IKV}{independent kinematic variable}
 
-%% Feynman diagrams
-\newacronym[description={Leading Order}]{lo}{LO}{leading order}
-\newacronym[description={Next-to-Leading Order}]{nlo}{NLO}{next-to-leading order}
 
 %% Supersymmetry
 \newacronym[description={Minimal Supersymmetric Standard Model}]{mssm}{MSSM}{minimal supersymmetric standard model}

@@ -1,0 +1,13 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.2cm]
+        \vertex[crossed dot] (v) {}; % Vertex
+        \vertex[above left=of v] (tl);
+        \vertex[below left=of v] (bl);
+        \vertex[above right=of v] (tr);
+        \vertex[below right=of v] (br);
+    \end{scope}
+    \diagram*{
+        (tl) --[charged scalar] (v) --[charged scalar] (tr);
+        (br) --[charged scalar] (v) --[charged scalar] (bl);
+    };
+\end{feynman}

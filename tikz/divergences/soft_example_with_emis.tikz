@@ -1,0 +1,12 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex[blob] (a) {};
+        \vertex[right=1.5 of a] (v);
+        \vertex[right=1 of v] (b);
+        \vertex[above right=1 of v] (p);
+    \end{scope}
+    \diagram*{
+        (a) --[fermion, momentum'={[arrow style=BrickRed]\(p+k\)}] (v) --[fermion, momentum'={[arrow style=PineGreen]\(p\)}] (b);
+        (v) --[boson, momentum={[arrow style=PineGreen]\(k\)}] (p);
+    };
+\end{feynman}

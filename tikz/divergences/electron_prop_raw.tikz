@@ -1,0 +1,9 @@
+\begin{feynman}
+    \begin{scope}[node distance=1cm]
+        \vertex (a);
+        \vertex[right=0.7 of v2] (b);
+    \end{scope}
+    \diagram*{
+        (a) --[fermion] (b);
+    };
+\end{feynman}

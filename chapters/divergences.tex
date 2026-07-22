@@ -1,14 +1,14 @@
 \chapter{Infinities and Where to Hide Them}\label{ch:divergences}
 
-\section{Regularization}
+\section{Dimensional Regularization}\label{sec:dimreg}
 % \textcolor{gray}{(Introduce UV and IR divergences, and give examples of regularization methods, with focus on dimreg (also: mention DRED?))}
 
 When calculating Feynman diagrams at higher orders in perturbation theory, the results are generally not finite. This fact is most easily shown by an example.
 
-\subsection{Example: Complex \texorpdfstring{$\phi^4$}{ϕ4} Theory}\label{sec:phi4}
+\subsection{Example: Loops in Complex \texorpdfstring{$\phi^4$}{ϕ4} Theory}\label{sec:phi4}
 Consider a massless complex scalar field $\phi$ with a quartic interaction. The Lagrangian for this toy model---the complex $\phi^4$ theory---is given by
 \begin{equation}\label{eq:phi4_lagrangian}
-    \mathcal{L} = (\partial^\mu\phi^*)(\partial_\mu\phi) - \frac{\lambda}{4} (\phi^*\phi)^2,
+    \mathcal{L}_{\phi^4} = (\partial^\mu\phi^*)(\partial_\mu\phi) - \frac{\lambda}{4} (\phi^*\phi)^2,
 \end{equation}
 and the Feynman rule for the interaction is easily read off as
 \begin{equation}
@@ -16,51 +16,56 @@ and the Feynman rule for the interaction is easily read off as
 \end{equation}
 If we denote a particle by $\phi^-$ and its corresponding anti-particle by $\phi^+$, we can calculate the matrix element for the scattering process $\phi^-\phi^+ \to \phi^-\phi^+$.
 The \gls{lo} Feynman diagram for this process is shown in \cref{fig:phi4_lo}, giving
-\begin{equation}
-    % i\M_{\mathrm{LO}}(\phi^+\phi^- \to \phi^+\phi^-) = -i\lambda.
-    % i\M_{\phi^+\phi^- \to \phi^+\phi^-}^{\mathrm{LO}} = -i\lambda.
+\begin{equation}\label{eq:phi4_lo}
     i\M_{\phi^-\phi^+\to\phi^-\phi^+}^{\mathrm{LO}} = -i\lambda.
 \end{equation}
 So far, no problems.
 
 \begin{figure}
     \centering
-    \begin{subfigure}[b]{0.8\linewidth}
+    \begin{subfigure}[b]{0.2\linewidth}
         \centering
         \inputtikz[baseline=(v.base)]{divergences/phi4_lo}
         \caption{}
         \label{fig:phi4_lo}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.3\linewidth}
+    \begin{subfigure}[b]{0.2\linewidth}
         \centering
         \inputtikz[baseline=(vl.base)]{divergences/phi4_nlo_s}
         \caption{}
         \label{fig:phi4_nlo_s}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.3\linewidth}
+    \begin{subfigure}[b]{0.25\linewidth}
         \centering
-        \inputtikz[baseline=(v.base)]{divergences/phi4_nlo_t}
+        \inputtikz[baseline=(midv.base)]{divergences/phi4_nlo_t}
         \caption{}
         \label{fig:phi4_nlo_t}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.3\linewidth}
+    \begin{subfigure}[b]{0.25\linewidth}
         \centering
-        \inputtikz[baseline=(v.base)]{divergences/phi4_nlo_u}
+        \inputtikz[baseline=(midv.base)]{divergences/phi4_nlo_u}
         \caption{}
         \label{fig:phi4_nlo_u}
     \end{subfigure}
-    \caption{Feynman diagrams for \acrshort{lo} and \acrshort{nlo} corrections to $\phi^-\phi^+\to\phi^-\phi^+$ in complex $\phi^4$ theory. In the loop diagrams we have defined the momenta $p_s=p_1+p_2=p_3+p_4$ and $p_t=p_1-p_3=p_4-p_2$.}
+    \caption{Feynman diagrams for \acrshort{lo} and \acrshort{nlo} corrections to $\phi^-\phi^+\to\phi^-\phi^+$ in complex $\phi^4$ theory. The arrows on the line signify the direction of charge, so that $\phi^-$ and $\phi^+$ moves parallel and anti-parallel with the arrow, respectively.}
     \label{fig:phi4}
 \end{figure}
 
-We now move to the \gls{nlo} corrections, to which there are two contributing diagrams shown in \cref{fig:phi4_nlo_s,fig:phi4_nlo_t}.
-The expression for the two diagrams are similar, differing only by the interchange $p_s \leftrightarrow p_t$.
-We therefore consider both contributions simultaneously using a general momentum $p$.
+We now move to the \gls{nlo} corrections, to which there are three contributing diagrams, the $s$-, $t$- and $u$-channels, shown in \cref{fig:phi4_nlo_s,fig:phi4_nlo_t,fig:phi4_nlo_u}.
+The matrix element from the three diagrams are similar, differing only by the momentum appearing in along with $k$ in the loop. These momenta are defined according to the relevant Mandelstam variable, given by
+\begin{align}
+    s &= q_s^2 \equiv (p_1+p_2)^2, \\
+    t &= q_t^2 \equiv (p_1-k_1)^2, \\
+    u &= q_u^2 \equiv (p_1-k_2)^2,
+\end{align}
+with $p_1$, $p_2$, $k_1$ and $k_2$ defined as in \cref{fig:phi4_lo}.
+Since the matrix elements are equal up to a choice of $q_i$ (with $i\in\{s,t,u\}$), we can consider their contributions simultaneously, using a general momentum $q$:
+% We therefore consider both contributions simultaneously using a general momentum $p$.
 \begin{equation}\label{eq:phi4_nlo_before_feynman}
-    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \lambda^2 \int\frac{d^4k}{(2\pi)^4} \frac{1}{(k^2+i\eps)[(k+p)^2+i\eps]}.
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^q = \lambda^2 \int\frac{d^4k}{(2\pi)^4} \frac{1}{(k^2+i\eps)[(k+q)^2+i\eps]}.
 \end{equation}
 To solve this integral, we introduce Feynman parameters~\cite{Peskin:1995ev}
 \begin{equation}
@@ -68,17 +73,17 @@ To solve this integral, we introduce Feynman parameters~\cite{Peskin:1995ev}
 \end{equation}
 allowing us to rewrite \cref{eq:phi4_nlo_before_feynman} as
 \begin{equation}
-    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \lambda^2 \int_0^1 dx \int\frac{d^4k}{(2\pi)^4} \frac{1}{[x(k+p)^2 + (1-x)k^2 + i\eps]^2}.
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^q = \lambda^2 \int_0^1 dx \int\frac{d^4k}{(2\pi)^4} \frac{1}{[x(k+q)^2 + (1-x)k^2 + i\eps]^2}.
 \end{equation}
 We rewrite the denominator
 \begin{equation}
-    [x(k+p)^2+(1-x)k^2+i\eps]^2 = [k^2 + 2xk\cdot p + xp^2 + i\eps]^2 = [(k+xp)^2 + x(1-x)p^2 + i\eps]^2,
+    [x(k+q)^2+(1-x)k^2+i\eps]^2 = [k^2 + 2xk\cdot q + xq^2 + i\eps]^2 = [(k+xq)^2 + x(1-x)q^2 + i\eps]^2,
 \end{equation}
-and shift the integration momentum $k \to k-xp$, resulting in
+and shift the integration momentum $k \to k-xq$, resulting in
 \begin{equation}\label{eq:phi4_nlo_before_wick}
-    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \lambda^2 \int_0^1 dx \int\frac{d^4k}{(2\pi)^4} \frac{1}{[k^2 - \Delta(x) + i\eps]^2},
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^q = \lambda^2 \int_0^1 dx \int\frac{d^4k}{(2\pi)^4} \frac{1}{[k^2 - \Delta(x) + i\eps]^2},
 \end{equation}
-where $\Delta(x) \equiv -x(1-x)p^2$.
+where $\Delta(x) \equiv -q^2x(1-x)$.
 
 The loop integral in \cref{eq:phi4_nlo_before_wick} has two simple poles, located at
 \begin{equation}
@@ -94,7 +99,7 @@ The two remaining integration curves, $(-\infty,\infty)$ and $(-i\infty,i\infty)
 Thus we can "rotate" our integration to the imaginary axis\footnote{Hence the name Wick rotation.} by shifting $k^0\to ik^0$, which gives $k^2 \to -k_E^2$, where $k_E^2 = (k^0)^2 + \vec{k}^2$ is the four-dimensional Euclidean momentum.
 Performing the Wick lets us rewrite \cref{eq:phi4_nlo_before_wick} as
 \begin{equation}\label{eq:phi4_nlo_euclidean}
-    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = i\lambda^2 \int_0^1 dx \int\frac{d^4k_E}{(2\pi)^4} \frac{1}{[k_E^2 + \Delta(x)]^2},
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^q = i\lambda^2 \int_0^1 dx \int\frac{d^4k_E}{(2\pi)^4} \frac{1}{[k_E^2 + \Delta(x)]^2},
 \end{equation}
 which is now an integration solely over Euclidean space (and the Feynman parameter).
 Notice also that we have set $i\eps=0$ since the poles in the denominator are now gone.
@@ -108,7 +113,7 @@ Notice also that we have set $i\eps=0$ since the poles in the denominator are no
 
 The remaining momentum integral in \cref{eq:phi4_nlo_euclidean} is only dependent on the norm $k_E$. We can therefore change to four-dimensional spherical coordinates, and use that the surface area of a four-dimensional unit sphere is $\Omega_4 = 2\pi^2$. We then find
 \begin{equation}\label{eq:phi4_nlo_spherical}
-    \M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \frac{\lambda^2}{8\pi^2} \int_0^1 dx \int_0^\infty dk_E \frac{k_E^3}{[k_E^2 + \Delta(x)]^2}.
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^q = \frac{\lambda^2}{8\pi^2} \int_0^1 dx \int_0^\infty dk_E \frac{k_E^3}{[k_E^2 + \Delta(x)]^2}.
 \end{equation}
 In the limit where $k_E\to\infty$, we can neglect $\Delta(x)$, and the integral behaves as
 \begin{equation}
@@ -134,6 +139,10 @@ In three dimensions, for instance, the integrand behaves as $1/k_E^2$ as $k_E\to
 This motivates the introduction of \emph{dimensional regularization}---first introduced in 1972 by 't Hooft and Veltman~\cite{tHooft:1972tcz}, and independently by Bollini and Giambiagi~\cite{Bollini:1972ui} the same year.
 In dimensional regularization, we shift the spacetime dimensions by an infinitesimal amount, working in $d=4-2\eps$ dimensions,\footnote{The factor of two here is unimportant, as it will disappear when we set $\eps\to0$. The choice made here is a convention to avoid some factors in later calculations.} rather than four. Divergences are then be captured by the limit $\eps\to0$.
 
+When using dimensional regularization in \cref{ch:parton_level} for slepton pair production in \cref{ch:parton_level}, we will naturally come across Dirac gamma matrices. Their treatment in $d$ spacetime dimensions is more or less straight-forward, with the exception of the chiral $\gamma^5$ matrix, whose properties can in general not be recovered consistently in arbitrary dimensions. In this thesis, we choose to work in a scheme known as \acrfull{ndr}, in which we demand that $\gamma^5$ squares to unity and anticommutes with other gamma matrices, at the cost of losing its typical trace relations.
+Nevertheless, this choice will not affect results in our calculations, and we pretend that its typical trace relations still hold.
+For a brief discussion of $\gamma^5$ and why it is not an issue for us here, as well as a summary of useful relations involving gamma matrices in $d$ dimensions, see \cref{app:dirac_algebra}.
+
 \subsubsection{Fields and Couplings in $d$ Dimensions}
 Models in \gls{qft} are described by the action $S=\int d^4x\,\mathcal{L}$, or equivalently, by the Lagrangian.
 When changing from four to $d$ spacetime dimensions, the action becomes $S=\int d^dx\,\mathcal{L}$, and since the action must be dimensionless (and $[x]=-1$), the Lagrangian must now have mass dimension $[\mathcal{L}]=d$. This has implications on the fields and couplings of the Lagrangian.
@@ -150,12 +159,12 @@ The matrix element for the process $\phi^-\phi^+\to\phi^-\phi^+$ in four spaceti
 % In $d$ dimensions, we must change the integration measure to $d^dk/(2\pi)^d$, and update the coupling $\lambda\to\mu^{4-d}\lambda$. The resulting matrix element is then
 In $d$ dimensions, the integration measure becomes $\frac{d^dk}{(2\pi)^d}$, and we must update the coupling $\lambda\to\mu^{4-d}\lambda$. The resulting matrix element is then
 \begin{equation}\label{eq:phi4_nlo_before_feynman_d_dim}
-    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \mu^{2(4-d)} \lambda^2 \int\frac{d^dk}{(2\pi)^d} \frac{1}{(k^2+i\eps)[(k+p)^2+i\eps]}.
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^q = \mu^{2(4-d)} \lambda^2 \int\frac{d^dk}{(2\pi)^d} \frac{1}{(k^2+i\eps)[(k+q)^2+i\eps]}.
 \end{equation}
 % Note the addition of the renormalization scale $\mu$, and the change of integration measure $d^dk/(2\pi)^d$.
 Introducing a Feynman parameter in the same way as we did in \cref{sec:phi4} gives
 \begin{equation}\label{eq:phi4_nlo_before_wick_d_dim}
-    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \mu^{2(4-d)} \lambda^2 \int_0^1 dx \int\frac{d^dk}{(2\pi)^d} \frac{1}{[k^2 - \Delta(x) + i\eps]^2},
+    i\M_{\phi^-\phi^+\to\phi^-\phi^+}^q = \mu^{2(4-d)} \lambda^2 \int_0^1 dx \int\frac{d^dk}{(2\pi)^d} \frac{1}{[k^2 - \Delta(x) + i\eps]^2},
 \end{equation}
 where $\Delta(x)$ is the same as in \cref{eq:phi4_nlo_before_wick}.
 
@@ -171,7 +180,7 @@ However, when integrating out the angular dependence of the Euclidean momentum $
 where $\Gamma(x)$ is the Euler Gamma function. The $d$-dimensional version of \cref{eq:phi4_nlo_spherical} is then
 % where $\Gamma(x)$ is the Euler Gamma function. The $d$-dimensional version of \cref{eq:loop_int_4_dim} is then
 \begin{equation}\label{eq:phi4_nlo_spherical_d_dim}
-    \M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \frac{2\mu^{2(4-d)}\lambda^2}{(4\pi)^{\frac{d}{2}}\Gamma(\frac{d}{2})} \int_0^1 dx \int_0^\infty dk_E \, \frac{k_E^{d-1}}{[k_E^2 + \Delta(x)]^2}.
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^q = \frac{2\mu^{2(4-d)}\lambda^2}{(4\pi)^{\frac{d}{2}}\Gamma(\frac{d}{2})} \int_0^1 dx \int_0^\infty dk_E \, \frac{k_E^{d-1}}{[k_E^2 + \Delta(x)]^2}.
 \end{equation}
 
 % The integral over $k_E$ in \cref{eq:phi4_nlo_spherical_d_dim} is part of a larger class of integrals that can be written $\int_0^\infty dk_E \, k_E^a/[k_E^2+\Delta(x)]^b$.
@@ -200,8 +209,13 @@ we find
 % which for \cref{eq:phi4_nlo_spherical_d_dim} gives
 and inserting this back into \cref{eq:phi4_nlo_spherical_d_dim} results in
 \begin{equation}\label{eq:phi4_nlo_no_momentum_d_dim}
-    \M_{\phi^-\phi^+\to\phi^-\phi^+}^p = \frac{\mu^{2(4-d)}\lambda^2}{(4\pi)^{\frac{d}{2}}} \Gamma\biggl(\frac{4-d}{2}\biggr) \int_0^1 dx \, \Delta(x)^{\frac{d-4}{2}}.
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^q = \frac{\mu^{2(4-d)}\lambda^2}{(4\pi)^{\frac{d}{2}}} \Gamma\biggl(\frac{4-d}{2}\biggr) \int_0^1 dx \, \Delta(x)^{\frac{d-4}{2}}.
 \end{equation}
+For future reference, we include the following, more general expression for loop integrals:
+\begin{equation}
+    \int\frac{d^dk}{(2\pi)^d} \frac{k^{2a}}{(k^2-\Delta)^b} = \frac{i(-1)^{a-b}}{(4\pi)^{\frac{d}{2}}} \frac{1}{\Delta^{b-a-\frac{d}{2}}} \frac{\Gamma(a+\frac{d}{2}) \Gamma(b-a-\frac{d}{2})}{\Gamma(b)\Gamma(\frac{d}{2})},
+\end{equation}
+which will turn out to be very useful in calculations in \cref{ch:parton_level}.
 
 Finally, we insert $d=4-2\eps$ in \cref{eq:phi4_nlo_no_momentum_d_dim}, and Taylor expand around $\eps=0$. We then need the expansion of $\Gamma(\eps)$, which is given by~\cite{Schwartz:2014sze}
 \begin{equation}\label{eq:Gamma_expansion}
@@ -210,83 +224,652 @@ Finally, we insert $d=4-2\eps$ in \cref{eq:phi4_nlo_no_momentum_d_dim}, and Tayl
 and we use that $a^\eps = 1 + \eps\ln a + \mathcal{O}(\eps^2)$.
 The resulting matrix element is then
 \begin{equation}
-\begin{split}\label{eq:phi4_nlo_eps}
-    \M_{\phi^-\phi^+\to\phi^-\phi^+}^p &= \frac{\lambda^2}{16\pi^2} \Biggl\{ \frac{1}{\eps} - \gamma_E + \ln(4\pi) + \ln\frac{\mu^4}{p^2} + i\pi - \int_0^1 dx\, \ln\Bigl[x(1-x)\Bigr] \Biggr\}
+\begin{split}\label{eq:phi4_nlo_eps_q}
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^q &= \frac{\lambda^2}{16\pi^2} \Biggl\{ \frac{1}{\eps} - \gamma_E + \ln(4\pi) + \ln\frac{\mu^4}{q^2} + i\pi - \int_0^1 dx\, \ln\Bigl[x(1-x)\Bigr] \Biggr\}
     \\
-    &= \frac{\lambda^2}{16\pi^2} \Biggl\{ \frac{1}{\eps} - \gamma_E + \ln(4\pi) + \ln\frac{\mu^4}{p^2} + 2 + i\pi \Biggr\}.
+    &= \frac{\lambda^2}{16\pi^2} \Biggl\{ \frac{1}{\eps} - \gamma_E + \ln(4\pi) + \ln\frac{\mu^4}{q^2} + 2 + i\pi \Biggr\}.
 \end{split}
 \end{equation}
-Adding together the $s$- and $t$-channel contributions from \cref{fig:phi4_nlo_s,fig:phi4_nlo_t} by inserting $p^2=s$ and $p^2=t$ respectively, we get
-\begin{equation}
-    \M_{\phi^-\phi^+\to\phi^-\phi^+}^{\mathrm{NLO}} = \frac{\lambda^2}{8\pi^2} \Biggl\{ \frac{1}{\eps} - \gamma_E + \ln(4\pi) + 2 +i\pi + \frac{1}{2} \biggl(\ln\frac{\mu^4}{s} + \ln\frac{\mu^4}{t}\biggr) \Biggr\}.
+Finally, to get the full \gls{nlo} matrix element, we add together the $s$-, $t-$ and $u$-channel contributions from \cref{fig:phi4_nlo_s,fig:phi4_nlo_t,fig:phi4_nlo_u} by inserting $q^2=s$, $q^2=t$ and $q^2=u$, respectively.
+Note also that we must multiply by a symmetry factor of $\frac{1}{2}$ for the $u$-channel diagram, since the two propagators in the loop have the same charge flow. We find
+\begin{equation}\label{eq:phi4_nlo_eps}
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^{\mathrm{NLO}} = \frac{5\lambda^2}{32\pi^2} \Biggl\{
+        \frac{1}{\eps} - \gamma_E + \ln(4\pi) + 2 + i\pi + \frac{2}{5}\biggl(\ln\frac{\mu^4}{s} + \ln\frac{\mu^4}{t} + \frac{1}{2}\ln\frac{\mu^4}{u} \biggr)
+    \Biggr\}.
 \end{equation}
 
 We have now extracted the divergence from the loop integral as a $\frac{1}{\eps}$ term, but before we discuss how to remove the divergence, there are a couple of things worth noting about the remaining terms of \cref{eq:phi4_nlo_eps}.
-Firstly, the amplitude has an imaginary component $\Im\{\M_{\phi^-\phi^+\to\phi^-\phi^+}^p\} = \lambda^2/(8\pi)$.
+\begin{itemize}
+    \item \Cref{eq:phi4_nlo_eps} contains logarithms of dimensionfull quantities $[\mu^4/q^2]=2$. This is a rather ugly consequence of the $d$-dimensional coupling dimension that appeared when we substituted $\lambda\to\mu^{4-d}\lambda$.
+    When doing \gls{qed} corrections to slepton pair production in \cref{ch:parton_level}, the relevant coupling will be the electric charge $e$, and its mass dimension is $[e]=(4-d)/2$. Consequently, the relevant logarithms will be dimensionless.
+    We will therefore simply ignore that this problem occurs in complex $\phi^4$ theory.
+    
+    \item The amplitude in \cref{eq:phi4_nlo_eps} has an imaginary component. If we consider the forward scattering case, where $p_1=k_1$ and $p_2=k_2$---meaning that only the $s$-channel diagram contributes---we have $\Im\{\M_{\phi^-\phi^+\to\phi^-\phi^+}^{q_s}\} = \lambda^2/(16\pi)$.
+    It turns out that this is equal to $s$ times the total \gls{lo} cross section, which can be found from the amplitude in \cref{eq:phi4_lo}, hence it demonstrates the validity of the optical theorem~\cite{Schwartz:2014sze}.\footnote{The optical theorem is, however, beyond the scope of this thesis, and will not be discussed further.}
+\end{itemize}
 
-% which for \cref{eq:loop_int_d_dim} gives
+
+\section{Renormalized Perturbation Theory}\label{sec:renormalization}
+In \cref{sec:dimreg} we found the \gls{nlo} amplitude for $\phi^-\phi^+\to\phi^-\phi^+$ scattering in complex $\phi^4$ theory.
+By applying dimensional regularization we were able to extract the divergent behavior as a $1/\eps$ term in the result, but for predictions to be finite we still need to eliminate the remaining $\eps$ dependenc.
+This is done by absorbing the infinities into the parameters of our theory, in what is known as \emph{renormalization}.
+
+\subsection{Counterterms}\label{sec:counterterms}
+The essence of renormalization is to recognize that the contents of a model's Lagrangian---the fields and couplings---are not physically observable.
+In fact, they are in general \emph{infinite}.
+To make this more clear, we consider once more the Lagrangian for complex $\phi^4$ theory in \cref{eq:phi4_lagrangian}, but now we change our notation slightly, writing it as
+\begin{equation}\label{eq:phi4_lagrangian_bare}
+    \mathcal{L}_{\phi^4} = (\partial^\mu\phi_0^*)(\partial_\mu\phi_0) - \frac{\lambda_0}{4} (\phi_0^*\phi_0)^2,
+\end{equation}
+where $\phi_0$ and $\lambda_0$ are the \emph{bare} field and coupling.
+
+We define the \emph{field strength renormalization} $Z_\phi$ and the \emph{coupling renormalization} $Z_\lambda$ by
+\begin{equation}
+    \phi_0 = \sqrt{Z_\phi} \phi_R, \quad \lambda_0 = Z_\lambda \lambda_R,
+\end{equation}
+where $\phi_R$ and $\lambda_R$ are the \emph{renormalized} (finite) field and coupling.
+The renormalization $Z_\phi$ and $Z_\lambda$ then act as scale factors, relating the finite "observable" parameters $\phi_R$ and $\lambda_R$ to the corresponding infinite parameters $\phi_0$ and $\lambda_0$.
+This can be written more explicitly by introducing the counterterms $\delta_\phi$ and $\delta_\lambda$, defined so that
+\begin{equation}
+    Z_\phi \equiv 1 + \delta_\phi, \quad Z_\lambda \equiv 1 + \delta_\lambda,
+\end{equation}
+where $\delta_i$ must be infinite to account for the infinity in the bare parameter.
+In other words, we write bare parameters as a sum of two parts: the finite part given by the renormalized parameter, and the infinite part given by the counterterm.
+
+For convenience, we also define a combined renormalization $Z_4 \equiv Z_\lambda Z_\phi^2 \equiv 1+\delta_4$,\footnote{The name $Z_4$ (and $\delta_4$) points to it being the renormalization of the quartic interaction term $\lambda(\phi^*\phi)^2$.} such that the Lagrangian in \cref{eq:phi4_lagrangian_bare} can be written in terms of renormalized parameters as
+\begin{equation}\label{eq:phi4_lagrangian_renormalized}
+    \mathcal{L}_{\phi^4} = Z_\phi (\partial^\mu\phi_R^*)(\partial_\mu\phi_R) - Z_4 \frac{\lambda_R}{4} (\phi_R^*\phi_R)^2.
+\end{equation}
+Writing this out in terms of counterterms, we find
+\begin{equation}\label{eq:phi4_lagrangian_counterterm}
+    \mathcal{L}_{\phi^4} = (\partial^\mu\phi_R^*)(\partial_\mu\phi_R) - Z_\phi^2 \frac{\lambda_R}{4} (\phi_R^*\phi_R)^2 + \delta_\phi (\partial^\mu\phi_R^*)(\partial_\mu\phi_R) - \delta_4 \frac{\lambda_R}{4} (\phi_R^*\phi_R)^2.
+\end{equation}
+The last two terms introduce two new Feynman rules to the theory:
+\begin{subequations}
+\label{eq:phi4_ct_rules}
+\begin{align}
+    \inputtikz[baseline=(v.base)]{divergences/phi4_ct_kin} = ip^2\delta_\phi,
+    \\
+    \label{eq:phi4_ct_rule_int}
+    \inputtikz[baseline=(v.base)]{divergences/phi4_ct_int} = -i\delta_4 \lambda_R.
+\end{align}
+\end{subequations}
+
+Note that the renormalizations $Z_i$ (and consequently the counterterms $\delta_i$) are in general functions of the renormalized couplings appearing in the theory, in our case $\lambda_R$.
+We will therefore write the counterterms as expansions in the coupling(s).
+These counterterms can be chosen such that they "counter" the divergences appearing from loops, and so they will only appear at loop-order in any process. For instance, in the complex $\phi^4$ theory, loops appear at order $~\lambda_R^2$ (as we saw in \cref{sec:dimreg}), thus the counterterms are $\delta_\phi,\delta_4 = \mathcal{O}(\lambda_R)$.
+In particular, if one only considers tree-level calculations, one can use the lagrangian given in \cref{eq:phi4_lagrangian_bare} with the substitution $\phi_0\to\phi_R$ and $\lambda_0\to\lambda_R$, and calculations will remain unaffected.
+
+With the new Feynman rules in \cref{eq:phi4_ct_rules}, we can complete the calculation of the $\phi^-\phi^+\to\phi^-\phi^+$ from \cref{sec:dimreg}.
+In fact, we will only need the quartic counterterm in \cref{eq:phi4_ct_rule_int}, which gives the following contribution to the \gls{nlo} matrix element:
+\begin{equation}
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^\delta = -i\delta_4 \lambda_R.
+\end{equation}
+The full \gls{nlo} matrix element, including both \cref{eq:phi4_lo,eq:phi4_nlo_eps} as well as the counterterm, is then
+\begin{equation}
+\label{eq:phi4_nlo_ct}
+\begin{split}
+    \M_{\phi^-\phi^+\to\phi^-\phi^+}^{\mathrm{LO}+\mathrm{NLO}+\delta} &=
+    -\lambda_R - \delta_4 \lambda_R
+    \\ &\qquad
+    + \frac{5\lambda_R^2}{32\pi^2} \Biggl\{
+        \frac{1}{\eps} - \gamma_E + \ln(4\pi) + 2 + i\pi + \frac{2}{5}\biggl(\ln\frac{\mu^4}{s} + \ln\frac{\mu^4}{t} + \frac{1}{2}\ln\frac{\mu^4}{u} \biggr)
+    \Biggr\},
+\end{split}
+\end{equation}
+and we can choose $\delta_4$ such that it cancels the divergence, leaving only finite terms.
+However, there is some ambiguity in how we determine $\delta_4$, the only limitation being that it has to cancel the divergence.
+% Counterterms are free parameters, and any choice that leaves the matrix element finite is valid.
+In general, we set
+\begin{equation}\label{eq:delta4_general}
+    \delta_4 = \frac{5\lambda_R}{32\pi^2} \frac{1}{\eps} + \text{finite},
+\end{equation}
+where the finite part can be freely chosen.
+Indeed, the numerical value of the coupling itself, as extracted from experiments, will depend on how we choose the counterterm.\footnote{The complex $\phi^4$ theory is, of course, a toy model, and does not describe reality. However, the argument holds for couplings appearing in any other theory as well, such as \gls{qed} or the \gls{mssm}, which do (attempt to) explain reality.}
+The different choices one can make are called \emph{renormalization schemes}, and we will now turn to describing some common choices.
+
+
+% \subsection{Renormalization Schemes}
+% \subsubsection{The (Modified) Minimal Subtraction Scheme}
+% The simplest choice of counterterm is to set the finite part to zero. For \cref{eq:phi4_nlo_ct}, this means setting
 % \begin{equation}
-%     \int d^dk \frac{1}{[k^2-\Delta(x)+i\eps]^2} = \frac{i\pi^{\frac{d}{2}}}{\Gamma(\frac{d}{2})} \Delta(x)^{\frac{d-4}{2}} \Gamma\biggl(\frac{d}{2}\biggr)\Gamma\biggl(\frac{4-d}{2}\biggr).
+%     \delta_4 = \frac{5\lambda_R}{32\pi^2} \frac{1}{\eps}. \qquad (\text{MS})
 % \end{equation}
-% We can now insert $d=4-2\eps$, and expand around $\eps=0$. We will need to make use of the expansion of $\Gamma(\eps)$, given by~\cite{Schwartz:2014sze}
+% This renormalization scheme is called \acrlong{ms}, although when working with dimensional regularization, it is more common to use a slightly adjusted version called the \acrlong{msbar} scheme. In the \gls{msbar} scheme, we include the terms $\gamma_E$ and $\ln(4\pi)$ in the counterterm, giving
 % \begin{equation}
-%     \Gamma(\eps) = \frac{1}{\eps} - \gamma_E + \mathcal{O}(\eps),
+%     \delta_4 = \frac{5\lambda_R}{32\pi^2} \biggl( \frac{1}{\eps} - \gamma_E + \ln(4\pi) \biggr). \qquad (\text{\MSbar})
 % \end{equation}
-% where $\gamma_E \approx 0.577$ is the \emph{Euler-Mascheroni constant}. Using also the geometric series $1/(1+x)=1+x+x^2+\cdots$, we find
-% \begin{align}\label{eq:loop_int_d_dim_final}
-%     \int d^dk \frac{1}{[k^2-\Delta(x)+i\eps]^2} &= \frac{i\pi^{2-\eps}}{\Gamma(2-2\eps)} \Delta(x)^{-\eps} \Gamma(2-\eps)\Gamma(\eps).
-%     \\ &\qquad
-%     = i\pi^2 (1-\eps \pi)(1-\eps\ln(\Delta(x))) (1+\eps(1-\gamma_E)) (\frac{1}{\eps}-\gamma_E) + \mathcal{O}(\eps).
-%     \\ &\qquad
-%     = i\pi^2 \biggl\{ \frac{1}{\eps} - \gamma_E + 1 - \gamma_E - \ln[\Delta(x)] \biggr\} + \mathcal{O}(\eps).
+% This is nice, since $\gamma_E$ and $\ln(4\pi)$ typically appear in loop calculations when using dimensional regularization, and this allows us to absorb them into the counterterm, together with the divergence.
+
+% The \gls{msbar} scheme can also be viewed as just the \gls{ms} scheme with a redefinition of the renormalization scale, which for \cref{eq:phi4_nlo_ct} would be $\mu^4\to\tilde\mu^4\equiv 4\pi e^{-\gamma_E}\mu^4$, although this will look different in theories where the coupling has a different mass dimension. For instance, in \gls{qed} (including the \gls{qed} part of the \gls{mssm}) the coupling is electric charge, which in $d$ dimensions introduces the renormalization scale as $e\to\mu^{\frac{4-d}{2}}e$, and the \gls{msbar} scheme then amounts redefining the scale as $\mu^2\to\tilde\mu^2\equiv 4\pi e^{-\gamma_E}\mu^2$.
+% Such a rescaling of the renormalization scale is allowed, since it is an unphysical parameter of our theory.
+
+% \subsubsection{The On-Shell Scheme}
+% Another common approach to determine counterterms is to associate the renormalized parameters in a Lagrangian with a value that is already known at some energy scale.
+% To see this, we will move away from $\phi^4$ theory, and instead consider a model more inline with real-world experiments, namely \gls{qed}. The bare \gls{qed} Lagrangian is given by
+% \begin{align}
+%     \mathcal{L}_{\mathrm{QED}} &= \widebar\psi_0 (i\slashed{\partial} - m_0) \psi_0 - \frac{1}{4}F_0^{\mu\nu}F^0_{\mu\nu} - e_0\widebar\psi_0\slashed{A_0}\psi_0,
+% \end{align}
+% where $\psi_0$ and $A_0$ are the bare electron and photon fields, $m_0$ is the bare electron mass, $e_0$ is the bare electric charge, and $F^0_{\mu\nu} = \partial_\mu A^0_\nu - \partial_\nu A^0_\mu$ is the field strength tensor.
+
+% We then introduce renormalizations in the same as we did for $\phi^4$ theory in \cref{sec:counterterms}, although from now on we will write renormalized parameters without the $R$ label, such that
+% \begin{subequations}
+% \begin{align}
+%     \psi_0 &= \sqrt{Z_\psi}\psi \equiv \sqrt{1+\delta_\psi}\psi,
+%     \\
+%     A_0^\mu &= \sqrt{Z_A}A^\mu \equiv \sqrt{1+\delta_A}A^\mu,
+%     \\
+%     m_0 &= Z_m m \equiv (1+\delta_m) m,
+%     \\
+%     e_0 &= Z_e e \equiv (1+\delta_e) e.
+% \end{align}
+% \end{subequations}
+% In addition, we again introduce a combined coupling $Z_1 \equiv Z_e Z_\pi \sqrt{Z_A} \equiv 1+\delta_1$, such that the the \gls{qed} Lagrangian in terms of renormalized parameters can be written\footnote{It is worth noting that the $\delta_\psi\delta_m m\widebar\psi\psi$ term is only relevant for calculations at \gls{nnlo}, since $\delta_\psi$ and $\delta_m$ are both $\mathcal{O}(e^2)$.}
+% \begin{align}
+%     % \mathcal{L}_{\mathrm{QED}} &= Z_\psi \widebar\psi (i\slashed{\partial} - Z_m m) \psi - Z_A \frac{1}{4}F^{\mu\nu}F_{\mu\nu} - Z_1 e\widebar\psi\slashed{A}\psi
+%     % \\
+%     \begin{split}
+%         &= \widebar\psi (i\slashed{\partial} - m) \psi - \frac{1}{4}F^{\mu\nu}F_{\mu\nu} - e\widebar\psi\slashed{A}\psi
+%         \\ &\qquad
+%         + i\delta_\psi \widebar\psi \slashed{\partial} \psi - (\delta_\psi + \delta_m + \delta_\psi\delta_m) m\widebar\psi\psi - \frac{1}{4}\delta_A F^{\mu\nu} F_{\mu\nu} - \delta_1 e\widebar\psi\slashed{A}\psi.
+%     \end{split}
 % \end{align}
 
+% The on-shell scheme is perhaps best illustrated by looking at self-energy corrections to the electron. At \gls{lo}, the electron propagator is given by
+% \begin{equation}
+%     \inputtikz[baseline=(a.base)]{propagators/prop_fermion} = \frac{i}{\pslash-m}.
+% \end{equation}
+% At \gls{nlo} there is only one correction to the electron propagator, given by (still considering this as part of some larger diagrams, so that all lines are propagators, rather than external on-shell particles)
+% \begin{equation}
+%     \inputtikz[baseline=(a.base)]{propagators/fermion_self_energy} = \frac{i}{\pslash-m} [i\Sigma_2(\pslash)] \frac{i}{\pslash-m},
+% \end{equation}
+% where the loop effects are contained in $\Sigma_2(\pslash)$.
+% This diagram is one-particle irreducible, meaning that it can not be "cut" into two distinct diagrams by removing a single propagator line.
+% This can be used to 
+% This diagram can actually be used to say something about 
+
+\subsection{Renormalization Schemes}
+We will now discuss the most common renormalization schemes.
+In doing so, we will move away from $\phi^4$ theory, and instead consider a model more in line with real-world experiments, namely \gls{qed}. The bare \gls{qed} Lagrangian is given by 
+\begin{align}
+    \mathcal{L}_{\mathrm{QED}} &= \widebar\psi_0 (i\slashed{\partial} - m_0) \psi_0 - \frac{1}{4}F_0^{\mu\nu}F^0_{\mu\nu} - e_0\widebar\psi_0\slashed{A_0}\psi_0,
+\end{align}
+where $\psi_0$ and $A_0$ are the bare electron and photon fields, $m_0$ is the bare electron mass, $e_0$ is the bare electric charge, and $F^0_{\mu\nu} = \partial_\mu A^0_\nu - \partial_\nu A^0_\mu$ is the field strength tensor.
+
+We then introduce renormalizations in the same as we did for $\phi^4$ theory in \cref{sec:counterterms}, although from now on we will write renormalized parameters without the $R$ label, such that
+\begin{subequations}
+\begin{align}
+    \psi_0 &= \sqrt{Z_\psi}\psi \equiv \sqrt{1+\delta_\psi}\psi,
+    \\
+    A_0^\mu &= \sqrt{Z_A}A^\mu \equiv \sqrt{1+\delta_A}A^\mu,
+    \\
+    m_0 &= Z_m m \equiv (1+\delta_m) m,
+    \\
+    e_0 &= Z_e e \equiv (1+\delta_e) e.
+\end{align}
+\end{subequations}
+In addition, we again introduce a combined coupling $Z_1 \equiv Z_e Z_\pi \sqrt{Z_A} \equiv 1+\delta_1$, such that the the \gls{qed} Lagrangian in terms of renormalized parameters can be written\footnote{It is worth noting that the $\delta_\psi\delta_m m\widebar\psi\psi$ term is only relevant for calculations at \gls{nnlo}, since $\delta_\psi$ and $\delta_m$ are both $\mathcal{O}(e^2)$.}
+\begin{equation}
+\label{eq:qed_lagrangian_ct}
+\begin{split}
+    &= \widebar\psi (i\slashed{\partial} - m) \psi - \frac{1}{4}F^{\mu\nu}F_{\mu\nu} - e\widebar\psi\slashed{A}\psi
+    \\ &\qquad
+    + i\delta_\psi \widebar\psi \slashed{\partial} \psi - (\delta_\psi + \delta_m + \delta_\psi\delta_m) m\widebar\psi\psi - \frac{1}{4}\delta_A F^{\mu\nu} F_{\mu\nu} - \delta_1 e\widebar\psi\slashed{A}\psi.
+\end{split}
+\end{equation}
+
+As a simple loop example in \gls{qed}, consider the electron self-energy, whose \gls{nlo} contribution is given by\footnote{Note that we consider the diagram as part of some larger diagram, writing all lines (including the external ones) as propagators.}
+% The on-shell scheme is perhaps best illustrated by looking at self-energy corrections to the electron. At \gls{lo}, the electron propagator is given by
+% \begin{equation}
+%     \inputtikz[baseline=(a.base)]{propagators/prop_fermion} = \frac{i}{\pslash-m}.
+% \end{equation}
+% At \gls{nlo} there is only one correction to the electron propagator, given by (still considering this as part of some larger diagrams, so that all lines are propagators, rather than external on-shell particles)
+\begin{equation}\label{eq:electron_Sigma2_def}
+    \inputtikz[baseline=(a.base)]{divergences/electron_self_energy} = \frac{i}{\pslash-m} \Bigl[i\Sigma_2(\pslash)\Bigr] \frac{i}{\pslash-m}.
+\end{equation}
+The loop effects are contained in $\Sigma_2(\pslash)$, which is given by
+\begin{equation}
+    i\Sigma_2(\pslash) = -e^2 \mu^{4-d} \int\frac{d^dk}{(2\pi)^d} \frac{\gamma^\mu (\kslash+\pslash+m)\gamma_\mu}{(k^2+i\eps)[(k+p)^2-m^2+i\eps]}.
+\end{equation}
+From here on out, we will omit the Feynman prescription $i\eps$, to avoid cluttered notation. In principle, it should be there in order for Wick rotations to remain valid.
+As in \cref{sec:phi4}, we introduce a Feynman parameter $x$, complete the square in the denominator, and shift the loop momentum $k\to k-xp$. In addition, we make use of \rednote{ref $\gamma^\mu\gamma^\nu\gamma_\mu$} and the fact that the integral is zero for terms that are linear in $\kslash$. This leaves us with
+\begin{equation}
+    i\Sigma_2(\pslash) = e^2 \mu^{4-d} \int_0^1 dx \int\frac{d^dk}{(2\pi)^d} \frac{(d-2)(1-x)\pslash-dm}{[k^2 - \Delta(x)]^2},
+\end{equation}
+where $\Delta(x) = xm^2 - x(1-x)p^2$.
+Using \rednote{ref Schwartz B.36 (appendix?)} we find
+\begin{equation}
+    i\Sigma_2(\pslash) = \frac{ie^2\mu^{4-d}}{(4\pi)^{\frac{d}{2}}} \Gamma\biggl(\frac{4-d}{2}\biggr) \int_0^1 dx \Bigl[(d-2)(1-x)\pslash - dm\Bigr] \Bigl[xm^2-x(1-x)p^2\Bigr]^{\frac{d-4}{2}}.
+\end{equation}
+Inserting $d=4-2\eps$ gives\footnote{In contrast to $\phi^4$ theory, the factor raised to $\eps$ is dimensionless, so we get no dimensionfull logarithms.}
+\begin{equation}\label{eq:electron_self_energy_before_eps_expand}
+    i\Sigma_2(\pslash) = \frac{ie^2}{8\pi^2} \Gamma(\eps) \int_0^1 \biggl[
+        (1-x)\pslash - 2m - \eps \Bigl((1-x)\pslash - m \Bigr)
+    \biggr] \biggl(\frac{4\pi \mu^2}{xm^2 - x(1-x)p^2}\biggr)^\eps,
+\end{equation}
+and using \cref{eq:Gamma_expansion} we can extract the divergence to find
+\begin{equation}\label{eq:electron_self_energy}
+    \Sigma_2(\pslash) = \frac{e^2}{16\pi^2} \biggr\{ \frac{\pslash - 4m}{\eps} + \text{finite} \biggr\}.
+\end{equation}
+The corresponding counterterm can be read off from \cref{eq:qed_lagrangian_ct}, and including it we find the renormalized self-energy at \gls{nlo} to be\footnote{Remember that $\delta_\psi\delta_m = \mathcal{O}(e^4)$, so it does not contribute at \gls{nlo}.}
+\begin{equation}\label{eq:electron_self_energy_renormalized}
+    \inputtikz[baseline=(a.base)]{divergences/qed_self_energy_raw} + \inputtikz[baseline=(a.base)]{divergences/qed_ct_prop_raw}
+    = \frac{i}{\pslash-m} \Bigl[i\Bigl(\delta_\psi\pslash - (\delta_\psi+\delta_m) m + \Sigma_2(\pslash) \Bigr)\Bigr] \frac{i}{\pslash-m}.
+\end{equation}
+The counterterms must be numbers, independent of momenta. Thus to cancel the divergences from \cref{eq:electron_self_energy}, we must set
+\begin{subequations}
+\begin{align}
+    \delta_\psi &= -\frac{e^2}{16\pi^2} \frac{1}{\eps} + \text{finite},
+    \\
+    \delta_m &= -\frac{3e^2}{16\pi^2} \frac{1}{\eps} + \text{finite}.
+\end{align}
+\end{subequations}
+How we choose the finite part depends on the specific renormalization scheme we utilize. We will now discuss some of the most common choices.
+
+
+\subsubsection{The (Modified) Minimal Subtraction Scheme}
+The simplest choice of counterterm is to set the finite part to zero, subtracting the divergence but nothing more. This is called the \acrfull{ms} scheme, and for the electron self-energy in \cref{eq:electron_self_energy_renormalized}, this means setting
+\begin{equation}\label{eq:qed_ct_ms}
+    \delta_\psi = -\frac{e^2}{16\pi^2} \frac{1}{\eps},
+    \quad
+    \delta_m = -\frac{3e^2}{16\pi^2} \frac{1}{\eps}. \qquad (\text{MS})
+\end{equation}
+
+When working with dimensional regularization, it is more common to use a slightly adjusted version called the \acrfull{msbar} scheme.
+To see why, start by noticing that the $1/\eps$ divergence in \cref{eq:electron_self_energy_before_eps_expand} comes from the Gamma function, when expanding $\Gamma(\eps)=1/\eps - \gamma_E + \mathcal{O}(\eps)$. This factor almost always appears in dimensional regularization, and therefore the Euler-Mascheroni constant $\gamma_E$ also appears in the same manner.
+In addition, as can be seen from \rednote{ref Schwartz B.36-39 integral}, we typically also pick up a factor $(4\pi)^\eps = 1+\eps\ln(4\pi) + \mathcal{O}(\eps^2)$ from integrating over the loop momentum.
+Since the $\gamma_E$ and $\ln(4\pi)$ factors occurr in nearly all loop calculations in dimensional regularization, it is common to include them when subtracting the divergence. This defines the \gls{msbar} scheme, and for $\cref{eq:electron_self_energy_renormalized}$, it means fixing the counterterms to be
+\begin{equation}\label{eq:qed_ct_msbar}
+    \delta_\psi = -\frac{e^2}{16\pi^2} \biggl\{\frac{1}{\eps} - \gamma_E + \ln(4\pi) \biggr\},
+    \quad
+    \delta_m = -\frac{3e^2}{16\pi^2} \biggl\{ \frac{1}{\eps} - \gamma_E + \ln(4\pi) \biggr\}. \qquad (\MSbar)
+\end{equation}
+
+The \gls{msbar} scheme can also be viewed as just the \gls{ms} scheme with a redefinition of the renormalization scale $\mu^2\to\tilde\mu^2=4\pi e^{-\gamma_E}\mu^2$.
+Such a rescaling of the renormalization scale is allowed, since it is an unphysical parameter of our theory.
+When we want to cancel divergences in future calculations, and it is sensible to include the \gls{msbar} terms $\gamma_E$ and $\ln(4\pi)$---regardless of whether we are actually renormalizing in the \gls{msbar} scheme---it will be convenient to define the following shorthand:
+\begin{equation}
+    \frac{1}{\widebar\eps} \equiv \frac{1}{\eps} - \gamma_E + \ln(4\pi).
+\end{equation}
+With this shorthand, we can also rewrite the \gls{msbar} counterterms in \cref{eq:qed_ct_msbar} as
+\begin{equation}
+    \delta_\psi = -\frac{e^2}{16\pi^2} \frac{1}{\widebar\eps},
+    \quad
+    \delta_m = -\frac{3e^2}{16\pi^2} \frac{1}{\widebar\eps}, \qquad (\MSbar)
+\end{equation}
+making their similarity to the "unmodified" \gls{ms} scheme even more apparent.
+
+\subsubsection{The On-Shell Scheme}
+Another common approach to determine counterterms is to associate the renormalized parameters in a Lagrangian with their observed "physical" values.
+A good example of this is the parameter $m$. We have consistently named this the "electron mass", but from our present discussion it should be clear that this is ambiguous, as the numerical value of $m$ is dependent on the choice of renormalization scheme.
+The specific renormalization scheme in which the renormalized parameter $m$ coincides with the physical electron mass observed in experiments is called the \emph{on-shell scheme}.
+
+Before we relate the renormalized parameter to the physical mass, we should be more precise about what we actually mean when we say "physical mass".
+A particle's mass in classical (relativistic) theory is related to the momentum and energy of the particle through $E^2=\vec{p}^2+m^2$, or in terms of four-momentum, $p^2=m^2$.
+For a freely propagating scalar field, this mass can be recognized by the propagator $i/(p^2-m^2)$ having a simple pole at $p^2=m^2$ with residue $i$.
+We can use this to \emph{define} the physical mass of a scalar field, which we will call the \emph{pole mass}.
+The pole mass of a scalar field $\phi$ is the mass $m_P$, defined such that the two-point function---the propagator plus higher-order corrections---has a simple pole of residue $i$ at $p^2=m_P^2$.
+For fermionic fields, such as the electron, the idea is the same, but the propagator is now $i/(\pslash-m)$. We therefore define the pole mass $m_P$ of fermions to have a simple pole of residue $i$ at $\pslash=m$ instead.
+
+% To find the electron's pole mass, we start by considering the renormalized self-energy in \cref{eq:electron_self_energy_renormalized}.
+% In order to relate the physical mass to parameters in \gls{qft}, we start by revisiting the renormalized electron self-energy in \cref{eq:electron_self_energy_renormalized}.
+Consider now the \gls{nlo} contribution to the electron's self-energy in \cref{eq:electron_self_energy_renormalized}.
+We define the renormalized self-energy
+% The two diagrams contributing to the self-energy are both \gls{1pi}, and by defining the renormalized self-energy
+\begin{equation}\label{eq:Sigma_renormalized}
+    \Sigma(\pslash) = \Sigma_2(\pslash) + \delta_\psi \pslash - (\delta_\psi + \delta_m)m.
+\end{equation}
+If we go to higher orders, $\Sigma_2(\pslash)$ will in general represent the sum of all \gls{1pi} diagrams---diagrams that can not be cut into two separate diagrams by removing a single propagator.
+The electron's two-point function at \gls{nlo} is then
+\begin{equation}
+    iG_2(\pslash) =
+    \inputtikz[baseline=(a.base)]{divergences/1PI_0}
+    + \inputtikz[baseline=(a.base)]{divergences/1PI_1}
+    = \frac{i}{\pslash-m}
+    + \frac{i}{\pslash-m} \Bigl[ i\Sigma(\pslash) \Bigr] \frac{i}{\pslash-m},
+\end{equation}
+which, unfortunately, does not have a simple pole.
+Nevertheless, we can fix this by \emph{resummation}.
+% ---which we will express diagrammatically as
+% \begin{equation}
+%     \inputtikz[baseline=(a.base)]{divergences/1PI_1} = \frac{i}{\pslash-m} \Bigl[i\Sigma(\pslash)\Bigr] \frac{i}{\pslash-m}.
+% \end{equation}
+Consider an infinite series, where the $n$'th term consists of $n$ \gls{1pi} diagrams connected by propagators. We then find
+\begin{align}
+    iG(\pslash) &=
+    \inputtikz[baseline=(a.base)]{divergences/1PI_0}
+    + \inputtikz[baseline=(a.base)]{divergences/1PI_1}
+    + \inputtikz[baseline=(a.base)]{divergences/1PI_2}
+    + \cdots
+    \nonumber \\ &=
+    \frac{i}{\pslash-m}
+    + \frac{i}{\pslash-m} \Bigl[ i\Sigma(\pslash) \Bigr] \frac{i}{\pslash-m}
+    + \frac{i}{\pslash-m} \Bigl[ i\Sigma(\pslash) \Bigr] \frac{i}{\pslash-m} \Bigl[ i\Sigma(\pslash) \Bigr] \frac{i}{\pslash-m}
+    + \cdots
+    \nonumber \\ &=
+    \frac{i}{\pslash-m} \Biggl\{
+        1
+        + i\Sigma(\pslash) \frac{i}{\pslash-m}
+        + \biggl(i\Sigma(\pslash) \frac{i}{\pslash-m}\biggr)^2
+        + \biggl(i\Sigma(\pslash) \frac{i}{\pslash-m}\biggr)^3
+        + \cdots
+    \Biggr\}
+    \nonumber \\ &=
+    \frac{i}{\pslash-m + \Sigma(\pslash)},
+    \label{eq:electron_self_energy_resummed}
+\end{align}
+where in the last equality we have recognized the sum as a geometric series.
+In this way, we have used our $\mathcal{O}(e^2)$ diagrams to say something about all-order contributions, and the result is a two-point function that has a simple pole.
+
+We can now define the pole mass such that \cref{eq:electron_self_energy_resummed} has a simple pole at $m_P$. For this to be the case, we must have
+\begin{equation}\label{eq:pole_mass_def}
+    \Sigma(m_P) = m - m_P.
+\end{equation}
+In addition, we want the pole to have a residue of $i$. Enforcing this constraint and using L'H\^opital's rule gives
+\begin{align}
+    i &= \lim_{\pslash\to m_P} (\pslash-m_P) \frac{i}{\pslash - m + \Sigma(\pslash)} = \lim_{\pslash\to m_P} \frac{i}{1+\frac{d}{d\pslash}\Sigma(\pslash)}
+    \nonumber \\
+    &\Longrightarrow \frac{d}{d\pslash}\Sigma(\pslash) \biggr\vert_{\pslash=m_P} = 0.
+    \label{eq:pole_mass_residue_def}
+\end{align}
+The on-shell scheme is then defined by setting the renormalized mass equal to the pole mass, $m=m_P$. Inserting \cref{eq:Sigma_renormalized} into \cref{eq:pole_mass_def,eq:pole_mass_residue_def}, we can show that the mass and field counterterms in the on-shell scheme are then
+\begin{equation}\label{eq:qed_ct_os_fermion}
+    \delta_m = \Sigma_2(m),
+    \quad
+    \delta_\psi = -\frac{d}{d\pslash} \Sigma_2(\pslash) \biggr\vert_{\pslash=m}. \qquad (\text{OS})
+\end{equation}
+The abbreviation "OS" at the end stands for "on-shell", and is used to distinguish these counterterms from the \gls{ms} and \gls{msbar} counterterms in \cref{eq:qed_ct_ms,eq:qed_ct_msbar}.
+
+For future reference, the on-shell scheme for a scalar field $\phi$ is the same as for fermions, but with the requirement $p^2=m^2$ instead of $\pslash=m$. In that case, the self-energy is a function of the squared momentum $\Sigma_2(p^2)$, and the resulting counterterms are
+\begin{equation}\label{eq:qed_ct_os_scalar}
+    \delta_m = \Sigma_2(m^2),
+    \quad
+    \delta_\phi = -\frac{d}{dp^2} \Sigma_2(p^2) \biggr\vert_{p^2=m^2}. \qquad (\text{OS})
+\end{equation}
+
+
+\subsubsection{The Complex-Mass Scheme}
+Consider an unstable scalar particle $\phi$ with a total decay width $\Gamma$.
+The amplitude $\M_{\phi\to\phi}$ for the process in which the scalar particle simply propagates forward has an imaginary part which is related to the decay width by the optical theorem (we here consider external lines to be on-shell particles, not propagators)
+\begin{equation}
+    m_P\Gamma = \Im\{\M_{\phi\to\phi}\} = \Im\biggl\{
+        \inputtikz[baseline=(a.base)]{divergences/1PI_1_scalar} + \inputtikz[baseline=(a.base)]{divergences/1PI_2_scalar} + \cdots
+    \biggr\}.
+\end{equation}
+This amplitude can be approximated by excluding the diagrams that are not \gls{1pi}, giving $\Im\{\Sigma(m_P^2)\} \approx m_P\Gamma$, where $\Sigma(m_P^2)$ is the renormalized self-energy (a single \gls{1pi} blob), as in the discussion about the on-shell scheme above.
+
+For unstable particles, one typically modifies the definition of a pole mass in \cref{eq:pole_mass_def} to use only the real part of $\Sigma(m_P^2)$, such that the pole mass remains real. For a scalar field, this means taking $\Re\{\Sigma(m_P^2)\} = m^2-m_P^2$. Consequently, the propagator near the pole becomes
+\begin{equation}
+    iG(p^2) = \frac{i}{p^2 - m^2 + \Sigma(p^2)} \approx \frac{i}{p^2 - m_P^2 + im_P\Gamma},
+\end{equation}
+known as the \emph{Breit-Wigner propagator}~\cite{Schwartz:2014sze}.
+
+The same result could be acquired by using the standard propagator, but allowing the particle's mass to be complex. We then define the complex mass $\mu$ such that it satisfies
+\begin{equation}
+    \mu^2 \equiv m_P^2 - im_P\Gamma.
+\end{equation}
+This choice is known as the \emph{complex-mass scheme}, and is commonly used for the massive electroweak gauge bosons $Z$ and $W^\pm$.
+Note, however, that the masses of external particles should be taken real~\cite{Denner:2019vbn}.
+When considering slepton pair production in the chapters that follow, the sleptons appear as on-shell final-state particles, and we will therefore set their masses to be real, even though they are in principle unstable particles.
+
+
+\subsubsection{The \texorpdfstring{$G_\mu$}{Gmu} Scheme}
+% good place to mention RGE as motivation
+The last scheme we will discuss deals with the electromagnetic coupling $\alpha=e^2/(4\pi)$.
+The perhaps most intuitive way to approach it is to use on-shell renormalization, and choose $\alpha$ such that it matches the standard electromagnetic coupling in the Thomson limit, i.e.\ the fine structure constant $\alpha(0) \approx 1/137$.
+This is called the $\alpha(0)$ scheme.
+However, $\alpha$ runs with energy scale, and at the scale of electroweak interactions, it picks up large logarithmic corrections from loops involving low-mass fermions~\cite{Denner:2019vbn}
+\begin{equation}
+    % \Delta\alpha(m_Z^2) = \frac{\alpha(0)}{3\pi} \sum_{f\neq t} N_C^f Q_f^2 \biggl(\ln\frac{m_Z^2}{m_f^2} - \frac{5}{3} \biggr) + \mathcal{O}\biggl(\frac{m_f^2}{m_Z^2}\biggr),
+    \Delta\alpha(m_Z^2) \sim \ln\frac{m_Z^2}{m_f^2},
+\end{equation}
+where $m_f$ and $m_Z$ are the fermion and $Z$ boson (pole) masses, respectively.
+An alternative scheme is to use $\alpha(m_Z^2)$ instead of $\alpha(0)$. This scheme is unsurprisingly dubbed the $\alpha(m_Z^2)$ scheme, and it cleanly absorbs the logarithmic contributions from the fermion loops~\cite{Denner:2019vbn}.
+
+Nevertheless, we can go one step further and define a scheme that also absorbs corrections associated with the renormalization of the Weinberg angle $\theta_W$. This scheme is titled the $G_\mu$ scheme, and is the one we will employ when acquiring numerical results in \cref{ch:results}.
+In the $G_\mu$ scheme, the electromagnetic coupling is set to~\cite{Denner:2019vbn}
+\begin{equation}
+    \alpha_{G_\mu} \equiv \frac{\sqrt{2}G_\mu m_W^2}{\pi} \biggl(1-\frac{m_W^2}{m_Z^2}\biggr) \approx \frac{1}{132},
+\end{equation}
+where $m_W$ is the mass of the $W$ boson, and $G_\mu$ is the Fermi constant, given by~\cite{ParticleDataGroup:2026aaa}
+\begin{equation}
+    G_\mu = \qty{1.166 378e-5}{GeV^{-2}}.
+\end{equation}
+Note that, even if the complex-mass scheme is used for the gauge boson masses, the masses $m_W$ and $m_Z$ appearing in the $G_\mu$ scheme are taken to be the particles' \emph{real} pole masses. Their complex masses are typically denoted with a $\mu$ to make the distinction clear, i.e.\ $\mu_V^2=m_V^2-im_V\Gamma_V$, where $V$ is $Z$ or $W$.
+
+
+\subsection{Renormalizability}
+We have shown that the \gls{uv} divergences coming from the electron self-energy in \gls{qed} can be removed by renormalizing the electron field $\psi$ and its mass $m$.
+In addition to these we can renormalize the photon field $A_\mu$ and the electric charge $e$, giving four counterterms in total.
+A natural question at this point is: \textit{"are these enough?"}, i.e.\ do we have enough counterterms to remove \emph{all} \gls{uv} divergences that can appear in \gls{qed}?
+The answer is \emph{yes}, making \gls{qed} a \emph{renormalizable} theory.
+In general, a theory is renormalizable if all \gls{uv} divergences can be canceled with a \emph{finite} number of counterterms~\cite{Schwartz:2014sze}.
+
+One can quickly see if a theory is renormalizable by looking at the interaction terms of its Lagrangian.
+If all interactions have couplings with a non-negative mass dimension, the theory is renormalizable. If, however, there are interactions with couplings of negative mass dimension, it is a \emph{non-renormalizable} theory.
+By this notion it is clear by looking at their respective Lagrangians that both the \gls{sm} and \gls{mssm} are renormalizable.
+
+In \cref{sec:standard_model} we listed three aspects of particle physics that the \gls{sm} fails to describe: dark matter, gravity and the hierarchy problem. We then showed how supersymmetry solves two of these problems---the symmetry between fermionic and bosonic states neatly cancels the largest contributions to the Higgs mass, and the \gls{lsp} provides a promising \gls{wimp} candidate---but we never discussed if supersymmetry provides an adequate description of gravity.
+In fact, gravity is not included in the \gls{mssm}.
+As it turns out, it can be shown that any attempt to model gravity in perturbative \gls{qft} results in a non-renormalizable theory~\cite{Schwartz:2014sze}.
+Such theories can still be useful as \emph{effective field theories} at low energies, but they would not be complete.
+Still, there are effective supersymmetric models that incorporate gravity, such as \emph{minimal supergravity} (mSUGRA), but such theories are beyond the scope of this thesis.
+Since we will work with the renormalizable \gls{mssm}, we will not discuss non-renormalizable theories in any more detail.
 
 
 
-\section{Renormalization}
-\subsection{Counterterms}
-\subsection{On-Shell Scheme}
-\subsection{\texorpdfstring{\MSbar}{MSbar} Scheme}
-\subsection{Complex-Mass Scheme}
-\subsection{\texorpdfstring{$G_\mu$}{Gmu} Scheme \textcolor{gray}{(good place to mention RGE as motivation)}}
-\subsection{What About IR Divergences? \textcolor{gray}{(KLN for soft, ref PDFs for collinear)}}
+\section{What About IR Divergences?}
+So far, we have only discussed how to get rid of \gls{uv} divergences, which is done by renormalizing the parameters in our Lagrangian.
+We have still to discuss how to get rid of \gls{ir} divergences. Luckily, they are conceptually simpler.
+We will divide \gls{ir} divergences into two categories, the soft and collinear divergences.
+
+\subsection{Soft Divergences}
+Consider as an example, a \gls{qed} process with a massive electron with momentum $p$ in the final-state. This process can be drawn schematically as
+\begin{equation}
+    \inputtikz[baseline=(a.base)]{divergences/soft_example_no_emis} = \widebar{u}(p) M(\pslash),
+\end{equation}
+where the blob represents everything else in the diagram, denoted by $M(p)$. Now, consider a photon with momentum $k$ that is emitted from the electron, given by
+\begin{equation}\label{eq:soft_example}
+    % \inputtikz[baseline=(a.base)]{divergences/soft_example_with_emis} = e \eps^*_\mu(k) \widebar{u}(p) \gamma^\mu \frac{(\pslash+\kslash+m)}{(p+k)^2-m^2} M(\pslash).
+    \inputtikz[baseline=(a.base)]{divergences/soft_example_with_emis} = e \, \widebar{u}(p) \slashed{\eps}^*(k) \frac{\pslash+\kslash+m}{(p+k)^2-m^2} M(\pslash).
+\end{equation}
+Due to the emitted photon, the diagram picks up a propagator.
+In the limit where the photon is emitted with close to zero energy, $k^\mu \sim (0,0,0,0)$, this propagator becomes
+\begin{equation}
+    \frac{\pslash+\kslash+m}{(p+k)^2-m^2} \sim \frac{\pslash+m}{p^2-m^2},
+\end{equation}
+which is problematic, because the electron is on-shell with $p^2=m^2$, so the propagator develops a \emph{soft divergence}.
+
+The divergence is soft in the sense that it comes from a massless emitted particle going soft (low-energy), although soft divergences also appear in loop diagrams involving massless particles.
+Note that a soft divergence only occurrs if the diagram involves a massless particle, since a massive particle can not have arbitrarily low energies. The mass sets a lower bound $E>m$.
+For this reason, soft divergences are sometimes regulated by inserting a mass by hand to the particle going soft.
+% Note that this can only happen when the emitted particle is massless, since a massive particle can not have arbitrarily low energies. The mass sets a lower bound $E>m$. For this reason, soft divergences are sometimes regulated by adding a mass to the emitted particle.
+This generally breaks gauge invariance, however, so dimensional regularization remains the popular choice for regulating both \gls{uv} and \gls{ir} divergences.
+
+Soft divergences disappear from calculations by themselves, as long as one considers \emph{all} relevant diagrams.
+This means that we must calculate the \emph{inclusive} cross section to make sure that all divergences disappear.
+For instance, when we consider slepton pair production at the partonic level in \cref{ch:parton_level}, we will see that the loop contributions at \gls{nlo} to the process $q\widebar{q}\to\slepton^*\slepton$ gives soft divergences from photons appearing in the loops.
+To cancel these soft divergences, we must include also the tree-level contributions to $q\widebar{q}\to\slepton^*\slepton\gamma$.
+Taking both the $2\to2$ loops and $2\to3$ emission diagrams into account, the soft divergences end up canceling.
+Of course, this will be demonstrated in far more detail in \cref{ch:parton_level}.
+For now, it suffices to know that soft divergences disappear without the need for renormalization.
+
+
+\subsection{Collinear Divergences}
+If the external particle in \cref{eq:soft_example} is massless, e.g.\ because the cross section is calculated in the ultra-relativistic limit, the propagator becomes
+\begin{equation}\label{eq:collinear_example}
+    \frac{\pslash+\kslash}{(p+k)^2} = \frac{\pslash+\kslash}{2p\cdot k},
+\end{equation}
+where we have used that both the electron and the photon are on-shell, such that $p^2=k^2=0$.
+We can, without loss of generality, assume $\vec{p}$ to point along the $z$-axis, and let $\vec{k}$ lie in the $xz$-plane at an angle $\theta$ from $\vec{p}$, such that
+\begin{equation}
+    p^\mu = \abs{\vec{p}}(1, 0, 0, 1), \quad k^\mu = \abs{\vec{k}}(1,\sin\theta,0,\cos\theta).
+\end{equation}
+Their dot product, which appears in the denominator of \cref{eq:collinear_example}, is then
+\begin{equation}
+    p\cdot k = \abs{\vec{p}}\abs{\vec{k}} (1 - \cos\theta).
+\end{equation}
+Thus the diagram admits a divergence in the limit where $\cos\theta\to1$.
+This is called a \emph{collinear} divergence, as it appears when the emitted photon is collinear to the electron.
+
+Getting rid of the collinear divergences is a bit trickier than the soft divergences. It relies on renormalized \glspl{pdf}, though we postpone that discussion until \cref{ch:hadron_level}.
 
 
 \section{Passarino--Veltman Functions}
+In \cref{sec:dimreg} we discussed how to calculate loop integrals in $d$ dimensions.
+Specifically, we considered a farily simple example of a loop involving two massless scalars, with the loop integral given in \cref{eq:phi4_nlo_before_feynman_d_dim}.
+For more complicated loops with a higher number of (possibly massive) propagators, the calculations quickly become much more unwieldy.
+Luckily, the possible structures of loop diagrams are the same, regardless of the underlying model.
+This allows us to classify integrals in a structured and general way, by defining what is known as \emph{Passarino--Veltman functions}~\cite{tHooft:1978jhc,Passarino:1978jh}.
+These functions have been studied extensively, and are calculated analytically for the most common loop integrals (see e.g.\ Refs.~\cite{Ellis:2007qk,Denner:1991kt}).
+Therefore, by rewriting loop integrals in terms of Passarino--Veltman functions, we can simply extract the analytical expressions for divergent behavior using known tabulated results.
+The remaining finite terms are often complicated, and are typically evaluated numerically with packages such as \texttt{LoopTools}~\cite{Hahn:1998yk}.
 
 \subsection{Definition of Passarino--Veltman Functions}
-
-Passarino-Veltman integrals as defined in \texttt{FeynCalc}:
-\begin{equation}
-    T_0^N \bigl( p_i^2, (p_i-p_j)^2 ; m_0^2, m_i^2 \bigr)
+\Cref{fig:pv_loop} shows schematically a loop consisting of $N$ propagator lines, along with conventions for momenta and masses involved in the resulting integral.
+Following a convention similar to that of \texttt{LoopTools}~\cite{Hahn:1998yk}, we will define the $N$-point Passarino--Veltman tensor function associated with \cref{fig:pv_loop} as
+\begin{equation}\label{eq:pv_def}
+    T_{\mu_1\ldots\mu_P}^N \Bigl( p_i^2, (p_i+p_j)^2; m_0^2, m_i^2 \Bigr)
     \equiv \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk
-    \frac{1}{k^2-m_0^2} \prod_{i=1}^{N-1} \frac{1}{(k+p_i)^2-m_i^2}.
+    \frac{k_{\mu_1} \cdots k_{\mu_P}}{\mathcal{D}_0\cdots\mathcal{D}_{N-1}},
 \end{equation}
-For some reason, \texttt{FeynCalc} uses a very weird ordering of the arguments. The scalar Passarino-Veltman integrals up to $N=4$ are given in \texttt{FeynCalc} as
+where $i,j\in\{1,\ldots,N-1\}$, and the factors in the denominators are defined by
+\begin{equation}\label{eq:pv_denominators}
+    % \mathcal{D}_0 = k^2-m_0^2, \quad \mathcal{D}_i = \Biggl(k + \sum_{j=1}^i p_j\Biggr)^2 - m_i^2.
+    % \mathcal{D}_0 = k^2-m_0^2+i\eps, \quad \mathcal{D}_i = \Biggl(k + \sum_{j=1}^i p_j\Biggr)^2 - m_i^2 + i\eps.
+    \mathcal{D}_0 = k^2-m_0^2+i\eps, \quad \mathcal{D}_i = (k + P_i)^2 - m_i^2 + i\eps,
+\end{equation}
+with $P_i \equiv \sum_{j=1}^i p_j$.
+As stated earlier, we will omit the $i\eps$ in denominators when doing calculations, although they are implicitly present.
+Scalar Passarino--Veltman functions, i.e.\ when there is no loop momentum in the numerator of \cref{eq:pv_def}, are indexed by a zero $T_0^N$.
+
+It is conventional to use the $N$'th letter in the alphabet to denote the $N$-point function, and this is also what we will do for the remaining of this thesis. The first four scalar Passarino--Veltman functions are then given by
 \begin{subequations}
+\label{eq:pv_tensor_reduction}
 \begin{align}
-    T_0^1 &\equiv A_0 \bigl(m_0^2 \bigr)
+    T_0^1 &\equiv A_0(m_0^2),
     \\
-    T_0^2 &\equiv B_0 \bigl(p_1^2; m_0^2, m_1^2 \bigr)
+    T_0^2 &\equiv B_0(p_1^2; m_0^2, m_1^2),
     \\
-    T_0^3 &\equiv C_0 \bigl(p_1^2, (p_1-p_2)^2, p_2^2; m_0^2, m_1^2, m_2^2 \bigr)
+    T_0^3 &\equiv C_0(p_1^2, p_2^2, (p_1+p_2)^2; m_0^2, m_1^2, m_2^2),
     \\
-    T_0^4 &\equiv D_0 \bigl(p_1^2, (p_1-p_2)^2, (p_2-p_3)^2, p_3^2, p_2^2, (p_1-p_3)^2; m_0^2, m_1^2, m_2^2, m_3^2 \bigr).
+    T_0^4 &\equiv D_0(p_1^2, p_2^2, p_3^2, p_4^2, (p_1+p_2)^2, (p_2+p_3)^2; m_0^2, m_1^2, m_2^2, m_3^2).
 \end{align}
 \end{subequations}
 
-Alternatively, using the shorthand notation $p_{ij}=(p_i-p_j)$:
-\begin{subequations}
-\begin{align}
-    T_0^1 &\equiv A_0 \bigl(m_0^2 \bigr)
-    \\
-    T_0^2 &\equiv B_0 \bigl(p_1^2; m_0^2, m_1^2 \bigr)
-    \\
-    T_0^3 &\equiv C_0 \bigl(p_1^2, p_{12}^2, p_2^2; m_0^2, m_1^2, m_2^2 \bigr)
-    \\
-    T_0^4 &\equiv D_0 \bigl(p_1^2, p_{12}^2, p_{23}^2, p_3^2, p_2^2, p_{13}^2; m_0^2, m_1^2, m_2^2, m_3^2 \bigr).
-\end{align}
-\end{subequations}
+\begin{figure}
+    \centering
+    \inputtikz{divergences/pv_loop}
+    \caption{Diagram displaying the conventions for momenta and masses in Passarino--Veltman functions. The lines symbolize generic particle types, and the diagram should only be understood as illustrative of the kind of loops that can appear in Feynman diagrams.}
+    \label{fig:pv_loop}
+\end{figure}
 
 \subsection{Reduction of Tensor Passarino--Veltman Functions}
+The following discussion is largely based on Ref.~\cite{Denner:1991kt}.
+The tensorial Passarino--Veltman functions can be reduced to scalar functions by exploiting their Lorentz structure.
+From the available tensors in the integrals, we must have
+\begin{subequations}
+\begin{align}
+    B^\mu &= p_1^\mu B_1,
+    \\
+    B^{\mu\nu} &= g^{\mu\nu}B_{00} + p_1^\mu p_1^\nu B_{11},
+\end{align}
+% \end{subequations}
+for the two-point functions,
+% \begin{subequations}
+\begin{align}
+    C^\mu &= \sum_{i=1}^2 p_i^\mu C_i,
+    \\
+    C^{\mu\nu} &= g^{\mu\nu} C_{00} + \sum_{i,j=1}^2 p_i^\mu p_j^\nu C_{ij},
+    \\
+    C^{\mu\nu\rho} &= \sum_{i=1}^2 (g^{\mu\nu}p_i^\rho + g^{\nu\rho}p_i^\mu + g^{\mu\rho}p_i^\nu C_{00i} + \sum_{i,j,k=1}^2 p_i^\mu p_j^\nu p_k^\rho C_{ijk},
+\end{align}
+% \end{subequations}
+for the three-point functions, and
+% \begin{subequations}
+\begin{align}
+    D^\mu &= \sum_{i=1}^3 p_i^\mu D_i,
+    \\
+    D^{\mu\nu} &= g^{\mu\nu} D_{00} + \sum_{i,j=1}^3 p_i^\mu p_j^\nu D_{ij},
+    \\
+    D^{\mu\nu\rho} &= \sum_{i=1}^2 (g^{\mu\nu}p_i^\rho + g^{\nu\rho}p_i^\mu + g^{\mu\rho}p_i^\nu D_{00i} + \sum_{i,j,k=1}^2 p_i^\mu p_j^\nu p_k^\rho D_{ijk},
+    \\
+    \begin{split}
+        D^{\mu\nu\rho\sigma} &= (g^{\mu\nu}g^{\rho\sigma} + g^{\mu\rho}g^{\nu\sigma} + g^{\mu\sigma}g^{\nu\rho}) D_{0000}
+        + \sum_{i,j,k,l}^3 p_i^\mu p_j^\nu p_k^\rho p_l^\sigma D_{ijkl}
+        \\ &\qquad
+        + \sum_{i,j=1}^3 (g^{\mu\nu}p_i^\rho p_j^\sigma + g^{\nu\rho}p_i^\mu p_j^\sigma + g^{\mu\rho}p_i^\nu p_j^\sigma + g^{\mu\sigma}p_i^\nu p_j^\rho + g^{\nu\sigma}p_i^\mu p_j^\rho + g^{\rho\sigma}p_i^\mu p_j^\nu) D_{00ij},
+    \end{split}
+\end{align}
+\end{subequations}
+for the four-point functions.
+% \begin{subequations}
+% \begin{align}
+%     B^\mu &= p_1^\mu B_1,
+%     \\
+%     B^{\mu\nu} &= g^{\mu\nu}B_{00} + p_1^\mu p_1^\nu B_{11},
+%     \\
+%     C^\mu &= \sum_{i=1}^2 p_i^\mu C_i,
+%     \\
+%     C^{\mu\nu} &= g^{\mu\nu} C_{00} + \sum_{i,j=1}^2 p_i^\mu p_j^\nu C_{ij},
+%     \\
+%     C^{\mu\nu\rho} &= \sum_{i=1}^2 (g^{\mu\nu}p_i^\rho + g^{\nu\rho}p_i^\mu + g^{\mu\rho}p_i^\nu C_{00i} + \sum_{i,j,k=1}^2 p_i^\mu p_j^\nu p_k^\rho C_{ijk},
+%     \\
+%     D^\mu &= \sum_{i=1}^3 p_i^\mu D_i,
+%     \\
+%     D^{\mu\nu} &= g^{\mu\nu} D_{00} + \sum_{i,j=1}^3 p_i^\mu p_j^\nu D_{ij},
+%     \\
+%     D^{\mu\nu\rho} &= \sum_{i=1}^2 (g^{\mu\nu}p_i^\rho + g^{\nu\rho}p_i^\mu + g^{\mu\rho}p_i^\nu D_{00i} + \sum_{i,j,k=1}^2 p_i^\mu p_j^\nu p_k^\rho D_{ijk},
+%     \\
+%     \begin{split}
+%         D^{\mu\nu\rho\sigma} &= (g^{\mu\nu}g^{\rho\sigma} + g^{\mu\rho}g^{\nu\sigma} + g^{\mu\sigma}g^{\nu\rho}) D_{0000}
+%         + \sum_{i,j,k,l}^3 p_i^\mu p_j^\nu p_k^\rho p_l^\sigma D_{ijkl}
+%         \\ &\qquad
+%         + \sum_{i,j=1}^3 (g^{\mu\nu}p_i^\rho p_j^\sigma + g^{\nu\rho}p_i^\mu p_j^\sigma + g^{\mu\rho}p_i^\nu p_j^\sigma + g^{\mu\sigma}p_i^\nu p_j^\rho + g^{\nu\sigma}p_i^\mu p_j^\rho + g^{\rho\sigma}p_i^\mu p_j^\nu) D_{00ij},
+%     \end{split}
+% \end{align}
+% \end{subequations}
+$B_i$, $C_{00}$ and so on are the coefficient functions, whose arguments are identical to that of their respective tensor functions.
+
+The coefficient functions from the Passarino--Veltman reduction in \cref{eq:pv_tensor_reduction} can be found by performing an appropriate set of contractions, and rewriting the integral as scalar Passarino--Veltman functions. As an example, consider $B^\mu$. Contracting it with $p_1^\mu$ gives
+\begin{align}\label{eq:Bmu_reduction_example}
+    p_1^2 B_1 &= p_1^\mu B_\mu
+    \nonumber \\
+    & = \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \frac{p_1\cdot k}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
+    \nonumber \\
+    &= \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \frac{\frac{1}{2}\Bigl[ (k+p_1)^2 -k^2 - p_1^2 \Bigr]}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
+    \nonumber \\
+    &= \frac{1}{2} \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \frac{\Bigl[ (k+p_1)^2-m_1^2 -(k^2-m_0^2) - p_1^2 + m_1^2 - m_0^2 \Bigr]}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
+    \nonumber \\
+    &= \frac{1}{2} \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \Biggl\{
+        \frac{1}{k^2-m_0^2} - \frac{1}{(k+p_1)^2-m_1^2} - \frac{p_1^2+m_0^2-m_1^2}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
+    \Biggr\}
+    \nonumber \\
+    &= \frac{1}{2} \Bigl\{ A_0(m_0^2) - A_0(m_1^2) - (p_1^2+m_0^2-m_1^2)B(p_1^2;m_0^2,m_1^2) \Bigr\},
+\end{align}
+where in the last equality we have shifted the integration momentum $k\to k-p_1$ in the second term to reveal a recognizable Passarino--Veltman form.
+Having found $B_1$, we can rewrite the two-point tensor function $B_\mu$ in terms of scalar functions
+\begin{equation}
+    B^\mu(p_1^2;m_0^2,m_1^2) = \frac{p_1^\mu}{2p_1^2} \Bigl\{ A_0(m_0^2) - A_0(m_1^2) - (p_1^2+m_0^2-m_1^2)B(p_1^2;m_0^2,m_1^2) \Bigr\}.
+\end{equation}
+Although the calculation becomes more demanding when the tensor functions are more complicated, the underlying procedure remains the same.
+
+It is worth being explicit about one of the tricks used in \cref{eq:Bmu_reduction_example}.
+There we got rid of the scalar product $p_1\cdot k$ by rewriting it in terms of factors that appear in the denominator, which could then be canceled, leaving lower order scalar Passarino--Veltman functions.
+% Consider the scalar product $P_i\cdot k$, where $P_i \equiv \sum_{j=1}^i p_j$, as in \cref{eq:pv_denominators}.
+% We then have
+More generally, we have
+\begin{equation}\label{eq:pv_scalar_product}
+    P_i\cdot k = \frac{1}{2} \Bigl[ \mathcal{D}_i - \mathcal{D}_0 - (P_i^2 - m_i^2 + m_0^2) \Bigr],
+\end{equation}
+where $\mathcal{D}_0$, $\mathcal{D}_i$ and $P_i$ were defined in \cref{eq:pv_denominators}.
+Using this relation, any scalar product of loop momentum with other momenta appearing in the loops can be removed from the numerator.
+% \begin{align}
+%     P_i\cdot k &= \frac{1}{2} \Bigl[ (k+P_i)^2 - P_i^2 - k^2 \Bigr]
+%     \\
+%     &= \frac{1}{2} \Bigl[ (k+P_i)^2 - P_i^2 - k^2 + m_0^2 - m_i^2 - m_0^2 + m_i^2 \Bigr]
+%     \\
+%     &= \frac{1}{2} \Bigl[ (k+P_i)^2 - m_i^2 - (k^2-m_0^2) - P_i^2 - m_0^2 + m_i^2 \Bigr]
+%     \\
+%     &= \frac{1}{2} \Bigl[ \mathcal{D}_i - \mathcal{D}_0 - (P_i^2 - m_i^2 + m_0^2) \Bigr]
+% \end{align}

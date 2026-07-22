@@ -1,0 +1,12 @@
+\begin{feynman}
+    \begin{scope}[node distance=1cm]
+        \vertex (a);
+        \vertex[right=0.7 of a] (v1);
+        \vertex[right=of v1] (v2);
+        \vertex[right=0.7 of v2] (b);
+    \end{scope}
+    \diagram*{
+        (a) --[fermion] (v1) --[fermion] (v2) --[fermion] (b);
+        (v1) --[boson, half left] (v2);
+    };
+\end{feynman}

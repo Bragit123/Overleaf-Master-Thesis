@@ -25,3 +25,157 @@ where we have defined Weyl spinor contractions such that for two Weyl spinors $\
     \widebar\psi\widebar\chi &\equiv \widebar\psi_{\dot{A}}\widebar\chi^{\dot{A}} = \widebar\psi_{\dot{1}}\widebar\chi_{\dot{2}} - \widebar\psi_{\dot{2}}\widebar\chi_{\dot{1}}.
 \end{align}
 \end{subequations}
+
+
+
+
+
+
+
+
+\chapter{Dirac Algebra in \texorpdfstring{$d$}{d} Dimensions}\label{app:dirac_algebra}
+\section{Definitions}\label{app:gamma_def}
+Any \gls{qft} calculation involving fermions will inevitably encounter Dirac gamma matrices. Here we summarize some of the most important results for such matrices in $d$ dimensions, which appear frequently during calculations.
+The gamma matrices $\gamma^\mu$ are $4\times4$\footnote{Note that they are $4\times4$ even in $d$ spacetime dimensions.} matrices defined by the relation
+\begin{equation}\label{eq:dirac_algebra}
+    \{\gamma^\mu,\gamma^\nu\} = 2g^{\mu\nu}.
+\end{equation}
+Since the left-hand side is a $4\times4$ matrix, the right-hand side must be as well, hence there is an implicit unity matrix present.
+
+In calculations involving the $Z$ boson, we also run into the chiral $\gamma^5$ matrix. In four dimensions, it is given by
+\begin{equation}\label{eq:gamma5_def_4}
+    \gamma^5 \equiv i\gamma^0\gamma^1\gamma^2\gamma^3 = \frac{i}{4!}\eps_{\mu\nu\rho\sigma}\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma,
+\end{equation}
+and obeys the properties
+\begin{equation}\label{eq:gamma5_properties}
+    (\gamma^5)^2, \quad \{\gamma^\mu,\gamma^5\} = 0.
+\end{equation}
+Unfortunately, $\gamma^5$ is a strictly four-dimensional object, and can not be uniquely and consistently generalized to other spacetime dimensions~\cite{Denner:2019vbn}. Instead, one must \emph{choose} a prescription for how to deal with $\gamma^5$ in general spacetimes.
+In this thesis we use the prescription named \acrfull{ndr}, proposed by Chanowitz, Furman and Hinchliffe~\cite{Chanowitz:1979zu}.
+In \gls{ndr}, we demand that the relations in \cref{eq:gamma5_properties} remain valid. In this scheme, \cref{eq:gamma5_def_4} does not hold, however.
+Luckily, this does not pose a problem in our calculations, as we will see in \cref{app:gamma5}
+
+\section{Contractions of Gamma Matrices}
+From \cref{eq:dirac_algebra} we can show that, in $d$ dimensions,
+\begin{equation}
+    \gamma^\mu\gamma_\mu = g_{\mu\nu}\gamma^\mu\gamma^\nu
+    = \frac{1}{2} g_{\mu\nu}(\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu)
+    = \frac{1}{2} g_{\mu\nu} \{\gamma^\mu,\gamma^\nu\}
+    = g_{\mu\nu}g^{\mu\nu} = d.
+\end{equation}
+Fruthermore, we can use \cref{eq:dirac_algebra} to move $\gamma^\mu$ past other gamma matrices, since
+\begin{equation}
+    \gamma^\mu\gamma^\nu = \{\gamma^\mu,\gamma^\nu\} - \gamma^\nu\gamma^\mu = 2g^{\mu\nu} - \gamma^\nu\gamma^\mu.
+\end{equation}
+Using this, we can find the following relations:
+\begin{subequations}
+\label{eq:gamma_contractions}
+\begin{align}
+    \gamma^\mu\gamma_\mu &= d,
+    \label{eq:gamma_contraction_0}
+    \\
+    \gamma^\mu\gamma^\nu\gamma_\mu &= (2-d)\gamma^\nu,
+    \label{eq:gamma_contraction_1}
+    \\
+    \gamma^\mu\gamma^\nu\gamma^\rho\gamma_\mu &= 4g^{\nu\rho} + (d-4) \gamma^\nu\gamma^\rho,
+    \label{eq:gamma_contraction_2}
+    \\
+    \gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma_\mu &= (4-d)\gamma^\nu\gamma^\rho\gamma^\sigma - 2\gamma^\sigma\gamma^\rho\gamma^\nu.
+    \label{eq:gamma_contraction_3}
+\end{align}
+\end{subequations}
+
+
+\section{Traces of Gamma Matrices}
+The trace of an odd number of gamma matrices is zero. This can be shown using the properties of $\gamma^5$ in \cref{eq:gamma5_properties}. We find
+% Traces involving gamma matrices can be found using the properties of $\gamma^5$ in \cref{eq:gamma5_properties}. For an odd number of gamma matrices we have
+\begin{align}
+    \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}] &= \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}\gamma^5\gamma^5]
+    \nonumber \\
+    &= -\Tr[\gamma^5\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}\gamma^5]
+    \nonumber \\
+    &= -\Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}\gamma^5\gamma^5]
+    \nonumber \\
+    &= -\Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}]
+    \nonumber \\
+    \Longrightarrow \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}] &= 0.
+\end{align}
+For an even number of gamma matrices, we can use the Dirac algebra in \cref{eq:dirac_algebra}. We then find
+\begin{equation}\label{eq:trace_gamma_2}
+    \Tr[\gamma^\mu\gamma^\nu] = \frac{1}{2}\Tr[\{\gamma^\mu,\gamma^\nu\}] = g^{\mu\nu} \Tr[\mathbbm{1}] = 4g^{\mu\nu},
+\end{equation}
+and by repeatedly anticommuting the first gamma matrix through the rest, and using the cyclic property of traces at the end, we find
+\begin{align}
+    \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma] &= 2g^{\mu\nu}\Tr[\gamma^\rho\gamma^\sigma] - \Tr[\gamma^\nu\gamma^\mu\gamma\rho\gamma^\sigma]
+    \nonumber \\
+    &= 8g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}\Tr[\gamma^\nu\gamma^\rho\gamma^\mu\gamma^\sigma]
+    \nonumber \\
+    &= 8g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}\Tr[\gamma^\nu\gamma^\sigma] + \Tr[\gamma^\nu\gamma^\rho\gamma^\mu\gamma^\sigma]
+    \nonumber \\
+    &= 8g^{\mu\nu}g^{\rho\sigma} - 2g^{\mu\rho}g^{\nu\sigma} + 2g^{\mu\sigma} \Tr[\gamma^\nu\gamma^\rho] - \Tr[\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^\mu]
+    % \nonumber \\
+    % &= 8g^{\mu\nu}g^{\rho\sigma} - 2g^{\mu\rho}g^{\nu\sigma} + 2g^{\mu\sigma} \Tr[\gamma^\nu\gamma^\rho] - \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma]
+    % \nonumber \\
+    % 2\Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma] &= 8g^{\mu\nu}g^{\rho\sigma} - 8g^{\mu\rho}g^{\nu\sigma} + 8g^{\mu\sigma}g^{\nu\rho}
+    \nonumber \\
+    \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma] &= 4g^{\mu\nu}g^{\rho\sigma} - 4g^{\mu\rho}g^{\nu\sigma} + 4g^{\mu\sigma}g^{\nu\rho}.
+    \label{eq:trace_gamma_4}
+\end{align}
+Traces with even more gamma matrices follow by induction, although it is apparent that the number of terms increases rapidly.
+The three terms in \cref{eq:trace_gamma_4} comes from anticommuting the first gamma matrix three times, and inserting \cref{eq:trace_gamma_2}.
+For six gamma matrices we would need to anticommute a matrix five times, then insert \cref{eq:trace_gamma_4}, giving $5\times3$ terms.
+In general, the number of terms scales as $(2n-1)!! = (2n-1)\times(2n-3)\times(2n-5)\times\cdots\times1$ for traces of $2n$ gamma matrices.
+
+
+\section{Traces of the \texorpdfstring{$\gamma^5$}{gamma5} Matrix}\label{app:gamma5}
+As discussed in \cref{app:gamma_def}, we will work in the \gls{ndr} scheme for $\gamma^5$ matrices.
+Using \cref{eq:gamma_contraction_0,eq:gamma5_properties}, we can show that
+\begin{align}
+    \Tr[\gamma^5] &= \frac{1}{d}\Tr[\gamma^5\gamma^\mu\gamma_\mu] = -\frac{1}{d}\Tr[\gamma^\mu\gamma^5\gamma_\mu] = -\frac{1}{d}\Tr[\gamma^5\gamma_\mu\gamma^\mu] = -\Tr[\gamma^5]
+    \nonumber\\
+    \Longrightarrow \Tr[\gamma^5] &= 0,
+\end{align}
+as well as
+\begin{align}
+    \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}\gamma^5] &= -\Tr[\gamma^5\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}] = -\Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}\gamma^5]
+    \nonumber\\
+    \Longrightarrow \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}\gamma^5] &= 0, \quad n\in\mathbb{N},
+\end{align}
+i.e.\ that the trace of a $\gamma^5$ matrix and an odd number of gamma matrices is zero.
+In addition, we find from \cref{eq:gamma_contraction_2} that
+\begin{align}\label{eq:trace_gamma5_2}
+    \Tr[\gamma^\mu\gamma^\nu\gamma^5] &= \frac{1}{d}\Tr[\gamma^\mu\gamma^\nu\gamma^5\gamma_\rho\gamma^\rho]
+    = -\frac{1}{d}\Tr[\gamma^\rho\gamma^\mu\gamma^\nu\gamma_\rho\gamma^5]
+    = -\frac{1}{d}g^{\mu\nu}\Tr[\gamma^5]
+    = 0.
+\end{align}
+
+We now want to find the trace $\gamma^5$ with four gamma matrices. The argument that follows does, however, not work in $d$ dimensions.
+We will therefore consider the four-dimensional case instead, and use the relation in \cref{eq:gamma5_def_4}. We can then write
+\begin{align}\label{eq:trace_gamma5_4_first}
+    \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^5] &= i \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^0\gamma^1\gamma^2\gamma^3].
+\end{align}
+Using \cref{eq:dirac_algebra} together with \cref{eq:trace_gamma5_2}, we can see that the gamma matrices in \cref{eq:trace_gamma5_4_first} effectively anticommute with each other. It directly follows that $\mu$, $\nu$, $\rho$ and $\sigma$ must be different (otherwise, they would commute. Since the indices are different and anticommute, the result of the trace must be proportional to the Levi-Civita tensor $\eps^{\mu\nu\rho\sigma}$. In the special case when $(\mu,\nu,\rho,\sigma)=(0,1,2,3)$, we have
+\begin{equation}
+    i \Tr[\gamma^0\gamma^1\gamma^2\gamma^3\gamma^0\gamma^1\gamma^2\gamma^3]
+    = i \Tr[\gamma^0\gamma^0\gamma^1\gamma^1\gamma^2\gamma^2\gamma^3\gamma^3]
+    = -i \Tr[\mathbbm{1}]
+    = -4i.
+\end{equation}
+The remaining cases follow from anticommuting the indices, and we are left with
+\begin{equation}
+    \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^5] = -4i\eps^{\mu\nu\rho\sigma}.
+\end{equation}
+
+Furthermore, it can be shown---still in four dimensions---that the trace of a $\gamma^5$ with more than four gamma matrices (but still an even number) is simply a sum of terms proportional to the Levi-Civita tensor, with the remaining indices distributed amongst metric tensors:
+\begin{equation}
+    \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n}}\gamma^5] = 
+    \sum_{\mathclap{ \substack{\text{permutations} \\ \text{of }\mu_1,\ldots,\mu_{2n}}}} 
+    \Bigl(\propto\eps^{\mu_1\mu_2\mu_3\mu_4} g^{\mu_5\mu_6}\cdots g^{\mu_{2n-1}\mu_{2n}}\Bigr).
+\end{equation}
+
+The traces involving $\gamma^5$ and an even number of four or more gamma matrices are useful, as they always become zero when contracted with tensors that are symmetric in the same indices that appear in the Levi-Civita tensor.
+As we saw in \cref{ch:parton_level}, this is always the case in our calculations.
+Consequently, any result containing such a trace with $\gamma^5$ can be safely solved in four spacetime dimensions (it is zero, and therefore can not give divergences that need to be regulated by changing the dimension).
+The remaining traces of an odd number of gamma matrices with $\gamma^5$ are still zero, even in \gls{ndr}, and can therefore be treated in $d$ dimensions.
+Since the ambiguity of $d$-dimensional $\gamma^5$ does not pose a problem in the context of this thesis, we will not discuss it in any further detail.

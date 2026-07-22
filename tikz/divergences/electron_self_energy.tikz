@@ -1,0 +1,14 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (a);
+        \vertex[right=of a] (v1);
+        \vertex[right=of v1] (v2);
+        \vertex[right=of v2] (b);
+    \end{scope}
+    \diagram*{
+        (a) --[fermion, momentum'={[arrow style=PineGreen]\(p\)}] (v1)
+        --[fermion, momentum'={[arrow style=Purple]\(k+p\)}] (v2)
+        --[fermion, momentum'={[arrow style=PineGreen]\(p\)}] (b);
+        (v1) --[boson, half left, rmomentum={[arrow style=Purple]\(k\)}] (v2);
+    };
+\end{feynman}

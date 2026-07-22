@@ -3,17 +3,19 @@
         \vertex (vt);
         \vertex[below=of vt] (vb);
         \vertex (midv) at ($(vt)!0.5!(vb)$);
-        \vertex[above left=of vt, label=left:\(\phi^-\)] (tl);
-        \vertex[below left=of vb, label=left:\(\phi^+\)] (bl);
+        % \vertex[above left=of vt, label=left:\(\phi^-\)] (tl);
+        % \vertex[below left=of vb, label=left:\(\phi^+\)] (bl);
+        \vertex[above left=of vt] (tl);
+        \vertex[below left=of vb] (bl);
         \vertex[above right=of vt] (left_tr);
         \vertex[below right=of vb] (left_br);
-        \vertex[right=0.7 of left_tr, label=right:\(\phi^-\)] (tr);
-        \vertex[right=0.7 of left_br, label=right:\(\phi^+\)] (br);
+        \vertex[right=0.7 of left_tr] (tr);
+        \vertex[right=0.7 of left_br] (br);
     \end{scope}
     \diagram*{
         (br) --[scalar, with arrow=0.3, in=-20, out=120] (vt) --[anti charged scalar] (tl);
         (bl) --[anti charged scalar] (vb) --[scalar, with arrow=0.7, out=20, in=-120, preaction={draw=white, line width=9pt}] (tr);
-        (vt) --[anti charged scalar, quarter left, momentum={[arrow style=Purple, arrow distance=0.35cm, label distance=0.35cm]\(k+p_u\)}] (vb)
-        --[charged scalar, half left, momentum={[arrow style=Purple, arrow shorten=0.25]\(k\)}] (vt);
+        (vt) --[charged scalar, quarter left, momentum={[arrow style=Purple, arrow distance=0.35cm, label distance=0.35cm]\(k+q_u\)}] (vb);
+        (vt) --[charged scalar, half right, rmomentum'={[arrow style=Purple, arrow shorten=0.25]\(k\)}] (vb);
     };
 \end{feynman}

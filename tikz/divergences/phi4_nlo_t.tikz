@@ -3,15 +3,19 @@
         \vertex (vt);
         \vertex[below=of vt] (vb);
         \vertex (midv) at ($(vt)!0.5!(vb)$);
-        \vertex[above left=of vt, label=left:\(\phi^-\)] (tl);
-        \vertex[below left=of vb, label=left:\(\phi^+\)] (bl);
-        \vertex[above right=of vt, label=right:\(\phi^-\)] (tr);
-        \vertex[below right=of vb, label=right:\(\phi^+\)] (br);
+        % \vertex[above left=of vt, label=left:\(\phi^-\)] (tl);
+        % \vertex[below left=of vb, label=left:\(\phi^+\)] (bl);
+        % \vertex[above right=of vt, label=right:\(\phi^-\)] (tr);
+        % \vertex[below right=of vb, label=right:\(\phi^+\)] (br);
+        \vertex[above left=of vt] (tl);
+        \vertex[below left=of vb] (bl);
+        \vertex[above right=of vt] (tr);
+        \vertex[below right=of vb] (br);
     \end{scope}
     \diagram*{
         (tl) --[charged scalar] (vt) --[charged scalar] (tr);
         (br) --[charged scalar] (vb) --[charged scalar] (bl);
-        (vt) --[charged scalar, half left, momentum={[arrow style=Purple, arrow shorten=0.25]\(k+p_t\)}] (vb)
+        (vt) --[charged scalar, half left, momentum={[arrow style=Purple, arrow shorten=0.25]\(k+q_t\)}] (vb)
         --[charged scalar, half left, momentum={[arrow style=Purple, arrow shorten=0.25]\(k\)}] (vt);
     };
 \end{feynman}

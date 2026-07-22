@@ -1,0 +1,38 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        %% Vertices
+        \vertex (v1);
+        \vertex[right=of v1] (mv2);
+        \vertex[below=of mv2] (mvNm1);
+        \vertex[left=of mvNm1] (vN);
+        \vertex (m) at ($(mv2)!0.5!(mvNm1)$);
+        \vertex[above=of m] (v2);
+        \vertex[below=of m] (vNm1);
+        \vertex[above right=of m] (tdot);
+        \vertex[below right=of m] (bdot);
+        \vertex (mvtdot) at ($(v2)!0.2!(tdot)$);
+        \vertex (mvbdot) at ($(vNm1)!0.2!(bdot)$);
+        %% Externals
+        \vertex[above left=of v1] (p1);
+        \vertex[above=of v2] (p2);
+        \vertex[below=of vNm1] (pNm1);
+        \vertex[below left=of vN] (pN);
+        %% Mass labels
+        \vertex (mp1) at ($(v1)!0.6!(p1)$);
+        \vertex (mpN) at ($(vN)!0.8!(pN)$);
+        \vertex at ($(v2)!0.4!(mp1)$) {\(m_1\)};
+        \vertex at ($(vNm1)!0.4!(mpN)$) {\(m_{N-1}\)};
+    \end{scope}
+    \diagram*{
+        (bdot) --[dotted] (mvbdot)
+        -- (vNm1)
+        --[momentum'={[arrow style=Purple]\(k+p_1+\cdots+p_{N-1}\)}] (vN)
+        --[edge label=\(m_0\), momentum'={[arrow style=Purple]\(k\)}] (v1)
+        --[momentum'={[arrow style=Purple]\(k+p_1\)}] (v2)
+        -- (mvtdot) --[dotted] (tdot);
+        (p1) --[momentum={[arrow style=PineGreen]\(p_1\)}] (v1);
+        (p2) --[momentum={[arrow style=PineGreen]\(p_2\)}] (v2);
+        (pNm1) --[momentum={[arrow style=PineGreen]\(p_{N-1}\)}] (vNm1);
+        (pN) --[momentum={[arrow style=PineGreen]\(p_N\)}] (vN);
+    };
+\end{feynman}

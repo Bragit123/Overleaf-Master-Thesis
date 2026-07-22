@@ -1,0 +1,11 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (a);
+        \vertex[right=4 of a] (b);
+        \vertex[blob] (v1) at ($(a)!0.3!(b)$) {1PI};
+        \vertex[blob] (v2) at ($(a)!0.7!(b)$) {1PI};
+    \end{scope}
+    \diagram*{
+        (a) --[scalar] (v1) --[scalar] (v2) --[scalar] (b);
+    };
+\end{feynman}

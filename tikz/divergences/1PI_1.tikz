@@ -1,0 +1,10 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (a);
+        \vertex[right=3of a] (b);
+        \vertex[blob] (v) at ($(a)!0.5!(b)$) {1PI};
+    \end{scope}
+    \diagram*{
+        (a) --[fermion] (v) --[fermion] (b);
+    };
+\end{feynman}

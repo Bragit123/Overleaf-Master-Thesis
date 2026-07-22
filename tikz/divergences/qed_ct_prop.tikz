@@ -1,0 +1,11 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex (a);
+        \vertex[crossed dot, right=of a] (v) {};
+        \vertex[right=of v] (b);
+    \end{scope}
+    \diagram*{
+        (a) --[fermion, momentum'={[arrow style=PineGreen]\(p\)}] (v)
+        --[fermion, momentum'={[arrow style=PineGreen]\(p\)}] (b);
+    };
+\end{feynman}

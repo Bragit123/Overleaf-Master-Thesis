@@ -2,13 +2,13 @@
     \begin{scope}[node distance=1.2cm]
         \vertex (vl);
         \vertex[right=of vl] (vr);
-        \vertex[above left=of vl, label=left:\(\phi^-\)] (tl);
-        \vertex[below left=of vl, label=left:\(\phi^+\)] (bl);
-        \vertex[above right=of vr, label=right:\(\phi^-\)] (tr);
-        \vertex[below right=of vr, label=right:\(\phi^+\)] (br);
+        \vertex[above left=of vl] (tl);
+        \vertex[below left=of vl] (bl);
+        \vertex[above right=of vr] (tr);
+        \vertex[below right=of vr] (br);
     \end{scope}
     \diagram*{
-        (tl) --[charged scalar] (vl) --[charged scalar, half left, momentum={[arrow style=Purple, arrow shorten=0.25]\(k+p_s\)}] (vr) --[charged scalar] (tr);
+        (tl) --[charged scalar] (vl) --[charged scalar, half left, momentum={[arrow style=Purple, arrow shorten=0.25]\(k+q_s\)}] (vr) --[charged scalar] (tr);
         (br) --[charged scalar] (vr) --[charged scalar, half left, momentum={[arrow style=Purple, arrow shorten=0.25]\(k\)}] (vl) --[charged scalar] (bl);
     };
 \end{feynman}

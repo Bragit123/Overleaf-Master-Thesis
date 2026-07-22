@@ -1,0 +1,10 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.2cm]
+        \vertex[crossed dot] (v) {}; % Vertex
+        \vertex[left=of v] (l);
+        \vertex[right=of v] (r);
+    \end{scope}
+    \diagram*{
+        (l) --[charged scalar] (v) --[charged scalar] (r);
+    };
+\end{feynman}
