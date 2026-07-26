@@ -6,9 +6,9 @@
         \vertex[right=of v2] (b);
     \end{scope}
     \diagram*{
-        (a) --[fermion, momentum'={[arrow style=PineGreen]\(p\)}] (v1)
+        (a) --[fermion, momentum'={[arrow style=NavyBlue]\(p\)}] (v1)
         --[fermion, momentum'={[arrow style=Purple]\(k+p\)}] (v2)
-        --[fermion, momentum'={[arrow style=PineGreen]\(p\)}] (b);
+        --[fermion, momentum'={[arrow style=NavyBlue]\(p\)}] (b);
         (v1) --[boson, half left, rmomentum={[arrow style=Purple]\(k\)}] (v2);
     };
 \end{feynman}

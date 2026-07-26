@@ -1,0 +1,16 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex [label=left:\(h\)] (a);
+        \vertex [right=of a, label=below left:\(\lambda_f\)] (v1);
+        \vertex [right=of v1, label=below right:\(\lambda_f\)] (v2);
+        \vertex [right=of v2, label=right:\(h\)] (b);
+    \end{scope}
+    \diagram*{
+        (a) --[scalar] (v1);
+        % (v1) --[fermion, half left, edge label=\(f\)] (v2);
+        % (v1) --[anti fermion, half right, edge label'=\(f\)] (v2);
+        (v1) --[fermion, half left, edge label=\(f\)] (v2)
+        --[fermion, half left, edge label=\(f\)] (v1);
+        (v2) --[scalar] (b);
+    };
+\end{feynman}

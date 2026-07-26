@@ -1,0 +1,12 @@
+\begin{feynman}
+    \begin{scope}[node distance=1.4cm]
+        \vertex [label=left:\(h\)] (a);
+        \vertex [right=of a, label=below:\(\lambda_s\)] (v);
+        \vertex [right=of v, label=right:\(h\)] (b);
+    \end{scope}
+    \diagram*{
+        (a) --[scalar] (v) --[scalar] (b);
+        % v --[scalar, out=30, in=150, min distance=3cm] v;
+        v --[scalar, out=40, in=140, min distance=3cm, edge label'=\(s\)] v;
+    };
+\end{feynman}

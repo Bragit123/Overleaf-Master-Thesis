@@ -30,9 +30,9 @@
         --[edge label=\(m_0\), momentum'={[arrow style=Purple]\(k\)}] (v1)
         --[momentum'={[arrow style=Purple]\(k+p_1\)}] (v2)
         -- (mvtdot) --[dotted] (tdot);
-        (p1) --[momentum={[arrow style=PineGreen]\(p_1\)}] (v1);
-        (p2) --[momentum={[arrow style=PineGreen]\(p_2\)}] (v2);
-        (pNm1) --[momentum={[arrow style=PineGreen]\(p_{N-1}\)}] (vNm1);
-        (pN) --[momentum={[arrow style=PineGreen]\(p_N\)}] (vN);
+        (p1) --[momentum={[arrow style=NavyBlue]\(p_1\)}] (v1);
+        (p2) --[momentum={[arrow style=NavyBlue]\(p_2\)}] (v2);
+        (pNm1) --[momentum={[arrow style=NavyBlue]\(p_{N-1}\)}] (vNm1);
+        (pN) --[momentum={[arrow style=NavyBlue]\(p_N\)}] (vN);
     };
 \end{feynman}
