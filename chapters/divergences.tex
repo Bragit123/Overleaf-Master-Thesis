@@ -150,7 +150,7 @@ When changing from four to $d$ spacetime dimensions, the action becomes $S=\int 
 Consider again complex $\phi^4$ theory, described by the Lagrangian in \cref{eq:phi4_lagrangian}. The derivatives $\partial_\mu \equiv \partial/(\partial x^\mu)$ have mass dimension $[\partial_\mu]=1$, thus from the kinetic term it follows that---for $\mathcal{L}$ to have mass dimension $d$---the scalar fields must have mass dimension $[\phi]=\frac{d-2}{2}$. Furthermore, this implies that the coupling $\lambda$ must have mass dimension $[\lambda]=4-d$.
 This poses a problem, as we want to calculate observables in \gls{qft} perturbatively, i.e.\ we want to calculate expansions in the coupling $\lambda$.
 We therefore redefine our coupling $\lambda \to \mu^{4-d}\lambda$, where $[\mu]=1$.
-In this way, $\lambda$ remains dimensionless, at the cost of introducing a new parameter $\mu$, called the \emph{renormalization scale}. Since $\mu$ was just some arbitrarily introduced parameter, no observable quantities can depend on it.\footnote{Unfortunately (at least to finite orders in perturbation theory) they do, as will be discussed very briefly in \rednote{ref RGE}.}
+In this way, $\lambda$ remains dimensionless, at the cost of introducing a new parameter $\mu$, called the \emph{renormalization scale}. Since $\mu$ was just some arbitrarily introduced parameter, no observable quantities can depend on it.\footnote{Unfortunately---to finite orders in perturbation theory---they do, as perturbative \gls{qft} only provides an approximation to true values. The fact that true observables are independent of $\mu$ does, however, offer a way to estimate a calculational error due to working at finite order, as we will see in \rednote{ref results chapter}.}
 % Using this, we can calculate the loop integral of \cref{eq:loop_int_4_dim}.
 
 \subsubsection{Complex $\phi^4$ Revisited}
@@ -212,7 +212,7 @@ and inserting this back into \cref{eq:phi4_nlo_spherical_d_dim} results in
     \M_{\phi^-\phi^+\to\phi^-\phi^+}^q = \frac{\mu^{2(4-d)}\lambda^2}{(4\pi)^{\frac{d}{2}}} \Gamma\biggl(\frac{4-d}{2}\biggr) \int_0^1 dx \, \Delta(x)^{\frac{d-4}{2}}.
 \end{equation}
 For future reference, we include the following, more general expression for loop integrals:
-\begin{equation}
+\begin{equation}\label{eq:general_loop_d_dim}
     \int\frac{d^dk}{(2\pi)^d} \frac{k^{2a}}{(k^2-\Delta)^b} = \frac{i(-1)^{a-b}}{(4\pi)^{\frac{d}{2}}} \frac{1}{\Delta^{b-a-\frac{d}{2}}} \frac{\Gamma(a+\frac{d}{2}) \Gamma(b-a-\frac{d}{2})}{\Gamma(b)\Gamma(\frac{d}{2})},
 \end{equation}
 which will turn out to be very useful in calculations in \cref{ch:parton_level}.
@@ -390,7 +390,7 @@ The different choices one can make are called \emph{renormalization schemes}, an
 
 \subsection{Renormalization Schemes}
 We will now discuss the most common renormalization schemes.
-In doing so, we will move away from $\phi^4$ theory, and instead consider a model more in line with real-world experiments, namely \gls{qed}. The bare \gls{qed} Lagrangian is given by 
+In doing so, we will move away from complex $\phi^4$ theory, and instead consider a model more in line with real-world experiments, namely \gls{qed}. The bare \gls{qed} Lagrangian is given by 
 \begin{align}
     \mathcal{L}_{\mathrm{QED}} &= \widebar\psi_0 (i\slashed{\partial} - m_0) \psi_0 - \frac{1}{4}F_0^{\mu\nu}F^0_{\mu\nu} - e_0\widebar\psi_0\slashed{A_0}\psi_0,
 \end{align}
@@ -432,12 +432,12 @@ The loop effects are contained in $\Sigma_2(\pslash)$, which is given by
     i\Sigma_2(\pslash) = -e^2 \mu^{4-d} \int\frac{d^dk}{(2\pi)^d} \frac{\gamma^\mu (\kslash+\pslash+m)\gamma_\mu}{(k^2+i\eps)[(k+p)^2-m^2+i\eps]}.
 \end{equation}
 From here on out, we will omit the Feynman prescription $i\eps$, to avoid cluttered notation. In principle, it should be there in order for Wick rotations to remain valid.
-As in \cref{sec:phi4}, we introduce a Feynman parameter $x$, complete the square in the denominator, and shift the loop momentum $k\to k-xp$. In addition, we make use of \rednote{ref $\gamma^\mu\gamma^\nu\gamma_\mu$} and the fact that the integral is zero for terms that are linear in $\kslash$. This leaves us with
+As in \cref{sec:phi4}, we introduce a Feynman parameter $x$, complete the square in the denominator, and shift the loop momentum $k\to k-xp$. In addition, we make use of \cref{eq:gamma_contraction_1} and the fact that the integral is zero for terms that are linear in $\kslash$. This leaves us with
 \begin{equation}
     i\Sigma_2(\pslash) = e^2 \mu^{4-d} \int_0^1 dx \int\frac{d^dk}{(2\pi)^d} \frac{(d-2)(1-x)\pslash-dm}{[k^2 - \Delta(x)]^2},
 \end{equation}
 where $\Delta(x) = xm^2 - x(1-x)p^2$.
-Using \rednote{ref Schwartz B.36 (appendix?)} we find
+Using \cref{eq:general_loop_d_dim} we find
 \begin{equation}
     i\Sigma_2(\pslash) = \frac{ie^2\mu^{4-d}}{(4\pi)^{\frac{d}{2}}} \Gamma\biggl(\frac{4-d}{2}\biggr) \int_0^1 dx \Bigl[(d-2)(1-x)\pslash - dm\Bigr] \Bigl[xm^2-x(1-x)p^2\Bigr]^{\frac{d-4}{2}}.
 \end{equation}
@@ -477,7 +477,7 @@ The simplest choice of counterterm is to set the finite part to zero, subtractin
 
 When working with dimensional regularization, it is more common to use a slightly adjusted version called the \acrfull{msbar} scheme.
 To see why, start by noticing that the $1/\eps$ divergence in \cref{eq:electron_self_energy_before_eps_expand} comes from the Gamma function, when expanding $\Gamma(\eps)=1/\eps - \gamma_E + \mathcal{O}(\eps)$. This factor almost always appears in dimensional regularization, and therefore the Euler-Mascheroni constant $\gamma_E$ also appears in the same manner.
-In addition, as can be seen from \rednote{ref Schwartz B.36-39 integral}, we typically also pick up a factor $(4\pi)^\eps = 1+\eps\ln(4\pi) + \mathcal{O}(\eps^2)$ from integrating over the loop momentum.
+In addition, as can be seen from \cref{eq:general_loop_d_dim}, we typically also pick up a factor $(4\pi)^\eps = 1+\eps\ln(4\pi) + \mathcal{O}(\eps^2)$ from integrating over the loop momentum.
 Since the $\gamma_E$ and $\ln(4\pi)$ factors occurr in nearly all loop calculations in dimensional regularization, it is common to include them when subtracting the divergence. This defines the \gls{msbar} scheme, and for $\cref{eq:electron_self_energy_renormalized}$, it means fixing the counterterms to be
 \begin{equation}\label{eq:qed_ct_msbar}
     \delta_\psi = -\frac{e^2}{16\pi^2} \biggl\{\frac{1}{\eps} - \gamma_E + \ln(4\pi) \biggr\},
