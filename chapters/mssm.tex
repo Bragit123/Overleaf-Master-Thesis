@@ -8,6 +8,11 @@ We also briefly discuss how the \gls{mssm} solves some of the problems with the 
 
 We then consider the phenomenology of scalar leptons---the sleptons---as they appear in the \gls{mssm}. We briefly review their masses, how they are searched for at hadron colliders, and derive the Feynman rules for slepton--gauge boson interactions, which will become necessary for calculations performed in \cref{ch:parton_level}.
 
+This chapter makes use of Weyl spinors and Grassmann numbers. For a brief review of their most important properties as relevant for the upcoming discussion, and the choice of notational convention used in this thesis, the reader is referred to \cref{app:spinor_grassmann}.
+
+The present chapter is largely based on Martin's review~\cite{Martin:1997ns} and the lecture notes by Tong~\cite{Tong:susy} and Raklev~\cite{Raklev:susy}.
+For more detailed calculations, the book by M\"uller-Kirsten and Wiedemann~\cite{IntrSUSY2010} has proved particularly useful.
+
 %%%%%%%%%%%%%%%%%%
 %%% SUSY Intro %%%
 %%%%%%%%%%%%%%%%%%
@@ -47,7 +52,7 @@ Despite the great achievements of the \gls{sm}, there are still aspects of parti
         % \Delta m_{h,V}^2 &\supset \frac{3\lambda_V^2}{16\pi^2} M^2,
     \end{align}
     \end{subequations}
-    where $\lambda_s$ and $\lambda_f$ are the couplings of Higgs to fermions, scalars and vector bosons, respectively, and $M$ is the mass of whatever particles are contributing in the loop.
+    where $\lambda_s$ and $\lambda_f$ are the couplings of Higgs to scalars and fermions, respectively, and $M$ is the mass of whatever particles are contributing in the loop.
     For any extension of \gls{sm} to include quantum gravity, the masses of new particles---assumed to be at the order of the Planck mass $M_P\sim10^{18}\unit{GeV}$---also contribute to the Higgs mass.
     % where $\lambda_f$, $\lambda_s$ and $\lambda_V$ are the couplings of Higgs to fermions, scalars and vector bosons, respectively, and $M$ is the mass of particles contributing in the loop. For any extension of \gls{sm} to include quantum gravity, the masses of new particles---assumed to be at the order of the Planck mass $M_P\sim10^{18}\unit{GeV}$---also contribute to the Higgs mass.
     We would therefore expect the Higgs mass to be of the same scale---much higher than its observed mass of around $125\unit{GeV}$---unless its couplings to other particles are exactly tuned in such a way that the $M^2$ corrections cancel.
@@ -200,27 +205,29 @@ We can then parameterize supersymmetry transformations of functions $F(x,\theta,
     \quad
     \delta_s \equiv i\alpha Q + i\widebar\alpha\widebar{Q},
 \end{equation}
-where we use the shorthands $\psi\chi\equiv\psi^A\chi_A$ and $\widebar\psi\widebar\chi\equiv\widebar\psi_{\dot{A}}\chi^{\dot{A}}$ for Weyl spinor contractions (see \cref{app:grassmann}).
-It is useful to write down the supercharges explicitly in the differential representation:
+where $\alpha Q$ and $\widebar\alpha\widebar{Q}$ are Weyl spinor contractions, as defined in \cref{app:spinor_grassmann}.
+% where we use the shorthands $\psi\chi\equiv\psi^A\chi_A$ and $\widebar\psi\widebar\chi\equiv\widebar\psi_{\dot{A}}\chi^{\dot{A}}$ for Weyl spinor contractions (see \cref{app:spinor_grassmann}).
+It is useful to write down the supercharges explicitly in the differential representation:\footnote{If the notation is unfamiliar, see \cref{app:spinor_grassmann}.}
 \begin{subequations}
 \label{eq:supercharge_differential}
 \begin{align}
     iQ_A &= -i(\sigma^\mu\thetabar)_A \partial_\mu + \partial_A,
     \\
-    i\widebar{Q}^{\dot{A}} &= -i(\widebar\sigma^\mu\theta)^{\dot{A}} \partial_\mu + \widebar\partial^{\dot{A}},
+    i\widebar{Q}^{\dot{A}} &= -i(\widebar\sigma^\mu\theta)^{\dot{A}} \partial_\mu + \widebar\partial^{\dot{A}}.
 \end{align}
 \end{subequations}
-% where $\partial_A \equiv \frac{\partial}{\partial\theta^A}$ and $\widebar\partial^{\dot{A}} \equiv \frac{\partial}{\partial\widebar\theta_{\dot{A}}}$ are the derivatives with respect to Grassmann coordinates (see \cref{app:grassmann}).
-where $\partial_A \equiv \partial/\partial\theta^A$ and $\widebar\partial^{\dot{A}} \equiv \partial/\partial\widebar\theta_{\dot{A}}$ are the derivatives with respect to Grassmann coordinates (see \cref{app:grassmann} \rednote{fjern/appendix?}), and $\sigma^\mu = (\mathbbm{1}, \vec\sigma)$ where the elements of $\vec\sigma$ are the Pauli matrices
-\begin{equation}\label{eq:pauli_matrices}
-    \sigma^1 = \begin{pmatrix}
-        0 & 1 \\ 1 & 0
-    \end{pmatrix}, \quad \sigma^2 = \begin{pmatrix}
-        0 & -i \\ i & 0
-    \end{pmatrix}, \quad \sigma^3 = \begin{pmatrix}
-        1 & 0 \\ 0 & -1
-    \end{pmatrix}.
-\end{equation}
+% where $\partial_A \equiv \frac{\partial}{\partial\theta^A}$ and $\widebar\partial^{\dot{A}} \equiv \frac{\partial}{\partial\widebar\theta_{\dot{A}}}$ are the derivatives with respect to Grassmann coordinates (see \cref{app:spinor_grassmann}).
+% where the differential operators $\partial_A$ and $\widebar\partial^{\dot{A}}$ are defined in \cref{eq:grassmann_diff}, and $\sigma^\mu$ and $\widebar\sigma^\mu$ are defined in \cref{eq:pauli_matrices}.
+% where $\partial_A \equiv \partial/\partial\theta^A$ and $\widebar\partial^{\dot{A}} \equiv \partial/\partial\widebar\theta_{\dot{A}}$ are the derivatives with respect to Grassmann coordinates (see \cref{app:spinor_grassmann} \rednote{fjern/appendix?}), and $\sigma^\mu = (\mathbbm{1}, \vec\sigma)$ where the elements of $\vec\sigma$ are the Pauli matrices
+% \begin{equation}\label{eq:pauli_matrices}
+%     \sigma^1 = \begin{pmatrix}
+%         0 & 1 \\ 1 & 0
+%     \end{pmatrix}, \quad \sigma^2 = \begin{pmatrix}
+%         0 & -i \\ i & 0
+%     \end{pmatrix}, \quad \sigma^3 = \begin{pmatrix}
+%         1 & 0 \\ 0 & -1
+%     \end{pmatrix}.
+% \end{equation}
 % We can parameterize supersymmetry transformations by infinitesimal paramaters $a^\mu$, $\theta^A$ and $\thetabar_{\dot{A}}$.
 % Under such transformations the superspace coordinates transform as
 % \begin{subequations}
@@ -446,9 +453,7 @@ where $f^{abc}$ are the structure constants, defined by $[T^a,T^b]=if^{abc}T^c$.
 % \end{equation}
 % The K\"ahler potential is then supergauge invariant.
 In addition, for the superpotential in \cref{eq:superpotential_def} to remain gauge invariant, we require
-\begin{subequations}
-\label{eq:superpotential_charge_sum}
-\begin{equation}
+\begin{equation}\label{eq:superpotential_charge_sum}
     \begin{split}
         q_i &= 0 \\
         q_i + q_j &= 0 \\
@@ -465,7 +470,6 @@ In addition, for the superpotential in \cref{eq:superpotential_def} to remain ga
          \lambda_{ijk} &= 0.
     \end{split}
 \end{equation}
-\end{subequations}
 
 The addition of vector superfields also allows a new term in the superlagrangian, the field strength term\footnote{This term is named as such because it holds the kinetic term for vector component fields, $-\frac{1}{4}F^{a,\mu\nu}F^a_{\mu\nu}$, where $F^a_{\mu\nu}=\partial_\mu V^a_\nu - \partial_\nu V^a_\mu + qf^{abc}A^b_\mu A^c_\nu$ is the ordinary vector field strength (with $f^{abc}=0$ in the abelian case).}
 % $\thetatwo F[V_i]$
@@ -483,7 +487,7 @@ Our general superlagrangian is then
 
 \subsubsection{The Hierarchy Problem Revisited}
 Consider again the large Higgs mass contributions from \cref{fig:hierarchy_problem}. Let $h$ be a scalar (Higgs) field, and $\psi = (\phi_A \; \widebar\chi^{\dot{A}})^T$ a Dirac fermion, composed from two Weyl spinors.
-The contribution in \cref{fig:hierarchy_fermion} then comes from a Yukawa coupling $\lambda h\widebar\psi\psi$, or written in terms of the Weyl spinors: $\lambda h(\chi\phi + \widebar\phi\widebar\chi)$.
+The contribution in \cref{fig:hierarchy_fermion} then comes from a Yukawa coupling $\lambda h\widebar\psi\psi$, or written in terms of the Weyl spinors:\footnote{See \cref{app:spinor_grassmann}.} $\lambda h(\chi\phi + \widebar\phi\widebar\chi)$.
 In a supersymmetric theory, such an interaction would come from the superpotential. If $h$, $\phi$ and $\chi$ come from the scalar superfields $\Phi_h$, $\Phi_\phi$ and $\Phi_\chi$, respectively, the relevant superpotential term is
 \begin{align}
     W &\supset \lambda \Phi_h \Phi_\phi \Phi_\lambda \supset - \thetatwo \, \lambda h(\phi\chi).
@@ -532,7 +536,7 @@ In the language of \cref{eq:hierarchy_problem}, we have found that $\lambda_s = 
 
 % Interactions between four scalar particles live in the $F$- and $D$
 
-% Consider a Higgs particle $h$ living in a scalar superfield $\Phi_h$. Next, consider also a left-handed scalar superfield $\Phi_1$ and a different right-handed superfield $\Phi_2$, such that their Weyl-spinors $\psi_1$ and $\widebar\psi_2$ form a single Dirac particle $\psi = (\psi_1^A \; \widebar\psi_{\dot2})^T$. From the superpotential, the Higgs can interact with the fermion through $\lambda_{12h}\psi_1\psi_2 h$ and $\lambda_{12h}\widebar\psi_1\widebar\psi_2 h^*$. Combined to give the coupling for a Dirac fermion, they give $\lambda_{12h}\widebar\psi\psi h$. The same term in the superpotential is responsible for a $\abs{\lambda_{12h}}^2 \abs{A_1}^2\abs{h}^2$ and $\abs{\lambda_{12h}}^2 \abs{A_2}^2\abs{h}^2$.
+% Consider a Higgs particle $h$ living in a scalar superfield $\Phi_h$. Next, consider also a left-handed scalar superfield $\Phi_1$ and a different right-handed superfield $\Phi_2$, such that their Weyl spinors $\psi_1$ and $\widebar\psi_2$ form a single Dirac particle $\psi = (\psi_1^A \; \widebar\psi_{\dot2})^T$. From the superpotential, the Higgs can interact with the fermion through $\lambda_{12h}\psi_1\psi_2 h$ and $\lambda_{12h}\widebar\psi_1\widebar\psi_2 h^*$. Combined to give the coupling for a Dirac fermion, they give $\lambda_{12h}\widebar\psi\psi h$. The same term in the superpotential is responsible for a $\abs{\lambda_{12h}}^2 \abs{A_1}^2\abs{h}^2$ and $\abs{\lambda_{12h}}^2 \abs{A_2}^2\abs{h}^2$.
 % Inserting this back into \cref{eq:hierarchy_problem} for the Higgs mass corrections, and taking into account that there will be twice as many scalar particles as Dirac fermions, we see that the large quadratic terms exactly cancel.
 % Thus the hierarchy problem disappears in supersymmetric theories.
 
@@ -893,8 +897,6 @@ We should therefore continue searching in order to exclude larger portions of th
 
 
 
-\subsubsection{\rednote{Discussion of state-of-the art and/or hard--soft factorization?}}
-
 
 %%%%%%%%%%%%%%%%%%%%%
 %%% Feynman rules %%%
@@ -995,10 +997,11 @@ and four-point interactions, given by
     \\
     &= \frac{1}{2}\thetafour \, V_i^\mu V_{j\mu} A_k^*A_\ell, \label{eq:general_four_point}
 \end{align}
-where we have used that~\cite[p.~66]{IntrSUSY2010}
-\begin{equation}
+where we have used the identity
+\begin{equation}\label{eq:theta_sigma_identity}
     (\theta\sigma^\mu\thetabar)(\theta\sigma^\nu\thetabar) = \frac{1}{2}g^{\mu\nu}(\thetatwo)(\thetabartwo).
 \end{equation}
+This identity is proven in \cref{app:weyl_proof}.
 \Cref{eq:general_three_point,eq:general_four_point} will be utilized frequently throughout the following discussion.
 
 
@@ -1155,7 +1158,7 @@ They are exactly the same as the ones found in Ref.~\cite{Rosiek:1989sce}\footno
     We are not able to cross-check these rules with Richardson's thesis~\cite{Richardson:2000nt} as he does not include four-point interactions.
 }
 
-\paragraph{Summary}
+\subsubsection{Summary}
 We have derived the Feynman rules for slepton--gauge boson interactions that are necessary for the calculation of \gls{qed} corrections to slepton pair production in \cref{ch:parton_level}. The full set of derived Feynman rules are shown in \cref{tab:slepton_rules}.
 In addition to sleptons, we will also make use of the electroweak interactions of quarks.
 For completeness, these are also included in \cref{tab:slepton_rules}, and are taken from \cite{Richardson:2000nt}.

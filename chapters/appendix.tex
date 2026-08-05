@@ -1,32 +1,319 @@
-\chapter{Grassmann Numbers and Weyl Spinors}\label{app:grassmann}
+\chapter{Spinors and Grassmann Numbers}\label{app:spinor_grassmann}
 
-By the anticommuting nature of Grassmann numbers, the square of any of $\theta^A$ or $\widebar\theta_{\dot{A}}$ are zero.
-This has the very useful implication that any function of Grassmann coordinates can be written as
-\begin{equation}
-    f(\theta_A) = c_0 + c_1\theta_A.
+\section{Spinors: Weyl, Dirac and Majorana}
+\subsection*{Weyl Spinors}
+% Grassmann numbers are numbers that anticommute with each other. If $\eta$ and $\theta$ are two Grassmann numbers, we have
+% \begin{equation}
+%     \eta\theta = -\theta\eta.
+% \end{equation}
+% In particular, the square of a Grassmann number is zero, which has the useful consequence that any function $f(\theta)$ of Grassmann numbers can be expanded as
+% \begin{equation}
+%     f(\theta) = c_0 + c_1\theta,
+% \end{equation}
+% where $c_0$ and $c_1$ are c-numbers, i.e.\ "classical" numbers---the ordinary, commuting real or complex numbers.
+Consider the complexified special linear group $SL(2,\mathbb{C})$. There are two inequivalent fundamental representations of this group: the \emph{self-representation} of matrices $M$ acting on \emph{left-handed} Weyl spinors $\psi$, and the \emph{complex conjugate self-representation} of matrices $M^*$ acting on the \emph{right-handed} Weyl spinors $\widebar\psi$.
+
+We write Weyl spinors as two-component vectors whose elements are Grassmann-valued. For left-handed Weyl spinors, we write $\phi_A$ with $A=1,2$, and for right-handed Weyl spinors we write $\widebar\phi_{\dot{A}}$ with dotted indices $\dot{A}=\dot{1}, \dot{2}$.
+Their dual representations are written with raised indices $\phi^A$ and $\widebar{\phi}^{\dot{A}}$.
+The indices can be raised and lowered by applying the tensors
+\begin{equation}\label{eq:weyl_eps_def}
+    \epsilon_{AB}= \epsilon_{\dot{A}\dot{B}}
+    = \begin{pmatrix}
+        0 & -1 \\ 1 & 0
+    \end{pmatrix},
+    \quad
+    \epsilon^{AB} = \epsilon^{\dot{A}\dot{B}} = \begin{pmatrix}
+        0 & 1 \\ -1 & 0
+    \end{pmatrix}.
 \end{equation}
-In addition, we can do calculus on Grassmann numbers, defining the derivative and integral with respect to Grassmann numbers by
-\begin{subequations}
-\begin{gather}
-    \partial_A \theta^B \equiv \frac{\partial \theta^B}{\partial\theta^A} = \delta^B_A,
-    \\
-    \int d\theta_A \equiv 0, \quad \int d\theta_A \theta_A \equiv 1.
-\end{gather}
-\end{subequations}
-In addition, we normalize the integrals over contracted Grassmann coordinates, such that
-\begin{equation}
-    \int d^2\theta \; \thetatwo = \int d^2\widebar\theta \; \thetabartwo = \int d^4\theta \; \thetafour = 1,
-\end{equation}
-where we have defined Weyl spinor contractions such that for two Weyl spinors $\psi$ and $\chi$ we have
+such that
 \begin{subequations}
 \begin{align}
-    \psi\chi &\equiv \psi^A\chi_A = \psi_2\chi_1-\psi_1\chi_2,
+    \phi^A \equiv \epsilon^{AB}\phi_B, \qquad
+    \widebar\phi^{\dot{A}} \equiv \epsilon^{\dot{A}\dot{B}} \widebar\phi_{\dot{B}},
     \\
-    \widebar\psi\widebar\chi &\equiv \widebar\psi_{\dot{A}}\widebar\chi^{\dot{A}} = \widebar\psi_{\dot{1}}\widebar\chi_{\dot{2}} - \widebar\psi_{\dot{2}}\widebar\chi_{\dot{1}}.
+    \phi_A \equiv \epsilon_{AB}\phi^B, \qquad
+    \widebar\phi_{\dot{A}} \equiv \epsilon_{\dot{A}\dot{B}} \widebar\phi^{\dot{B}}.
+\end{align}
+\end{subequations}
+The Weyl spinor components---being Grassmann numbers---anticommute with each other, i.e.\ for Weyl spinors $\phi$ and $\chi$ we have
+\begin{equation}
+    \{ \phi_A,\chi_B \} = \{ \widebar\phi_{\dot{A}},\widebar\chi_{\dot{B}} \} = \{ \phi_A, \widebar\chi_{\dot{A}} \} = 0.
+\end{equation}
+In particular, any function $f(\phi_A)$ of Grassmann numbers can be expanded as
+\begin{equation}
+    f(\phi_A) = c_0 + c_1 \phi_A,
+\end{equation}
+where $c_0$ and $c_1$ are c-numbers, i.e.\ "classical" numbers---the ordinary, commuting (possibly complex) numbers.
+
+We define contractions between Weyl spinors as a sum over indices, with $\epsilon$ acting as a metric tensor. Given two Weyl spinors $\phi$ and $\chi$, we define their contraction as
+\begin{subequations}
+\begin{align}
+    \phi\chi \equiv \phi^A\chi_A
+    = \epsilon^{AB} \phi_B\chi_A
+    = \phi_2\chi_1 - \phi_1\chi_2,
+    \\
+    \widebar\phi\widebar\chi \equiv \widebar\phi_{\dot{A}}\widebar\chi^{\dot{A}}
+    = \epsilon^{\dot{A}\dot{B}} \widebar\phi_{\dot{A}}\widebar\chi_{\dot{B}}
+    = \widebar\phi_{\dot{1}}\widebar\chi_{\dot{2}} - \widebar\phi_{\dot{2}}\widebar\chi_{\dot{1}}.
+\end{align}
+\end{subequations}
+In particular, we have
+\begin{equation}
+    \phi\phi = - 2\phi_1\phi_2, \quad \widebar\phi\widebar\phi = 2\widebar\phi_{\dot{1}}\widebar\phi_{\dot{2}}.
+\end{equation}
+Note that, although their components anticommute, Weyl spinors actually \emph{commute} under contractions, since
+\begin{equation}
+    \phi\chi = \phi^A\chi_A = \epsilon^{AB}\phi_B\chi_A = \epsilon^{BA}\chi_A\phi_B = \chi^B\phi_B = \chi\phi.
+\end{equation}
+
+We will also encounter contractions between Weyl spinors and Pauli matrices, which can be written as
+\begin{subequations}
+\begin{align}
+    (\phi\sigma^\mu\widebar\chi) &\equiv \phi^A \sigma^\mu_{A\dot{A}} \widebar\chi^{\dot{A}},
+    \\
+    (\widebar\phi\widebar\sigma^\mu\chi) &\equiv \widebar\phi_{\dot{A}} (\widebar\sigma^\mu)^{\dot{A}A} \chi_{A},
+\end{align}
+\end{subequations}
+where $\sigma^\mu = (\mathbbm{1}, \vec\sigma)$, $\widebar\sigma^\mu$ is defined by
+\begin{equation}\label{eq:sigmabar_def}
+    (\widebar\sigma^\mu)^{\dot{A}A} \equiv \epsilon^{AB}\epsilon^{\dot{A}\dot{B}}\sigma^\mu_{B\dot{B}},
+\end{equation}
+and the Pauli matrices are given by
+% where $\sigma^\mu = (\mathbbm{1}, \vec\sigma)$ and $\widebar\sigma^\mu = (\mathbbm{1}, -\vec\sigma)$, and the Pauli matrices are given by
+\begin{equation}\label{eq:pauli_matrices}
+    \sigma^1 = \begin{pmatrix}
+        0 & 1 \\ 1 & 0
+    \end{pmatrix}, \quad \sigma^2 = \begin{pmatrix}
+        0 & -i \\ i & 0
+    \end{pmatrix}, \quad \sigma^3 = \begin{pmatrix}
+        1 & 0 \\ 0 & -1
+    \end{pmatrix}.
+\end{equation}
+It is straight-forward to show that $\widebar\sigma^\mu = (\mathbbm{1},-\vec\sigma)$ by checking the indices explicitly.
+
+\subsection*{Dirac and Majorana Spinors}
+We can also combine the left- and right-handed Weyl spinors to construct a four-component \emph{Majorana spinor}
+\begin{equation}
+    \psi_a = \begin{pmatrix}
+        \phi_A \\ \widebar\phi^{\dot{A}}
+    \end{pmatrix}, \quad a=1,\ldots,4.
+\end{equation}
+To construct a \emph{Dirac spinor} we need a left-handed Weyl spinor $\phi$ and a \emph{different} right-handed Weyl spinor $\chi$
+\begin{equation}\label{eq:dirac_spinor_weyl_form}
+    \psi_a = \begin{pmatrix}
+        \phi_A \\ \widebar\chi^{\dot{A}}
+    \end{pmatrix}, \quad a=1,\ldots,4.
+\end{equation}
+To see the relation between Weyl spinors and Dirac/Majorana spinors, it is useful to consider the \emph{Weyl representation} of the Dirac gamma matrices, where
+\begin{equation}
+    \gamma^\mu = \begin{pmatrix}
+        0 & \sigma^\mu \\ \widebar\sigma^\mu & 0
+    \end{pmatrix}, \quad \gamma^5 = \begin{pmatrix}
+        -\mathbbm{1} & 0 \\ 0 & \mathbbm{1}
+    \end{pmatrix}.
+\end{equation}
+
+The left- and right-handed Weyl spinor components of the Dirac spinor in \cref{eq:dirac_spinor_weyl_form} can be extracted using the $\gamma^5$ matrix, which is easy to see in the Weyl representation:
+\begin{equation}
+    \frac{1}{2}(1-\gamma^5) \psi = \begin{pmatrix}
+        \phi_A \\ 0
+    \end{pmatrix}, \quad \frac{1}{2}(1+\gamma^5) \psi = \begin{pmatrix}
+        0 \\ \widebar\chi^{\dot{A}}
+    \end{pmatrix}.
+\end{equation}
+In addition, we can show that
+\begin{equation}
+    \widebar\psi \equiv \psi^\dagger \gamma^0 = \begin{pmatrix}
+        \phi_A^\dagger & (\widebar\chi^{\dot{A}})^\dagger
+        \end{pmatrix} \begin{pmatrix}
+            0 & \mathbbm{1} \\ \mathbbm{1} & 0
+        \end{pmatrix} = \begin{pmatrix}
+            \chi^A & \widebar\phi_{\dot{A}}
+    \end{pmatrix},
+\end{equation}
+which allows us to write contractions of Dirac spinors on Weyl-form as
+\begin{equation}
+    \widebar\psi\psi = \chi\phi + \widebar\phi\widebar\chi.
+\end{equation}
+
+\section{Grassmann Calculus}
+In \cref{sec:super_space_field_lagrange} we introduced the superspace coordinates $\theta_A$ and $\thetabar_{\dot{A}}$, which are Weyl spinors and therefore have Grassmann-valued components.
+We define differentiation with respect to Grassmann numbers by
+\begin{equation}\label{eq:grassmann_diff}
+    \partial_A \theta^B \equiv \frac{\partial}{\partial\theta^A} \theta^B \equiv \delta_A^B, \quad \widebar\partial_{\dot{A}} \thetabar^{\dot{B}} \equiv \frac{\partial}{\partial\thetabar^{\dot{A}}} \thetabar^{\dot{B}} \equiv \delta_{\dot{A}}^{\dot{B}},
+\end{equation}
+with the product rule
+\begin{equation}
+    \partial_A(\theta_1^B\theta_2^C) \equiv (\partial_A\theta_1^B)\theta_2^C - \theta_1^B \partial_A\theta_2^C.
+\end{equation}
+The differential operators $\partial_A$ and $\widebar\partial_{\dot{A}}$ are themselves Grassmann numbers, and hence anticommute with each other:
+\begin{equation}
+    \{\partial_A, \partial_B\} = \{\widebar\partial_{\dot{A}}, \widebar\partial_{\dot{B}}\} = \{\partial_A, \widebar\partial_{\dot{B}}\} = 0.
+\end{equation}
+% \begin{equation}
+%     \partial_A(\theta_1^{B_1}\cdots\theta_n^{B_n}) \equiv (\partial_A\theta_1^{B_1})\theta_2^{B_2}\cdots\theta_n^{B_n} - \theta_1^{B_1}(\partial_A\theta_2^{B_2})\theta_3^{B_3)} \cdots \theta_n^{B_n} +\cdots+ (-1)^{n-1} \theta_1^{B_1} \cdots \theta_{n-1}^{B_{n-1}} \partial_A\theta_n^{B_n}.
+% \end{equation}
+They do, however, not anticommute with the superspace coordinates, since (using a test function $f(\theta_A)$):
+\begin{equation}
+    \{\partial_A, \theta^B\}f = \partial_A(\theta^B f) + \theta^B\partial_A f = (\partial_A\theta^B) - \theta^B\partial_A f + \theta^B\partial_A f = \delta_A^B.
+\end{equation}
+
+We can also integrate over Grassmann numbers, defining such integrals by
+\begin{align}
+    \int d\theta_A \equiv 0, \quad \int d\theta_A \, \theta_A \equiv 1,
+    \\
+    \int d\thetabar_{\dot{A}} \equiv 0, \quad \int d\thetabar_{\dot{A}} \, \thetabar_{\dot{A}} \equiv 1.
+\end{align}
+For integration over multiple superspace coordinates, we normalize the differential elements such that
+\begin{equation}
+    \int d^4\theta \, \thetafour = 1.
+\end{equation}
+This has the very useful property that for functions of superspace, the integral effectively projects out the $\thetafour$-component.
+
+
+
+\section{Proof of \texorpdfstring{$(\theta\sigma^\mu\thetabar)(\theta\sigma^\nu\thetabar) = \frac{1}{2}g^{\mu\nu}\thetafour$}{(θσθ)(θσθ)= 1/2gμνθθθθ}}\label{app:weyl_proof}
+When deriving Feynman rules for sleptons we had use for the following identity for superspace coordinates:
+\begin{equation}
+    (\theta\sigma^\mu\thetabar)(\theta\sigma^\nu\thetabar) = \frac{1}{2}g^{\mu\nu}\thetafour.
+\end{equation}
+We will now prove this identity using Weyl spinor algebra. This proof is largely based on calculations found in \cite{IntrSUSY2010}.
+
+First, consider the expression $\epsilon^{AB}\epsilon_{CD}$. It is non-zero only if $A\neq B$ and $C\neq D$, as apparent from \cref{eq:weyl_eps_def}.
+By explicit insertion we can see that
+\begin{equation}
+    \epsilon^{AB}\epsilon_{CD} = \begin{cases}
+        1, \quad & \text{if } (A,B,C,D) \in \{(1,2,2,1),(2,1,1,2)\}
+        \\
+        -1, \quad & \text{if } (A,B,C,D) \in \{(1,2,1,2),(2,1,2,1)\}
+        \\
+        0, \quad & \text{else}
+    \end{cases},
+\end{equation}
+and equivalently for dotted indices. More compactly, we can write
+\begin{subequations}
+\label{eq:weyl_proof_epsABCD}
+\begin{align}
+    \epsilon^{AB}\epsilon_{CD} &= \delta^A_D\delta^B_C - \delta^A_C\delta^B_D,
+    \\
+    \epsilon^{\dot{A}\dot{B}}\epsilon_{\dot{C}\dot{D}} &= \delta^{\dot{A}}_{\dot{D}}\delta^{\dot{B}}_{\dot{C}} - \delta^{\dot{A}}_{\dot{C}}\delta^{\dot{B}}_{\dot{D}}.
 \end{align}
 \end{subequations}
 
+\Cref{eq:weyl_proof_epsABCD} can be used to show that
+\begin{subequations}
+\begin{align}
+    -\frac{1}{2}\epsilon^{AB}\thetatwo &= -\frac{1}{2}\epsilon^{AB}\theta^C\theta_C
+    \nonumber \\
+    &= -\frac{1}{2}\epsilon^{AB}\epsilon_{CD}\theta^C\theta^D
+    \nonumber \\
+    &= -\frac{1}{2}(\delta^B_C\delta^A_D - \delta^A_C\delta^B_D)\theta^C\theta^D
+    \nonumber \\
+    &= -\frac{1}{2}(\theta^B\theta^A - \theta^A\theta^B)
+    \nonumber \\
+    &= \theta^A\theta^B,
+\end{align}
+and equivalently for right-handed Weyl spinors:
+\begin{align}
+    \frac{1}{2}\epsilon^{\dot{A}\dot{B}}\thetabartwo &= \frac{1}{2}\epsilon^{\dot{A}\dot{B}}\thetabar_{\dot{C}}\thetabar^{\dot{C}}
+    \nonumber \\
+    &= \frac{1}{2}\epsilon^{\dot{A}\dot{B}}\epsilon_{\dot{C}\dot{D}}\thetabar^{\dot{D}}\thetabar^{\dot{C}}
+    \nonumber \\
+    &= \frac{1}{2}(\delta^{\dot{B}}_{\dot{C}}\delta^{\dot{A}}_{\dot{D}} - \delta^{\dot{A}}_{\dot{C}}\delta^{\dot{B}}_{\dot{D}})\thetabar^{\dot{D}}\thetabar^{\dot{C}}
+    \nonumber \\
+    &= \frac{1}{2}(\thetabar^{\dot{A}}\thetabar^{\dot{B}} - \thetabar^{\dot{B}}\thetabar^{\dot{A}})
+    \nonumber \\
+    &= \thetabar^{\dot{A}}\thetabar^{\dot{B}}.
+\end{align}
+\end{subequations}
+From these expressions, it follows that
+\begin{subequations}
+\label{eq:weyl_proof_thetaAB_delta}
+\begin{align}
+    \theta^A\theta_B &= \epsilon_{BC}\theta^A\theta^C
+    \nonumber \\
+    &= -\frac{1}{2}\epsilon_{BC}\epsilon^{AC} \thetatwo
+    \nonumber \\
+    &= -\frac{1}{2} (\delta^C_B\delta^A_C - \delta^A_B\delta^C_C) \thetatwo
+    \nonumber \\
+    &= -\frac{1}{2} (\delta^A_B - 2\delta^A_B) \thetatwo
+    \nonumber \\
+    &= \frac{1}{2} \delta^A_B \thetatwo,
+\end{align}
+and equivalently for right-handed Weyl spinors:
+\begin{align}
+    \theta^{\dot{A}}\theta_{\dot{B}} &= \epsilon_{\dot{B}\dot{C}}\thetabar^{\dot{A}}\thetabar^{\dot{C}}
+    \nonumber \\
+    &= \frac{1}{2}\epsilon_{\dot{B}\dot{C}}\epsilon^{\dot{A}\dot{C}} \thetabartwo
+    \nonumber \\
+    &= \frac{1}{2} (\delta^{\dot{C}}_{\dot{B}}\delta^{\dot{A}}_{\dot{C}} - \delta^{\dot{A}}_{\dot{B}}\delta^{\dot{C}}_{\dot{C}}) \thetabartwo
+    \nonumber \\
+    &= \frac{1}{2} (\delta^{\dot{A}}_{\dot{B}} - 2\delta^{\dot{A}}_{\dot{B}}) \thetabartwo
+    \nonumber \\
+    &= -\frac{1}{2} \delta^{\dot{A}}_{\dot{B}} \thetabartwo.
+\end{align}
+\end{subequations}
 
+Next, we will need a useful identity for contractions involving both Weyl spinors and Pauli matrices. Using the definition in \cref{eq:sigmabar_def}, we find
+\begin{align}
+    \widebar\phi\widebar\sigma^\mu\chi &= \widebar\phi_{\dot{A}}(\widebar\sigma^\mu)^{\dot{A}A}\chi_A
+    \nonumber \\
+    &= \epsilon^{AB}\epsilon^{\dot{A}\dot{B}} \widebar\phi_{\dot{A}}\sigma^\mu_{B\dot{B}}\chi_A
+    \nonumber \\
+    &= \widebar\phi^{\dot{B}}\sigma^\mu_{B\dot{B}}\chi^B
+    \nonumber \\
+    &= -\chi^B\sigma^\mu_{B\dot{B}}\widebar\phi^{\dot{B}}
+    \nonumber \\
+    &= -\chi\sigma^\mu\widebar\phi.
+    \label{eq:weyl_proof_sigmabar_to_sigma}
+\end{align}
+
+The last expression we need is the trace $\Tr[\sigma^\mu\widebar\sigma^\nu]$. There are three distinct cases for the indices $\mu$ and $\nu$:
+\begin{itemize}
+    \item $\mu=\nu=0$: In this case, the trace is over a unit matrix: $\Tr[\sigma^0\widebar\sigma^0] = \Tr[\mathbbm{1}] = 2$.
+    \item $\mu=0, \nu=i$ or $\mu=i, \nu=0$: The trace is now over a single Pauli matrix, and since the Pauli matrices are traceless, we have $\Tr[\widebar\sigma^i] = -\Tr[\sigma^i] = 0$.
+    \item $\mu=i, \nu=j$: Using the commutation and anticommutation relations for Pauli matrices, given by
+    \begin{equation}
+        [\sigma^i,\sigma^j] = 2i\epsilon^{ijk}\sigma_k, \quad \{\sigma^i,\sigma^j\} = 2\delta^{ij},
+    \end{equation}
+    together with the fact that the Pauli matrices are traceless, we can show that
+    % \begin{align}
+    %     \Tr[\sigma^i\widebar\sigma^j] = -\Tr[\sigma^i\sigma^j] = -\frac{1}{2}\Tr\Bigl[\{\sigma^i,\sigma^j\} + [\sigma^i,\sigma^j]\Bigr]
+    %     % \nonumber \\
+    %     = -\Tr\Bigl[ \delta^{ij} + i\eps^{ijk}\sigma_k \Bigr]
+    %     % \nonumber \\
+    %     = -2\delta^{ij}.
+    % \end{align}
+    \begin{align}
+        \Tr[\sigma^i\widebar\sigma^j] &= -\Tr[\sigma^i\sigma^j]
+        \nonumber \\
+        &= -\frac{1}{2}\Tr\Bigl[\{\sigma^i,\sigma^j\} + [\sigma^i,\sigma^j]\Bigr]
+        \nonumber \\
+        &= -\Tr\Bigl[ \delta^{ij} + i\eps^{ijk}\sigma_k \Bigr]
+        \nonumber \\
+        &= -2\delta^{ij}.
+    \end{align}
+\end{itemize}
+Putting the different cases together, we can write the trace on a more convenient form:
+\begin{equation}\label{eq:weyl_proof_trace}
+    \Tr[\sigma^\mu\widebar\sigma^\nu] = 2g^{\mu\nu}.
+\end{equation}
+
+Finally, we are ready to prove the identity we wanted:
+\begin{align}
+    (\theta\sigma^\mu\widebar\theta)(\theta\sigma^\nu\thetabar) \overset{\eqref{eq:weyl_proof_sigmabar_to_sigma}}&{=} -(\theta\sigma^\mu\thetabar)(\thetabar\widebar\sigma^\nu\theta)
+    \nonumber \\
+    &= -\theta^A\sigma^\mu_{A\dot{A}}\thetabar^{\dot{A}}\thetabar_{\dot{B}}(\widebar\sigma^\nu)^{\dot{B}B}\theta_B
+    \nonumber \\
+    \overset{\eqref{eq:weyl_proof_thetaAB_delta}}&{=} \frac{1}{4} \sigma^\mu_{A\dot{A}}(\widebar\sigma^\nu)^{\dot{B}B} \delta^A_B \delta^{\dot{A}}_{\dot{B}} \thetafour
+    \nonumber \\
+    &= \frac{1}{4} \sigma^\mu_{A\dot{A}}(\widebar\sigma^\nu)^{\dot{A}A} \thetafour
+    \nonumber \\
+    &= \frac{1}{4} \Tr[\sigma^\mu\widebar\sigma^\nu] \thetafour
+    \nonumber \\
+    \overset{\eqref{eq:weyl_proof_trace}}&{=} \frac{1}{2} g^{\mu\nu} \thetafour. \qquad \Box
+\end{align}
 
 
 
@@ -55,7 +342,7 @@ In this thesis we use the prescription named \acrfull{ndr}, proposed by Chanowit
 In \gls{ndr}, we demand that the relations in \cref{eq:gamma5_properties} remain valid. In this scheme, \cref{eq:gamma5_def_4} does not hold, however.
 Luckily, this does not pose a problem in our calculations, as we will see in \cref{app:gamma5}
 
-\section{Contractions of Gamma Matrices}
+\section{Contractions of Gamma Matrices}\label{app:gamma_contractions}
 From \cref{eq:dirac_algebra} we can show that, in $d$ dimensions,
 \begin{equation}
     \gamma^\mu\gamma_\mu = g_{\mu\nu}\gamma^\mu\gamma^\nu
@@ -86,7 +373,7 @@ Using this, we can find the following relations:
 \end{subequations}
 
 
-\section{Traces of Gamma Matrices}
+\section{Traces of Gamma Matrices}\label{app:gamma_traces}
 The trace of an odd number of gamma matrices is zero. This can be shown using the properties of $\gamma^5$ in \cref{eq:gamma5_properties}. We find
 % Traces involving gamma matrices can be found using the properties of $\gamma^5$ in \cref{eq:gamma5_properties}. For an odd number of gamma matrices we have
 \begin{align}
@@ -125,6 +412,33 @@ Traces with even more gamma matrices follow by induction, although it is apparen
 The three terms in \cref{eq:trace_gamma_4} comes from anticommuting the first gamma matrix three times, and inserting \cref{eq:trace_gamma_2}.
 For six gamma matrices we would need to anticommute a matrix five times, then insert \cref{eq:trace_gamma_4}, giving $5\times3$ terms.
 In general, the number of terms scales as $(2n-1)!! = (2n-1)\times(2n-3)\times(2n-5)\times\cdots\times1$ for traces of $2n$ gamma matrices.
+
+From the above discussion, it is apparent that the trace of any string of gamma matrices is real-valued. In addition, we can make use of the following general trace identities: given a matrix $M$ we have
+\begin{equation}
+    \Tr[M^*] = \Tr[M]^*, \quad \Tr[M^T] = \Tr[M].
+\end{equation}
+Using this, and that $\gamma^{\mu\dagger}=\gamma^0\gamma^\mu\gamma^0$ and $(\gamma^0)^2=\mathbbm{1}$, we find
+% Traces of matrices are in general cyclic, i.e.\ for $M_1,\ldots,M_n$ we have $\Tr[M_1 \cdot M_n] =\Tr[M_2 \cdot M_n M_1] = \Tr[M_3 \cdot M_n M_1 M_2]$, and so on.
+% In addition the trace of a matrix is equal to the trace of its transpose, i.e.\ $\Tr[M^T] = \Tr[M]$, and it does not matter if we complex conjugate a matrix, then take the trace, or vice versa, hence $\Tr[M^*]=\Tr[M]^*$. The cyclic property will be used repeatedly in calculations, and the other mentioned properties are useful since they let us derive the following. Consider the trace of a string of gamma matrices $\gamma^{\mu_1}\cdot\gamma^{\mu_n}$. Such a trace is real-valued\footnote{This is apparent from the trace relations that follow.}, hence we can show that
+\begin{align}
+    \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_n}] &= \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_n}]^*
+    \nonumber \\
+    &= \Tr[(\gamma^{\mu_1}\cdots\gamma^{\mu_n})^*]
+    \nonumber \\
+    &= \Tr[((\gamma^{\mu_1}\cdots\gamma^{\mu_n})^*)^T]
+    \nonumber \\
+    &= \Tr[(\gamma^{\mu_1}\cdots\gamma^{\mu_n})^\dagger]
+    \nonumber \\
+    &= \Tr[\gamma^{\mu_n\dagger}\cdots\gamma^{\mu_1\dagger}]
+    \nonumber \\
+    &= \Tr[\gamma^0\gamma^{\mu_n}\gamma^0\gamma^0\gamma^{\mu_{n-1}}\gamma^0\cdots\gamma^0\gamma^{\mu_1}\gamma^0]
+    \nonumber \\
+    &= \Tr[\gamma^{\mu_n}\cdots\gamma^{\mu_1}\gamma^0\gamma^0]
+    \nonumber \\
+    &= \Tr[\gamma^{\mu_n}\cdots\gamma^{\mu_1}],
+    \label{eq:gamma_reverse}
+\end{align}
+hence we can reverse the order of a string of gamma matrices under a trace without changing the result.
 
 
 \section{Traces of the \texorpdfstring{$\gamma^5$}{gamma5} Matrix}\label{app:gamma5}
@@ -179,3 +493,120 @@ As we saw in \cref{ch:parton_level}, this is always the case in our calculations
 Consequently, any result containing such a trace with $\gamma^5$ can be safely solved in four spacetime dimensions (it is zero, and therefore can not give divergences that need to be regulated by changing the dimension).
 The remaining traces of an odd number of gamma matrices with $\gamma^5$ are still zero, even in \gls{ndr}, and can therefore be treated in $d$ dimensions.
 Since the ambiguity of $d$-dimensional $\gamma^5$ does not pose a problem in the context of this thesis, we will not discuss it in any further detail.
+
+
+
+
+\chapter{Plus Distributions}\label{app:plus_dist}
+In \cref{ch:parton_level,ch:hadron_level} we make use of plus distributions.
+In this appendix we briefly review their definition and some useful identities encountered in this work.
+
+Given some function $f(z)$, we define its \emph{plus distribution} $f_+(z)$ by
+\begin{equation}\label{eq:plus_dist_def}
+    f_+(z) \equiv f(z) - \delta(1-z) \int_0^z dy\, f(y).
+\end{equation}
+As alluded to by its name, the plus distribution is a \emph{distribution}, just like the Dirac delta distribution, hence it must be integrated over in order to be well-defined.
+From this definition, it follows that for some function $g(z)$ we have
+\begin{align}
+    \int_0^1 dz\, g(z) f_+(z) &= \int_0^1 dz \Biggl[ g(z) f(z) - g(z) \delta(1-z) \int_0^z dy\, f(y) \Biggr]
+    \nonumber \\
+    &= \int_0^1 dz \, g(z) f(z) - g(1) \int_0^1 dy \, f(y)
+    \nonumber \\
+    &= \int_0^1 dz \, \Bigl[ g(z) - g(1) \Bigr] f(z).
+    \label{eq:plus_dist_int_def}
+\end{align}
+\Cref{eq:plus_dist_int_def} is sometimes taken to be the defining property of plus distributions, rather than \cref{eq:plus_dist_def}.
+
+The integrals we encounter in this thesis typically have more restricted integration bounds.
+% It is therefore useful to consider the case with a more general lower bound.
+% Using the Heaviside step function
+% \begin{equation}\label{eq:step_func}
+%     \theta(x) \equiv \begin{cases}
+%         1, & \quad x \geq 0 \\
+%         0, & \quad x < 0
+%     \end{cases},
+% \end{equation}
+% we find
+% \begin{align}
+%     \int_x^1 dz \, g(z) f_+(z) &= \int_0^1 dz \, g(z) f_+(z) \theta(x)
+%     \nonumber \\
+%     &= \int_0^1 dz \, g(z) \Biggl[ f(z) - \delta(1-z) \int_0^z dy \, f(y) \Biggr] \theta(x)
+%     \nonumber \\
+%     &= \int_0^1 dz \, g(z) f(z) \theta(x)
+%     - \int_0^1 dz \, g(1) \delta(1-z) \theta(x) \int_0^z dy \, f(y)
+%     \nonumber \\
+%     &= \int_x^1 dz \, g(z) f(z)
+%     - g(1) \int_x^1 dz \, \delta(1-z) \int_0^z dy \, f(y).
+%     \label{eq:plus_dist_int_x_1_unfinished}
+% \end{align}
+It is therefore useful to consider the case with a more general lower bound. We find that
+\begin{align}
+    \int_x^1 dz \, g(z) f_+(z)
+    &= \int_x^1 dz \, g(z) \Biggl[ f(z) - \delta(1-z) \int_0^z dy \, f(y) \Biggr]
+    \nonumber \\
+    &= \int_x^1 dz \, g(z) f(z)
+    - \int_x^1 dz \, g(1) \delta(1-z) \int_0^z dy \, f(y)
+    \nonumber \\
+    &= \int_x^1 dz \, g(z) f(z)
+    - g(1) \int_x^1 dz \, \delta(1-z) \int_0^z dy \, f(y)
+    \nonumber \\
+    &= \int_x^1 dz \, g(z) f(z)
+    - g(1) \int_x^1 dy \, \delta(1-y) \int_0^y dz \, f(z)
+    \nonumber \\
+    &= \int_x^1 dz \, g(z) f(z)
+    - g(1) \int_0^1 dz \, f(z)
+    \nonumber \\
+    &= \int_x^1 dz \, g(z) f(z)
+    - g(1) \int_x^1 dz \, f(z)
+    - g(1) \int_0^x dz \, f(z)
+    \nonumber \\
+    \int_x^1 dz \, g(z) f_+(z) &= \int_x^1 dz \, \Bigl[ g(z)-g(1) \Bigr] f(z)
+    - g(1) \int_0^x dz \, f(z),
+    \label{eq:plus_dist_int_x_to_1}
+\end{align}
+where we have assumed that $x<1$.
+% \begin{align}
+%     \int_x^1 dz \, g(z) f_+(z)
+%     &= \int_x^1 dz \, g(z) \Biggl[ f(z) - \delta(1-z) \int_0^z dy \, f(y) \Biggr]
+%     \nonumber \\
+%     &= \int_x^1 dz \, g(z) f(z)
+%     - \int_x^1 dz \, g(1) \delta(1-z) \int_0^z dy \, f(y)
+%     \nonumber \\
+%     &= \int_x^1 dz \, g(z) f(z)
+%     - g(1) \int_x^1 dz \, \delta(1-z) \int_0^z dy \, f(y).
+%     \label{eq:plus_dist_int_x_1_unfinished}
+% \end{align}
+% The names of the integration variables do not matter, so we can switch $z\leftrightarrow y$, and rewrite the last term as
+% \begin{align}
+%     g(1) \int_x^1 dz \, \delta(1-z) \int_0^z dy \, f(y) &= g(1) \int_x^1 dy \, \delta(1-y) \int_0^y dz \, f(z)
+%     \nonumber \\
+%     &= g(1) \int_0^1 dz \, f(z)
+%     \nonumber \\
+%     &= g(1) \int_x^1 dz \, f(z)
+%     + g(1) \int_0^x dz \, f(z),
+% \end{align}
+% and inserting this back into \cref{eq:plus_dist_int_x_1_unfinished} gives
+% \begin{equation}
+%     \int_x^1 dz \, g(z) f_+(z) = \int_x^1 dz \, \Bigl[ g(z)-g(1) \Bigr] f(z)
+%     - g(1) \int_0^x dz \, f(z).
+% \end{equation}
+
+
+In \cref{ch:parton_level} we had to expand the function $(1-z)^{-1-2\eps}$ in $\eps$. This can be done using plus distributions, resulting in
+\begin{align}
+    \frac{1}{(1-z)^{1+2\eps}}
+    &= \delta(1-z) \int_0^z dy \, \frac{1}{(1-y)^{1+2\eps}} + \frac{1}{(1-z)^{1+2\eps}} - \delta(1-z) \int_0^z dy \, \frac{1}{(1-y)^{1+2\eps}}
+    \nonumber \\
+    \begin{split}
+        &= -\delta(1-z) \frac{1}{2\eps}
+        + \frac{1}{1-z} - \delta(1-z) \int_0^z dy \, \frac{1}{1-y}
+        \nonumber \\ &\qquad
+        - 2\eps \Biggl\{ \frac{\ln(1-z)}{1-z} - \delta(1-z) \int_0^z dy \, \frac{\ln(1-y)}{1-y} \Biggr\}
+        + \mathcal{O}(\eps^2)
+    \end{split}
+    \nonumber \\
+    &= - \frac{1}{2\eps} \delta(1-z)
+    + \plusdist - 2\eps \plusdistln
+    + \mathcal{O}(\eps^2).
+    \label{eq:plus_dist_expansion}
+\end{align}

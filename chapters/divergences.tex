@@ -8,6 +8,8 @@ We will start by showing how divergences appear in loop diagrams by considering 
 
 Finally, we will introduce Passarino--Veltman functions as a method of recognizing loop integrals that have been calculated before, so that we can use known results to simplify our calculations.
 
+The discussion presented in this chapter is largely based on the books by Schwartz~\cite{Schwartz:2014sze} and Peskin and Schroeder~\cite{Peskin:1995ev}.
+
 
 \section{Dimensional Regularization}\label{sec:dimreg}
 % \textcolor{gray}{(Introduce UV and IR divergences, and give examples of regularization methods, with focus on dimreg (also: mention DRED?))}
@@ -138,7 +140,7 @@ In the following section, we will see how we can use \emph{regularization} to ex
 % There are more than one way to regularize divergences, but the focus in this thesis will be on \emph{dimensional regularization}.
 
 
-\subsection{Shifting the Spacetime Dimensions}
+\subsection{Shifting the Spacetime Dimensions}\label{sec:shifting_spacetime_dim}
 In the preceding section we found
 \begin{equation}\label{eq:loop_int_4_dim}
     \int d^4k \frac{1}{[k^2-\Delta(x)+i\eps]^2} \propto \int_0^\infty dk_E \frac{k_E^3}{[k_E^2+\Delta(x)]^2}.
@@ -297,10 +299,10 @@ The last two terms introduce two new Feynman rules to the theory:
 \begin{subequations}
 \label{eq:phi4_ct_rules}
 \begin{align}
-    \inputtikz[baseline=(v.base)]{divergences/phi4_ct_kin} = ip^2\delta_\phi,
+    \inputtikz[baseline=(v.base)]{divergences/phi4_ct_kin} &= ip^2\delta_\phi,
     \\
     \label{eq:phi4_ct_rule_int}
-    \inputtikz[baseline=(v.base)]{divergences/phi4_ct_int} = -i\delta_4 \lambda_R.
+    \inputtikz[baseline=(v.base)]{divergences/phi4_ct_int} &= -i\delta_4 \lambda_R.
 \end{align}
 \end{subequations}
 
@@ -754,7 +756,7 @@ Scalar Passarino--Veltman functions, i.e.\ when there is no loop momentum in the
 
 It is conventional to use the $N$'th letter in the alphabet to denote the $N$-point function, and this is also what we will do for the remaining of this thesis. The first four scalar Passarino--Veltman functions are then given by
 \begin{subequations}
-\label{eq:pv_tensor_reduction}
+\label{eq:pv_scalar_ABCD}
 \begin{align}
     T_0^1 &\equiv A_0(m_0^2),
     \\
@@ -763,8 +765,10 @@ It is conventional to use the $N$'th letter in the alphabet to denote the $N$-po
     T_0^3 &\equiv C_0(p_1^2, p_2^2, (p_1+p_2)^2; m_0^2, m_1^2, m_2^2),
     \\
     T_0^4 &\equiv D_0(p_1^2, p_2^2, p_3^2, p_4^2, (p_1+p_2)^2, (p_2+p_3)^2; m_0^2, m_1^2, m_2^2, m_3^2).
+    \label{eq:pv_scalar_D}
 \end{align}
 \end{subequations}
+The corresponding tensorial functions are then given by replacing the zero-index with Lorentz indices, such that $B_\mu \equiv T_\mu^2$, $C_{\mu\nu\rho} \equiv T_{\mu\nu\rho}^3$, and so on; their arguments being the same as for the scalar functions.
 
 \begin{figure}
     \centering
@@ -778,14 +782,19 @@ The following discussion is largely based on Ref.~\cite{Denner:1991kt}.
 The tensorial Passarino--Veltman functions can be reduced to scalar functions by exploiting their Lorentz structure.
 From the available tensors in the integrals, we must have
 \begin{subequations}
+\label{eq:pv_tensor_reduction_B}
 \begin{align}
     B^\mu &= p_1^\mu B_1,
+    \label{eq:pv_tensor_reduction_Bmu}
     \\
     B^{\mu\nu} &= g^{\mu\nu}B_{00} + p_1^\mu p_1^\nu B_{11},
 \end{align}
+\end{subequations}
 % \end{subequations}
 for the two-point functions,
 % \begin{subequations}
+\begin{subequations}
+\label{eq:pv_tensor_reduction_C}
 \begin{align}
     C^\mu &= \sum_{i=1}^2 p_i^\mu C_i,
     \\
@@ -793,9 +802,12 @@ for the two-point functions,
     \\
     C^{\mu\nu\rho} &= \sum_{i=1}^2 (g^{\mu\nu}p_i^\rho + g^{\nu\rho}p_i^\mu + g^{\mu\rho}p_i^\nu C_{00i} + \sum_{i,j,k=1}^2 p_i^\mu p_j^\nu p_k^\rho C_{ijk},
 \end{align}
+\end{subequations}
 % \end{subequations}
 for the three-point functions, and
 % \begin{subequations}
+\begin{subequations}
+\label{eq:pv_tensor_reduction_D}
 \begin{align}
     D^\mu &= \sum_{i=1}^3 p_i^\mu D_i,
     \\
@@ -840,24 +852,44 @@ for the four-point functions.
 % \end{subequations}
 $B_i$, $C_{00}$ and so on are the coefficient functions, whose arguments are identical to that of their respective tensor functions.
 
-The coefficient functions from the Passarino--Veltman reduction in \cref{eq:pv_tensor_reduction} can be found by performing an appropriate set of contractions, and rewriting the integral as scalar Passarino--Veltman functions. As an example, consider $B^\mu$. Contracting it with $p_1^\mu$ gives
+The coefficient functions from the Passarino--Veltman reduction in \cref{eq:pv_tensor_reduction_B,eq:pv_tensor_reduction_C,eq:pv_tensor_reduction_D} can be found by performing an appropriate set of contractions, and rewriting the integral as scalar Passarino--Veltman functions. As an example, consider $B^\mu$. Contracting it with $p_1^\mu$ gives
 \begin{align}\label{eq:Bmu_reduction_example}
     p_1^2 B_1 &= p_1^\mu B_\mu
     \nonumber \\
     & = \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \frac{p_1\cdot k}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
     \nonumber \\
-    &= \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \frac{\frac{1}{2}\Bigl[ (k+p_1)^2 -k^2 - p_1^2 \Bigr]}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
-    \nonumber \\
-    &= \frac{1}{2} \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \frac{\Bigl[ (k+p_1)^2-m_1^2 -(k^2-m_0^2) - p_1^2 + m_1^2 - m_0^2 \Bigr]}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
+    % &= \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \frac{\frac{1}{2}\Bigl[ (k+p_1)^2 -k^2 - p_1^2 \Bigr]}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
+    % \nonumber \\
+    &= \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \frac{\frac{1}{2}\Bigl[ (k+p_1)^2-m_1^2 -(k^2-m_0^2) - p_1^2 + m_1^2 - m_0^2 \Bigr]}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
     \nonumber \\
     &= \frac{1}{2} \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \Biggl\{
         \frac{1}{k^2-m_0^2} - \frac{1}{(k+p_1)^2-m_1^2} - \frac{p_1^2+m_0^2-m_1^2}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
-    \Biggr\}
-    \nonumber \\
-    &= \frac{1}{2} \Bigl\{ A_0(m_0^2) - A_0(m_1^2) - (p_1^2+m_0^2-m_1^2)B(p_1^2;m_0^2,m_1^2) \Bigr\},
+    \Biggr\}.
 \end{align}
-where in the last equality we have shifted the integration momentum $k\to k-p_1$ in the second term to reveal a recognizable Passarino--Veltman form.
-Having found $B_1$, we can rewrite the two-point tensor function $B_\mu$ in terms of scalar functions
+The remaining integrals---after shifting the integration momentum $k\to k-p_1$ in the second term---can then be recognized as scalar Passarino--Veltman functions, giving
+\begin{equation}\label{eq:p1B1_scalar_pv}
+    p_1^2 B_1 = \frac{1}{2} \Bigl\{ A_0(m_0^2) - A_0(m_1^2) - (p_1^2+m_0^2-m_1^2)B(p_1^2;m_0^2,m_1^2) \Bigr\}.
+\end{equation}
+% {\allowdisplaybreaks
+%     \begin{align}\label{eq:Bmu_reduction_example}
+%         p_1^2 B_1 &= p_1^\mu B_\mu
+%         \nonumber \\
+%         & = \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \frac{p_1\cdot k}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
+%         \nonumber \\
+%         &= \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \frac{\frac{1}{2}\Bigl[ (k+p_1)^2 -k^2 - p_1^2 \Bigr]}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
+%         \nonumber \\
+%         &= \frac{1}{2} \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \frac{\Bigl[ (k+p_1)^2-m_1^2 -(k^2-m_0^2) - p_1^2 + m_1^2 - m_0^2 \Bigr]}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
+%         \nonumber \\
+%         &= \frac{1}{2} \frac{(2\pi\mu)^{4-d}}{i\pi^2} \int d^dk \Biggl\{
+%             \frac{1}{k^2-m_0^2} - \frac{1}{(k+p_1)^2-m_1^2} - \frac{p_1^2+m_0^2-m_1^2}{(k^2-m_0^2)[(k+p_1)^2-m_1^2]}
+%         \Biggr\}
+%         \nonumber \\
+%         &= \frac{1}{2} \Bigl\{ A_0(m_0^2) - A_0(m_1^2) - (p_1^2+m_0^2-m_1^2)B(p_1^2;m_0^2,m_1^2) \Bigr\},
+%     \end{align}
+% }
+% where in the last equality we have shifted the integration momentum $k\to k-p_1$ in the second term to reveal a recognizable Passarino--Veltman form.
+% Having found $B_1$, we can rewrite the two-point tensor function $B_\mu$ in terms of scalar functions
+We can then rewrite the two-point tensor function $B^\mu$ in terms of scalar functions by inserting \cref{eq:p1B1_scalar_pv} into \cref{eq:pv_tensor_reduction_Bmu}, resulting in
 \begin{equation}
     B^\mu(p_1^2;m_0^2,m_1^2) = \frac{p_1^\mu}{2p_1^2} \Bigl\{ A_0(m_0^2) - A_0(m_1^2) - (p_1^2+m_0^2-m_1^2)B(p_1^2;m_0^2,m_1^2) \Bigr\}.
 \end{equation}
