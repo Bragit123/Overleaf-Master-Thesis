@@ -202,11 +202,13 @@ Using our renormalized \glspl{pdf}, we can write the hadronic cross section in \
     \end{split}
 \end{align}
 The counterterms $\delta_{f_i}$ and $\delta_{f_j}$ can then be chosen in such a way that they nicely remove any collinear divergences in $\hat\sigma_{ij}^{\mathrm{NLO}}$.
+Moving forward, we will denote the renormalized \glspl{pdf} without the $R$ superscript.
 
 It is worth noting that there is some freedom in how we choose the \gls{pdf} counterterms, just as there was for Lagrangian counterterms.
 Consequently, the renormalized \glspl{pdf} also depend on the chosen renormalization scheme.
 In this thesis we renormalize \glspl{pdf} in the \gls{msbar} scheme, since this is the one used by \texttt{LHAPDF}~\cite{Buckley:2014ana}---the \texttt{C++} library we will use to extract \glspl{pdf} in \cref{ch:results}.
-Moving forward, we will denote the renormalized \glspl{pdf} without the $R$ superscript.
+Note also that the \glspl{pdf} depend on scale in the same way as the renormalized fields and couplings.
+To separate the two scales, we will denote the \emph{factorization scale} associated with \gls{pdf} renormalization by $\mu_F$. When we have to make the distinction clear, we denote the renormalization scale encountered in \cref{sec:shifting_spacetime_dim} by $\mu_R$.
 
 
 
@@ -315,11 +317,11 @@ The initial-state $w$-functions after renormalizing the \glspl{pdf} are then
 \begin{subequations}
 \label{eq:hadron_w_initial_state}
 \begin{align}
-    \wsoft_i(z) &= \frac{\alpha Q_q^2}{\pi} \Biggl\{ \frac{\pi^2}{3} - 4 - \frac{3}{2} \ln\frac{\mu^2}{Q^2} \Biggr\},
+    \wsoft_i(z) &= \frac{\alpha Q_q^2}{\pi} \Biggl\{ \frac{\pi^2}{3} - 4 - \frac{3}{2} \ln\frac{\mu_F^2}{Q^2} \Biggr\},
     \\
     \wrad_i(z) &= -\frac{\alpha Q_q^2}{\pi} \frac{(1+z^2)\ln z}{1-z},
     \\
-    w^{\frac{1}{1-z}}_i(z) &= -\frac{\alpha Q_q^2}{\pi} (1+z^2) \ln\frac{\mu^2}{Q^2},
+    w^{\frac{1}{1-z}}_i(z) &= -\frac{\alpha Q_q^2}{\pi} (1+z^2) \ln\frac{\mu_F^2}{Q^2},
     \\
     w^{\frac{\ln(1-z)}{1-z}}_i(z) &= 2 \frac{\alpha Q_q^2}{\pi} (1+z^2).
 \end{align}
@@ -338,7 +340,7 @@ Lastly, we found the final-state partonic cross section to be
                 \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
                 - \frac{1}{\sqrt{\lambda}} \Biggl(
                     \ln(4\lambda)
-                    + \ln\frac{\mu^2}{Q^2}
+                    + \ln\frac{\mu_R^2}{Q^2}
                 \Biggr) I^r_1
                 + \frac{1}{\sqrt{\lambda}} I^r_2
             \Biggr]
@@ -353,7 +355,7 @@ Here there are no collinear divergences to worry about, so writing down the $w$-
         \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
         - \frac{1}{\sqrt{\lambda}} \Biggl(
             \ln(4\lambda)
-            + \ln\frac{\mu^2}{Q^2}
+            + \ln\frac{\mu_R^2}{Q^2}
         \Biggr) I^r_1
         + \frac{1}{\sqrt{\lambda}} I^r_2
     \Biggr]

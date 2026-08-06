@@ -367,7 +367,7 @@ Since the blobs represent corrections both with and without photon emission, $\G
 Before moving further, let us briefly discuss which assumptions we have made, and how they limit the generalization of our procedure.
 The perhaps most obvious limitation is that our factorization only works when considering higher-order corrections to either the initial- or final-state of the process.
 For diagrams involving a photon-line between the initial- and final-state, or interferences between initial- and final-state emission, we will have to turn back to consider their full diagrams without factorization. We will consider such non-factorizable diagrams in \cref{sec:non_factorizable}.
-The other assumption we made, which is important for the way we wrote down the effective couplings in \cref{eq:factor_left,eq:factor_right}, is that the \gls{nlo} corrections add photon lines to the \gls{lo} diagram. This does not hold for supersymmetric corrections, such as the one in \cref{fig:M_susy}. This limitation is good to keep in mind, altough we will not consider supersymmetric corrections in this thesis, as their contributions are expected to be tiny compared to \gls{sm} corrections. \rednote{Why? ref/argue?}
+The other assumption we made, which is important for the way we wrote down the effective couplings in \cref{eq:factor_left,eq:factor_right}, is that the \gls{nlo} corrections add photon lines to the \gls{lo} diagram. This does not hold for supersymmetric corrections, such as the one in \cref{fig:M_susy}. This limitation is good to keep in mind, although we will not consider supersymmetric corrections in this thesis, as their contributions are expected to be tiny compared to \gls{sm} corrections. \rednote{pga store masser i propagatorene, sant?}
 
 \begin{figure}
     \centering
@@ -501,6 +501,7 @@ with $d\Pi_L$ defined by extracting the differential $dQ^2$ from \cref{eq:dPi_3}
     d\Pi = dQ^2 d\Pi_L.
     \label{eq:dPi_L_def}
 \end{equation}
+
 We can compute $X_f^{\mu\nu}$ using the trace relations for gamma matrices given in \cref{app:gamma_traces}, and since it does not acquire any higher-order corrections, we can safely set $d=4$,\footnote{
     One can in principle imagine terms proportional to $\eps$ giving finite contributions when multiplied by $1/\eps$ terms from $L_{\mu\nu}$.
     However, since $X_f^{\mu\nu}$ does not obtain higher order corrections, its result is the same for all \gls{nlo} diagrams.
@@ -528,6 +529,7 @@ We multiply by the factors $\frac{d^d q}{(2\pi)^d} (2\pi)^d \delta^d(k+q-p_1-p_2
     (2\pi)^d \delta^d(k_1+k_2-q) \frac{d^{d-1}k_1}{(2\pi)^{d-1}}\frac{1}{2E_1}\frac{d^{d-1}k_2}{(2\pi)^{d-1}}\frac{1}{2E_2}.
 \end{split}
 \end{equation}
+
 We can use $\delta(q^2-Q^2)$ to get rid of the integral over the zeroth component of $d^dq$, leaving us with the factored phase space
 \begin{equation}
     d\Pi = \frac{1}{2\pi} d\Pi_X d\Pi_H dQ^2,
@@ -558,6 +560,7 @@ where we have defined the following tensors:
     \label{eq:Ximunu}
 \end{align}
 \end{subequations}
+
 As with $X_f^{\mu\nu}$ in \cref{eq:dsigmaf_LX}, $X_i^{\mu\nu}$ does not receive any higher-order corrections, so we can evaluate it in $d=4$ dimensions.\footnote{See \cref{foot:d=4_argument}.}
 With the available tensors, it is clear that it must have the form\footnote{The factor $Q^2$ is inserted so that $X_1(Q)$ and $X_2(Q)$ are both dimensionless quantities.}
 \begin{equation}
@@ -577,7 +580,8 @@ which can be solved to give the following expression for $X_1(Q)$:
     X_1(Q) &= -\frac{1}{3Q^4} \Bigl[ q_\mu q_\nu X_i^{\mu\nu} - Q^2 g_{\mu\nu} X_i^{\mu\nu} \Bigr].
     \label{eq:X1_decomp}
 \end{align}
-We could in principle also calculate $X_2(Q)$, but it is not necessary as the second term in \cref{eq:X_decomp} disappears when contracting with $H^{\mu\nu}$ by the Ward identity. \rednote{Se nærmere på dette. Ikke åpenbart for meg at Ward skal holde når $\gamma^*$ er off-shell}
+
+We could in principle also calculate $X_2(Q)$, but it is not necessary as the second term in \cref{eq:X_decomp} disappears when contracting with $H^{\mu\nu}$ by the Ward identity.
 Inserting \cref{eq:Ximunu} into \cref{eq:X1_decomp}, and using that $q=k_1+k_2$, we can show that (with $d=4$):
 \begin{equation}
     X_1(Q) = -\frac{4\kiabs^2}{3Q^2} \int d\Pi_X
@@ -610,6 +614,7 @@ From these Feynman rules we have:\footnote{Note that we average over the incomin
     \label{eq:L_munu}
 \end{align}
 \end{subequations}
+
 Using that $-g_{\mu\nu}$ is equal to the sum of polarizations $\eps_\mu\eps^*_\nu$, we can simplify the initial-state cross section in \cref{eq:dsigmai_tensor} even further, giving
 \begin{align}
     \frac{d\hat{\sigma}^i}{dQ^2} &= \frac{4\alpha^2 \kiabs^3}{3\shat Q^5}\fqliab(Q^2) \eps_\mu(q)\eps^*_\nu(q) H^{\mu\nu}
@@ -1060,8 +1065,10 @@ The resulting expression is then
 \end{equation}
 The soft divergence from \cref{eq:dsigmai_emis} canceled against the virtual contribution, as expected, but a $1/\eps$ divergence still persists. We will postpone its treatment until \cref{ch:hadron_level}, where the hadronic cross section will be made finite by renormalizing the \glspl{pdf}.
 
-It is worth noting the, perhaps unsurprising, relation between \cref{eq:dsigmai_nlo} and the corresponding \gls{qcd} correction at \gls{nlo}, which can be found in \rednote{ref Tores master/artikkel}.
-The \gls{qcd} correction is equal to \cref{eq:dsigmai_nlo} up to a change of coupling $\alpha Q_q^2 \leftrightarrow \alpha_s C_F$, where $C_F$ is the quadratic Casimir of $SU(3)$ in the fundamental representation. \rednote{Kanskje bedre å putte dette avsnittet i \cref{ch:hadron_level}, for å få med hele det renormaliserte uttrykket}
+It is worth noting the, perhaps unsurprising, relation between \cref{eq:dsigmai_nlo} and the corresponding \gls{qcd} correction at \gls{nlo}, which can be found in Ref.~\cite{Tore:2022}.
+% It is worth noting the, perhaps unsurprising, relation between \cref{eq:dsigmai_nlo} and the corresponding \gls{qcd} correction at \gls{nlo}, which can be found in Appendix~A of Ref.~\cite{Braseth:2025ylj}.
+% \footnote{Note that the expression found there is the $w$-function---to be explained in \cref{ch:hadron_level}---after removing the collinear divergence by renormalizing the \glspl{pdf}.}
+The \gls{qcd} correction is equal to \cref{eq:dsigmai_nlo} up to a change of coupling $\alpha Q_q^2 \leftrightarrow \alpha_s C_F$, where $\alpha_s$ is the strong coupling and $C_F=\frac{4}{3}$ is the quadratic Casimir of $SU(3)$ in the fundamental representation.
 
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -1295,13 +1302,14 @@ This can be simplified by expanding the denominators, rewriting the numerators i
     \Biggr\}.
     \label{eq:Mf_emis}
 \end{equation}
+
 As a consistency check, we can make sure the Ward identity holds for the emitted photon. Contracting the contents of the curly brackets in \cref{eq:Mf_emis} with $k_\rho$ gives
 \begin{equation}
     k_2^\mu - \frac{p^\mu}{2} + k_1^\mu - \frac{p^\mu}{2} + k^\mu
     = 0,
 \end{equation}
 where we have inserted $p=k_1+k_2+k$.
-Note in particular that the Ward identity would not hold if we did not include the four-point coupling leading to the right-most diagram in \cref{fig:fs_real}, showing that this diagram truly belongs to the same gauge invariant subset as the diagrams where the photon is emitted from one of the slepton-lines. \rednote{Overflødig? Var interessant da vi oppdaget det, men virker litt åpenbart i denne konteksten}
+Note in particular that the Ward identity would not hold if we did not include the four-point coupling leading to the right-most diagram in \cref{fig:fs_real}, showing that this diagram truly belongs to the same gauge invariant subset as the diagrams where the photon is emitted from one of the slepton-lines.
 
 Taking the square of \cref{eq:Mf_emis} gives
 \begin{equation}
