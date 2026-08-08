@@ -1,5 +1,139 @@
 \chapter{Numerical Results}\label{ch:results}
 
-\section{Methods \textcolor{gray}{(Cuba's Vegas, LHAPDF, LoopTools, PDF and \texorpdfstring{$\alpha_s$}{alpha\_s} errors, scale error)}}
+The hadronic cross sections were obtained by Monte Carlo integration using the \texttt{VEGAS} algorithm~\cite{Lepage:1977sw} implemented in the \texttt{C++} library \texttt{Cuba}~\cite{Hahn:2004fe,Hahn:2014fua}.
+The \glspl{pdf} were obtained from the \texttt{PDF4LHC21\_40} \gls{pdf} set~\cite{PDF4LHCWorkingGroup:2022cjn} using \texttt{LHAPDF}~\cite{Buckley:2014ana}.
+All Passarino--Veltman functions were evaluated in \texttt{C++} using \texttt{LoopTools}~\cite{Hahn:1998yk}.
+The \gls{qcd} results used for comparison were produced using the---so far unpublished---library \texttt{smoking}~\cite{smoking}.
+\rednote{Legg til mer i intro, men husk å ha med dette!}
+
+
+\section{Methods}
+
+
+\subsection{Input-Parameters}
+\rednote{Hele seksjonen er kronglete skrevet, og dårlig introdusert... fiks!}
+In order to numerically evaluate the expressions we have found in \cref{ch:parton_level,ch:hadron_level} we need to set a number of input-parameters.
+All numerical calculations were done with a \gls{com} energy of $s=\qty{13}{TeV}$.
+
+Firstly, the mass of the $Z$ boson was given in the complex-mass scheme:
+\begin{equation}
+    \mu_Z^2 = m_Z^2 - im_Z \Gamma_Z,
+\end{equation}
+where $m_Z$ is the real pole mass, and $\Gamma_Z$ the total decay width, which take on the numerical values~\cite{ParticleDataGroup:2026aaa}
+\begin{align}
+    m_Z &= \qty{91.188}{GeV},
+    \\
+    \Gamma_Z &= \qty{2.4955}{GeV}.
+\end{align}
+Although we have not considered any diagrams involving the $W$ boson, its pole mass is needed to obtain the Weinberg angle
+\begin{equation}
+    s_W^2 = 1-c_W^2 = 1 - \frac{m_W^2}{m_Z^2},
+\end{equation}
+with~\cite{ParticleDataGroup:2026aaa}
+\begin{equation}
+    m_W = \qty{80.369}{GeV}.
+\end{equation}
+
+For the electromagnetic coupling $\alpha$ we use the $G_\mu$ scheme, as described in \cref{sec:renormalization_schemes}, where
+\begin{equation}
+    \alpha \equiv \frac{\sqrt{2}G_\mu m_W^2}{\pi} \biggl(1-\frac{m_W^2}{m_Z^2}\biggr).
+\end{equation}
+The Fermi constant $G_\mu$---given in \cref{eq:Gmu_in_div} and restated here for the reader's convenience---is~\cite{ParticleDataGroup:2026aaa}
+\begin{equation}
+    G_\mu = \qty{1.166 378e-5}{GeV^{-2}}.
+\end{equation}
+
+\rednote{Si noe om hvorfor vi bruker Gmu (lite løping av alpha etc.)}
+
+\subsection{Scale and PDFs}
+The renormalization and factorization scales $\mu_R$ and $\mu_F$ can, in principle, be chosen freely, since they are unphysical parameters of which the cross section is independent.
+They are, however, present at finite perturbative order, and should be given sensible values.
+In our calculations we set both scales to be equal to the average slepton mass
+\begin{equation}
+    \mu \equiv \mu_R = \mu_F = \frac{m_1 + m_2}{2}.
+\end{equation}
+
+The fact that the cross section must be independent of the chosen energy scale at infinite order makes $\mu$ a viable parameter to estimate the error of the cross section due to only working at finite order.
+It is common to estimate this perturbative error by observing how the cross section changes when we vary the scale, which can be summarized as
+% \begin{equation}
+%     \delta\sigma_\mu \approx \abs{\sigma(2\mu) - \sigma(\mu/2)}.
+% \end{equation}
+\begin{equation}
+    \delta\sigma_\mu \approx \biggl\lvert \sigma(2\mu) - \sigma\biggl(\frac{\mu}{2}\biggr) \biggr\rvert.
+\end{equation}
+
+The error due to uncertainties in the \glspl{pdf} is slightly more convoluted.
+Using \texttt{LHAPDF}~\cite{Buckley:2014ana}, we have obtained the \glspl{pdf} from the Hessian \gls{pdf} set \texttt{PDF4LHC21\_40}~\cite{PDF4LHCWorkingGroup:2022cjn}, containing $43$ \gls{pdf} members, which we index by $k=0,\ldots,42$.
+The zeroth member gives the central \gls{pdf}, with the remaining $42$ being used to estimate the error in the cross section.
+Following \cite{Butterworth:2015oua}, we can calculate the \gls{pdf} error estimate by
+\begin{equation}
+    \delta^{\mathrm{PDF}}\sigma = \sqrt{\sum_{k=1}^{42} \Bigl(\sigma^{(k)} - \sigma^{(0)} \Bigr)^2},
+\end{equation}
+where $\sigma^{(k)}$ denotes the cross section found using the $k$'th \gls{pdf} member. $\delta^{\mathrm{PDF}}\sigma$ is then understood as a \qty{68}{\percent} confidence level~\cite{Butterworth:2015oua}.
+
+\rednote{Si noe om at vi ikke har med feilestimat på qed-beregninger, kun qcd, og nevn alpha-s usikkerhet}
+
+
+
 
 \section{Results and Discussion}
+
+\subsubsection{Scale Dependence}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/plots/xsec_scale_ratio_m100.pdf}
+    \caption{Caption}
+    \label{fig:xsec_scale_ratio_m100}
+\end{figure}
+
+
+\subsubsection{Total Cross Section}
+The total cross section for the production of a pair of equal-mass selectrons as a function of their masses is given in \cref{fig:xsec_over_mass}.
+The result is equal for smuons, since they only differ from selectrons by their mass.
+This would not be the case for stau sparticles, since they have non-zero off-diagonal terms in the mass mixing matrix as discussed in \cref{sec:slepton_masses}, and thus behave differently from the selectrons and smuons.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/plots/xsec_over_mass.pdf}
+    \caption{Caption}
+    \label{fig:xsec_over_mass}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/plots/xsec_Kfactor.pdf}
+    \caption{Caption}
+    \label{fig:xsec_Kfactor}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/plots/xsec_scale_err_ratio.pdf}
+    \caption{Caption}
+    \label{fig:xsec_scale_err_ratio}
+\end{figure}
+
+\subsubsection{Comparison to State-of-the-Art QCD}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/plots/ratio_qed_qcdnlo.pdf}
+    \caption{Caption}
+    \label{fig:ratio_qed_qcdnlo}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/plots/xsec_Kfactor_qed_qcd.pdf}
+    \caption{Caption}
+    \label{fig:xsec_Kfactor_qed_qcd}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/plots/ratio_qed_qcd.pdf}
+    \caption{Caption}
+    \label{fig:xsec_ratio_qed_qcd}
+\end{figure}

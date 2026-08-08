@@ -328,19 +328,36 @@ The initial-state $w$-functions after renormalizing the \glspl{pdf} are then
 \end{subequations}
 
 Lastly, we found the final-state partonic cross section to be
+% \begin{equation}
+%     \begin{split}
+%         \frac{d\hat\sigma^f}{dQ^2} &= \frac{\hat\sigma^f_B}{x_1 x_2} \frac{\alpha}{\pi} \vastl\{
+%             \frac{2}{\lambda}\plusdist \Biggl(
+%                 \frac{\lambda_z}{\sqrt{\lambda}} I^r_1
+%                 + \frac{(1-z)^2}{z}
+%             \Biggr)
+%             \\ &\qquad
+%             + \delta(1-z) \Biggl[
+%                 \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
+%                 - \frac{1}{\sqrt{\lambda}} \Biggl(
+%                     \ln(4\lambda)
+%                     + \ln\frac{\mu_R^2}{Q^2}
+%                 \Biggr) I^r_1
+%                 + \frac{1}{\sqrt{\lambda}} I^r_2
+%             \Biggr]
+%         \vastr\}.
+%     \end{split}
+% \end{equation}
 \begin{equation}
     \begin{split}
         \frac{d\hat\sigma^f}{dQ^2} &= \frac{\hat\sigma^f_B}{x_1 x_2} \frac{\alpha}{\pi} \vastl\{
-            \frac{2}{\lambda}\plusdist \Biggl(
-                \frac{z^3\lambda_z}{\sqrt{\lambda}} I^r_1
-                + \frac{(1-z)^2}{z}
-            \Biggr)
+            \frac{2(1-z)}{z\lambda}
+            + \frac{2\lambda_z}{\lambda^{3/2}} \plusdist I^r_1
             \\ &\qquad
             + \delta(1-z) \Biggl[
                 \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
                 - \frac{1}{\sqrt{\lambda}} \Biggl(
                     \ln(4\lambda)
-                    + \ln\frac{\mu_R^2}{Q^2}
+                    + \ln\frac{\mu^2}{Q^2}
                 \Biggr) I^r_1
                 + \frac{1}{\sqrt{\lambda}} I^r_2
             \Biggr]
@@ -358,12 +375,16 @@ Here there are no collinear divergences to worry about, so writing down the $w$-
             + \ln\frac{\mu_R^2}{Q^2}
         \Biggr) I^r_1
         + \frac{1}{\sqrt{\lambda}} I^r_2
-    \Biggr]
+    \Biggr],
     \\
-    w^{\frac{1}{1-z}}_f(z) &= \frac{\alpha}{\pi} \frac{2}{\lambda} \Biggl(
-        \frac{z^3\lambda_z}{\sqrt{\lambda}} I^r_1
-        + \frac{(1-z)^2}{z}
-    \Biggr).
+    \wrad_f(z) &= \frac{\alpha}{\pi} \frac{2(1-z)}{z\lambda},
+    \\
+    w^{\frac{1}{1-z}}_f(z) &= \frac{\alpha}{\pi} \frac{2\lambda_z}{\lambda^{3/2}} I^r_1,
+    % \\
+    % w^{\frac{1}{1-z}}_f(z) &= \frac{\alpha}{\pi} \frac{2}{\lambda} \Biggl(
+    %     \frac{\lambda_z}{\sqrt{\lambda}} I^r_1
+    %     + \frac{(1-z)^2}{z}
+    % \Biggr).
 \end{align}
 \end{subequations}
 where $g(\shat,m_1^2,m_2^2)$, $I_1^r$ and $I_2^r$ were defined in \cref{eq:summary_g,eq:summary_Ir1,eq:summary_Ir2}, and we remind the reader of the K\"allen function shorthands $\lambda \equiv \lambda(1,\mt_1^2,\mt_2^2)$ and $\lambda_z \equiv \lambda(1,z\mt_1^2,z\mt_2^2)$.

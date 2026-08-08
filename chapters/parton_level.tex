@@ -1435,8 +1435,8 @@ Collecting all terms except the first onto a common divisor, the expression can 
         \\ &\hspace{-2em}
         +\frac{\lambda(\shat,m_1^2,m_2^2)}{4(k_1\cdot k)^2(k_2\cdot k)^2}
         \Biggl[
-            \frac{1}{2}(\shat-Q^2) \Bigl( m_1^2(k_2\cdot k)^2
-            + m_2^2(k_1\cdot k)^2 \Bigr)
+            \frac{1}{2}(\shat-Q^2) \Bigl( m_1^2(k_2\cdot k)
+            + m_2^2(k_1\cdot k) \Bigr)
             - Q^2 (k_1\cdot k)(k_2\cdot k)
         \Biggr]
     \vastr\}.
@@ -1459,7 +1459,7 @@ Using these scalar products, and rewriting the K\"all\'en function as $\lambda(\
     = \frac{16\pi\alpha\mu^{2(4-d)}}{\shat(d-1)}
     \int d\Pi_L \vastl\{
         (2-d)
-        -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
+        -\frac{4z \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
         (\xp-x)(x-\xm)
     \vastr\}.
     \label{eq:L1_dPiL}
@@ -1532,7 +1532,7 @@ We then find
     \int dx \Bigl[ (\xp-x)(x-\xm) \Bigr]^{\frac{d-4}{2}}
     \vastl\{
         (2-d)
-        -\frac{4z^4 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
+        -\frac{4z \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^2 (1+x)^2 (1-x)^2}
         (\xp-x)(x-\xm)
     \vastr\}.
 \end{split}
@@ -1634,7 +1634,7 @@ We can insert $L^{\mu\nu}$ from \cref{eq:L_munu_emis} into the differential cros
     \vastl\{
         \frac{2(1-z)}{z \lambda(1,\mt_1^2,\mt_2^2)}
         \\ &\qquad
-        + \frac{2z^3 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^{5-d} \lambda^{\frac{3}{2}}(1,\mt_1^2,\mt_2^2)}
+        + \frac{2 \lambda(1,z\mt_1^2,z\mt_2^2)}{(1-z)^{5-d} \lambda^{\frac{3}{2}}(1,\mt_1^2,\mt_2^2)}
         \int dx \frac{\Bigl[(\xp-x)(x-\xm)\Bigr]^{\frac{d-2}{2}}}{(1+x)^2 (1-x)^2}
     \vastr\}.
 \end{split}
@@ -1650,7 +1650,7 @@ We introduce the shorthands $\lambda\equiv\lambda(1,\mt_1^2,\mt_2^2)$ and $\lamb
     \\ &\qquad\times
     \vastl\{
         \frac{2(1-z)}{z \lambda}
-        + \frac{2z^3 \lambda_z}{\lambda^{\frac{3}{2}}}
+        + \frac{2 \lambda_z}{\lambda^{\frac{3}{2}}}
         \underbrace{(1-z)^{-1-2\eps} \int dx \frac{\Bigl[(\xp-x)(x-\xm)\Bigr]^{1-\eps}}{(1+x)^2 (1-x)^2}}_{I^r}
     \vastr\}.
 \end{split}
@@ -1677,23 +1677,44 @@ If we expand the integral part $I^r$ in $\eps$, we get\footnote{Again using plus
     \label{eq:Ir}
 \end{align}
 Inserting this back into \cref{eq:_Ir}, and expanding the remaining $\eps$-dependent factors, we find
-\begin{equation}
+% \begin{equation}
+% % \begin{split}
+% %     \frac{d\hat\sigma^f_r}{dQ^2} &= \hat\sigma^f_0 \frac{\alpha}{\pi}
+% %     \vastl\{
+% %         - \frac{1}{\eps} \frac{1}{\sqrt{\lambda}} \delta(1-z) I^r_1
+% %         - \frac{1}{\sqrt{\lambda}} \delta(1-z) \Biggl[
+% %             \ln(4\pi)
+% %             + \ln(4\lambda)
+% %             + \ln\Biggl( \frac{\mu^2}{Q^2} \Biggr)
+% %         \Biggr] I^r_1
+% %         \\ &\hspace{5em}
+% %         + \frac{1}{\sqrt{\lambda}} \delta(1-z) I^r_2
+% %         + \frac{2z^3\lambda_z}{\lambda^{\frac{3}{2}}} \plusdist I^r_1
+% %         + \frac{2(1-z)}{z\lambda}
+% %     \vastr\} + \mathcal{O}(\eps)
+% % \end{split}
+% % \\
 % \begin{split}
 %     \frac{d\hat\sigma^f_r}{dQ^2} &= \hat\sigma^f_0 \frac{\alpha}{\pi}
 %     \vastl\{
-%         - \frac{1}{\eps} \frac{1}{\sqrt{\lambda}} \delta(1-z) I^r_1
-%         - \frac{1}{\sqrt{\lambda}} \delta(1-z) \Biggl[
-%             \ln(4\pi)
-%             + \ln(4\lambda)
-%             + \ln\Biggl( \frac{\mu^2}{Q^2} \Biggr)
-%         \Biggr] I^r_1
-%         \\ &\hspace{5em}
-%         + \frac{1}{\sqrt{\lambda}} \delta(1-z) I^r_2
-%         + \frac{2z^3\lambda_z}{\lambda^{\frac{3}{2}}} \plusdist I^r_1
-%         + \frac{2(1-z)}{z\lambda}
-%     \vastr\} + \mathcal{O}(\eps)
+%         - \frac{\delta(1-z)}{\sqrt{\lambda}} \Biggl[
+%             \Biggl(
+%                 \frac{1}{\widebar\eps}
+%                 + \ln(4\lambda)
+%                 + \ln\frac{\mu^2}{Q^2}
+%             \Biggr) I^r_1
+%             - I^r_2
+%         \Biggr]
+%         \\ &\qquad
+%         + \frac{2}{\lambda}\plusdist \Biggl(
+%             \frac{\lambda_z}{\sqrt{\lambda}} I^r_1
+%             + \frac{(1-z)^2}{z}
+%         \Biggr)
+%     \vastr\} + \mathcal{O}(\eps),
 % \end{split}
-% \\
+% \label{eq:_Ir12}
+% \end{equation}
+\begin{equation}
 \begin{split}
     \frac{d\hat\sigma^f_r}{dQ^2} &= \hat\sigma^f_0 \frac{\alpha}{\pi}
     \vastl\{
@@ -1706,24 +1727,23 @@ Inserting this back into \cref{eq:_Ir}, and expanding the remaining $\eps$-depen
             - I^r_2
         \Biggr]
         \\ &\qquad
-        + \frac{2}{\lambda}\plusdist \Biggl(
-            \frac{z^3\lambda_z}{\sqrt{\lambda}} I^r_1
-            + \frac{(1-z)^2}{z}
-        \Biggr)
-    \vastr\} + \mathcal{O}(\eps),
+        + \frac{2(1-z)}{z\lambda}
+        + \frac{2\lambda_z}{\lambda^{3/2}} \plusdist I^r_1
+    \vastr\} + \mathcal{O}(\eps).
 \end{split}
 \label{eq:_Ir12}
 \end{equation}
-where we have again simplified using \cref{eq:g_1-z_plusdist_relation}.
 
 The integrals $I^r_1$ and $I^r_2$ defined in \cref{eq:Ir} are solved in Mathematica, giving
 \begin{subequations}
-\begin{align}
-    I^r_1 &= -\bigl( 1-\mt_1^2-\mt_2^2 \bigr) \ln\Biggl[
+\begin{equation}
+    I^r_1 = -\bigl( 1-\mt_1^2-\mt_2^2 \bigr) \ln\Biggl[
         \frac{1-\mt_1^2-\mt_2^2-\sqrt{\lambda}}{2\mt_1\mt_2}
     \Biggr] - \sqrt{\lambda},
     \label{eq:Ir1}
-    \\
+\end{equation}
+and
+\begin{equation}
     \begin{split}
         I^r_2 &=
         \bigl( 1-\mt_1^2-\mt_2^2 \bigr)
@@ -1743,7 +1763,7 @@ The integrals $I^r_1$ and $I^r_2$ defined in \cref{eq:Ir} are solved in Mathemat
         \Biggr],
     \end{split}
     \label{eq:Ir2_def}
-\end{align}
+\end{equation}
 \end{subequations}
 where $\Litwo$ is the dilogarithm, defined by
 \begin{equation}
@@ -1751,7 +1771,7 @@ where $\Litwo$ is the dilogarithm, defined by
     \label{eq:dilog}
 \end{equation}
 for $z\in\mathbb{C}$.
-The dilogarithms appearing in \cref{eq:Ir2_def} only takes real numbers $z\in\mathbb{R}$ as input, but their output is still complex-valued for $z>1$. To find only the real component of $I^r_2$, we will extract the imaginary parts of the dilogarithms.
+The dilogarithms appearing in \cref{eq:Ir2_def} only take real numbers $z\in\mathbb{R}$ as input, but their output is still complex-valued for $z>1$. To find only the real component of $I^r_2$, we will extract the imaginary parts of the dilogarithms.
 Recall the following dilogarithm identity~\cite{Zagier:2007knq}:
 \begin{equation}
     \Litwo(z) = -\frac{\pi^2}{6} - \frac{\ln^2(-z)}{2} - \Litwo\Biggl(\frac{1}{z}\Biggr).
@@ -1787,13 +1807,31 @@ From \cref{eq:xpm_lim}, it follows that $\frac{1+\xm}{1+\xp} < 1$ and $\frac{1-\
 
 We can add the virtual cross section in \cref{eq:dsigmaf_virt_ct_dim} to the real photon emission in \cref{eq:_Ir12}, and insert the expressions for $I^r_1$ and $I^r_2$ in \cref{eq:Ir1,eq:Ir2}.
 The resulting differential cross section is
+% \begin{equation}
+% \begin{split}
+%     \frac{d\hat\sigma^f}{dQ^2} &= \hat\sigma^f_0 \frac{\alpha}{\pi} \vastl\{
+%         \frac{2}{\lambda}\plusdist \Biggl(
+%             \frac{\lambda_z}{\sqrt{\lambda}} I^r_1
+%             + \frac{(1-z)^2}{z}
+%         \Biggr)
+%         \\ &\qquad
+%         + \delta(1-z) \Biggl[
+%             \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
+%             - \frac{1}{\sqrt{\lambda}} \Biggl(
+%                 \ln(4\lambda)
+%                 + \ln\frac{\mu^2}{Q^2}
+%             \Biggr) I^r_1
+%             + \frac{1}{\sqrt{\lambda}} I^r_2
+%         \Biggr]
+%     \vastr\}.
+% \end{split}
+% \label{eq:dsigmaf_nlo}
+% \end{equation}
 \begin{equation}
 \begin{split}
     \frac{d\hat\sigma^f}{dQ^2} &= \hat\sigma^f_0 \frac{\alpha}{\pi} \vastl\{
-        \frac{2}{\lambda}\plusdist \Biggl(
-            \frac{z^3\lambda_z}{\sqrt{\lambda}} I^r_1
-            + \frac{(1-z)^2}{z}
-        \Biggr)
+        \frac{2(1-z)}{z\lambda}
+        + \frac{2\lambda_z}{\lambda^{3/2}} \plusdist I^r_1
         \\ &\qquad
         + \delta(1-z) \Biggl[
             \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
@@ -2132,13 +2170,29 @@ In the preceding section we have calculated the partonic cross section for slept
         \vastr\},
     \end{split}
     \label{eq:summary_dsigmai_nlo}
+    % \\
+    % \begin{split}
+    %     \frac{d\hat\sigma^f}{dQ^2} &= \hat\sigma^f_0 \frac{\alpha}{\pi} \vastl\{
+    %         \frac{2}{\lambda}\plusdist \Biggl(
+    %             \frac{\lambda_z}{\sqrt{\lambda}} I^r_1
+    %             + \frac{(1-z)^2}{z}
+    %         \Biggr)
+    %         \\ &\qquad
+    %         + \delta(1-z) \Biggl[
+    %             \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
+    %             - \frac{1}{\sqrt{\lambda}} \Biggl(
+    %                 \ln(4\lambda)
+    %                 + \ln\frac{\mu^2}{Q^2}
+    %             \Biggr) I^r_1
+    %             + \frac{1}{\sqrt{\lambda}} I^r_2
+    %         \Biggr]
+    %     \vastr\},
+    % \end{split}
     \\
     \begin{split}
         \frac{d\hat\sigma^f}{dQ^2} &= \hat\sigma^f_0 \frac{\alpha}{\pi} \vastl\{
-            \frac{2}{\lambda}\plusdist \Biggl(
-                \frac{z^3\lambda_z}{\sqrt{\lambda}} I^r_1
-                + \frac{(1-z)^2}{z}
-            \Biggr)
+            \frac{2(1-z)}{z\lambda}
+            + \frac{2\lambda_z}{\lambda^{3/2}} \plusdist I^r_1
             \\ &\qquad
             + \delta(1-z) \Biggl[
                 \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
@@ -2148,7 +2202,7 @@ In the preceding section we have calculated the partonic cross section for slept
                 \Biggr) I^r_1
                 + \frac{1}{\sqrt{\lambda}} I^r_2
             \Biggr]
-        \vastr\},
+        \vastr\}.
     \end{split}
     \label{eq:summary_dsigmaf_nlo}
 \end{align}
