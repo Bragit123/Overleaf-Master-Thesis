@@ -230,7 +230,7 @@ The initial- and final-state prefactors $\hat\sigma_0^{i/f}$ are equal when $\sh
 We will set $\hat\sigma_0^{\mathrm{LO}} = \hat\sigma_0^i$, since this completely removes the $x_1$ and $x_2$ dependence in $\sigma_B^{\mathrm{LO}}$.
 This means that $\sigma_B^{\mathrm{LO}}$ is the Born cross section with
 \begin{equation}
-    \sigma_B^c = \sigma_B^i = x_1 x_2 \frac{8\pi\alpha^2 \kiabs^3}{3\NC\hat{s} Q^5} \fqliab(Q^2)
+    \sigma_B^{\mathrm{LO}} = \sigma_B^i = x_1 x_2 \frac{8\pi\alpha^2 \kiabs^3}{3\NC\hat{s} Q^5} \fqliab(Q^2)
     = \frac{8\pi\alpha^2 \kiabs^3}{3\NC s Q^5} \fqliab(Q^2),
 \end{equation}
 where we now have the hadronic squared \gls{com} energy $s$ in the denominator, rather than the partonic $\shat$---hence no dependence on parton momentum fractions.
@@ -268,7 +268,7 @@ In this thesis the only hard scattering process we have considered is quark--ant
 where the factor $2$ in front of the sum is there because we only sum over quarks (not anti-quarks).
 To get the full $\mathrm{LO}+\mathrm{NLO}$ contribution to the cross section, we can simply sum over $c \in \{\mathrm{LO},i,f\}$.
 
-\subsection{Hadron-Level Slepton Pair Production}
+\subsection{Hadron-Level Slepton Pair Production}\label{sec:hadronic_cross_section}
 We are now ready to write down the components of the hadronic cross section for slepton pair production at \gls{nlo} in \gls{qed}.
 % First, we will write the initial- and final-state \gls{lo} prefactors from \cref{eq:summary_sigma0i,eq:summary_sigma0f} in $d=4$ dimensions as
 % % \begin{subequations}
@@ -380,11 +380,6 @@ Here there are no collinear divergences to worry about, so writing down the $w$-
     \wrad_f(z) &= \frac{\alpha}{\pi} \frac{2(1-z)}{z\lambda},
     \\
     w^{\frac{1}{1-z}}_f(z) &= \frac{\alpha}{\pi} \frac{2\lambda_z}{\lambda^{3/2}} I^r_1,
-    % \\
-    % w^{\frac{1}{1-z}}_f(z) &= \frac{\alpha}{\pi} \frac{2}{\lambda} \Biggl(
-    %     \frac{\lambda_z}{\sqrt{\lambda}} I^r_1
-    %     + \frac{(1-z)^2}{z}
-    % \Biggr).
 \end{align}
 \end{subequations}
 where $g(\shat,m_1^2,m_2^2)$, $I_1^r$ and $I_2^r$ were defined in \cref{eq:summary_g,eq:summary_Ir1,eq:summary_Ir2}, and we remind the reader of the K\"allen function shorthands $\lambda \equiv \lambda(1,\mt_1^2,\mt_2^2)$ and $\lambda_z \equiv \lambda(1,z\mt_1^2,z\mt_2^2)$.
