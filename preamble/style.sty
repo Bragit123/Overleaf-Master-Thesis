@@ -32,10 +32,8 @@
 \usepackage{tensor} % Provides tensor indices with spacing
 \usepackage{slashed} % Provides Dirac slash notation
 \usepackage{cancel}
-% \usepackage{mathabx} % Provides \widebar (note that it also changes a bunch of other math symbols), so I commented it out. Carl Martin implements only the definition of \widebar as found in mathabx, so maybe do this if I need it
 
 % Formatting
-% \usepackage{hyphenat}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancypagestyle{plain}{ % No header on first page of new chapters
@@ -50,7 +48,6 @@
 \usepackage{comment}
 \usepackage{printlen}
 \usepackage{romannum}
-% \usepackage[textsize=footnotesize]{todonotes}
 
 %% Tikz
 \usepackage{tikz}
@@ -73,5 +70,6 @@
 \crefname{section}{Sec.}{Secs.} % Sections are not abbreviated by default
 \usepackage{cite}
 \usepackage{siunitx}
-
-% \usepackage{subfiles} % Used to organize chapters and compile them independently
+\usepackage[titletoc]{appendix}
+\usepackage{tocloft}
+\usepackage{notoccite} % With this, citations do not start counting in ToC, LoF or LoT

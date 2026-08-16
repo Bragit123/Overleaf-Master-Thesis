@@ -12,8 +12,12 @@
 % \includeonly{chapters/parton_level,chapters/appendix}
 % \includeonly{chapters/hadron_level,chapters/appendix}
 % \includeonly{chapters/parton_level,chapters/hadron_level}
-\includeonly{chapters/results}
+% \includeonly{chapters/results}
+\includeonly{chapters/preface,chapters/intro,chapters/conclusion}
+% \includeonly{chapters/results,chapters/conclusion,chapters/appendix}
 % \includeonly{chapters/appendix}
+
+%\setcounter{tocdepth}{1}
 
 \begin{document}
 \uiomasterfp[
@@ -33,23 +37,40 @@
 
 \frontmatter % Use roman numerals starting here
 
-\chapter*{Abstract}
+% \chapter*{Abstract}
+\begin{abstract}
+    Hola abstract!
+\end{abstract}
+\begin{xabstract}[Sammendrag]
+    Hola sammendrag!
+\end{xabstract}
 
 \include{chapters/preface}
 
+\cleardoublepage
 \tableofcontents
+\cleardoublepage
+\phantomsection
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+\cleardoublepage
+\phantomsection
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
 
 \printglossary[
     type=\acronymtype,
     title=List of Abbreviations,
     % nonumberlist
 ]
-% \listoffigures
-% \listoftables
+\addcontentsline{toc}{chapter}{List of Abbreviations}
 
 \mainmatter % Use arabic numerals starting here
 
-\include{chapters/intro.tex}
+\glsresetall % Force acronym reset before main body
+
+\include{chapters/intro}
+
 
 %%% THEORY PART
 \include{chapters/mssm}
@@ -69,6 +90,7 @@
 
 %%% Appendices
 \appendix
+\appendixpage
 
 \include{chapters/appendix}
 
@@ -76,6 +98,7 @@
 %%% Bibliography
 \bibliography{ref}
 \bibliographystyle{JHEP_pat}
+\addcontentsline{toc}{chapter}{Bibliography}
 
 
 \end{document}
