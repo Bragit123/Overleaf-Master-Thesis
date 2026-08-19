@@ -14,47 +14,75 @@ In this thesis we have looked at the production of slepton pairs in proton--prot
 % We also discussed in some detail how \gls{uv} divergences are removed by redefining the parameters in our Lagrangian, in what we know as renormalization, and l
 
 We first reviewed the \gls{mssm} as the theoretical model under consideration, including a general discussion of supersymmetry, the construction of the \gls{mssm} Lagrangian, and a presentation of sleptons and their properties.
-here we also derived the Feynman rules for slepton-interactions that were needed in our calculation.
-In addition, we introduced the appearance of \gls{uv} divergences in \gls{qft} calculations from loop diagrams, and how we they could be regularized by shifting the spacetime dimensions and removed by renormalizing the Lagrangian parameters. We also provided a brief discussion of \gls{ir} divergences, before discussing how the calculation of complicated loop diagrams integrals can simplified by recognizing them as Passarino--Veltman functions.
+Here we also derived the Feynman rules for the slepton-interactions that were needed in our calculations.
+In addition, we introduced the appearance of \gls{uv} divergences in \gls{qft} calculations from loop diagrams, and how they could be regularized by shifting the spacetime dimensions and removed by renormalizing the Lagrangian parameters. We also provided a brief discussion of \gls{ir} divergences, before discussing how the evaluation of complicated loop integrals can be simplified by recognizing them as Passarino--Veltman functions.
 
 Following the theoretical background, we calculated the partonic cross section for slepton pair production from quark--anti-quark annihilation at \gls{nlo} in \gls{qed}.
 After having introduced the kinematics of the process, we simplified the calculation immensely by considering a general expression for diagrams that involve corrections to only the initial- or final-state, but not both---which turned out to be the only diagrams contributing to the cross section.
 This allowed us to factor these diagrams into two parts, and consider initial- and final-state corrections separately as simpler $2\to1(2)$ and $1\to2(3)$ processes, respectively.
 
 With this factorization, we computed the \gls{nlo} \gls{qed} corrections to the initial- and final-state separately.
-The initial-state corrections were similar to the already computed corrections in \gls{qcd} to the same process, while the final-state corrections proved to be more complicated.
-There we had to integrate over three-particle phase space involving massive final-state particles.
-The \gls{uv} divergences appearing in the initial- and final-states were removed by renormalizing the quark and slepton fields, respectively.
-The soft divergences disappeared when considering the full inclusive cross section, while the initial-state contribution left a collinear divergence that was removed by renormalizing the \glspl{pdf}.
+The initial-state corrections were similar to the already computed corrections in \gls{qcd} to the same process, while the final-state corrections proved to be more complicated, as we had to integrate over three-particle phase space involving massive final-state particles.
+% The initial-state corrections were similar to the already computed corrections in \gls{qcd} to the same process, while the final-state corrections proved to be more complicated.
+% There we had to integrate over three-particle phase space involving massive final-state particles.
+The \gls{uv} divergences appearing in the initial- and final-states were removed by renormalizing the quark and slepton fields, respectively, and the soft divergences disappeared when considering the full inclusive cross section.
+The initial-state contribution also left a collinear divergence, which we removed by renormalizing the \glspl{pdf}.
+% The \gls{uv} divergences appearing in the initial- and final-states were removed by renormalizing the quark and slepton fields, respectively.
+% The soft divergences disappeared when considering the full inclusive cross section, while the initial-state contribution left a collinear divergence that was removed by renormalizing the \glspl{pdf}.
 
 Finally, we computed the full hadronic cross section for $pp\to\slepton^*\slepton+X$ by numerically integrating over the \glspl{pdf}, and presented the results.
 The question we wanted to investigate in this thesis was this:
 \begin{quote}
     \textit{At what point is the added contribution from higher precision in \gls{qcd} so small that electroweak corrections at \gls{nlo} become important?}
 \end{quote}
-Although the \gls{nlo} \gls{qed} correction to the cross section was found to be quite small---staying within the error bands of the \gls{pdf} uncertainty---it did in fact outperform the added contribution from current state-of-the-art \gls{qcd} resummation results, at \gls{nll} accuracy at \gls{lp} and \gls{ll} accuracy at \gls{nlp}.
+
+Although the \gls{nlo} \gls{qed} correction to the cross section was quite small---lying inside the error bands of the \gls{pdf} uncertainty---it did in fact outperform the contribution from current state-of-the-art \gls{qcd} resummation results, given at \gls{nll} accuracy at \gls{lp} and \gls{ll} accuracy at \gls{nlp}.
 In this sense, the answer to the question stated above is that \emph{they already are}.
 This is quite remarkable, and calls for further research into higher-order contributions to slepton pair production---and possibly other supersymmetric processes as well---beyond merely \gls{qcd}.
 
 The contribution from initial-state corrections---being similar to the corresponding \gls{qcd} corrections---could be fairly well approximated by a naive coupling substitution $\alpha_s C_F \to \alpha Q_q^2$ from the \gls{nlo} \gls{qcd} correction.
 The final-state corrections, however, were not as easily approximated, and turned out to surpass the naive expectation from couplings, pushing the full \gls{nlo} \gls{qed} correction to approximately \qty{16}{\percent} that of \gls{nlo} \gls{qcd}.
-This explains why the \gls{nlo} \gls{qed} corrections were so surprisingly high.
-The diagrams involving corrections to the final-state have no \gls{qcd} counterpart, since the sleptons are color neutral, and since these diagrams also allow four-point interaction vertices they also outnumber the initial-state diagrams.
+This explains why the \gls{nlo} \gls{qed} corrections were surprisingly high compared to expectations.
+The diagrams involving \gls{qed} corrections to the final-state have no \gls{qcd} counterpart since the sleptons are color neutral.
+In addition, these diagrams allow four-point interaction vertices, which increases the number of diagrams and thus also the cross section.
+In total, the final-state corrections pushes the cross section significantly, allowing it to compete with \gls{qcd} corrections at an earlier stage than expected.
+
+Nevertheless, it is worth noting that the comparison presented in this thesis was with respect to resummation contributions at \gls{nlo} in \gls{qcd}.
+It does not immediately follow that the contributions from \gls{nnlo} in \gls{qcd} would be so small that they are outperformed by \gls{qed} in the same way.
 
 \section*{Future Work}
-Although the large \gls{qed} contribution found in this thesis is indeed remarkable, we do not promote a blind acceptance of the results.
-The obvious next step is therefore to independently confirm the results presented in this thesis by performing the necessary numerical evaluation or by an independent calculation, or both.
+% Although the large \gls{qed} contribution found in this thesis is indeed remarkable, we do not promote a blind acceptance of the results.
+% The obvious next step is therefore to independently confirm the results presented in this thesis by performing the necessary numerical evaluation or by an independent calculation, or both.
 
-Once the results have been independently confirmed, further calculations should be done to compile the full set of electroweak \gls{nlo} corrections that we did not have time to consider in this thesis.
-The added diagrams from weak theory are expected to be almost identical to the ones considered in this thesis, involving $Z$ and $W$ bosons in the place of photons.
-Although these bosons are massive, and therefore give expressions that are somewhat more complicated than the \gls{qed} diagrams we have considered, their masses regulate \gls{ir} divergences. Finding the weak corrections to the cross section should thus be simpler divergence-wise.
+% Once the results have been independently confirmed, further calculations should be done to compile the full set of electroweak \gls{nlo} corrections that we did not have time to consider in this thesis.
+The natural next step is to extend the results from this thesis to include the full set of electroweak \gls{nlo} corrections that we did not have time to consider.
+This should also include the production of sneutrinos through $q\widebar{q}\to\tilde\nu^*\tilde\nu$ and $u_i\widebar{d}_i\to\slepton^*\tilde\nu+\text{c.c.}$, which are similar processes to the ones considered in this thesis, but with slightly different couplings, and in the case of $\slepton^*\tilde\nu+\text{c.c.}$ production, a charged $W^\pm$ current.
+Reaching the full set of electroweak corrections should not prove too difficult, since the added diagrams are near identical to the ones considered in this thesis.
+The main difference is that the weak vector bosons are massive, which will result in more complicated expressions for the cross section.
+On the other hand, their masses will help regulate \gls{ir} divergences, so the calculations will in that sense be simpler.
+% We do not expect the added work for weak interaction to prove particularly difficult.
+% The diagrams will mimic the ones found in this thesis, differing only by substituting the photon for weak vector bosons, and the same methods applied here should also hold for 
+% The added diagrams from weak interactions should no
+% Further calculations should be done to compile the full set of electroweak \gls{nlo} corrections that we did not have time to consider in this thesis.
+% The added diagrams from weak theory are expected to be almost identical to the ones considered in this thesis, involving $Z$ and $W$ bosons in the place of photons.
+% Although these bosons are massive, and therefore give expressions that are somewhat more complicated than the \gls{qed} diagrams we have considered, their masses regulate \gls{ir} divergences. Finding the weak corrections to the cross section should thus be simpler divergence-wise.
 
 % It would indeed be interesting to see how significant the remaining weak contributions would be.
 For completeness, one should also include supersymmetric corrections, although they are expected to contribute less due to the high sparticle masses appearing in propagators. We also remind the reader that the factorization into initial- and final-state diagrams presented in this thesis is not valid for supersymmetric corrections, so their calculation is expected to be more convoluted.
 
+With the full electroweak \gls{nlo} corrections, a closer comparison with \gls{nnlo} \gls{qcd} corrections is in order, to see how the electroweak corrections compare in that case.
+
+It would also be interesting to see if electroweak corrections are significant for other supersymmetric processes as well.
+In particular, the production of elecroweakinos is quite similar to the production of sleptons, but with fermions rather than scalars in the final-state.
+It is therefore concievable that the electroweak corrections could be as significant there as for slepton production.
+Processes with strongly interacting particles in the final-state are, however, unlikely to achieve the same effect from electroweak corrections, since they also receive \gls{qcd} corrections to the final-state.
+
 The added contribution from the \gls{qed} corrections presented in this thesis---and eventually the full set of electroweak corrections---allow for more precise evaluation of cross sections at a high efficiency.
 The most intriguing usage of this increased precision is its inclusion in more comprehensive supersymmetry searches.
-It would therefore be highly interesting to see our results applied to increase the excluded areas of the \gls{mssm} parameter space---in particular the range of allowed slepton masses.
+It would therefore be highly interesting to see our results applied to more comprehensive scans of the \gls{mssm} parameter space, further tightening the allowed range of slepton masses.
+% The added precision could help exclude a larger portion of the allowed slepton masses.
+% increase the excluded areas of the \gls{mssm} parameter space---in particular the range of allowed slepton masses.
+% It would therefore be highly interesting to see our results applied to increase the excluded areas of the \gls{mssm} parameter space---in particular the range of allowed slepton masses.
 % it can be employed in more comprehensive supersymmetry searches, and contribute to larger exclusions of the \gls{mssm} parameter space---in particular the range of allowed slepton masses.
 % This increased precision can be employed in more comprehensive supersymmetry searches, and contribute to larger exclusions of the \gls{mssm} parameter space---in particular the range of allowed slepton masses.
 % This increased precision can be employed by larger parameter scans to exclude larger portions of the parameter values range of possible slepton masses

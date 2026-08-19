@@ -2,49 +2,31 @@
 \markboth{Introduction}{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-% Modern particle physics is built on the foundation \acrfull{qft}, with the Standard Model as the main character.
-% The Standard Model serves as the foundation of modern particle physics.
-% The Standard Model has achieved great success, and 
 The Standard Model of particle physics is a \acrfull{qft} describing the fundamental particles that make up the universe, and their interactions.
 It has achieved remarkable success, describing three of the four forces of nature---the electromagnetic force and the strong and weak nuclear forces---and having predicted the existence of new particles such as the Higgs boson---included in electroweak theory by Weinberg~\cite{Weinberg:1967tq} based on the mechanism by Higgs~\cite{Higgs:1964ia,Higgs:1964pj,Higgs:1966ev} (and independently by Englert and Brout~\cite{Englert:1964et}), and was discovered nearly $50$ years later at CERN~\cite{ATLAS:2012yve,CMS:2012qbp}.
 
-% Despite its success, there are still questions the Standard Model fails to answer, leading us to explore new \acrfull{bsm} theories.
-% One of the most well-explored frameworks for constructing such \gls{bsm} models is to allow fermionic states to transform into bosonic states, and vice versa, while requiring that the equations of motion remain unchanged. This new symmetry between fermions and bosons is known as supersymmetry~\cite{Martin:1997ns}, and the smallest possible supersymmetric model---in the sense of containing the least amount of particles---that still contains all of the Standard Model is named the \acrfull{mssm}.
 Despite its success, there are still questions the Standard Model fails to answer.
-It does not explain the nature of dark matter, which makes up the majority of matter content in our universe; it does not incorporate gravity, which is needed to understand regimes such as the early universe or black holes; and it does not explain the large discrepancy between the expected and observed Higgs mass, known as the Higgs hierarchy problem.
+It does not explain the nature of dark matter, which makes up the majority of matter content in our universe; it does not incorporate gravity, which is needed to understand regimes such as the very early universe or black holes; and it does not explain the large discrepancy between the expected and observed Higgs mass, known as the Higgs hierarchy problem.
 In the pursuit of explanations to these problems, we are lead to explore new theories \acrfull{bsm}.
 
-One of the most well-explored frameworks for constructing \gls{bsm} models is to allow fermionic states to transform into bosonic states, and vice versa, while requiring that the equations of motion remain unchanged. This new symmetry between fermions and bosons is known as supersymmetry.
+One of the most well-explored frameworks for constructing \gls{bsm} models is to allow fermionic states to transform into bosonic states, and vice versa, and require the Lagrangian to remain invariant under such transformations.
+This is known as supersymmetry.
 The smallest possible supersymmetric model---in the sense of containing the least amount of particles---that still contains all of the Standard Model is named the \acrfull{mssm}~\cite{Martin:1997ns}.
 
 In the \gls{mssm}, each Standard Model particle receives at least one supersymmetric partner---or sparticle---with opposite spin-statistics, but otherwise identical properties. In particular, the sparticles should have the same mass as their Standard Model counterpart, which is in strong disagreement with experiments, where sparticles---despite many searches by the ATLAS collaboration (see e.g.\ Refs.~\cite{ATLAS:2025lhc,ATLAS:2026hnb,ATLAS:2025evx,ATLAS:2025wln})---have yet to be observed.
 To reconcile this disagreement, supersymmetry must be broken at low energies, allowing the sparticles to acquire higher masses than their Standard Model partners~\cite{Martin:1997ns}.
 
-% In the \gls{mssm}, each Standard Model particle receives at least one supersymmetric partner---or sparticle---with opposite spin-statistics, but otherwise identical properties. In particular, the sparticles should have the same mass as their Standard Model counterpart, which is in strong disagreement with experiments, where sparticles have yet to be observed.
-% To reconcile this disagreement, supersymmetry must be broken at low energies, allowing the sparticles to acquire higher masses than their Standard Model partners~\cite{Martin:1997ns}.
-
 Supersymmetry breaking is not a problem in itself, and much like the Higgs mechanism, there are proposed models to explain how supersymmetry can be broken spontaneously~\cite{Nilles:1983ge,Giudice:1998bp,Randall:1998uk}.
-% Nevertheless, since we do not know which mechanism is actually responsible, the best we can do is to parameterize the possible terms that can appear in the Lagrangian.
 Nevertheless, since we do not know which mechanism is actually responsible, a more general approach is to "parameterize our ignorance" by introducing explicitly supersymmetry breaking terms in our Lagrangian.
 Unfortunately, this leads to an abundance of new parameters, making comparison between model and experiment incredibly difficult.
 
-% Searching for supersymmetry at particle colliders such as the \gls{lhc} typically consists of scanning through points in parameter space, evaluating the cross section for specific processes at each point, comparing the results to experimental data, and using statistical analysis to find which parameters can be confidently excluded.
-% Searching for supersymmetry at particle colliders such as the \gls{lhc} typically consists of choosing some production process, scanning through relevant points in parameter space and evaluating the cross section at each point, and using statistical analysis to compare predictions with experimental data and find which parameters can be confidently excluded~\cite{}.
-% Searching for supersymmetry at particle colliders such as the \gls{lhc} typically consists of choosing some production process, calculating its cross section for various points in parameter space, and using statistical analysis to compare predictions with experimental data and find which parameters can be confidently excluded~\cite{}.
 Searching for supersymmetry at particle colliders such as the \gls{lhc} typically consists of calculating the cross section for different production processes at various points in parameter space, and using statistical analysis to compare predictions with experimental data and find which parameters can be confidently excluded~\cite{ATLAS:2024lda}.
-% Searching for supersymmetry at particle colliders such as the \gls{lhc} typically consists of scanning through points in parameter space and evaluating the cross section for various production processes at each point, comparing the results to experimental data, and using statistical analysis to find which parameters can be confidently excluded.
-% To be able to scan the parameter space much more efficiently, it is necessary to consider specific processes, and calculate their cross sections analytically.
-% This is also the main topic of this thesis, where we consider the production of scalar leptons---sleptons---in proton--proton collisions.
 One of the bottlenecks of these analyses is the evaluation of cross sections, which is computationally heavy to do by numerical methods.
 It is therefore necessary to consider specific processes, and calculate their cross sections to higher orders in perturbation theory analytically.
-% To be able to scan the parameter space much more efficiently, it is necessary to consider specific processes, and calculate their cross sections analytically.
-This is also the main topic of this thesis, where we consider the production of scalar leptons---the sleptons---in proton--proton collisions.
+This is the main topic of this thesis, where we consider the production of scalar leptons---the sleptons---in proton--proton collisions.
 
-% Protons are composed primarily of quarks and gluons, which carry color charge. Hence the dominant interaction in proton--proton collisions come from the strong interaction.
 Protons are composed primarily of quarks and gluons, which carry color charge. Hence the dominant interaction in proton--proton collisions come from the strong interaction.
-% When considering slepton pair production at hadron colliders, the primary focus so far has therefore been on higher-order corrections in \gls{qcd}, which have been calculated at \gls{nlo}~\cite{Baer:1997nh} with resummation of large logarithms to \gls{nll} accuracy at \gls{lp}~\cite{Bozzi:2006fw,Bozzi:2007qr,Bozzi:2007tea,Fiaschi:2018xdm} and \gls{ll} accuracy at \gls{nlp}~\cite{Braseth:2025ylj}.
 Therefore, when considering slepton pair production at hadron colliders, the primary focus so far has been on higher-order corrections in \gls{qcd}, which have been calculated at \gls{nlo}~\cite{Baer:1997nh} with resummation of large logarithms to \gls{nll} accuracy at \gls{lp}~\cite{Bozzi:2006fw,Bozzi:2007qr,Bozzi:2007tea,Fiaschi:2018xdm} and \gls{ll} accuracy at \gls{nlp}~\cite{Braseth:2025ylj}.
-% Such corrections have reached an impressive precision at \gls{nlo} in \gls{qcd} with near-threshold resummation at \gls{nll} accuracy at \gls{lp} and \gls{ll} accuracy at \gls{nlp}~\cite{Braseth:2025ylj}.
 
 Of course, as we increase the \gls{qcd} precision to higher orders in perturbation and resummation, the added contribution from new terms will be smaller than the previous.
 Therefore, the following question naturally arises:
@@ -54,13 +36,9 @@ Therefore, the following question naturally arises:
 The main purpose of the research presented in this thesis is to provide an answer to this very question.
 Higher-order \gls{qft} calculations are convoluted and time-consuming, and answering this question helps guide our efforts toward the contributions that matter most.
 
-% In this work, we will consider a subset of the full electroweak corrections to slepton pair production in proton--proton collisions by calculating the inclusive cross section at \gls{nlo} in \gls{qed}.
 We will consider a subset of the full electroweak corrections to slepton pair production in proton--proton collisions by calculating the inclusive cross section at \gls{nlo} in \gls{qed}. This process is---to the best of our knowledge---not considered in existing literature.
 Although the collision of protons is too complicated to be handled analytically in its entirety, it can be dealt with by means of factorization~\cite{Ellis:1996mzs}, writing the full hadronic cross section as a convolution between experimentally obtained \glspl{pdf} and calculable partonic cross sections.
-% The collision of protons is too complicated to be handled analytically in its entirety.
-% It is instead dealt with by means of factorization~\cite{Ellis:1996mzs}, writing the full hadronic cross section as a convolution between experimentally obtained \glspl{pdf} and calculable partonic cross sections.
 The partonic cross sections are then regular cross sections for high-energy hard scattering processes between proton constituents---mostly quarks and gluons---and can be calculated analytically in perturbative \gls{qft}.
-% In our calculations, we only consider the partonic cross sections for quark--anti-quark annihilation.
 
 The majority of the work presented in this thesis concerns itself with the calculation of the partonic cross section, for which we only consider quark--anti-quark annihilation.
 As is characteristic for higher-order \gls{qft} calculations, we will encounter various \gls{uv} and \gls{ir} divergences.
@@ -70,77 +48,20 @@ After obtaining a finite result for the partonic cross section we integrate nume
 When doing calculations we will encounter many Feynman diagrams. The diagrams presented in this thesis have been drawn using \texttt{TikZ-Feynman}~\cite{Ellis:2016jkw}.
 
 
-% The majority of this thesis consists of the partonic cross section calculation.
-% % The major component of the novel research presented is the partonic cross section calculation.
-% % The partonic cross section calculation makes up the majority of this thesis.
-% As is typical for higher-order \gls{qft} calculations, we encounter loop diagrams that give rise to infinities in our calculations.
-% We deal with these infinities by slightly shifting the spacetime dimensions, which requires us to do calculations in 
-% that have to be regularized and renormalized.
-% Our choice of regulator is based on a tiny shift in spacetime dimensions, so that the 
-
-% \section*{Thesis Outline}
-% The thesis can be divided into two parts. The first two chapters constitute a summary of the necessary theoretical background, while the remaining chapters consider the computation of the s
-% The thesis can be divided into two parts. The first two chapters constitute the necessary theoretical background needed for the work presented in the thesis. The remaining chapters then perform the calculation for slepton pair production
-
-% \section*{Thesis Outline}
-% The thesis can be divided into two parts. The first two chapters give a summary of necessary theoretical background, and the remaining three chapters apply the theory . The remaining three chapters then applies that theory to the calculation of slepton pair production.
-% The thesis can be divided into two parts, with the first two chapters constituting the necessary theoretical background needed for the cross section calculation performed in the remaining three, and is structured as follows
-% % The thesis is structured as follows:
-
 \section*{Thesis Outline}
 The thesis is structured as follows:
 \begin{description}
     \item[Chapter 1:] We start with a brief review of supersymmetry, its motivation and properties, with focus on the \gls{mssm} and sleptons. At the end of this chapter, we also derive the necessary Feynman rules for sleptons from the \gls{mssm} Lagrangian.
     
     \item[Chapter 2:] The Feynman diagrams considered in this thesis give rise to divergent behavior.
-    % The calculations performed in this thesis involve the evaluation of Feynman diagrams that give rise to divergent behavior.
-    % Calculations at \gls{nlo} involve Feynman diagrams that produce infinite results by naive calculation.
     In this chapter we provide a discussion of the different kinds of divergences that appear in our calculations, and how they can be removed to allow theoretical predictions to remain finite.
-    % In this chapter we provide a discussion of how these divergences appear, and how we can get rid of them to produce finite predictions from our theory.
     We also show how we can avoid calculating the most complicated loop integrals by recognizing them as Passarino--Veltman functions that can be evaluated efficiently by existing code libraries.
-    % \item[Chapter 1:] We start by introducing the model under consideration, namely the \gls{mssm}. We begin by reviewing the motivation for supersymmetry, and how supersymmetric models are constructed in general, before moving to a more detailed discussion of the construction of the \gls{mssm}. Lastly, we look at sleptons specifically, discussing their properties, how they are searched for at hadron colliders and derive the relevant Feynman rules from the \gls{mssm} Lagrangian.
 
-    % \item[Chapter 3:] This chapter constitutes the main body of the novel work presented in this thesis.
     \item[Chapter 3:] This chapter initiates the novel work presented in this thesis.
-    % Here we analytically calculate the \gls{nlo} \gls{qed} corrections to the partonic cross section for slepton pair production in the hard scattering of quark--anti-quark pairs.
     Here we apply the theory from the preceding chapters to analytically calculate the \gls{nlo} \gls{qed} corrections to the inclusive partonic cross section for slepton pair production in the hard scattering of quark--anti-quark pairs.
 
     \item[Chapter 4:] In this chapter we bridge the gap between the perturbative hard scattering calculated in the previous chapter and the full hadronic cross section.
     We introduce the concept of \glspl{pdf}, including their renormalization, and write down the hadronic cross section for slepton pair production in terms of integrals over \glspl{pdf} that can be evaluated numerically.
 
     \item[Chapter 5:] At last, we compute the hadronic cross section by numerically integrating over the \glspl{pdf}. Results are presented and discussed for the production of first-generation sleptons---the selectrons---and are compared to state-of-the-art corrections from \gls{qcd}.
-    % \item[Chapter 5:] In this chapter we compute the hadronic cross section by numerically integrating over the \glspl{pdf}. Results are presented and discussed for the production of first-generation sleptons---the selectrons---and are compared to the state-of-the art corrections from \gls{qcd}.
 \end{description}
-
-% allowing us to consider the hard scattering of proton constituents---the quarks and gluons---in perturbative \gls{qft}, and 
-% but can be factored into two parts: a high-energy hard scattering between proton constituents---the quarks and gluons---and the inclusion of the 
-% The complicated collision process of protons can be catched by 
-
-% In this thesis, we will therefore look at \gls{nlo} corrections in \gls{qed} to slepton pair production in proton--proton collisions, more specifically, the process $pp\to\slepton^*\slepton+X$.
-
-% \begin{quote}
-%     \textit{"At what point are added \gls{qcd} corrections sufficiently small that contributions from electroweak interactions become important?"}
-% \end{quote}
-
-
-% The primary focus on higher order corrections to slepton pair production has therefore been 
-% When considering collisions between protons, the dominant effect---consisting mainly of quarks and gluons---
-% The primary focus has been higher-order corrections to slepton pair production in \gls{qcd}.
-% Being the dominant interaction in hadron collisions, the 
-% This production process has already been considered to high precision in \gls{qcd}, and has been calculated at \gls{nlo} in \gls{qcd} with near-threshold resummation at \gls{nll} accuracy at \gls{lp} and \gls{ll} accuracy at \gls{nlp}~\cite{Braseth:2025ylj}.
-
-% The smallest possible extension of the Standard Model which satisfies supersymmetry is called the \acrfull{mssm}.
-
-% One particular framework for constructing such \gls{bsm} models is to allow bosonic states to be transformed into fermionic states, and vice versa, and require the equations of motion to remain unchanged. This is known as supersymmetry.
-% between bosonic and fermionic states.
-% requiring that the number of bosonic states 
-% on the spin-statistics of particles---requiring the number o
-% , governed by an operator that turns fermionic states into bosonic ones, and vice versa.
-% requiring an equal number of bosonic and fermionic \gls{dof}.
-% One particular framework for constructing such \gls{bsm} models is supersymmetry
-% the idea that all fermionic states have a bosonic partner-state, and vice versa.
-
-% Despite its great success, there are still questions th
-% It has achieved remarkable success, describing three of the four forces of nature---the electromagnetic force and the strong and weak nuclear forces---
-
-% highly successful model of the fundamental particles that make up our universe. It successfully describes three of the four fundamental forces, and has predicted the existence of new particle such as the Higgs boson---whose existence was experimentally confirmed later by the \gls{lhc} at CERN~\cite{ATLAS:2012yve,CMS:2012qbp}.
