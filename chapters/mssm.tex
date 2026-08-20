@@ -143,7 +143,11 @@ The supercharges have the property that they transform fermionic states into bos
 \begin{equation}
     Q \ket{\text{Fermion}} = \ket{\text{Boson}}, \qquad Q\ket{\text{Boson}} = \ket{\text{Fermion}}.
 \end{equation}
-These are the supersymmetric transformations, and it can be shown that theories which obey supersymmetry have an equal number of fermionic and bosonic states~\cite{Tong:susy}.
+We refer to the bosonic and fermionic states that are related by this supersymmetric transformation as \emph{superpartners} of each other, and it can be shown that any theory which obeys supersymmetry has an equal number of fermionic and bosonic states~\cite{Tong:susy}.
+Apart from their spin, these superpartners have identical properties. In particular, they have the same mass, which will become relevant later.
+% The bosons and fermions related by the supersymmetric transformation are called \emph{superpartners} of each other.
+% We then call $Q\ket{\text{Fermion}}$ the \emph{superpartner} of $\ket{\text{Fermion}}$, and likewise for $Q\ket{\text{Boson}}$.
+% These are the supersymmetric transformations, and it can be shown that theories which obey supersymmetry have an equal number of fermionic and bosonic states~\cite{Tong:susy}.
 
 % Resulting supersymmetric models have an equal number of fermionic and bosonic states
 % It can be shown that supersymmetric models have an equal number of fermionic and bosonic states. This is the core idea of supersymmetry.
@@ -201,6 +205,7 @@ These are the supersymmetric transformations, and it can be shown that theories 
 
 When working with special relativity we use four-vectors in Minkowski space as a way to simplify calculations and make the symmetries of spacetime manifest.
 Much in the same way, we can simplify supersymmetric calculations by introducing superspace, a coordinate system which is constructed by adding four new Grassmann coordinates $\theta^A$ and $\widebar{\theta}_{\dot{A}}$, written as Weyl spinors, to the spacetime coordinates $x^\mu$.
+
 We can then parameterize supersymmetry transformations of functions $F(x,\theta,\thetabar)$ by infinitesimal Grassmann parameters $\alpha^A$ and $\widebar\alpha_{\dot{A}}$, giving
 \begin{equation}\label{eq:susy_transformation}
     F(x,\theta,\thetabar) \to F(x,\theta,\thetabar) + \delta_s F(x,\theta,\thetabar),
@@ -218,73 +223,6 @@ It is useful to write down the supercharges explicitly in the differential repre
     i\widebar{Q}^{\dot{A}} &= -i(\widebar\sigma^\mu\theta)^{\dot{A}} \partial_\mu + \widebar\partial^{\dot{A}}.
 \end{align}
 \end{subequations}
-% where $\partial_A \equiv \frac{\partial}{\partial\theta^A}$ and $\widebar\partial^{\dot{A}} \equiv \frac{\partial}{\partial\widebar\theta_{\dot{A}}}$ are the derivatives with respect to Grassmann coordinates (see \cref{app:spinor_grassmann}).
-% where the differential operators $\partial_A$ and $\widebar\partial^{\dot{A}}$ are defined in \cref{eq:grassmann_diff}, and $\sigma^\mu$ and $\widebar\sigma^\mu$ are defined in \cref{eq:pauli_matrices}.
-% where $\partial_A \equiv \partial/\partial\theta^A$ and $\widebar\partial^{\dot{A}} \equiv \partial/\partial\widebar\theta_{\dot{A}}$ are the derivatives with respect to Grassmann coordinates (see \cref{app:spinor_grassmann} \rednote{fjern/appendix?}), and $\sigma^\mu = (\mathbbm{1}, \vec\sigma)$ where the elements of $\vec\sigma$ are the Pauli matrices
-% \begin{equation}\label{eq:pauli_matrices}
-%     \sigma^1 = \begin{pmatrix}
-%         0 & 1 \\ 1 & 0
-%     \end{pmatrix}, \quad \sigma^2 = \begin{pmatrix}
-%         0 & -i \\ i & 0
-%     \end{pmatrix}, \quad \sigma^3 = \begin{pmatrix}
-%         1 & 0 \\ 0 & -1
-%     \end{pmatrix}.
-% \end{equation}
-% We can parameterize supersymmetry transformations by infinitesimal paramaters $a^\mu$, $\theta^A$ and $\thetabar_{\dot{A}}$.
-% Under such transformations the superspace coordinates transform as
-% \begin{subequations}
-% \begin{align}
-%     x^\mu &\to x^\mu + a^\mu - i\alpha\sigma^\mu\thetabar + i\theta\sigma^\mu\widebar\alpha,
-%     \\
-%     \theta^A &\to \theta^A + \alpha^A,
-%     \\
-%     \thetabar_{\dot{A}} &\to \thetabar_{\dot{A}} + \widebar\alpha_{\dot{A}}.
-% \end{align}
-% \end{subequations}
-% With these coordinates, we can write down the differential representations of the supercharges as
-% \begin{subequations}
-% \begin{align}
-%     iQ_A &= -i(\sigma^\mu\thetabar)_A \partial_\mu + \partial_A,
-%     \\
-%     i\widebar{Q}^{\dot{A}} &= -i(\widebar\sigma^\mu\theta)^{\dot{A}} \partial_\mu + \widebar\partial^{\dot{A}}.
-% \end{align}
-% \end{subequations}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% We can construct functions on superspace called superfields. Expanding in the Grassmann coordinates, and remembering that the square of Grassmann numbers are zero, we can write a general superfield as
-% \begin{equation}
-% \label{eq:general_superfield}
-% \begin{split}
-%     \Psi(x,\theta,\thetabar) &=
-%     f(x) + \theta\phi(x) + \thetabar\widebar\chi(x) + \thetatwo m(x)
-%     + \thetabartwo n(x)
-%     \\ \qquad
-%     &+ \theta\sigma^\mu\thetabar V_\mu(x) + \thetatwo\,\thetabar\widebar\lambda(x) + \thetabartwo\,\theta\psi(x) + \thetafour d(x),
-% \end{split}
-% \end{equation}
-% where $f(x)$, $m(x)$, $n(x)$ and $d(x)$ are scalars; $\psi$ and $\phi$ are left-handed Weyl spinors; $\widebar\chi$ and $\widebar\lambda$ are right-handed Weyl spinors; and $V_\mu(x)$ is a four-vector. These functions of spacetime $x$ are collectively called component fields.
-
-% One can show how the component fields of \cref{eq:general_superfield} transform under supersymmetry transformations. Here, we only state the most important one, namely
-% \begin{equation}\label{eq:susy_transformation_d}
-%     \delta d(x) = \partial_\mu\biggl(\frac{i}{2}\psi(x) \sigma^\mu \widebar\alpha - \frac{i}{2}\widebar\lambda(x)\widebar\sigma^\mu\alpha \biggr).
-% \end{equation}
-% Note that $\delta d(x)$ is a surface term, and thus falls out when integrating over spacetime.
-% % Thus we can construct field theories that are manifestly supersymmetric by projecting out the $d(x)$ component field.
-% Thus we can construct field theories that are manifestly supersymmetric by defining the superlagrangian $\tilde{\mathcal{L}}(x,\theta,\thetabar)$, related to the standard field theory Lagrangian $\mathcal{L}(x)$ by
-% \begin{equation}\label{eq:superlagrangian}
-%     \mathcal{L}(x) = \int d^4\theta \tilde{\mathcal{L}}(x,\theta,\thetabar).
-% \end{equation}
-% The integration over $d^4\theta$ acts as a projection operator, leaving only terms in $\tilde{\mathcal{L}}$ proportional to $\thetafour$, i.e.\ its $d(x)$ component field.
-% It follows from \cref{eq:susy_transformation_d} that the action, defined by
-% \begin{equation}
-%     S = \int d^4x \int d^4\theta \, \tilde{\mathcal{L}}(x,\theta,\thetabar),
-% \end{equation}
-% is invariant under supersymmetry transformations.
-
-% The general superfield in \cref{eq:general_superfield} is a representation of the super-Poincar\'e group $SP$, but not an irreducible one.
-
-
 Furthermore, we can define the \emph{covariant derivatives}, given by~\cite{IntrSUSY2010}
 \begin{subequations}
 \begin{align}
@@ -297,6 +235,7 @@ which can be shown to be invariant under supersymmetry transformation, i.e.\ tha
 \begin{equation}\label{eq:covariant_susy_commute}
     [D_A, \delta_s] = [\widebar{D}_{\dot{A}},\delta_s] = 0.
 \end{equation}
+
 We then define the left-handed scalar superfield $\Phi(x,\theta,\thetabar)$, the right-handed scalar superfield $\Phi^\dagger(x,\theta,\thetabar)$ and the vector superfield $V(x,\theta,\thetabar)$ to be functions of supercoordinates that satisfy
 \begin{align}
     \widebar{D}_{\dot{A}} \Phi(x,\theta,\thetabar) &= 0,
@@ -305,7 +244,7 @@ We then define the left-handed scalar superfield $\Phi(x,\theta,\thetabar)$, the
     \\
     V^\dagger(x,\theta,\thetabar) &= V(x,\theta,\thetabar).
 \end{align}
-These superfields are closed, in the sense that multiplying two superfields of the same kind produces a new superfield of that kind. In addition, from \cref{eq:covariant_susy_commute} and the fact that $\delta_s^\dagger=\delta_s$, we can show that these superfields are closed under supersymmetry transformations, in the sense that
+These superfields are closed, in the sense that multiplying or adding two superfields of the same kind produces a new superfield of that kind. In addition, from \cref{eq:covariant_susy_commute} and the fact that $\delta_s^\dagger=\delta_s$, we can show that these superfields are closed under supersymmetry transformations, in the sense that
 \begin{align}
     \widebar{D}_{\dot{A}}(\delta_s\Phi) &= \delta_s\widebar{D}_{\dot{A}}\Phi = 0,
     \\
@@ -316,7 +255,7 @@ These superfields are closed, in the sense that multiplying two superfields of t
 
 
 When working with superfields, it is convenient to write them in a more explicit form.
-We write them as\footnote{The most general form of the vector superfield is actually somewhat larger, containing more superfields than those presented here. These extra superfields can, however, be removed by exploiting gauge freedom. The specific gauge chosen here is the \emph{Wess-Zumino gauge}~\cite{Tong:susy}.}
+Using a series expansion in $\theta$ and $\thetabar$, we write them as\footnote{The most general form of the vector superfield is actually somewhat larger, containing more component fields than those presented here. These extra component fields can, however, be removed by exploiting gauge freedom. The specific gauge chosen here is the \emph{Wess-Zumino gauge}~\cite{Tong:susy}.}
 \begin{subequations}
 \label{eq:superfields}
 \begin{align}
@@ -354,7 +293,7 @@ We write them as\footnote{The most general form of the vector superfield is actu
 \end{subequations}
 where $A(x)$ and $F(x)$ are complex scalars, $\psi(x)$ and $\lambda(x)$ are Weyl spinors, $V_\mu(x)$ is a real four-vector, and $D(x)$ is a real scalar. These functions of spacetime are collectively refered to as the \emph{component fields} of their respective superfields.
 The names of the superfields do not mirror their output---they are all scalars, and they do not possess chirality---but point to the kind of bosonic fields they entail (scalar or vector) and the chirality of their Weyl spinors (left- or right-handed).\footnote{The vector superfield contains both the left- and right-handed Weyl spinors of a Majorana spinor.}
-Note that the spinor component fields are Weyl spinors. Thus, in order to make a Dirac fermion, one must include a left-handed scalar superfield and a different right-handed scalar superfield, so that their respective Weyl spinors can be combined to give a Dirac fermion.
+Note that the spinor component fields are Weyl spinors. Thus, in order to make a Dirac fermion, one must include a left-handed scalar superfield and a \emph{different} right-handed scalar superfield, so that their respective Weyl spinors can be combined to give a Dirac fermion.
 
 
 
@@ -385,11 +324,17 @@ and for the vector superfield~\cite{Tong:susy}:
 \end{subequations}
 where $F_{\mu\nu} \equiv \partial_\mu V_\nu - \partial_\nu V_\mu$ is the usual field strength tensor, and $\sigma^{\mu\nu} \equiv \frac{i}{4}(\sigma^\mu\widebar\sigma^\nu - \sigma^\nu\widebar\sigma^\mu)$.
 
-When acting with $\delta_s$, the component fields fully mix into each other, so we can not subdivide these superfields into smaller functions that are still closed under supersymmetry transformations. Consequently, $\Phi$, $\Phi^\dagger$ and $V$ are \glspl{irrep} of the super-Poincar\'e group.
-The left- and right-handed scalar superfields correspond to the $j=0$ representation that was given in \cref{sec:super_poincare}.
-$F(x)$ is an \emph{auxiliary field}---it has no derivative term, and can be eliminated by applying the Euler--Lagrange equations. We are left with two scalar \gls{dof} from $A$ and two fermionic \gls{dof} from $\psi$.
-In the same way, the vector superfield correspond to the massless $j=\frac{1}{2}$ representation.
-Like $F(x)$, $D(x)$ is an auxiliary field, so we are left with two bosonic \gls{dof} from the massless vector $V_\mu(x)$, and two fermionic \gls{dof} from $\lambda(x)$.
+The superfields in \cref{eq:superfields} can be shown to be representations of the super-Poincar\'e group.
+When acting on them with $\delta_s$, the component fields fully mix into each other, so we can not subdivide these superfields into smaller functions that are still closed under supersymmetry transformations. Consequently, $\Phi$, $\Phi^\dagger$ and $V$ are in fact \emph{irreducible representations}.
+
+It is worth noting that the superfields provide an equal amount of fermionic and bosonic \gls{dof} "for free", with the left- and right-handed scalar superfield giving two bosonic \gls{dof} from $A(x)$ and two fermionic \gls{dof} from $\psi(x)$, and the vector superfield giving two bosonic \gls{dof} from the (massless) vector $V_\mu(x)$ and two fermionic \gls{dof} from $\lambda(x)$.
+We have not counted the $F(x)$ and $D(x)$ component fields here since, as we will soon see, they are \emph{auxiliary fields}---they have no derivative terms in the Lagrangian, and can be eliminated by the Euler--Lagrange equations.
+% The left- and right-handed scalar superfields correspond to a representation with two scalar \gls{dof} from $A(x)$ and two fermionic \gls{dof} from $\psi(x)$, and the vector superfield corresponds to a a representation with two bosonic \gls{dof} from the (massless) vector $V_\mu(x)$ and two fermionic \gls{dof} from $\lambda(x)$.
+
+% The left- and right-handed scalar superfields correspond to the $j=0$ representation that was given in \cref{sec:super_poincare}.
+% $F(x)$ is an \emph{auxiliary field}---it has no derivative term, and can be eliminated by applying the Euler--Lagrange equations. We are left with two scalar \gls{dof} from $A$ and two fermionic \gls{dof} from $\psi$.
+% In the same way, the vector superfield correspond to the massless $j=\frac{1}{2}$ representation.
+% Like $F(x)$, $D(x)$ is an auxiliary field, so we are left with two bosonic \gls{dof} from the massless vector $V_\mu(x)$, and two fermionic \gls{dof} from $\lambda(x)$.
 % The left- and right-handed scalar superfields contain scalar fields $A(x)$ and $A^*(x)$, while the vector superfield contains a vector component field $V_\mu(x)$.
 % The $F(x)$ and $D(x)$ component fields are \emph{auxiliary fields}. They do not have any derivative terms, and can be eliminated completely by applying the \gls{eom}.
 % The \gls{eom} also eliminate two of the f
@@ -428,12 +373,12 @@ Requiring the superlagrangian to be renormalizable, this further constrains the 
 \end{subequations}
 
 We must also consider the inclusion of gauge theories.
-We define the \emph{supergauge transformation} of a (left-handed) scalar superfield $\Phi$ transforming in the fundamental representation of some gauge group $G$ as\footnote{This definition is somewhat arbitrary. We could introduce extra factors, including a change of sign, in the exponential. This does not change physical predictions of the theory, as long as we remain consistent. The choice made here is done so that the Feynman rules derived in \cref{sec:feynman_rules} match the ones found in the literature.}
+We define the \emph{supergauge transformation} of a (left-handed) scalar superfield $\Phi$ transforming in the fundamental representation of some gauge group $G$ as\footnote{We have some freedom when choosing this definition. We could introduce extra factors, including a change of sign, in the exponential, but this does not change physical predictions of the theory as long as we remain consistent. The choice made here is done so that the Feynman rules derived in \cref{sec:feynman_rules} match the ones found in the literature.}
 \begin{equation}
     \Phi \to e^{2iq\Lambda^a T^a}\Phi \label{eq:gauge_scalar},
 \end{equation}
 where $\Lambda^a$ are (left-handed) scalar superfields, $T_a$ are the generators of $G$, and $q$ is the charge of $\Phi$ under $G$.
-Since $\Phi$ transforms under the fundamental representation of $G$ it is generally a multiplet of scalar superfields.
+Since $\Phi$ here transforms under the fundamental representation of $G$ it is generally a multiplet of scalar superfields.
 
 To keep the K\"ahler potential supergauge invariant, we add a vector superfield
 \begin{equation}
@@ -443,48 +388,42 @@ which has to transform according to
 \begin{equation}
     e^{-2qV^aT_a} \to e^{2iq\Lambda^{a\dagger} T^a} e^{-2qV^a T^a} e^{-2iq\Lambda^a T^a}.
 \end{equation}
-Using the Baker-Campbell-Hausdorff formula $e^Xe^Y=e^{X+Y+\frac{1}{2}[X,Y] + \cdots}$ we can show that this means the vector superfield itself transforms as
+Using the Baker--Campbell--Hausdorff formula $e^Xe^Y=e^{X+Y+\frac{1}{2}[X,Y] + \cdots}$ we can show that this means the vector superfield itself transforms as
 \begin{equation}
     V^a \to V^a + i\bigl(\Lambda^a - \Lambda^{a\dagger} \bigr) + qf^{abc} V^b (\Lambda^c + \Lambda^{c\dagger}) + \mathcal{O}(\Lambda^2),
     \label{eq:gauge_vector}
 \end{equation}
 where $f^{abc}$ are the structure constants, defined by $[T^a,T^b]=if^{abc}T^c$.
-% \begin{equation}
-%     V^a \to V^a + i\bigl(\Lambda^a - \Lambda^{a\dagger} \bigr) + qf^{abc} V^b (\Lambda^c + \Lambda^{c\dagger}) + \mathcal{O}(\Lambda^2).
-%     \label{eq:gauge_vector}
+% In addition, for the superpotential in \cref{eq:superpotential_def} to remain gauge invariant, we require
+% \begin{equation}\label{eq:superpotential_charge_sum}
+%     \begin{split}
+%         q_i &= 0 \\
+%         q_i + q_j &= 0 \\
+%         q_i + q_j + q_k &= 0
+%     \end{split}
+%     \begin{split}
+%         \quad \text{or} \quad \\
+%         \quad \text{or} \quad \\
+%         \quad \text{or} \quad
+%     \end{split}
+%     \begin{split}
+%          t_i &= 0, \\
+%          m_{ij} &= 0, \\
+%          \lambda_{ijk} &= 0.
+%     \end{split}
 % \end{equation}
-% The K\"ahler potential is then supergauge invariant.
-In addition, for the superpotential in \cref{eq:superpotential_def} to remain gauge invariant, we require
-\begin{equation}\label{eq:superpotential_charge_sum}
-    \begin{split}
-        q_i &= 0 \\
-        q_i + q_j &= 0 \\
-        q_i + q_j + q_k &= 0
-    \end{split}
-    \begin{split}
-        \quad \text{or} \quad \\
-        \quad \text{or} \quad \\
-        \quad \text{or} \quad
-    \end{split}
-    \begin{split}
-         t_i &= 0, \\
-         m_{ij} &= 0, \\
-         \lambda_{ijk} &= 0.
-    \end{split}
-\end{equation}
 
 The addition of vector superfields also allows a new term in the superlagrangian, the field strength term\footnote{This term is named as such because it holds the kinetic term for vector component fields, $-\frac{1}{4}F^{a,\mu\nu}F^a_{\mu\nu}$, where $F^a_{\mu\nu}=\partial_\mu V^a_\nu - \partial_\nu V^a_\mu + qf^{abc}A^b_\mu A^c_\nu$ is the ordinary vector field strength (with $f^{abc}=0$ in the abelian case).}
 % $\thetatwo F[V_i]$
 \begin{equation}\label{eq:susy_field_strength_term}
     \tilde{\mathcal{L}} \supset
-    F[V_i] = -\frac{1}{4T(R)} \thetabartwo \Tr[\mathcal{W}_i^A\mathcal{W}^i_A]
+    F[V_i] = \frac{1}{4T(R)q_i^2} \thetabartwo \Tr[\mathcal{W}_i^A\mathcal{W}^i_A]
     + \text{h.c.},
-    % - \frac{1}{4T(R)q_i^2} \thetatwo \Tr[\widebar{W}_{\dot{A}}\widebar{W}^{\dot{A}}],
 \end{equation}
-where $\mathcal{W}^i_A = -\frac{1}{4}\widebar{D}\widebar{D}(e^{-V_i^aT^a}D_Ae^{V_i^aT^a})$ is the supersymmetric field strength, and $T(R)$ is the index of the gauge group representation $R$, defined by $\Tr[T^aT^b]=T(R)\delta^{ab}$.
+where $\mathcal{W}^i_A = -\frac{1}{4}\widebar{D}\widebar{D}(e^{-q_iV_i^aT^a}D_Ae^{q_iV_i^aT^a})$ is the supersymmetric field strength, and $T(R)$ is the Dynkin index of the gauge group representation $R$, defined by $\Tr[T^aT^b]=T(R)\delta^{ab}$.
 Our general superlagrangian is then
 \begin{equation}\label{eq:general_superlagrangian}
-    \tilde{\mathcal{L}} = \Phi_i^\dagger e^{-2qV^aT^a}\Phi_i + \thetabartwo W[\Phi_i] + \thetatwo W[\Phi_i^\dagger] + \thetatwo F[V_i].
+    \tilde{\mathcal{L}} = \Phi_i^\dagger e^{-2qV^aT^a}\Phi_i + \thetabartwo W[\Phi_i] + \thetatwo W[\Phi_i^\dagger] + F[V_i].
 \end{equation}
 
 \subsubsection{The Hierarchy Problem Revisited}
@@ -520,7 +459,7 @@ We refer to the first and second terms in \cref{eq:susy_scalar_potential} as $F$
 % \end{equation}
 
 Interactions between four scalars then come from the scalar superpotential.
-Looking again at the yukawa interaction $\lambda\Phi_h \Phi_\phi\Phi_\chi$, we see that we have an $F$-term contribution to the Lagrangian of the form
+Looking again at the Yukawa interaction $\lambda\Phi_h \Phi_\phi\Phi_\chi$, we see that we have an $F$-term contribution to the Lagrangian of the form
 \begin{equation}
     \mathcal{L} \supset
     - \biggl\lvert\frac{\partial W}{\partial A_\chi}\biggr\rvert^2
@@ -529,7 +468,7 @@ Looking again at the yukawa interaction $\lambda\Phi_h \Phi_\phi\Phi_\chi$, we s
 \end{equation}
 where $A_\phi$ and $A_\chi$ are the scalar component fields of $\Phi_\phi$ and $\Phi_\chi$, respectively.
 
-In the language of \cref{eq:hierarchy_problem}, we have found that $\lambda_s = \abs{\lambda_f}^2$, and that there are twice as many four-scalar interactions as there are Yukawa interactions. Thus it follows, for any supersymmetric theory, that the large quadratic mass corrections to scalar fields (including Higgs), \emph{perfectly cancel}.\footnote{We have simplified the discussion here by not mentioning interactions of vector fields, but it can be shown that a similar argument follows there.}
+In the language of \cref{eq:hierarchy_problem}, we have found that $\lambda_s = \abs{\lambda_f}^2$, and that there are twice as many four-scalar interactions as there are Yukawa interactions. Thus it follows, for any supersymmetric theory, that the large quadratic corrections to scalar fields (including Higgs), \emph{perfectly cancel}.\footnote{We have simplified the discussion here by not mentioning interactions of vector fields, but it can be shown that a similar argument follows there.}
 
 
 % Consider now the interaction between a scalar field $h$ and a Dirac fermion $\psi$, constructed from the Weyl spinors $\phi^A$ and $\chi^A$.
@@ -544,8 +483,9 @@ In the language of \cref{eq:hierarchy_problem}, we have found that $\lambda_s = 
 
 
 \subsubsection{Soft Supersymmetry Breaking}
-We will not discuss supersymmetry breaking in detail, but it is important to mention it.
-The supercharges used to turn fermionic states into bosonic states, and vice versa, as in \cref{eq:clifford_vacuum_super_states} do not change the mass of the particle (the eigenvalue of the $P^2$ operator).
+% We will not discuss supersymmetry breaking in detail, but it is important to mention it.
+As mentioned in \cref{sec:super_poincare}, the supercharges---which transform fermionic states into bosonic states, and vice versa---do not change a particle's mass.
+% The supercharges used to turn fermionic states into bosonic states, and vice versa, as in \cref{eq:clifford_vacuum_super_states}, do not change the mass of the particle (the eigenvalue of the $P^2$ operator).
 Hence superpartners of particle states must have the same mass.
 This means that if the world was truly supersymmetric, we would expect to have seen supersymmetric particles already, along with all the Standard Model ones. We have not.
 This does not mean that there is no supersymmetry, but if there is, it must be broken at our energy scale.
@@ -578,7 +518,8 @@ The \gls{mssm} does not have any such superfield, but the $c_{ijk}$ terms are ty
 
 The \gls{mssm} is minimal in the sense that it contains the smallest possible amount of fields necessary to incorporate all of the Standard Model while remaining supersymmetric (up to soft terms). Denoting generation by $i=1,2,3$ and the gauge fields by $a$, where $a=1,2,3$ for the weak $SU(2)_L$ bosons and $a=1,\ldots,8$ for the strong $SU(3)_C$ gluons, the Standard Model fields are: the leptons $\ell_i$, neutrinos $\nu_i$, and up- and down-type quarks $u_i$ and $d_i$; the gluons $g^a_\mu$ and electroweak gauge bosons $W^a_\mu$ and $B_\mu$; and the Higgs boson $h$.
 We can then construct the necessary superfields to contain all the Standard Model particles.
-For the Standard Model gauge bosons this is straight-forward. We only need one superfield per particle, which we denote by the same name. The Weyl spinor superpartners are then denoted by a tilde, and their resulting Dirac or Majorana particles are named by adding the --ino suffix. Thus, for instance, the $B_\mu$ field in the Standard Model gets a superfield $B$ containing $B_\mu$ as well as the \emph{bino} $\tilde{B}$.
+
+For the Standard Model gauge bosons this is straight-forward. We only need one superfield per particle, which we denote by the same name. The Weyl spinor superpartners are then denoted by a tilde, and their resulting Dirac or Majorana particles are named by adding the -ino suffix. Thus, for instance, the $B_\mu$ field in the Standard Model gets a superfield $B$ containing $B_\mu$ as well as the \emph{bino} $\tilde{B}$.
 
 The fermions slightly complicate the discussion. The Standard Model particles are Dirac fermions, so we need two different superfields per Standard Model fermion in order to recreate it. Taking the leptons as an example: we construct the superfields $\ell_i$ containing the Weyl spinors $\ell_i$, and $\widebar{E}_i$ containing the Weyl spinors $\widebar{e}_i$. Note that these are left-handed superfields containing left-handed Weyl spinors. The bar here is used to signify that they are singlets under $SU(2)_L$. Their corresponding right-handed superfields $\ell_i^\dagger$ and $\widebar{E}_i^\dagger$ contains the right-handed Weyl spinors, which we now denote $\ell_i^\dagger$ and $\widebar{e}_i^\dagger$.
 We can now combine a left- and right-handed Weyl spinor to construct the Dirac fermions
@@ -590,8 +531,8 @@ We can now combine a left- and right-handed Weyl spinor to construct the Dirac f
         \widebar{e}_i^A & \ell^\dagger_{i\dot{A}}
     \end{pmatrix}.
 \end{equation}
-In addition, the superfields contain scalar fields, one for each superfield, which are named by adding an s-- prefix to the corresponding fermion name. Thus the scalar partners of leptons are called \emph{sleptons}, and so on. Collectively, we refer to scalar superpartners of fermionic Standard Model particles as \emph{sfermions}.
-The left-handed sleptons come from $\ell_i$, and are labeled $\slepton_{iL}$, while the right-handed sleptons come from $\widebar{E}_i^\dagger$, and are labeled $\slepton_{iR}$.\footnote{Note that the scalar particles, being scalar, do not possess chirality. The left- and right-handed notion points to the chiral structure of the Weyl spinor appearing in the same superfield. (This is also why we retrieve the right-handed $\slepton_{iR}$ from $\widebar{E}_i^\dagger$ rather than $\widebar{E}_i$, which instead contains the complex conjugate $\slepton_{iR}^*$.}
+In addition, the superfields contain scalar fields, one for each superfield, which are named by adding an s- prefix to the corresponding fermion name. Thus the scalar partners of leptons are called \emph{sleptons}, and so on. Collectively, we refer to scalar superpartners of fermionic Standard Model particles as \emph{sfermions}.
+The left-handed sleptons come from $\ell_i$, and are labeled $\slepton_{iL}$, while the right-handed sleptons come from $\widebar{E}_i^\dagger$, and are labeled $\slepton_{iR}$.\footnote{Note that the scalar particles, being scalar, do not possess chirality. The left- and right-handed notion points to the chiral structure of the Weyl spinor appearing in the same superfield. This is also why we retrieve the right-handed $\slepton_{iR}$ from $\widebar{E}_i^\dagger$ rather than $\widebar{E}_i$, which instead contains the complex conjugate $\slepton_{iR}^*$.}
 
 Lastly, we also need a superfield for the Higgs boson. As it turns out, we will actually need four superfields for Higgs, coming from two doublets---as opposed to the single Higgs doublet in the Standard Model---given by
 \begin{equation}\label{eq:higgs_superfields}
@@ -610,8 +551,8 @@ The reason for introducing a second Higgs doublet in the \gls{mssm} is two-fold:
         \mathcal{L}_{\mathrm{SM}} \supset -\lambda_d (\widebar\Psi_Q H)\psi_d^R + \text{h.c.},
     \end{equation}
     where $\Psi_Q$, $H$ and $\psi_d^R$ are the left-handed quark doublet, Higgs doublet, and right-handed down-quark singlet, respectively.
-    This works because the Higgs doublet is proportional to $(0, v+h)$, where $v$ is the \gls{vev}, and $h$ is the Higgs field, thus for $h=0$ we get $(\widebar\Psi_Q H)\psi_d \propto v\widebar\psi_d^L\psi_d^R$.
-    For up-type quarks, one has to be more clever, in order to move the \gls{vev} to the upper component of the doublet, so that it can match with the up-quark field. This can be done by introducing $H^C \equiv -i(H^\dagger \sigma_2)^T$, where $\sigma_2$ is the $y$-component Pauli matrix given in \cref{eq:pauli_matrices}. With this we can create mass terms for up-type quarks as
+    This works because the Higgs doublet is proportional to\footnote{Given an appropriate choice of $SU(2)$ rotation.} $(0, v+h)$, where $v$ is the \gls{vev}, and $h$ is the Higgs field, thus for $h=0$ we get $(\widebar\Psi_Q H)\psi_d \propto v\widebar\psi_d^L\psi_d^R$, i.e.\ a mass term for down-type quarks.
+    For up-type quarks, one has to be more clever, in order to move the \gls{vev} to the upper component of the doublet, so that it can match with the up-quark field. This can be done by introducing $H^C \equiv -i(H^\dagger \sigma_2)^T$, where $\sigma_2$ is the Pauli matrix given in \cref{eq:pauli_matrices}. With this we can create mass terms for up-type quarks as
     \begin{equation}
         \mathcal{L}_{\mathrm{SM}} \supset -\lambda_u (\widebar\Psi_Q H^C)u + \text{h.c.}.
     \end{equation}
@@ -692,23 +633,24 @@ As we will see in \cref{sec:feynman_rules}, when deriving the Feynman rules for 
 The supersymmetric field strengths for the \gls{mssm} vector superfields are
 \begin{subequations}
 \begin{align}
-    \mathcal{G}_A &= -\frac{1}{4}\widebar{D}\widebar{D} e^{-\lambda^a g^a} D_A e^{\lambda^a g^a},
+    \mathcal{G}_A &= -\frac{1}{4}\widebar{D}\widebar{D} e^{-g_s\lambda^a g^a} D_A e^{g_s\lambda^a g^a},
     \\
-    \mathcal{W}_A &= -\frac{1}{4}\widebar{D}\widebar{D} e^{-\sigma^a W^a} D_A e^{\sigma^a W^a},
+    \mathcal{W}_A &= -\frac{1}{4}\widebar{D}\widebar{D} e^{-g\sigma^a W^a} D_A e^{g\sigma^a W^a},
     \\
-    \mathcal{B}_A &= -\frac{1}{4}\widebar{D}\widebar{D} D_A B.
+    \mathcal{B}_A &= -\frac{g'}{4}\widebar{D}\widebar{D} D_A B.
 \end{align}
 The field strength terms of the \gls{mssm} are then
 \end{subequations}
 \begin{equation}
     \mathcal{L}_F = \frac{1}{2} \thetabartwo \Tr[\mathcal{G}^A \mathcal{G}_A] + \frac{1}{2} \thetabartwo \Tr[\mathcal{W}^A \mathcal{W}_A] + \frac{1}{2} \thetabartwo \mathcal{B}^A \mathcal{B}_A + \text{h.c.},
 \end{equation}
-where we used the Dynkin indices are $T(R)_L=T(R)_C=\frac{1}{2}$.
+where we used that the Dynkin indices are $T(R)_L=T(R)_C=\frac{1}{2}$.
 
 
 \subsubsection{The Superpotential}
 
-For any term in the superpotential, the charge of all involved superfields must sum to zero, as stated in \cref{eq:superpotential_charge_sum}. This, together with the fact that the superpotential does not mix left- and right-handed superfields, severely limits the number of terms that can appear.
+Requiring the superpotential to be supergauge invariant---and remembering that the superpotential does not mix left- and right-handed superfields---severely limits the number of terms that can appear.
+% For any term in the superpotential, the charge of all involved superfields must sum to zero, as stated in \cref{eq:superpotential_charge_sum}. This, together with the fact that the superpotential does not mix left- and right-handed superfields, severely limits the number of terms that can appear.
 In total, the allowed terms from gauge invariance are\footnote{Be aware that some texts simplify the notation for combining two $SU(2)_L$ doublets by defining $H_uH_d$ to mean $H_u^Ti\sigma_2H_d$ (and likewise for other doublets). Since we will not pay too much attention to such terms later on in this thesis, we write them out explicitly, trading slightly prettier notation for clarity.}
 % \begin{equation}
 % \begin{split}
@@ -729,7 +671,7 @@ where $y_{ij}^{e/u/d}$ are the Standard Model Yukawa couplings, and $\mu$, $\mu_
 
 Many of the terms in the superpotential, such as $\lambda_{ijk}' L_i^Ti\sigma_2Q_j\widebar{D}_k$ violate lepton or baryon number.
 These terms allow processes such as proton decay, which are ruled out by experiments.
-To deal with this, we introduce the \emph{$R$-parity}, defined as~\cite{Martin:1997ns} \rednote{Cite Fayet? Found three different articles by Fayet introducing R-parity, and none of them use the definition given here.}
+To deal with this, we introduce the \emph{$R$-parity}~\cite{Farrar:1978xj}, defined as
 \begin{equation}
     P_R = (-1)^{3(B-L)+2s},
 \end{equation}
