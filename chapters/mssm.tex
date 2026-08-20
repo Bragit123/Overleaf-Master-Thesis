@@ -700,17 +700,27 @@ From requiring gauge invariance, we find that the \gls{mssm} soft terms are
 \label{eq:soft_terms}
 \begin{split}
     \tilde{\mathcal{L}}_{\text{soft}} = -\thetafour &\biggl\{
-        \frac{1}{2}M_1 \tilde{B} \tilde{B} + \frac{1}{2}M_2 \tilde{W}^a \tilde{W}^a + \frac{1}{2}M_3 \tilde{g}^a\tilde{g}^a + \text{c.c.}
+        \biggl(\frac{1}{2}M_1 \tilde{B} \tilde{B} + \frac{1}{2}M_2 \tilde{W}^a \tilde{W}^a + \frac{1}{2}M_3 \tilde{g}^a\tilde{g}^a + \text{c.c.}\biggr)
         \\ &\quad
-        +a_{ij}^e \tilde{L}_i H_d \slepton_{jR}^* + a_{ij}^u \tilde{Q}_i H_u \tilde{u}_{jR}^* + a_{ij}^d \tilde{Q}_i H_d \tilde{d}_{jR}^* +bH_uH_d + \text{c.c.}
+        +\Bigl(a_{ij}^e \tilde{L}_i H_d \slepton_{jR}^* + a_{ij}^u \tilde{Q}_i H_u \tilde{u}_{jR}^* + a_{ij}^d \tilde{Q}_i H_d \tilde{d}_{jR}^* +bH_uH_d + \text{c.c.}\Bigr)
         \\ &\quad
         +(m_{ij}^L)^2 \tilde{L}_i^\dagger\tilde{L}_j + (m_{ij}^e)^2 \slepton_{iR}^*\slepton_{jR} + (m_{ij}^Q)^2 \tilde{Q}_i^\dagger \tilde{Q}_j + (m_{ij}^u)^2 \tilde{u}_{iR}^*\tilde{u}_{jR}
         \\ &\quad
         + (m_{ij}^d)^2 \tilde{d}_{iR}^* \tilde{d}_{jR} + m_{H_u}^2 H_u^\dagger H_u + m_{H_d}^2 H_d^\dagger H_d
-    \biggr\}.
+    \biggr\},
 \end{split}
 \end{equation}
+where $m_{H_u}^2,m_{H_d}^2 \in \mathbb{R}$ and $M_i,a_{ij},b,m_{ij}^2 \in \mathbb{C}$, although the $m_{ij}^2$ must be hermitian in order for the Lagrangian to remain real.
+% Remember that $i$ and $j$ label particle generations, hence the $a_{ij}$ and $m_{ij}^2$ parameters are components of $3\times3$ matrices with potentially off-diagonal terms.
+% From experimental constraints we typically assume that the mass matrices $m_{ij}^2$ are diagonal, and that the three-scalar couplings $a_{ij}$ are proportional to the corresponding Yukawa couplings in the Standard Model.
 
+We see that the \gls{mssm}---after spontaneous supersymmetry breaking---introduces a large number of new parameters (\num{105}~\cite{Martin:1997ns}) that are not in the Standard Model.
+Some of these terms, howewer, lead to large contributions to flavor-changing neutral currents, such as $\mu^- \to e^-\gamma$~\cite{Martin:1997ns}, which are shown experimentally to be extremely rare, with $\operatorname{BR}(\mu^-\to e^-\gamma) < \num{1.5e-13}$ (taken from Ref.~\cite{MEGII:2025gzr}, assuming the branching ratio to be approximatelly identical for $\mu^-\to e^-\gamma$ and $\mu^+\to e^+\gamma$).
+To reduce such contributions, we typically assume the soft masses $m_{ij}^2$ to be close to diagonal, and the soft Yukawa couplings $a_{ij}$ to be proportional to the Yukawa couplings $y_{ij}$.
+Although there are still many free parameters in the \gls{mssm} with these assumptions, the number is greatly reduced.
+
+% Nevertheless, some of these parameters give large contributions to processes that are shown experimentally to be extremely rare.
+% It is therefore common to assume that the soft masses $m_{ij}^2$ in \cref{eq:soft_terms} are all diagonal, and that the three-scalar couplings $a_{ij}$ are proportional to the corresponding Standard Model Yukawa couplings.
 
 
 
@@ -725,13 +735,14 @@ There are many terms in the superlagrangian that contribute to the mass of the s
 \begin{equation}
 \mathcal{L} \supset -(m_{ij}^L)^2 \tilde{L}_i^\dagger\tilde{L}_j - (m_{ij}^e)^2\slepton_{iR}^*\slepton_{jR},
 \end{equation}
-where we remind the reader that $\tilde{L}_i$ here refers to the doublet of scalar component fields $\tilde{L}_i = (\tilde\nu_{iL}\;\slepton_{iL})$, not the superfield doublet.
-The mass matrices $m_{ij}^L$ and $m_{ij}^e$ can generally mix sleptons of different generations.
-Such mixing leads to large contributions to flavor-changing neutral currents, such as $\mu^- \to e^-\gamma$~\cite{Martin:1997ns}, which are shown experimentally to be extremely rare, with $\operatorname{BR}(\mu^-\to e^-\gamma) < \num{1.5e-13}$ (taken from Ref.~\cite{MEGII:2025gzr}, assuming the branching ratio to be approximatelly identical for $\mu^-\to e^-\gamma$ and $\mu^+\to e^+\gamma$).
-We therefore typically assume the soft-masses to be close to diagonal.
+where we remind the reader that $\tilde{L}_i$ here refers to the doublet of scalar component fields $\tilde{L}_i = (\tilde\nu_{iL}\;\slepton_{iL})$, not the superfield doublet, and that $(m_{ij}^{L/e})^2$ are assumed to be diagonal.
+% Although the mass matrices $m_{ij}^L$ and $m_{ij}^e$ can generally mix sleptons of different generations, such mixing leads to large contributions to flavor-changing neutral currents, such as $\mu^- \to e^-\gamma$~\cite{Martin:1997ns}, which are shown experimentally to be extremely rare, with $\operatorname{BR}(\mu^-\to e^-\gamma) < \num{1.5e-13}$ (taken from Ref.~\cite{MEGII:2025gzr}, assuming the branching ratio to be approximatelly identical for $\mu^-\to e^-\gamma$ and $\mu^+\to e^+\gamma$).
+% As mentioned in the previous section, we therefore typically assume the soft masses to be close to diagonal.
 
-In addition to the soft masses, the sleptons get masses from the $D$-terms in \cref{eq:susy_scalar_potential}, which contribute terms of the form $(\text{slepton})^2(\text{Higgs})^2$.
-The $F$-terms in \cref{eq:susy_scalar_potential} also contribute, both from the superpotential Yukawa terms $y_{ij}^e L_i^T i\sigma_2 H_d \widebar{E}_j$ when $L_i$ or $\widebar{E}_i$ is differentiated out, giving $v_d^2(y_{ij}^e)^2 (\slepton_{iL}^*\slepton_{iL} + \slepton_{iR}^*\slepton_{iR}^*)$, and from the combination of the Yukawa terms (with Higgs differentiated out) with the Higgs mass term $\mu H_u^T i\sigma_2 H_d$, giving $\mu (v_u+v_d) y_{ij}^e \slepton_{iL}^*\slepton_{iR}$. Finally, the soft Yukawa terms in \cref{eq:soft_terms} give additional mass terms $a_{ij}^e v_d \tilde{L}_i \slepton_{jR}^*$. Again wanting to reduce flavor-changing neutral currents, $a_{ij}^e$ are typically assumed to be proportional to the Yukawa couplings $y_{ij}^e$.
+In addition to the soft masses, the sleptons get masses from the $D$-terms in \cref{eq:susy_scalar_potential}, which contribute terms like $g^2(\tilde{L}_i^\dagger\sigma^a\tilde{L}_i)(H_u^\dagger\sigma^aH_u)$, and so on.\footnote{Here, $H_u$ refers to the scalar component field, not the superfield.}
+When the Higgs fields develop their \glspl{vev}, these give mass terms of the form $g^2(v_u^2+v_d^2)\slepton_{iL}^*\slepton_{iL}$ and $g'^2(v_u^2+v_d^2)(\slepton_{iL}^*\slepton_{iL}+\slepton_{iR}^*\slepton_{iR})$.
+The $F$-terms in \cref{eq:susy_scalar_potential} also contribute, both from the superpotential Yukawa terms $y_{ij}^e L_i^T i\sigma_2 H_d \widebar{E}_j$ when $L_i$ or $\widebar{E}_i$ is differentiated out, giving $v_d^2(y_{ij}^e)^2 (\slepton_{iL}^*\slepton_{iL} + \slepton_{iR}^*\slepton_{iR}^*)$, and from the combination of the Yukawa terms (with Higgs differentiated out) with the Higgs mass term $\mu H_u^T i\sigma_2 H_d$, giving $\mu (v_u+v_d) y_{ij}^e \slepton_{iL}^*\slepton_{iR}$.
+Finally, the soft Yukawa terms in \cref{eq:soft_terms} give additional mass terms $a_{ij}^e v_d \tilde{L}_i \slepton_{jR}^*$, where we remind the reader that $a_{ij}^e$ is assumed to be proportional to the Yukawa couplings $y_{ij}^e$.
 
 \subsubsection{Mass Mixing for Sleptons and Electroweakinos}
 The slepton masses generally mix between the left- and right-handed sleptons. To move between the sleptons' chiral\footnote{Remember that the sleptons are not chiral! "Chiral eigenstates" is just a matter of naming convention, pointing to the left- and right-handed sleptons discussed so far.} and mass eigenstates, we introduce the slepton mixing matrices $L^i_{\alpha A}$, defined by
@@ -748,11 +759,13 @@ The slepton masses generally mix between the left- and right-handed sleptons. To
 where $i$ denotes the slepton generation, $\alpha\in\{L,R\}$ the gauge eigenstate, and $A\in\{1,2\}$ the mass eigenstate, and its elements are restricted by $|c_{\tilde\ell_i}|^2+|s_{\tilde\ell_i}|^2=1$.
 The off-diagonal terms come from Yukawa couplings, which are negligible for first- and second-generation sleptons, i.e.\ the selectrons and smuons. Thus we can to good approximation set $\slepton_{i1,2} = \slepton_{iL,R}$ for $i=1,2$.
 For the stau sparticles, however, Yukawa terms can contribute significantly, and the full mass mixing must be considered.
+In order to avoid large CP-violating effects, the soft Yukawa terms are often assumed to be real~\cite{Martin:1997ns}.
+In that case, $c_{\tilde\ell_i}$ and $s_{\tilde\ell_i}$ are real as well, and the mixing matrix can be interpreted as a rotation matrix with $c_{\tilde\ell_i}=\cos\theta_{\tilde\ell_i}$ and $s_{\tilde\ell_i}=\sin\theta_{\tilde\ell_i}$ for some mixing angle $\theta_{\tilde\ell_i}$.
 
 Before moving on to how sleptons are searched for in particle accelerators, it is worth a brief mention of the neutralinos.
 The fermionic superpartners of the Standard Model gauge bosons are the \emph{bino} $\tilde{B}$ and the neutral and charged \emph{winos} $\tilde{W}^0$ and $\tilde{W}^\pm$, collectively called the \emph{gauginos}.
 In addition, we have the fermionic partners of the Higgs bosons, called \emph{higgsinos}, which are denoted $\tilde{H}_u^0$, $\tilde{H}_d^0$, $\tilde{H}_u^+$ and $\tilde{H}_d^-$.
-In general, these are not mass eigenstates, so the mass eigenstates must be found by forming linear combinations of the gauginos and higgsinos.
+In general, these are not mass eigenstates, but can mix after electroweak symmetry breaking, so the mass eigenstates must be found by forming linear combinations of the gauginos and higgsinos.
 This results in four neutral mass eigenstates $\tilde\chi_i^0$ with $i=1,\ldots,4$---the \emph{neutralinos}---and four charged mass eigenstates $\tilde\chi_i^\pm$ with $i=1,2$---the \emph{charginos}.
 Together, the neutralinos and charginos make up the \emph{electroweakinos}.
 The indices on $\tilde\chi_i^0$ are labeled such that $i=0$ gives the lightest neutralino, $i=1$ the second lightest, and so on.
