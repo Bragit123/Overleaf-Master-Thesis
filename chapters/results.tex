@@ -10,11 +10,6 @@ Following this, we present and discuss the main results of this thesis, where we
 The main goal of this thesis is to see how the \gls{nlo} \gls{qed} correction compares to state-of-the-art corrections in \gls{qcd}.
 We therefore finish the chapter with a more detailed comparison of these contributions.
 
-% The \glspl{pdf} used to produce the results presented in this chapter are obtained from the Hessian \gls{pdf} set \texttt{PDF4LHC21\_40}~\cite{PDF4LHCWorkingGroup:2022cjn}, using the \texttt{C++} library \texttt{LHAPDF}~\cite{Buckley:2014ana}.
-% The final-state partonic cross section contains Passarino--Veltman functions, which are evaluated numerically in \texttt{LoopTools}~\cite{Hahn:1998yk}.
-% The numerical integration for \gls{qed} results was done with the \texttt{Cuhre} algorithm~\cite{Berntsen:1991ciy} implemented in \texttt{Cuba}~\cite{Hahn:2004fe,Hahn:2014fua}, and the code used to produce the results are available on \texttt{GitHub}.\footnote{\url{https://github.com/Bragit123/Master_Thesis}}
-% The \gls{qcd} results used for comparison were produced with the currently unpublished package \texttt{smoking}~\cite{smoking}. \rednote{Riktig sitering? Stjelt fra CM}
-
 
 \section{Methods}
 
@@ -376,18 +371,8 @@ The \glspl{pdf} we have used are given at \gls{nlo}, since the \gls{lo} \glspl{p
 Consequently, the \glspl{pdf} enter in the same way for the \gls{lo} and \gls{nlo} cross sections, and the only place left for the factorization scale to make a noticeable difference is in the $w$-functions in \cref{eq:hadron_w_initial_state,eq:hadron_w_final_state}, where it only appears for initial-state corrections which contribute considerably less to the \gls{nlo} cross section than the final-state corrections.\footnote{This will be shown shortly.}
 This means that most of the improvement we would expect to see in the scale dependence when going from \gls{lo} to \gls{nlo} is not shown in \cref{fig:xsec_scale_ratio}, since the \gls{lo} cross section technically also has some of the \gls{nlo} contribution built in.
 
-% In addition, as we will soon see, the \gls{nlo} \gls{qed} corrections is at a size comparable to the \gls{pdf} uncertainty at \gls{lo}.
-% With such a tiny difference in the cross section compared to the leading cause of factorization scale dependence, it is not remarkable that the \gls{nlo} cross section depends on scale similarly to the \gls{lo} case.
-
-For higher order corrections in \gls{qcd}, the scale dependence changes more between \gls{lo} and \gls{nlo} (see e.g.\ Ref.~\cite{Braseth:2025ylj}).
+For higher order corrections in \gls{qcd}, the scale dependence changes more between \gls{lo} and \gls{nlo}; see, for instance, Ref.~\cite{Braseth:2025ylj}.
 There the \gls{nlo} correction is larger, and one must take into account the running of the strong coupling $\alpha_s$, which affects the renormalization scale dependence.
-% For higher order corrections in \gls{qcd}, the contribution is significantly larger. Taking also the running of the strong coupling $\alpha_s$ into account, it is
-% For higher order corrections in \gls{qcd} one must also take into account how the strong coupling $\alpha_s$ runs with scale. The variations in scale dependence at higher orders is then also more prominent~\cite{Braseth:2025ylj}.
-
-% It is also worth noting that the perturbative expansion in $\alpha$ also involves weak corrections. A real possibility is therefore that one needs to include the full set of electroweak corrections at \gls{nlo} to see a sizable decrease in scale dependence.
-% If the \glspl{pdf} become more accurate in the future, but the scale dependence does not improve significantly at \gls{nlo} in \gls{qed}, this could therefore hint at the weak corrections being larger than expected.
-% For the time being, with comparably large \gls{pdf} uncertainties, this is, however, only speculation.
-% \rednote{Litt usikker på om det jeg skriver her gir mening?}
 
 
 
@@ -403,7 +388,6 @@ There the \gls{nlo} correction is larger, and one must take into account the run
 We will consider the production of a pair of equal-mass selectrons in the process $pp\to\tilde{e}^*\tilde{e}+X$.
 The \gls{com} energy is set to $\sqrt{s}=\qty{13.6}{TeV}$, so as to match Run~\Romannum{3} at the \gls{lhc}.
 The total cross section for this process as a function of the selectron masses is shown in \cref{fig:xsec_over_mass}.
-% The total cross section for the production of a pair of equal-mass selectrons as a function of their masses is given in \cref{fig:xsec_over_mass}.
 The result is identical for smuons in this consideration, which differ from selectrons only by their mass.
 It is, however, worth noting that the same does not apply for the third-generation stau sparticles.
 Staus have non-zero off-diagonal terms in the mass mixing matrix as discussed in \cref{sec:slepton_masses}, and thus behave differently from the selectrons and smuons.

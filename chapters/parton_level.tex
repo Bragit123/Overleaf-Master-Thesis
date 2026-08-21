@@ -26,7 +26,7 @@ where $d\Pi_{2 \to n}$ is the $n$-body Lorentz invariant differential phase spac
     d\Pi_{2 \to n} = (2\pi)^d\delta^d \biggl( p_1+p_2 - \sum_{i=1}^n k_i \biggr) \prod_{i=1}^n \frac{d^{d-1}k_i}{(2\pi)^{d-1}}\frac{1}{2E_i}.
     \label{eq:dPi_n}
 \end{equation}
-The hat above $\hat\sigma$ and $\shat$ are there to remind us that they are \textit{partonic} quantities belonging to the hard scattering of proton constituents. It is the hard scattering we will compute perturbatively using Feynman diagrams and \cref{eq:dsigma}. At \gls{nlo} in \gls{qed}, the only hard process we consider is quark--anti-quark scattering, as gluons only appear at higher orders in \gls{qcd}, and the \gls{pdf} for photons are negligible.\rednote{Stemmer dette? Ref?}
+The hat above $\hat\sigma$ and $\shat$ are there to remind us that they are \textit{partonic} quantities belonging to the hard scattering of proton constituents. It is the hard scattering we will compute perturbatively using Feynman diagrams and \cref{eq:dsigma}. At \gls{nlo} in \gls{qed}, the only hard process we consider is quark--anti-quark scattering, as gluons only appear at higher orders in \gls{qcd}, and the photon \gls{pdf} is negligible. \rednote{Stemmer dette?}
 \Cref{eq:dPi_n} is somewhat overly general for our purposes, as we will only consider processes with two or three final-state particles. We will explore the two- and three-body phase spaces in more detail in \cref{sec:two_body_phase_space,sec:three_body_phase_space}, but first we turn to a more general discussion of the kinematic variables that will appear in our calculations.
 
 \begin{figure}
@@ -367,7 +367,7 @@ Since the blobs represent corrections both with and without photon emission, $\G
 Before moving further, let us briefly discuss which assumptions we have made, and how they limit the generalization of our procedure.
 The perhaps most obvious limitation is that our factorization only works when considering higher-order corrections to either the initial- or final-state of the process.
 For diagrams involving a photon-line between the initial- and final-state, or interferences between initial- and final-state emission, we will have to turn back to consider their full diagrams without factorization. We will consider such non-factorizable diagrams in \cref{sec:non_factorizable}.
-The other assumption we made, which is important for the way we wrote down the effective couplings in \cref{eq:factor_left,eq:factor_right}, is that the \gls{nlo} corrections add photon lines to the \gls{lo} diagram. This does not hold for supersymmetric corrections, such as the one in \cref{fig:M_susy}. This limitation is good to keep in mind, although we will not consider supersymmetric corrections in this thesis, as their contributions are expected to be tiny compared to Standard Model corrections. \rednote{pga store masser i propagatorene, sant?}
+The other assumption we made, which is important for the way we wrote down the effective couplings in \cref{eq:factor_left,eq:factor_right}, is that the \gls{nlo} corrections add photon lines to the \gls{lo} diagram. This does not hold for supersymmetric corrections, such as the one in \cref{fig:M_susy}. This limitation is good to keep in mind, although we will not consider supersymmetric corrections in this thesis, as their contributions are expected to be tiny compared to Standard Model corrections.
 
 \begin{figure}
     \centering
@@ -422,7 +422,6 @@ Using the completeness relations for spinors, given by~\cite{Peskin:1995ev}
     \sum_{\text{spin}} v^s(p)\widebar{v}^s(p) = \pslash - m,
 \end{equation}
 we can compute the spin- and color-averaged squared amplitude:
-% We then compute the spin- and color-averaged squared amplitude using the completeness relations for spinors \rednote{ref?}
 \begin{equation}
 \begin{split}
     \overline{|\M^i|^2}
@@ -856,7 +855,6 @@ As shown in \cref{eq:sigma_virt_Re_f}, we only want the real part of $f(\shat)$.
 
 The \gls{uv} divergence in \cref{eq:dsigmai_virt} can be removed by renormalization, as described in \cref{sec:renormalization}. More concretely, we will do this by renormalizing the quark field. We define the quark's field strength renormalization $Z_q$ such that $\psi_q^0 = \sqrt{Z_q} \psi_q$, where $\psi_q^0$ and $\psi_q$ are the bare and renormalized quark fields, respectively; and rewrite the renormalization in terms of the counterterm $\delta_q$ such that $Z_q=1+\delta_q$.
 We can then calculate $\delta_q$ in the on-shell scheme using \cref{eq:qed_ct_os_fermion}, which for the quark field gives
-% Using the procedure described in \rednote{ref divergens-kapittel}, we can calculate the counterterm in the on-shell scheme as
 \begin{equation}
     \delta_q = -\frac{d}{d\pslash}\Sigma^q_2(\pslash) \biggr\vert_{\pslash = 0},
     \label{eq:deltaq_def}

@@ -30,7 +30,7 @@
         (p2) --[double distance=1.5pt] (blob);
         (p2) --[fermion] (blob);
         (blob) --[charged scalar, edge label=\(\slepton\)] (slt1) --[plain, boson, edge label=\(\tilde\chi_2^0\)] (chi2t)
-        --[charged scalar, edge label=\(\slepton\)] (slt2) --[plain, boson] (chi1t);
+        --[charged scalar, edge label=\(\slepton'\)] (slt2) --[plain, boson] (chi1t);
         (chi2t) --[anti fermion] (lt2);
         (slt2) --[fermion] (lt3);
         (blob) --[anti charged scalar, edge label'=\(\slepton^*\)] (slb) --[plain, boson] (chib);

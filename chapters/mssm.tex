@@ -773,85 +773,6 @@ Of particular interest to us is the lightest neutralino $\tilde\chi_1^0$, as it 
 In addition to this making $\tilde\chi_1^0$ a great \gls{wimp} candidate for dark matter, this also has strong implications on searches for sleptons at particle accelerators, as we will see in \cref{sec:hadron_colliders}.
 
 
-\subsection{Sleptons at Hadron Colliders}\label{sec:hadron_colliders}
-
-Searches for \gls{bsm} physics is done by analyzing data from high-energy particle accelerators, and the highest energies achieved to date are at the \gls{lhc} at CERN, where protons are smashed together at \gls{com} energies up to $\sqrt{s}=\qty{13.6}{TeV}$~\cite{ParticleDataGroup:2026aaa}.
-Thus in the search for supersymmetry, we are highly interested in how sparticles can be produced in proton--proton collisions.
-In the context of this thesis, the focus is on slepton pair production through the process $pp \to \slepton_{iB}^*\slepton_{iA}$.
-However, sleptons are not stable, but must decay into the \gls{lsp}, possibly in a chain of several subsequent decays (a \emph{cascade}).
-
-\subsubsection{Experimental Signature of Sleptons}
-In the \gls{mssm}, the \gls{lsp} is typically thought to be the lightest neutralino $\tilde\chi_1^0$, hence the process we are interested in experimentally is\footnote{This process is also interesting in $R$-parity violating models if the lightest neutralino is long-lived, see e.g.\ Ref.~\cite{Cottin:2025avd}.} $pp \to \slepton^*\slepton \to \tilde\chi_1^0\tilde\chi_1^0$.
-Examples of how this process might look are shown in \cref{fig:pp_to_neutralino}.
-The slepton decay produces Standard Model leptons, which can be observed in our detectors,\footnote{Be wary that many of the decay channels produce neutrinos rather than charged leptons, which are not picked up by the detectors.} along with neutralinos, which escape detection entirely.
-Momentum conservation requires the total momentum orthogonal to the axis of collision to sum to zero, hence we can search for missing transverse momentum $\vec{\slashed{p}}_T$ in experiments---it might be carried by neutralinos that have escaped the detectors.
-% This missing momentum might be carried by neutralinos that have escaped our detectors.
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[b]{0.35\linewidth}
-        \centering
-        \inputtikz[baseline=(blob.base)]{susy/pp_neutralino}
-        \caption{}
-        \label{fig:pp_to_neutralino_simple}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.6\linewidth}
-        \centering
-        \inputtikz[baseline=(blob.base)]{susy/pp_neutralino_cascade}
-        \caption{}
-        \label{fig:pp_to_neutralino_cascade}
-    \end{subfigure}
-    \caption{Examples of slepton pair production with subsequent cascade decays in proton--proton collisions. The specific decay channels drawn here are based on allowed decays given Secs.~9.1~and~9.2 of Ref.~\cite{Martin:1997ns}, and $j$ signifies jets resulting from partons that are not directly involved in the hard scattering.}
-    \label{fig:pp_to_neutralino}
-\end{figure}
-
-Although searching for \glspl{lsp} through missing transverse momentum seems straight-forward, it is much more difficult in practice.
-There are many Standard Model processes that can occurr in proton--proton collisions that also produce charged leptons together with undetectable neutrinos, and these processes are much more frequent than similar-signature supersymmetric processes.
-In addition, hadron collisions produce large amounts of jets, causing increased noise in detector data.
-In the search for sparticles at the \gls{lhc}, the Standard Model background is reduced by filtering data based on certain kinematic variables.
-These kinematic variables are designed in order to separate Standard Model and supersymmetry processes.
-
-As an example, consider the production of a pair of sleptons decaying into two leptons and two neutralinos, as shown in \cref{fig:pp_to_neutralino_simple}.
-One could define the \emph{stransverse mass}~\cite{Lester:1999tx,Barr:2003rg}, given by
-\begin{equation}
-    m_{T2}(\vec{p}_T^{\ell^-}, \vec{p}_T^{\ell^+}, \vec{\slashed{p}}_T)
-    \equiv \min_{\vec{\slashed{p}}_{T1} + \vec{\slashed{p}}_{T2} = \vec{\slashed{p}}_T} \Bigl\{
-        \max\Bigl[
-            m_T^2(\vec{p}_T^{\ell^-}, \vec{\slashed{p}}_{T1}; m_\chi), m_T^2(\vec{p}_T^{\ell^+}; \vec{\slashed{p}}_{T2}, m_\chi)
-        \Bigr]
-    \Bigr\},
-\end{equation}
-where $\vec{p}_T^{\ell^\pm}$ is the observed transverse momentum of the leptons, $\vec{\slashed{p}}_T$ is the missing transverse momentum associated with the neutralinos, $m_\chi$ is the neturalino mass, and the transverse mass is given by
-\begin{equation}
-    m_T^2(\vec{p}_T^{\ell^\pm}, \vec{\slashed{p}}_T; m_\chi) \equiv m_{\ell^\pm}^2 + m_\chi^2 + 2(E_T^{\ell^\pm} \slashed{E}_T - \vec{p}_T^{\ell^\pm}\cdot\vec{\slashed{p}}_T),
-\end{equation}
-where $E_T^{\ell^\pm} = \sqrt{(\vec{p}_T^{\ell^\pm})^2+m_{\ell^\pm}^2}$ and $\slashed{E}_T = \sqrt{\vec{\slashed{p}}_T^2 + m_\chi^2}$.
-$m_T^2\equiv 2(E_T\slashed{E}_T - \vec{p}_T\cdot\vec{\slashed{p}}_T)$ is the transverse momentum, with $\slashed{E}_T^2\equiv\vec{\slashed{p}}_T$.
-The stransverse mass has the property that $m_{T2}^2 \leq m_{\slepton}^2$, and can therefore be used to filter data by requiring $m_{T2}$ to be sufficiently high that corresponding Standard Model decays would not be included.
-
-% When looking for supersymmetric processes with cascade decays such as this, one typically employs the narrow-width approximation (see e.g.\ Refs.~\cite{ATLAS:2025evx,ATLAS:2025wln,ATLAS:2022hbt,CMS:2019hos}\footnote{Note that the narrow-width approximation is often not mentioned plainly, but is implicitly assumed in discussions of sparticle branching ratios.}), which is valid when the decay width of the produced particle (in our case the slepton) is small compared to its mass, i.e.\ when $\Gamma \ll m$~\cite{Schwartz:2014sze}.
-When looking for sleptons at the \gls{lhc} using processes with production and subsequent decays, such as the example just discussed, one typically employs the narrow-width approximation (see e.g.\ Refs.~\cite{ATLAS:2025evx,ATLAS:2025wln,ATLAS:2022hbt,CMS:2019hos}\footnote{Note that the narrow-width approximation is often not mentioned directly, but is implicitly assumed in discussions of sparticle branching ratios.}), which is valid when the decay width of the produced particle (in our case the slepton) is small compared to its mass, i.e.\ when $\Gamma \ll m$~\cite{Schwartz:2014sze}.
-In the narrow-width approximation we can decouple the production and decay processes, considering them as separate subprocesses, allowing us to write the cross section for the full process as
-\begin{equation}
-    \sigma(pp\to\tilde\chi_1^0\tilde\chi_1^0+j+X) = \sigma(pp\to\slepton^*\slepton+j) \operatorname{BR}(\slepton\to\chi_1^0\chi_1^0+X).
-\end{equation}
-It is the production cross section $\sigma(pp\to\slepton^*\slepton)$ that constitutes the main topic of this thesis, to be calculated at \gls{nlo} in \gls{qed} in \cref{ch:parton_level,ch:hadron_level,ch:results}.
-
-
-\subsubsection{Current Bounds on Slepton Masses}
-
-In \cref{fig:exclusion} we show the most recent exclusion plot for masses in the slepton--lightest neutralino mass plane, based on several searches done by the ATLAS collarboration at CERN. The shaded areas show parameter values that have been excluded at \qty{95}{\percent} confidence level by comparison to data from the \gls{lhc} (apart from the gray area, which uses data from the \gls{lep}).
-The \gls{lhc} exclusion limits are based on the production of sleptons in proton--proton collisions, and their subsequent decay to the lightest neutralino, as discussed above.
-As we can see, large portions of the slepton--lightest neutralino mass parameter space has been excluded, but not all of it. Even for fairly low slepton masses $m_\slepton \lesssim \qty{400}{GeV}$ there are regions that are not yet excluded, as long as the sleptons' masses are fairly close to the lightest neutralino mass.
-We should therefore continue searching in order to exclude larger portions of the parameter space.\footnote{Or more optimistically, of course, observe sleptons.}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\linewidth]{Figures/slepton_exclusion_2026.pdf}
-    \caption{Excluded areas at \qty{95}{\percent} confidence level in the slepton--lightest neutralino mass plane. The figure is retrieved from Ref.~\cite{ATLAS:2026hws}.}
-    \label{fig:exclusion}
-\end{figure}
-
 
 
 
@@ -867,7 +788,7 @@ As an example, consider an interaction between two scalar fields $\phi$ and $\ch
 \begin{equation}
     \inputtikz[baseline=(v.base)]{rules/example_rule} = i \times (2!) \times (-ip^\mu)\lambda = 2\lambda p^\mu,
 \end{equation}
-where $2!$ is the symmetry factor.
+where $2!$ is the symmetry factor resulting from a permutation of the two $\phi$ fields.
 
 \subsubsection{Electroweak Mixing}
 Since the Feynman rules to be derived involve electroweak gauge bosons, we briefly review their properties here.
@@ -921,7 +842,7 @@ which will turn out to be useful.
 \subsubsection{General Scalar--Vector Component Interactions from Superfields}
 We want to find the interaction between sleptons (the scalar component fields of the scalar superfields) and the electroweak gauge bosons (the vector component fields in the vector superfields), thus for our discussion most components in the superfields are irrelevant.
 Considering the general superfields in \cref{eq:superfields} the relevant terms remaining are\footnote{
-    Note that we only include terms from $\Phi$ with at most one $\theta$ and one $\bar\theta$ since any other term will give zero when multiplied with the vector superfield.
+    Note that we only include terms from $\Phi$ with at most one $\theta$ and one $\bar\theta$, since any other term will give zero when multiplied with the vector superfield.
 }
 \begin{align*}
     \Phi &\supset A + i\theta\sigma^\mu\bar\theta \partial_\mu A,
@@ -1034,9 +955,70 @@ The remaining terms, the first two terms of $\tilde{\mathcal{L}}_{3L}$ in \cref{
 The resulting Feynman rules from the Lagrangian terms in \cref{eq:L_Vll,eq:L_Vlnu,eq:L_Vnunu} are given in \cref{tab:slepton_rules}.
 We can see that they coincide perfectly with Refs.~\cite{Richardson:2000nt,Rosiek:1989sce}.
 
+
+\begin{table}
+    \centering
+    \caption{The Feynman rules for electroweak slepton--gauge boson interactions derived in \cref{sec:feynman_rules}, and the corresponding electroweak interactions of the Standard Model quarks~\cite{Richardson:2000nt}. $V^{1,2}_\mu$ and $s_{1,2}$ denote general vectors and charged scalars, $q$ and $\widebar{q}$ denote (same-flavor) quarks and anti-quarks, while $u_i$ and $d_i$ denote the $i$'th generation of up- and down-type quarks, respectively.}
+    % We also include the electroweak interactions of Standard Model quarks~\cite{Richardson:2000nt}, as these are relevant for calculations in \cref{ch:parton_level}. Here $q$ and $\widebar{q}$ denote general quarks and anti-quarks, while $u_i$ and $d_i$ denote $i$'th generation of up- and down-type quarks, respectively.}
+    \label{tab:slepton_rules}
+    \renewcommand{\arraystretch}{1.8}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \multicolumn{3}{|c|}{\textbf{Three-point interactions}}
+        \\ \hline
+        Coupling & Feynman rule & Diagram
+        \\ \hline
+        $\gamma\tilde\ell_{iA}^*\tilde\ell_{iB}$ & $ie (p+p')^\mu \delta^{AB}$ & \multirow{5}{*}{\inputtikz[baseline=(v)]{rules/general-3point}}
+        \\
+        $Z\tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{ie}{s_Wc_W} \zliab (p+p')^\mu$ &
+        \\
+        $Z\tilde\nu_{iA}^*\tilde\nu_{iB}$ & $\frac{ie}{s_Wc_W} \znuiab (p+p')^\mu$ &
+        \\
+        $W^-\tilde\ell_{iA}^*\tilde\nu_{iL}$ & $-\frac{ie}{\sqrt{2} s_W} L^{i*}_{LA} (p+p')^\mu$ &
+        \\
+        $W^+\tilde\nu_{iL}^*\tilde\ell_{iA}$ & $-\frac{ie}{\sqrt{2} s_W} L^i_{LA} (p+p')^\mu$ &
+        \\ \hline\hline
+        \multicolumn{3}{|c|}{\textbf{Four-point interactions}}
+        \\ \hline
+        Coupling & Feynman rule & Diagram
+        \\ \hline
+        $\gamma\gamma \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $2ie^2\delta^{AB}g^{\mu\nu}$ & \multirow{10}{*}{\inputtikz[baseline=(v)]{rules/general-4point}}
+        \\
+        $\gamma Z \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{2ie^2}{s_Wc_W} \zliab g^{\mu\nu}$ &
+        \\
+        $Z Z \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{2ie^2}{c_W^2} \Bigl( \frac{1-4s_W^2}{4s_W^2} L_{LA}^{i*}L_{LB}^i + s_W^2 \delta^{AB} \Bigr) g^{\mu\nu}$ &
+        \\
+        $W^+ W^- \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{ie^2}{2s_W^2} L^{i*}_{LA} L^i_{LB} g^{\mu\nu}$ &
+        \\
+        $W^+ W^- \tilde\nu_{iL}^*\tilde\nu_{iL}$ & $\frac{ie^2}{2s_W^2} g^{\mu\nu}$ &
+        \\
+        $Z Z \tilde\nu_{iL}^*\tilde\nu_{iL}$ & $\frac{ie^2}{2s_W^2c_W^2} g^{\mu\nu}$ &
+        \\
+        $\gamma W^- \tilde\ell_{iA}^*\tilde\nu_{iL}$ & $-\frac{ie^2}{\sqrt{2}s_W} L^{i*}_{LA} g^{\mu\nu}$ &
+        \\
+        $\gamma W^+ \tilde\nu_{iL}^*\tilde\ell_{iA}$ & $-\frac{ie^2}{\sqrt{2}s_W} L^i_{LA} g^{\mu\nu}$ &
+        \\
+        $Z W^- \tilde\ell_{iA}^*\tilde\nu_{iL}$ & $\frac{ie^2}{\sqrt{2}c_W} L^{i*}_{LA} g^{\mu\nu}$ &
+        \\
+        $Z W^+ \tilde\nu_{iL}^*\tilde\ell_{iA}$ & $\frac{ie^2}{\sqrt{2}c_W} L^i_{LA} g^{\mu\nu}$ &
+        \\ \hline\hline
+        \multicolumn{3}{|c|}{\textbf{SM interactions}}
+        \\ \hline
+        Coupling & Feynman rule & Diagram
+        \\ \hline
+        $q\widebar{q}\gamma$ & $-ieQ_q\gamma^\mu$ & \multirow{3}{*}{\inputtikz[baseline=(v)]{rules/general_sm}}
+        \\
+        $q\widebar{q}Z$ & $\frac{ie}{s_Wc_W}\gamma^\mu\Bigl[Z_{q_L}(1-\gamma^5)+Z_{q_R}(1+\gamma^5)\Bigr]$ &
+        \\
+        $d_i\widebar{u}_i W^-$ & $\frac{-ie}{2\sqrt{2}\,s_W}\gamma^\mu(1-\gamma^5)$ &
+        \\ \hline
+    \end{tabular}
+\end{table}
+
+
 \paragraph{Four-Point Interactions}
 The four-point interactions come from $\tilde{\mathcal L}_{4R}$ and $\tilde{\mathcal L}_{4L}$ in the second line of \cref{eq:slepton_kahler}.
-Using the anticommutator relation for Pauli matrices:
+Using the anticommutator relation for Pauli matrices, i.e.\ that
 $\{\sigma_a,\sigma_b\} = 2 \delta_{ab}$,
 it is easy to show that
 $(\sigma_a W^a)^2 = W_aW^a$.
@@ -1122,83 +1104,127 @@ For completeness, these are also included in \cref{tab:slepton_rules}, and are t
 Their Feynman rules make use of the couplings $Z_{q_L}$ and $Z_{q_R}$, given by
 \begin{align}
     Z_{q_L} &= \frac{1}{2}\Bigl( Q_q s_W^2 - T^3_{q_L} \Bigr),\\
-    % Z_{u_L} &= -\frac{1}{4}(1 - 2Q_u s_W^2) \\
-    % Z_{d_L} &= \frac{1}{4}(1 + 2Q_d s_W^2) \\
     Z_{q_R} &= \frac{1}{2}Q_q s_W^2,
 \end{align}
 where $Q_q$ is the electric charge of quark $q$, and we remind the reader that the weak isospin is $T^3 = \pm\frac{1}{2}$ for up- and down-type quarks, respectively.
 
-Propagators are given by (using the Feynman gauge for vector bosons)~\cite{Peskin:1995ev}
-\begin{equation}\label{eq:propagators_and_externals}
-\begin{split}
-    \inputtikz[baseline=(a.base)]{propagators/prop_fermion} &= \frac{i(\slashed{p}+m)}{p^2-m^2+i\epsilon},
-    \\
-    \inputtikz[baseline=(a.base)]{propagators/prop_boson} &= \frac{-ig_{\mu\nu}}{p^2-m^2+i\epsilon},
-    \\
-    \inputtikz[baseline=(a.base)]{propagators/prop_scalar} &= \frac{i}{p^2-m^2+i\epsilon}.
-\end{split}
-\end{equation}
-External lines in Feynman diagram contribute a factor of unity for (charged) scalars, while incoming/outgoing fermions, anti-fermions and vector bosons contribute spinors $u(p)$/$\widebar{u}(p)$, $\widebar{v}(p)$/$v(p)$ and polarization vectors $\eps_\mu(p)$/$\eps_\mu^*(p)$, respectively.
-% External lines in Feynman diagram contribute a factor of unity for (charged) scalars, while incoming (outgoing) fermions, anti-fermions and vector bosons contribute spinors $u(p)$ ($\widebar{u}(p)$), $\widebar{v}(p)$ ($v(p)$) and polarization vectors $\eps_\mu(p)$ ($\eps_\mu^*(p)$), respectively.
-% External lines in Feynman diagram contribute a factor of unity for (charged) scalars, while incoming (outgoing) fermions, anti-fermions and vector bosons contribute spinors $u$ ($\widebar{u}$), $\widebar{v}$ ($v$) and polarization vectors $\eps_\mu$ ($\eps_\mu^*$), respectively.
-% polarization vectors $\eps_\mu(p)$ ($\eps_\mu^*(p)$) for incoming (outgoing) vector bosons, and spinors $u(p)$ ($\widebar{u}(p)$) and $\widebar{v}(p)$ ($v(p)$) for incoming (outgoing) fermions and anti-fermions, respectively.
+% Propagators are given by (using the Feynman gauge for vector bosons)~\cite{Peskin:1995ev}
+% \begin{equation}\label{eq:propagators_and_externals}
+% \begin{split}
+%     \inputtikz[baseline=(a.base)]{propagators/prop_fermion} &= \frac{i(\slashed{p}+m)}{p^2-m^2+i\epsilon},
+%     \\
+%     \inputtikz[baseline=(a.base)]{propagators/prop_boson} &= \frac{-ig_{\mu\nu}}{p^2-m^2+i\epsilon},
+%     \\
+%     \inputtikz[baseline=(a.base)]{propagators/prop_scalar} &= \frac{i}{p^2-m^2+i\epsilon}.
+% \end{split}
+% \end{equation}
+% External lines in Feynman diagram contribute a factor of unity for (charged) scalars, while incoming/outgoing fermions, anti-fermions and vector bosons contribute spinors $u(p)$/$\widebar{u}(p)$, $\widebar{v}(p)$/$v(p)$ and polarization vectors $\eps_\mu(p)$/$\eps_\mu^*(p)$, respectively.
 
 
-\begin{table}[ht]
+
+
+
+
+
+
+\subsection{Sleptons at Hadron Colliders}\label{sec:hadron_colliders}
+
+Searches for \gls{bsm} physics is done by analyzing data from high-energy particle accelerators, and the highest energies achieved to date are at the \gls{lhc} at CERN, where protons are smashed together at \gls{com} energies up to $\sqrt{s}=\qty{13.6}{TeV}$~\cite{ParticleDataGroup:2026aaa}.
+Thus in the search for supersymmetry, we are highly interested in how sparticles can be produced in proton--proton collisions.
+In the context of this thesis, the focus is on slepton pair production through the process $pp \to \slepton_{iB}^*\slepton_{iA}$.
+However, sleptons are not stable, but must decay into the \gls{lsp}, possibly in a chain of several subsequent decays (a \emph{cascade}).
+
+\subsubsection{Experimental Signature of Sleptons}
+In the \gls{mssm}, the \gls{lsp} is typically thought to be the lightest neutralino $\tilde\chi_1^0$, hence the process we are interested in experimentally is\footnote{This process is also interesting in $R$-parity violating models if the lightest neutralino is long-lived; see, for instance, Ref.~\cite{Cottin:2025avd}.} $pp \to \slepton^*\slepton+X \to \ell^+\ell^-\tilde\chi_1^0\tilde\chi_1^0+X$.
+Examples of how this process might look are shown in \cref{fig:pp_to_neutralino}.
+The slepton decay produces Standard Model leptons, which can be observed in our detectors, along with neutralinos, which escape detection entirely.
+Momentum conservation requires the total momentum orthogonal to the axis of collision to sum to zero, hence we can search for missing transverse momentum $\vec{\slashed{p}}_T$ in experiments---it might be carried by neutralinos that have escaped the detectors.
+% This missing momentum might be carried by neutralinos that have escaped our detectors.
+
+\begin{figure}
     \centering
-    \caption{The Feynman rules for electroweak slepton--gauge boson interactions derived in \cref{sec:feynman_rules}, and the corresponding electroweak interactions of the Standard Model quarks~\cite{Richardson:2000nt}. $V^{1,2}_\mu$ and $s_{1,2}$ denote general vectors and charged scalars, $q$ and $\widebar{q}$ denote (same-flavor) quarks and anti-quarks, while $u_i$ and $d_i$ denote the $i$'th generation of up- and down-type quarks, respectively.}
-    % We also include the electroweak interactions of Standard Model quarks~\cite{Richardson:2000nt}, as these are relevant for calculations in \cref{ch:parton_level}. Here $q$ and $\widebar{q}$ denote general quarks and anti-quarks, while $u_i$ and $d_i$ denote $i$'th generation of up- and down-type quarks, respectively.}
-    \label{tab:slepton_rules}
-    \renewcommand{\arraystretch}{1.8}
-    \begin{tabular}{|c|c|c|}
-        \hline
-        \multicolumn{3}{|c|}{\textbf{Three-point interactions}}
-        \\ \hline
-        Coupling & Feynman rule & Diagram
-        \\ \hline
-        $\gamma\tilde\ell_{iA}^*\tilde\ell_{iB}$ & $ie (p+p')^\mu \delta^{AB}$ & \multirow{5}{*}{\inputtikz[baseline=(v)]{rules/general-3point}}
-        \\
-        $Z\tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{ie}{s_Wc_W} \zliab (p+p')^\mu$ &
-        \\
-        $Z\tilde\nu_{iA}^*\tilde\nu_{iB}$ & $\frac{ie}{s_Wc_W} \znuiab (p+p')^\mu$ &
-        \\
-        $W^-\tilde\ell_{iA}^*\tilde\nu_{iL}$ & $-\frac{ie}{\sqrt{2} s_W} L^{i*}_{LA} (p+p')^\mu$ &
-        \\
-        $W^+\tilde\nu_{iL}^*\tilde\ell_{iA}$ & $-\frac{ie}{\sqrt{2} s_W} L^i_{LA} (p+p')^\mu$ &
-        \\ \hline\hline
-        \multicolumn{3}{|c|}{\textbf{Four-point interactions}}
-        \\ \hline
-        Coupling & Feynman rule & Diagram
-        \\ \hline
-        $\gamma\gamma \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $2ie^2\delta^{AB}g^{\mu\nu}$ & \multirow{10}{*}{\inputtikz[baseline=(v)]{rules/general-4point}}
-        \\
-        $\gamma Z \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{2ie^2}{s_Wc_W} \zliab g^{\mu\nu}$ &
-        \\
-        $Z Z \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{2ie^2}{c_W^2} \Bigl( \frac{1-4s_W^2}{4s_W^2} L_{LA}^{i*}L_{LB}^i + s_W^2 \delta^{AB} \Bigr) g^{\mu\nu}$ &
-        \\
-        $W^+ W^- \tilde\ell_{iA}^*\tilde\ell_{iB}$ & $\frac{ie^2}{2s_W^2} L^{i*}_{LA} L^i_{LB} g^{\mu\nu}$ &
-        \\
-        $W^+ W^- \tilde\nu_{iL}^*\tilde\nu_{iL}$ & $\frac{ie^2}{2s_W^2} g^{\mu\nu}$ &
-        \\
-        $Z Z \tilde\nu_{iL}^*\tilde\nu_{iL}$ & $\frac{ie^2}{2s_W^2c_W^2} g^{\mu\nu}$ &
-        \\
-        $\gamma W^- \tilde\ell_{iA}^*\tilde\nu_{iL}$ & $-\frac{ie^2}{\sqrt{2}s_W} L^{i*}_{LA} g^{\mu\nu}$ &
-        \\
-        $\gamma W^+ \tilde\nu_{iL}^*\tilde\ell_{iA}$ & $-\frac{ie^2}{\sqrt{2}s_W} L^i_{LA} g^{\mu\nu}$ &
-        \\
-        $Z W^- \tilde\ell_{iA}^*\tilde\nu_{iL}$ & $\frac{ie^2}{\sqrt{2}c_W} L^{i*}_{LA} g^{\mu\nu}$ &
-        \\
-        $Z W^+ \tilde\nu_{iL}^*\tilde\ell_{iA}$ & $\frac{ie^2}{\sqrt{2}c_W} L^i_{LA} g^{\mu\nu}$ &
-        \\ \hline\hline
-        \multicolumn{3}{|c|}{\textbf{SM interactions}}
-        \\ \hline
-        Coupling & Feynman rule & Diagram
-        \\ \hline
-        $q\widebar{q}\gamma$ & $-ieQ_q\gamma^\mu$ & \multirow{3}{*}{\inputtikz[baseline=(v)]{rules/general_sm}}
-        \\
-        $q\widebar{q}Z$ & $\frac{ie}{s_Wc_W}\gamma^\mu\Bigl[Z_{q_L}(1-\gamma^5)+Z_{q_R}(1+\gamma^5)\Bigr]$ &
-        \\
-        $d_i\widebar{u}_i W^-$ & $\frac{-ie}{2\sqrt{2}\,s_W}\gamma^\mu(1-\gamma^5)$ &
-        \\ \hline
-    \end{tabular}
-\end{table}
+    \begin{subfigure}[b]{0.35\linewidth}
+        \centering
+        \inputtikz[baseline=(blob.base)]{susy/pp_neutralino}
+        \caption{}
+        \label{fig:pp_to_neutralino_simple}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.6\linewidth}
+        \centering
+        \inputtikz[baseline=(blob.base)]{susy/pp_neutralino_cascade}
+        \caption{}
+        \label{fig:pp_to_neutralino_cascade}
+    \end{subfigure}
+    \caption{Examples of slepton pair production with subsequent cascade decays in proton--proton collisions. The specific decay channels drawn here are based on allowed decays given in Secs.~9.1~and~9.2 of Ref.~\cite{Martin:1997ns}, and $j$ signifies jets resulting from extra partons from the hard scattering or from initial-state radiation.}
+    \label{fig:pp_to_neutralino}
+\end{figure}
+
+Although searching for \glspl{lsp} through missing transverse momentum seems straight-forward, it is much more difficult in practice.
+There are many Standard Model processes that can occurr in proton--proton collisions---for instance, through the production of $W$ bosons---which also produce charged leptons together with undetectable neutrinos, and these processes are much more frequent than similar-signature supersymmetric processes.
+In addition, hadron collisions produce large amounts of jets, causing increased noise in detector data.
+In the search for sparticles at the \gls{lhc}, the Standard Model background is reduced by filtering data based on certain kinematic variables.
+These kinematic variables are designed in order to separate Standard Model and supersymmetry processes.
+
+% As an example, consider the production of a pair of sleptons decaying into two leptons and two neutralinos, as shown in \cref{fig:pp_to_neutralino_simple}.
+% One could define the \emph{stransverse mass}~\cite{Lester:1999tx,Barr:2003rg}, given by
+% \begin{equation}
+%     m_{T2}^2(\vec{p}_T^{\ell^-}, \vec{p}_T^{\ell^+}, \vec{\slashed{p}}_T)
+%     \equiv \min_{\vec{\slashed{p}}_{T1} + \vec{\slashed{p}}_{T2} = \vec{\slashed{p}}_T} \Bigl\{
+%         \max\Bigl[
+%             m_T^2(\vec{p}_T^{\ell^-}, \vec{\slashed{p}}_{T1}; m_{\tilde\chi_1^0}), m_T^2(\vec{p}_T^{\ell^+}, \vec{\slashed{p}}_{T2}; m_{\tilde\chi_1^0})
+%         \Bigr]
+%     \Bigr\},
+% \end{equation}
+% where $\vec{p}_T^{\ell^\pm}$ is the observed transverse momentum of the leptons, $\vec{\slashed{p}}_{T1}$ and $\vec{\slashed{p}}_{T2}$ are the missing transverse momenta of the two neutralinos---which sum to the total missing transverse momentum $\vec{\slashed{p}}_T$ measured in experiments---$m_{\tilde\chi_1^0}$ is the assumed neutralino mass, and the transverse mass is given by
+% \begin{equation}
+%     m_T^2(\vec{p}_T^{\ell^\pm}, \vec{\slashed{p}}_T; m_{\tilde\chi_1^0}) \equiv m_{\ell^\pm}^2 + m_{\tilde\chi_1^0}^2 + 2(E_T^{\ell^\pm} \slashed{E}_T - \vec{p}_T^{\ell^\pm}\cdot\vec{\slashed{p}}_T),
+% \end{equation}
+% where $E_T^{\ell^\pm} = \sqrt{(\vec{p}_T^{\ell^\pm})^2+m_{\ell^\pm}^2}$ and $\slashed{E}_T = \sqrt{\vec{\slashed{p}}_T^2 + m_{\tilde\chi_1^0}^2}$.
+% For the production of $W$ bosons decaying into a lepton and neutrino, which would give a similar signature as slepton production, the stransverse mass has the property that $m_{T2}^2 \leq m_W^2$.
+% Hence we can exclude Standard Model events by requiring $m_{T2}^2 > m_W^2$, picking only the supersymmetry events.
+As an example, consider the production of a pair of sleptons decaying into two leptons and two neutralinos, as shown in \cref{fig:pp_to_neutralino_simple}.
+One could define the \emph{stransverse mass}~\cite{Lester:1999tx,Barr:2003rg}, given by
+\begin{equation}
+    m_{T2}^2(\vec{p}_T^{\ell^-}, \vec{p}_T^{\ell^+}, \vec{\slashed{p}}_T)
+    \equiv \min_{\vec{\slashed{p}}_{T1} + \vec{\slashed{p}}_{T2} = \vec{\slashed{p}}_T} \Bigl\{
+        \max\Bigl[
+            m_T^2(\vec{p}_T^{\ell^-}, \vec{\slashed{p}}_{T1}), m_T^2(\vec{p}_T^{\ell^+}, \vec{\slashed{p}}_{T2})
+        \Bigr]
+    \Bigr\},
+\end{equation}
+where $\vec{p}_T^{\ell^\pm}$ is the observed transverse momentum of the leptons, $\vec{\slashed{p}}_{T1}$ and $\vec{\slashed{p}}_{T2}$ are the missing transverse momenta of the two neutralinos---which sum to the total missing transverse momentum $\vec{\slashed{p}}_T$ measured in experiments---and the transverse mass is given by
+\begin{equation}
+    m_T^2(\vec{p}_T^{\ell^\pm}, \vec{\slashed{p}}_T) \equiv m_{\ell^\pm}^2 + 2(E_T^{\ell^\pm} \slashed{E}_T - \vec{p}_T^{\ell}\cdot\vec{\slashed{p}}_T),
+\end{equation}
+where $E_T^{\ell^\pm} = \sqrt{(\vec{p}_T^{\ell^\pm})^2+m_{\ell^\pm}^2}$ and $\slashed{E}_T = \sqrt{\vec{\slashed{p}}_T^2 + m_{\tilde\chi_1^0}^2}$ are transverse energies, and $m_{\ell}$ and $m_{\tilde\chi_1^0}$ are the lepton and neutralino masses, respectively.
+The stransverse mass then has the property that $m_{T2} \leq m_{\slepton} - m_{\tilde\chi_1^0}$, where $m_{\slepton}$ is the mass of the slepton.
+For the production of $W$ bosons, which decay into leptons and neutrinos and hence give a similar signature as slepton production, this instead reads $m_{T2} \leq m_W$.
+Hence we can exclude Standard Model events by requiring $m_{T2} > m_W$, picking out only the supersymmetry events.
+
+% When looking for sleptons at the \gls{lhc} using processes with production and subsequent decays, such as the example just discussed, one typically employs the narrow-width approximation,\footnote{See, for instance, Refs.~\cite{ATLAS:2025evx,ATLAS:2022hbt,CMS:2019hos}. Note that the narrow-width approximation is often not mentioned directly, but is implicitly assumed in discussions of sparticle branching ratios.} which is valid when the decay width of the produced particle (in our case the slepton) is small compared to its mass, i.e.\ when $\Gamma \ll m$~\cite{Schwartz:2014sze}.
+% \enlargethispage{\baselineskip}
+When looking for sleptons at the \gls{lhc} using processes with production and subsequent decays, such as the example just discussed, one typically employs the narrow-width approximation; see, for instance, Refs.~\cite{ATLAS:2025evx,ATLAS:2022hbt,CMS:2019hos}.\footnote{Note that the narrow-width approximation is often not mentioned directly, but is implicitly assumed in discussions of sparticle branching ratios.}
+This is valid when the decay width of the produced particle (in our case the slepton) is small compared to its mass, i.e.\ when $\Gamma \ll m$~\cite{Schwartz:2014sze}.
+In the narrow-width approximation we can decouple the production and decay processes, which is what allows us to consider slepton pair production on its own with on-shell sleptons, as we will do in \cref{ch:parton_level,ch:hadron_level,ch:results}.
+
+% In the narrow-width approximation we can decouple the production and decay processes, considering them as separate subprocesses, allowing us to write the cross section for the full process as
+% \begin{equation}
+%     \sigma(pp\to\ell^+\ell^-\tilde\chi_1^0\tilde\chi_1^0+X) = \sigma(pp\to\slepton^*\slepton+X) \operatorname{BR}(\slepton\to\ell\chi_1^0)^2.
+% \end{equation}
+% It is the production cross section $\sigma(pp\to\slepton^*\slepton)$ that constitutes the main topic of this thesis, to be calculated at \gls{nlo} in \gls{qed} in \cref{ch:parton_level,ch:hadron_level,ch:results}.
+
+
+\subsubsection{Current Bounds on Slepton Masses}
+
+In \cref{fig:exclusion} we show the most recent exclusion plot for masses in the slepton--lightest neutralino mass plane, based on several searches done by the ATLAS collaboration at CERN. The shaded areas show parameter values that have been excluded at \qty{95}{\percent} confidence level by comparison to data from the \gls{lhc}, apart from the gray area, which uses data from the \gls{lep}.
+The \gls{lhc} exclusion limits are based on the production of sleptons in proton--proton collisions, and their subsequent decay to the lightest neutralino with a \qty{100}{\percent} branching ratio.
+As we can see, large portions of the slepton--lightest neutralino mass parameter space has been excluded, but not all of it. Even for fairly low slepton masses $m_\slepton \lesssim \qty{400}{GeV}$ there are regions that are not yet excluded, as long as the sleptons' masses are fairly close to the lightest neutralino mass.
+We should therefore continue searching in order to exclude larger portions of the parameter space.\footnote{Or more optimistically, of course, observe sleptons.}
+To strengthen exclusion bounds from data, we need to reduce uncertainties, such as the theoretical uncertainty on the cross section.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{Figures/slepton_exclusion_2026.pdf}
+    \caption{Excluded areas at \qty{95}{\percent} confidence level in the slepton--lightest neutralino mass plane. The figure is retrieved from Ref.~\cite{ATLAS:2026hws}.}
+    \label{fig:exclusion}
+\end{figure}

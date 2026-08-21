@@ -161,8 +161,7 @@ When changing from four to $d$ spacetime dimensions, the action becomes $S=\int 
 Consider again complex $\phi^4$ theory, described by the Lagrangian in \cref{eq:phi4_lagrangian}. The derivatives $\partial_\mu \equiv \partial/(\partial x^\mu)$ have mass dimension $[\partial_\mu]=1$, thus from the kinetic term it follows that---for $\mathcal{L}$ to have mass dimension $d$---the scalar fields must have mass dimension $[\phi]=\frac{d-2}{2}$. Furthermore, this implies that the coupling $\lambda$ must have mass dimension $[\lambda]=4-d$.
 This poses a problem, as we want to calculate observables in \gls{qft} perturbatively, i.e.\ we want to calculate expansions in the coupling $\lambda$.
 We therefore redefine our coupling $\lambda \to \mu^{4-d}\lambda$, where $[\mu]=1$.
-In this way, $\lambda$ remains dimensionless, at the cost of introducing a new parameter $\mu$, called the \emph{renormalization scale}. Since $\mu$ was just some arbitrarily introduced parameter, no observable quantities can depend on it.\footnote{Unfortunately---to finite orders in perturbation theory---they do, as perturbative \gls{qft} only provides an approximation to true values. The fact that true observables are independent of $\mu$ does, however, offer a way to estimate a calculational error due to working at finite order, as we will see in \rednote{ref results chapter}.}
-% Using this, we can calculate the loop integral of \cref{eq:loop_int_4_dim}.
+In this way, $\lambda$ remains dimensionless, at the cost of introducing a new parameter $\mu$, called the \emph{renormalization scale}. Since $\mu$ was just some arbitrarily introduced parameter, no observable quantities can depend on it.\footnote{Unfortunately---to finite orders in perturbation theory---they do, as perturbative \gls{qft} only provides an approximation to true values. The fact that true observables are independent of $\mu$ does, however, offer a way to estimate the cross section error due to working at finite order, as we will see in \cref{sec:uncertainties}.}
 
 \subsubsection{Complex $\phi^4$ Revisited}
 The matrix element for the process $\phi^-\phi^+\to\phi^-\phi^+$ in four spacetime dimensions was given in \cref{eq:phi4_nlo_before_feynman}.
@@ -707,7 +706,7 @@ For now, it suffices to know that soft divergences disappear without the need fo
 
 
 \subsection{Collinear Divergences}
-If the external particle in \cref{eq:soft_example} is massless, e.g.\ because the cross section is calculated in the ultra-relativistic limit, the propagator becomes
+If the external particle in \cref{eq:soft_example} is massless---for instance, because the cross section is calculated in the ultra-relativistic limit---the propagator becomes
 \begin{equation}\label{eq:collinear_example}
     \frac{\pslash+\kslash}{(p+k)^2} = \frac{\pslash+\kslash}{2p\cdot k},
 \end{equation}
@@ -732,7 +731,7 @@ Specifically, we considered a farily simple example of a loop involving two mass
 For more complicated loops with a higher number of (possibly massive) propagators, the calculations quickly become much more unwieldy.
 Luckily, the possible structures of loop diagrams are the same, regardless of the underlying model.
 This allows us to classify integrals in a structured and general way, by defining what is known as \emph{Passarino--Veltman functions}~\cite{tHooft:1978jhc,Passarino:1978jh}.
-These functions have been studied extensively, and are calculated analytically for the most common loop integrals (see e.g.\ Refs.~\cite{Ellis:2007qk,Denner:1991kt}).
+These functions have been studied extensively, and are calculated analytically for the most common loop integrals; see, for instance, Refs.~\cite{Ellis:2007qk,Denner:1991kt}.
 Therefore, by rewriting loop integrals in terms of Passarino--Veltman functions, we can simply extract the analytical expressions for divergent behavior using known tabulated results.
 The remaining finite terms are often complicated, and are typically evaluated numerically with packages such as \texttt{LoopTools}~\cite{Hahn:1998yk}.
 

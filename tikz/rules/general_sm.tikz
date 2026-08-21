@@ -2,7 +2,7 @@
     \begin{scope}[node distance=1.4cm]
         \vertex (v); % Vertex
         \vertex[above left=of v, label=left:\(q\)] (f1); % Slepton
-        \vertex[below left=of v, label=left:\(\widebar{q}\)] (f2); % Conjugate slepton
+        \vertex[below left=of v, label=left:\(\widebar{q}^{(\prime)}\)] (f2); % Conjugate slepton
         \vertex[right=of v, label=right:\(V_\mu\)] (i); % Photon
     \end{scope}
     \diagram*{
