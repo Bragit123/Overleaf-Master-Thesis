@@ -81,52 +81,41 @@ In the complex-mass scheme, the $W$ and $Z$ masses are
 % where $m_Z = \qty{91.188}{GeV}$ is the $Z$ boson's real pole mass, and $\Gamma_Z = \qty{2.4955}{GeV}$ its total decay width, their numerical values obtained from the Particle Data Group~\cite{ParticleDataGroup:2026aaa}.
 where $m_W=\qty{80.363}{GeV}$ and $m_Z = \qty{91.188}{GeV}$ are the $W$ and $Z$ bosons' real pole masses, and $\Gamma_W = \qty{2.14}{GeV}$ and $\Gamma_Z = \qty{2.4955}{GeV}$ are their total decay widths.
 Their numerical values are obtained from Ref.~\cite{ParticleDataGroup:2026aaa}.
-
-The electric charge and the Weinberg angle are closely related to the $W$ and $Z$ boson masses.
-After electroweak symmetry breaking, these parameters are given by
+% The Weinberg angle follows directly from the $W$ and $Z$ masses, as discussed in \cref{sec:renormalization_schemes}, and is given by
+% \begin{equation}
+%     s_W^2 = 1-\frac{\mu_W^2}{\mu_Z^2}.
+% \end{equation}
 % \begin{subequations}
 % \begin{align}
-%     m_W &= \frac{1}{2} vg,
+%     \mu_W &= \frac{1}{2} vg,
 %     \\
-%     m_Z &= \frac{1}{2} v\sqrt{g^2+g'^2},
+%     \mu_Z &= \frac{1}{2} v\sqrt{g^2+g'^2},
 %     \\
 %     e &= \frac{gg'}{\sqrt{g^2+g'^2}},
 %     \\
-%     s_W &= \frac{g'}{\sqrt{g^2+g'^2}} = \sqrt{1 - \frac{m_W^2}{m_Z^2}},
+%     s_W &= \frac{g'}{\sqrt{g^2+g'^2}} = \sqrt{1 - \frac{\mu_W^2}{\mu_Z^2}},
 % \end{align}
 % \end{subequations}
-\begin{subequations}
-\begin{align}
-    \mu_W &= \frac{1}{2} vg,
-    \\
-    \mu_Z &= \frac{1}{2} v\sqrt{g^2+g'^2},
-    \\
-    e &= \frac{gg'}{\sqrt{g^2+g'^2}},
-    \\
-    s_W &= \frac{g'}{\sqrt{g^2+g'^2}} = \sqrt{1 - \frac{\mu_W^2}{\mu_Z^2}},
-\end{align}
-\end{subequations}
-% where $g$ and $g'$ are the weak and hypercharge couplings, and $v$ is the Higgs \gls{vev}.
-where $g$ and $g'$ are the weak and hypercharge couplings, and $v$ is related to the Higgs \glspl{vev} $v_u$ and $v_d$ by
-\begin{equation}
-    v^2 = 2(v_u^2+v_d^2).
-\end{equation}
-% Taking $m_Z$ and $m_W$ to be the pole masses, with $m_W = \qty{80.369}{GeV}$~\cite{ParticleDataGroup:2026aaa}, we also fix the Weinberg angle as a direct consequence.
-With the complex $W$ and $Z$ masses given by \cref{eq:ZW_complex_masses}, they also fix the Weinberg angle as a direct consequence.
-
-The remaining electroweak parameter is then the electric charge $e$, or equivalently the electromagnetic coupling $\alpha=e^2/(4\pi)$.
-For this we will use the $G_\mu$ scheme, as described in \cref{sec:renormalization_schemes}, where
+% where $g$ and $g'$ are the weak and hypercharge couplings, and $v$ is related to the Higgs \glspl{vev} $v_u$ and $v_d$ by
+% \begin{equation}
+%     v^2 = 2(v_u^2+v_d^2).
+% \end{equation}
+% With the complex $W$ and $Z$ masses given by \cref{eq:ZW_complex_masses}, they also fix the Weinberg angle as a direct consequence.
+For the electromagnetic coupling $\alpha$ we use the $G_\mu$ scheme, as described in \cref{sec:renormalization_schemes}, where
+% The remaining electroweak parameter is then the electric charge $e$, or equivalently the electromagnetic coupling $\alpha=e^2/(4\pi)$.
+% For this we will use the $G_\mu$ scheme, as described in \cref{sec:renormalization_schemes}, where
 \begin{equation}
     \alpha \equiv \frac{\sqrt{2}G_\mu m_W^2}{\pi} \biggl(1-\frac{m_W^2}{m_Z^2}\biggr),
 \end{equation}
-where we note that the real pole masses of the $W$ and $Z$ bosons have been used.
+where we remind the reader that the real pole masses of the $W$ and $Z$ bosons have been used.
 The Fermi constant $G_\mu$---which was given in \cref{eq:Gmu_in_div} and is restated here for the reader's convenience---is~\cite{ParticleDataGroup:2026aaa}
 \begin{equation}
     G_\mu = \qty{1.166 378e-5}{GeV^{-2}}.
 \end{equation}
 As discussed in \cref{sec:renormalization_schemes}, the $G_\mu$ scheme has the advantage of absorbing the largest corrections to the electromagnetic coupling at the electroweak scale, and from the running of the Weinberg angle~\cite{Denner:2019vbn}.
+In addition, the running of $\alpha$ and $s_W$ are comparatively small when considering the running of the strong coupling---which appears in the \gls{qcd} corrections that we will compare our results with---and the uncertainties from \glspl{pdf}. We will therefore assume $\alpha$ and $s_W$ to be constant in our calculations.
 
-Like all couplings, $\alpha$ runs with the energy scale. Nevertheless, the running of $\alpha$ is comparatively small when considering the running of the strong coupling---which appears in \gls{qcd} corrections that we will want to compare our results with---and the uncertainties from \glspl{pdf}. We will therefore assume $\alpha$ to be constant in our computation.
+% Like all couplings, $\alpha$ runs with the energy scale. Nevertheless, the running of $\alpha$ is comparatively small when considering the running of the strong coupling---which appears in \gls{qcd} corrections that we will want to compare our results with---and the uncertainties from \glspl{pdf}. We will therefore assume $\alpha$ to be constant in our computation.
 
 Lastly, we must include numerical values for the renormalization and factorization scales $\mu_R$ and $\mu_F$.
 Although they are both unphysical parameters of which the cross section must remain independent, and can therefore be chosen freely, this statement is valid only when considering the full cross section at infinite order.
@@ -245,15 +234,15 @@ We therefore only compute the cross section at $\mu_F=\{\mu_0/2, \mu_0, 2\mu_0\}
 The \gls{pdf} uncertainty is slightly more convoluted.
 As we have already mentioned, the \glspl{pdf} are obtained from the Hessian \gls{pdf} set \texttt{PDF4LHC21\_40}~\cite{PDF4LHCWorkingGroup:2022cjn}.
 % Using \texttt{LHAPDF}~\cite{Buckley:2014ana}, we have obtained the \glspl{pdf} from the Hessian \gls{pdf} set \texttt{PDF4LHC21\_40}~\cite{PDF4LHCWorkingGroup:2022cjn}.
-This \gls{pdf} set contains $43$ \gls{pdf} members, which we index by $k=0,\ldots,42$.
-The zeroth member gives the central \gls{pdf}, used to compute the cross section result, while the remaining $42$ are used to estimate the \gls{pdf} error.
+This \gls{pdf} set contains $41$ \gls{pdf} members, which we index by $k=0,\ldots,40$.
+The zeroth member gives the central \gls{pdf}, used to compute the cross section result, while the remaining $40$ are used to estimate the \gls{pdf} error.
 % Although the strong coupling $\alpha_s$ does not appear for the \gls{qed} corrections we have considered, it does appear at higher orders in \gls{qcd}, which we will want to compare with
 % We therefore also need to estimate the cross section uncertainty due to $\alpha_s$.
 % Following \cite{Butterworth:2015oua}, we can calculate the \gls{pdf} error estimate by
 
 Following \cite{PDF4LHCWorkingGroup:2022cjn}, we calculate the \gls{pdf} uncertainty as
 \begin{equation}
-    \delta^{\mathrm{PDF}}\sigma = \sqrt{\sum_{k=1}^{42} \Bigl(\sigma^{(k)} - \sigma^{(0)} \Bigr)^2},
+    \delta^{\mathrm{PDF}}\sigma = \sqrt{\sum_{k=1}^{40} \Bigl(\sigma^{(k)} - \sigma^{(0)} \Bigr)^2},
 \end{equation}
 where $\sigma^{(k)}$ denotes the cross section found using the $k$'th \gls{pdf} member. $\delta^{\mathrm{PDF}}\sigma$ is then understood as a \qty{68}{\percent} confidence level~\cite{PDF4LHCWorkingGroup:2022cjn}.
 

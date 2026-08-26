@@ -1,5 +1,4 @@
 \addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{Appendix~}}
-% \addtocontents{toc}{\protect\setlength{\cftchapnumwidth}{7em}}
 \addtocontents{toc}{\protect\settowidth{\protect\cftchapnumwidth}{\protect\cftchappresnum A.MM}}
 \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
 
@@ -7,15 +6,6 @@
 
 \section{Spinors: Weyl, Dirac and Majorana}
 \subsection*{Weyl Spinors}
-% Grassmann numbers are numbers that anticommute with each other. If $\eta$ and $\theta$ are two Grassmann numbers, we have
-% \begin{equation}
-%     \eta\theta = -\theta\eta.
-% \end{equation}
-% In particular, the square of a Grassmann number is zero, which has the useful consequence that any function $f(\theta)$ of Grassmann numbers can be expanded as
-% \begin{equation}
-%     f(\theta) = c_0 + c_1\theta,
-% \end{equation}
-% where $c_0$ and $c_1$ are c-numbers, i.e.\ "classical" numbers---the ordinary, commuting real or complex numbers.
 Consider the complexified special linear group $SL(2,\mathbb{C})$. There are two inequivalent fundamental representations of this group: the \emph{self-representation} of matrices $M$ acting on \emph{left-handed} Weyl spinors $\psi$, and the \emph{complex conjugate self-representation} of matrices $M^*$ acting on the \emph{right-handed} Weyl spinors $\widebar\psi$.
 
 We write Weyl spinors as two-component vectors whose elements are Grassmann-valued. For left-handed Weyl spinors, we write $\phi_A$ with $A=1,2$, and for right-handed Weyl spinors we write $\widebar\phi_{\dot{A}}$ with dotted indices $\dot{A}=\dot{1}, \dot{2}$.
@@ -85,7 +75,6 @@ where $\sigma^\mu = (\mathbbm{1}, \vec\sigma)$, $\widebar\sigma^\mu$ is defined 
     (\widebar\sigma^\mu)^{\dot{A}A} \equiv \epsilon^{AB}\epsilon^{\dot{A}\dot{B}}\sigma^\mu_{B\dot{B}},
 \end{equation}
 and the Pauli matrices are given by
-% where $\sigma^\mu = (\mathbbm{1}, \vec\sigma)$ and $\widebar\sigma^\mu = (\mathbbm{1}, -\vec\sigma)$, and the Pauli matrices are given by
 \begin{equation}\label{eq:pauli_matrices}
     \sigma^1 = \begin{pmatrix}
         0 & 1 \\ 1 & 0
@@ -156,9 +145,6 @@ The differential operators $\partial_A$ and $\widebar\partial_{\dot{A}}$ are the
 \begin{equation}
     \{\partial_A, \partial_B\} = \{\widebar\partial_{\dot{A}}, \widebar\partial_{\dot{B}}\} = \{\partial_A, \widebar\partial_{\dot{B}}\} = 0.
 \end{equation}
-% \begin{equation}
-%     \partial_A(\theta_1^{B_1}\cdots\theta_n^{B_n}) \equiv (\partial_A\theta_1^{B_1})\theta_2^{B_2}\cdots\theta_n^{B_n} - \theta_1^{B_1}(\partial_A\theta_2^{B_2})\theta_3^{B_3)} \cdots \theta_n^{B_n} +\cdots+ (-1)^{n-1} \theta_1^{B_1} \cdots \theta_{n-1}^{B_{n-1}} \partial_A\theta_n^{B_n}.
-% \end{equation}
 They do, however, not anticommute with the superspace coordinates, since (using a test function $f(\theta_A)$):
 \begin{equation}
     \{\partial_A, \theta^B\}f = \partial_A(\theta^B f) + \theta^B\partial_A f = (\partial_A\theta^B) - \theta^B\partial_A f + \theta^B\partial_A f = \delta_A^B.
@@ -248,7 +234,7 @@ From these expressions, it follows that
 \end{align}
 and equivalently for right-handed Weyl spinors:
 \begin{align}
-    \theta^{\dot{A}}\theta_{\dot{B}} &= \epsilon_{\dot{B}\dot{C}}\thetabar^{\dot{A}}\thetabar^{\dot{C}}
+    \thetabar^{\dot{A}}\thetabar_{\dot{B}} &= \epsilon_{\dot{B}\dot{C}}\thetabar^{\dot{A}}\thetabar^{\dot{C}}
     \nonumber \\
     &= \frac{1}{2}\epsilon_{\dot{B}\dot{C}}\epsilon^{\dot{A}\dot{C}} \thetabartwo
     \nonumber \\
@@ -283,13 +269,6 @@ The last expression we need is the trace $\Tr[\sigma^\mu\widebar\sigma^\nu]$. Th
         [\sigma^i,\sigma^j] = 2i\epsilon^{ijk}\sigma_k, \quad \{\sigma^i,\sigma^j\} = 2\delta^{ij},
     \end{equation}
     together with the fact that the Pauli matrices are traceless, we can show that
-    % \begin{align}
-    %     \Tr[\sigma^i\widebar\sigma^j] = -\Tr[\sigma^i\sigma^j] = -\frac{1}{2}\Tr\Bigl[\{\sigma^i,\sigma^j\} + [\sigma^i,\sigma^j]\Bigr]
-    %     % \nonumber \\
-    %     = -\Tr\Bigl[ \delta^{ij} + i\eps^{ijk}\sigma_k \Bigr]
-    %     % \nonumber \\
-    %     = -2\delta^{ij}.
-    % \end{align}
     \begin{align}
         \Tr[\sigma^i\widebar\sigma^j] &= -\Tr[\sigma^i\sigma^j]
         \nonumber \\
@@ -380,7 +359,6 @@ Using this, we can find the following relations:
 
 \section{Traces of Gamma Matrices}\label{app:gamma_traces}
 The trace of an odd number of gamma matrices is zero. This can be shown using the properties of $\gamma^5$ in \cref{eq:gamma5_properties}. We find
-% Traces involving gamma matrices can be found using the properties of $\gamma^5$ in \cref{eq:gamma5_properties}. For an odd number of gamma matrices we have
 \begin{align}
     \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}] &= \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}\gamma^5\gamma^5]
     \nonumber \\
@@ -405,10 +383,6 @@ and by repeatedly anticommuting the first gamma matrix through the rest, and usi
     &= 8g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}\Tr[\gamma^\nu\gamma^\sigma] + \Tr[\gamma^\nu\gamma^\rho\gamma^\mu\gamma^\sigma]
     \nonumber \\
     &= 8g^{\mu\nu}g^{\rho\sigma} - 2g^{\mu\rho}g^{\nu\sigma} + 2g^{\mu\sigma} \Tr[\gamma^\nu\gamma^\rho] - \Tr[\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^\mu]
-    % \nonumber \\
-    % &= 8g^{\mu\nu}g^{\rho\sigma} - 2g^{\mu\rho}g^{\nu\sigma} + 2g^{\mu\sigma} \Tr[\gamma^\nu\gamma^\rho] - \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma]
-    % \nonumber \\
-    % 2\Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma] &= 8g^{\mu\nu}g^{\rho\sigma} - 8g^{\mu\rho}g^{\nu\sigma} + 8g^{\mu\sigma}g^{\nu\rho}
     \nonumber \\
     \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma] &= 4g^{\mu\nu}g^{\rho\sigma} - 4g^{\mu\rho}g^{\nu\sigma} + 4g^{\mu\sigma}g^{\nu\rho}.
     \label{eq:trace_gamma_4}
@@ -423,8 +397,6 @@ From the above discussion, it is apparent that the trace of any string of gamma 
     \Tr[M^*] = \Tr[M]^*, \quad \Tr[M^T] = \Tr[M].
 \end{equation}
 Using this, and that $\gamma^{\mu\dagger}=\gamma^0\gamma^\mu\gamma^0$ and $(\gamma^0)^2=\mathbbm{1}$, we find
-% Traces of matrices are in general cyclic, i.e.\ for $M_1,\ldots,M_n$ we have $\Tr[M_1 \cdot M_n] =\Tr[M_2 \cdot M_n M_1] = \Tr[M_3 \cdot M_n M_1 M_2]$, and so on.
-% In addition the trace of a matrix is equal to the trace of its transpose, i.e.\ $\Tr[M^T] = \Tr[M]$, and it does not matter if we complex conjugate a matrix, then take the trace, or vice versa, hence $\Tr[M^*]=\Tr[M]^*$. The cyclic property will be used repeatedly in calculations, and the other mentioned properties are useful since they let us derive the following. Consider the trace of a string of gamma matrices $\gamma^{\mu_1}\cdot\gamma^{\mu_n}$. Such a trace is real-valued\footnote{This is apparent from the trace relations that follow.}, hence we can show that
 \begin{align}
     \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_n}] &= \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_n}]^*
     \nonumber \\
@@ -523,27 +495,6 @@ From this definition, it follows that for some function $g(z)$ we have
 \Cref{eq:plus_dist_int_def} is sometimes taken to be the defining property of plus distributions, rather than \cref{eq:plus_dist_def}.
 
 The integrals we encounter in this thesis typically have more restricted integration bounds.
-% It is therefore useful to consider the case with a more general lower bound.
-% Using the Heaviside step function
-% \begin{equation}\label{eq:step_func}
-%     \theta(x) \equiv \begin{cases}
-%         1, & \quad x \geq 0 \\
-%         0, & \quad x < 0
-%     \end{cases},
-% \end{equation}
-% we find
-% \begin{align}
-%     \int_x^1 dz \, g(z) f_+(z) &= \int_0^1 dz \, g(z) f_+(z) \theta(x)
-%     \nonumber \\
-%     &= \int_0^1 dz \, g(z) \Biggl[ f(z) - \delta(1-z) \int_0^z dy \, f(y) \Biggr] \theta(x)
-%     \nonumber \\
-%     &= \int_0^1 dz \, g(z) f(z) \theta(x)
-%     - \int_0^1 dz \, g(1) \delta(1-z) \theta(x) \int_0^z dy \, f(y)
-%     \nonumber \\
-%     &= \int_x^1 dz \, g(z) f(z)
-%     - g(1) \int_x^1 dz \, \delta(1-z) \int_0^z dy \, f(y).
-%     \label{eq:plus_dist_int_x_1_unfinished}
-% \end{align}
 It is therefore useful to consider the case with a more general lower bound. We find that
 \begin{align}
     \int_x^1 dz \, g(z) f_+(z)
@@ -570,31 +521,6 @@ It is therefore useful to consider the case with a more general lower bound. We 
     \label{eq:plus_dist_int_x_to_1}
 \end{align}
 where we have assumed that $x<1$.
-% \begin{align}
-%     \int_x^1 dz \, g(z) f_+(z)
-%     &= \int_x^1 dz \, g(z) \Biggl[ f(z) - \delta(1-z) \int_0^z dy \, f(y) \Biggr]
-%     \nonumber \\
-%     &= \int_x^1 dz \, g(z) f(z)
-%     - \int_x^1 dz \, g(1) \delta(1-z) \int_0^z dy \, f(y)
-%     \nonumber \\
-%     &= \int_x^1 dz \, g(z) f(z)
-%     - g(1) \int_x^1 dz \, \delta(1-z) \int_0^z dy \, f(y).
-%     \label{eq:plus_dist_int_x_1_unfinished}
-% \end{align}
-% The names of the integration variables do not matter, so we can switch $z\leftrightarrow y$, and rewrite the last term as
-% \begin{align}
-%     g(1) \int_x^1 dz \, \delta(1-z) \int_0^z dy \, f(y) &= g(1) \int_x^1 dy \, \delta(1-y) \int_0^y dz \, f(z)
-%     \nonumber \\
-%     &= g(1) \int_0^1 dz \, f(z)
-%     \nonumber \\
-%     &= g(1) \int_x^1 dz \, f(z)
-%     + g(1) \int_0^x dz \, f(z),
-% \end{align}
-% and inserting this back into \cref{eq:plus_dist_int_x_1_unfinished} gives
-% \begin{equation}
-%     \int_x^1 dz \, g(z) f_+(z) = \int_x^1 dz \, \Bigl[ g(z)-g(1) \Bigr] f(z)
-%     - g(1) \int_0^x dz \, f(z).
-% \end{equation}
 
 
 In \cref{ch:parton_level} we had to expand the function $(1-z)^{-1-2\eps}$ in $\eps$. This can be done using plus distributions, resulting in

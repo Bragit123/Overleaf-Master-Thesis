@@ -8,51 +8,40 @@
 \usepackage{preamble/commands}
 
 % \includeonly{chapters/mssm,chapters/intro}
+% \includeonly{chapters/divergences,chapters/results}
 % \includeonly{chapters/divergences,chapters/appendix}
 % \includeonly{chapters/parton_level,chapters/appendix}
 % \includeonly{chapters/hadron_level,chapters/appendix}
 % \includeonly{chapters/parton_level,chapters/hadron_level}
 % \includeonly{chapters/results}
-% \includeonly{chapters/preface,chapters/intro,chapters/conclusion}
+%\includeonly{chapters/preface,chapters/intro,chapters/conclusion}
 % \includeonly{chapters/results,chapters/conclusion,chapters/appendix}
 % \includeonly{chapters/appendix}
 
-%\setcounter{tocdepth}{1}
 
 \begin{document}
-\uiomasterfp[
-    author=Brage Andreas Trefjord,
-    title=Scalar Leptons\\and Where to Find Them,
-    % title=Next-to-Leading Order QED Corrections to Slepton Pair Production,
-    % title=Slepton Pair Production in QED,
-    subtitle=Next-to-Leading Order QED Corrections to Slepton Pair Production in Proton--Proton Collisions in the Minimal Supersymmetric Standard Model,
-    % subtitle=Next-to-Leading Order QED Corrections to Slepton Pair Production in the Minimal Supersymmetric Standard Model,
-    supervisor={Are Raklev},
-    dept=Department of Physics,
-    fac=Faculty of Mathematics and Natural Sciences,
-    program=Theoretical Physics,
-    color=green,
-    binding,
-    date=\today
-]
+
+\begingroup
+    \hsize=17cm % From Claude: Allows the whole title to be on one line.
+    \uiomasterfp[
+        author=Brage Andreas Trefjord,
+        title=Sleptons and Where to Find Them,
+        subtitle=Next-to-Leading Order QED Corrections to Slepton Pair Production in Proton--Proton Collisions,
+        supervisor={Are Raklev},
+        dept=Department of Physics,
+        fac=Faculty of Mathematics and Natural Sciences,
+        program=Theoretical Physics,
+        color=green,
+        binding,
+        date=\today
+    ]
+\endgroup
 
 \frontmatter % Use roman numerals starting here
 
-% \begin{abstract}
-%     The search for supersymmetry at the \gls{lhc} continues, with large amounts of data being analyzed and compared against theoretical predictions.
-%     In order to efficiently and precisely scan the large parameter space of the \gls{mssm}, analytical cross section calculations for specific processes are needed.
-%     Such calculations have so far been focused on higher-order corrections in \gls{qcd}, which gives the dominant contribution.
-    
-%     Nevertheless, as we increase the precision in \gls{qcd}, each new contribution will be smaller than the previous, and at some point, the added contribution is so small that corrections from electroweak theory should become important.
-%     In this thesis, we investigate the significance of electroweak corrections by considering the production of slepton pairs.
-%     We calculate the \gls{nlo} corrections in \gls{qed} as a representative subset of the full electroweak corrections, and compare our results to state-of-the-art corrections in \gls{qcd}.
-
-%     We found the corrections from \gls{qed} to be considerably larger than naively expected, giving contributions of around \qty{16}{\percent} that of \gls{nlo} \gls{qcd}, and outperforming the contribution from state-of-the-art resummation at both \gls{lp} and \gls{nlp}.
-%     The surprisingly high \gls{qed} correction can be attributed to the large number of diagrams involving final-state corrections, which gave the dominating \gls{nlo} contribution and do not have any \gls{qcd} counterpart.
-% \end{abstract}
+\addcontentsline{toc}{chapter}{Abstract}
 \begin{xabstract}
-    % The search for supersymmetry at the \gls{lhc} continues, with large amounts of data being analyzed and compared against theoretical predictions.
-    In the search for supersymmetry at the \gls{lhc}, high amounts of data is analyzed and compared against theoretical predictions.
+    In the search for supersymmetry at the \gls{lhc}, large amounts of data is analyzed and compared against theoretical predictions.
     To precisely and efficiently scan the large parameter space of the \gls{mssm}, analytical cross section calculations for specific processes are needed.
     Such calculations have so far been focused on higher-order corrections in \gls{qcd}, which gives the dominant contribution.
     
@@ -60,40 +49,25 @@
     In this thesis, we investigate the significance of electroweak corrections by considering the production of slepton pairs.
     We calculate the \gls{nlo} corrections in \gls{qed} as a representative subset of the full electroweak corrections, and compare our results to state-of-the-art corrections in \gls{qcd}.
 
-    We found the corrections from \gls{qed} to be considerably larger than one might naively expect, giving contributions of around \qty{16}{\percent} that of \gls{nlo} \gls{qcd}, and outperforming the contribution from state-of-the-art resummation at both \gls{lp} and \gls{nlp}.
-    The surprisingly high \gls{qed} correction can be attributed to the large number of diagrams involving final-state corrections, which gave the dominating contribution and do not have any \gls{qcd} counterpart.
+    We find the corrections from \gls{qed} to be considerably larger than one might naively expect, giving contributions of around \qty{16}{\percent} that of \gls{nlo} \gls{qcd}, and outperforming the contribution from state-of-the-art resummation in \gls{qcd} at both \gls{lp} and \gls{nlp}.
+    The surprisingly high \gls{qed} correction can be attributed to the large number of diagrams involving final-state corrections, which give the dominating contribution and do not have any \gls{qcd} counterpart.
 \end{xabstract}
 
 \begin{otherlanguage}{norwegian}
 \begin{xabstract}[Sammendrag]
-    % Letingen etter supersymmetry på LHC fortsetter, hvor store mengder data blir analysert og sammenlignet med teoretiske prediksjoner.
-    % In the search for supersymmetry at the \gls{lhc}, high amounts of data is analyzed and compared against theoretical predictions.
     I jakten på supersymmetri ved partikkelakseleratoren LHC blir store mengder data analysert og sammenlignet med teoretiske prediksjoner.
     For å presist og effektivt lete gjennom det store parameterrommet til den minimale supersymmetriske standardmodellen (MSSM) trenger vi analytiske tverrsnittsutregninger for spesifikke prosesser.
     Slike utregninger har så langt fokusert på høyere ordens korreksjoner i kvantekromodynamikk (QCD), som har det dominerende bidraget.
 
     Etter som vi øker presisjonen for QCD vil imidlertid hvert nye bidrag bli mindre og mindre.
-    % Etter som vi øker presisjonen for QCD-beregninger vil hver nye bidrag bli mindre og mindre.
     Etterhvert blir bidragene så små at elektrosvake korreksjoner blir viktige.
     I denne oppgaven utforsker vi viktigheten av de elektrosvake korreksjonene ved å se på produksjonen av sleptonpar.
     Vi regner ut bidraget fra kvanteelektrodynamikk (QED) til nest-etter-ledende orden (NLO) som en representativ delmengde av det fulle elektrosvake bidraget, og sammenligner resultatene med moderne QCD-korreksjoner.
 
-    Vi fant at QED-korreksjonene var betydelig større enn forventet med et bidrag på omtrent \qty{16}{\percent} av NLO QCD, og at QED-bidraget gjorde det bedre enn de mest moderne resummasjonsbidragene til ledende potens (LP) og nest-etter-ledende potens (NLP).
+    Vi fant at QED-korreksjonene var betydelig større enn forventet med et bidrag på omtrent \qty{16}{\percent} av NLO QCD, og at QED-bidraget gjorde det bedre enn de mest moderne QCD resummasjonsbidragene til ledende potens (LP) og nest-etter-ledende potens (NLP).
     Det høye QED-bidraget can forklares av det store antallet diagrammer med korreksjoner til sluttilstandene, som ga det dominerende bidraget, og som ikke har noen tilsvarende motpart i QCD.
 \end{xabstract}
 \end{otherlanguage}
-% \begin{abstract}[Sammendrag]
-%     The search for supersymmetry at the \gls{lhc} continues, with large amounts of data being analyzed and compared against theoretical predictions.
-%     In order to efficiently and precisely scan the large parameter space of the \gls{mssm}, analytical cross section calculations for specific processes are needed.
-%     Such calculations have so far been focused on higher-order corrections in \gls{qcd}, which gives the dominant contribution.
-    
-%     Nevertheless, as we increase the precision in \gls{qcd}, each new contribution will be smaller than the previous, and at some point, the added contribution is so small that corrections from electroweak theory should become important.
-%     In this thesis, we investigate the significance of electroweak corrections by considering the production of slepton pairs.
-%     We calculate the \gls{nlo} corrections in \gls{qed} as a representative subset of the full electroweak corrections, and compare our results to state-of-the-art corrections in \gls{qcd}.
-
-%     We found the corrections from \gls{qed} to be considerably larger than naively expected, giving contributions of around \qty{16}{\percent} that of \gls{nlo} \gls{qcd}, and outperforming the contribution from state-of-the-art resummation at both \gls{lp} and \gls{nlp}.
-%     The surprisingly high \gls{qed} correction can be attributed to the large number of diagrams involving final-state corrections, which gave the dominating \gls{nlo} contribution and do not have any \gls{qcd} counterpart.
-% \end{abstract}
 
 \include{chapters/preface}
 
@@ -118,30 +92,36 @@
 \mainmatter % Use arabic numerals starting here
 
 \glsresetall % Force acronym reset before main body
-
 \include{chapters/intro}
 
 
 %%% THEORY PART
+\glsresetall
 \include{chapters/mssm}
 
+\glsresetall
 \include{chapters/divergences}
 
 
 %%% CALCULATION PART
+\glsresetall
 \include{chapters/parton_level}
 
+\glsresetall
 \include{chapters/hadron_level}
 
+\glsresetall
 \include{chapters/results}
 
 %%% Conclusion
+\glsresetall
 \include{chapters/conclusion}
 
 %%% Appendices
 \appendix
 \appendixpage
 
+\glsresetall
 \include{chapters/appendix}
 
 

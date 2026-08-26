@@ -1,10 +1,11 @@
+\addtocontents{toc}{\protect\needspace{2\baselineskip}}
 \chapter{Parton Level QED Corrections to Slepton Pair Production}\label{ch:parton_level}
 
 In this chapter we shift our focus to the hard scattering process for slepton pair production, where the colliding particles are proton-constituents.
 We will calculate the partonic cross section at \gls{nlo} in \gls{qed}, and use the methods described in \cref{ch:divergences} to handle the various divergences that appear.
 
-We start by discussing the kinematics of our scattering process in \cref{sec:phase_space}, before factoring the cross section in \cref{sec:factorization}. We then calculate the hard scattering cross section at \gls{lo} and \gls{nlo} in \cref{sec:lo,sec:nlo}. The matrix elements in this chapter are constructed from their associated Feynman diagrams using the Feynman rules given in \cref{tab:slepton_rules}.
-In the calculations that follow we will encounter contractions and traces of Dirac gamma matrices in $d$ dimensions. This is discussed in more detail in \cref{app:dirac_algebra}.
+We start by discussing the kinematics of our scattering process in \cref{sec:phase_space}, before factoring the cross section in \cref{sec:factorization}. We then calculate the hard scattering cross section at \gls{lo} and \gls{nlo} in \cref{sec:lo,sec:nlo}. Matrix elements are constructed from their associated Feynman diagrams using the Feynman rules given in \cref{tab:slepton_rules}, and all propagators are given in the Feynman gauge.
+We will also encounter contractions and traces of Dirac gamma matrices in $d$ dimensions. This is discussed in more detail in \cref{app:dirac_algebra}.
 
 
 The calculations that follow have been done by hand, with help from the computational software system \texttt{Mathematica}~\cite{Mathematica}, using the following packages: \texttt{FeynArts}~\cite{Hahn:2000kx,Hahn:2001rv} for drawing Feynman diagrams, and extracting their amplitudes; \texttt{FeynCalc}~\cite{Shtabovenko:2016sxi,Shtabovenko:2020gxv,Shtabovenko:2023idz,Mertig:1990an} for simplifying the amplitudes by utilizing four-vectors and Dirac algebra, and rewriting loop-integrals in terms of Passarino--Veltman functions; and \texttt{PackageX}~\cite{Patel:2015tea,Patel:2016fam} for extracting divergent expressions from the Passarino--Veltman functions.
@@ -26,13 +27,14 @@ where $d\Pi_{2 \to n}$ is the $n$-body Lorentz invariant differential phase spac
     d\Pi_{2 \to n} = (2\pi)^d\delta^d \biggl( p_1+p_2 - \sum_{i=1}^n k_i \biggr) \prod_{i=1}^n \frac{d^{d-1}k_i}{(2\pi)^{d-1}}\frac{1}{2E_i}.
     \label{eq:dPi_n}
 \end{equation}
-The hat above $\hat\sigma$ and $\shat$ are there to remind us that they are \textit{partonic} quantities belonging to the hard scattering of proton constituents. It is the hard scattering we will compute perturbatively using Feynman diagrams and \cref{eq:dsigma}. At \gls{nlo} in \gls{qed}, the only hard process we consider is quark--anti-quark scattering, as gluons only appear at higher orders in \gls{qcd}, and the photon \gls{pdf} is negligible. \rednote{Stemmer dette?}
+The hat above $\hat\sigma$ and $\shat$ are there to remind us that they are \textit{partonic} quantities belonging to the hard scattering of proton constituents. It is the hard scattering we will compute perturbatively using Feynman diagrams and \cref{eq:dsigma}. At \gls{nlo} in \gls{qed}, the only hard scattering process we consider is quark--anti-quark scattering.
+% , as gluons only appear at higher orders in \gls{qcd}, and the photon \gls{pdf} is negligible. \rednote{Stemmer dette?}
 \Cref{eq:dPi_n} is somewhat overly general for our purposes, as we will only consider processes with two or three final-state particles. We will explore the two- and three-body phase spaces in more detail in \cref{sec:two_body_phase_space,sec:three_body_phase_space}, but first we turn to a more general discussion of the kinematic variables that will appear in our calculations.
 
 \begin{figure}
     \centering
     \inputtikz{feynman_diagrams/LO}
-    \caption{Tree-level diagrams for slepton pair production. The arrows on fermion and scalar lines indicate particle flow, while the arrows outside the diagram signify momentum. The color of momentum arrows are unimportant, but serve as visual aids to help discern between on-shell particles, colored in \textcolor{PineGreen}{green}, and off-shell particles, colored in \textcolor{BrickRed}{red}. Later we will also encounter loop-momenta, which will be colored in \textcolor{Purple}{purple}. For Feynman rules, we will continue to color all momenta \textcolor{NavyBlue}{blue}.}
+    \caption{Tree-level diagrams for slepton pair production. The arrows on fermion and scalar lines indicate particle flow, while the arrows outside the diagram signify momentum.}
     \label{fig:M_lo}
 \end{figure}
 
@@ -312,7 +314,22 @@ We can now rewrite \cref{eq:dPi_13_before_x} as
 
 \subsection{Effective Couplings for Initial- and Final-State Diagrams}
 The process considered in this thesis is the inclusive production of two sleptons, $q\widebar{q}\to\slepton_{iB}^*\slepton_{iA}(+X)$.
-At \gls{lo} there are two diagrams contributing, namely the s-channel diagrams with an intermediate photon or $Z$~boson, as shown in \cref{fig:M_lo}.
+At \gls{lo} there are two diagrams contributing, namely the s-channel diagrams with an intermediate photon or $Z$~boson, as shown in \cref{fig:M_lo}.\footnote{Note that we give propagators in the Feynman gauge, and should therefore, in principle, also include the neutral Goldstone boson $G^0$ in order to maintain gauge invariance. Nevertheless, for the \gls{qed} corrections considered in this thesis, all diagrams involving $G^0$ include a $q\widebar{q}G^0$ interaction vertex, which is proportional to the quark Yukawa couplings~\cite{Rosiek:1989sce}. Consequently, these diagrams belong to a set of corrections which we do not consider---we assume the quark masses to be negligible---and will be ignored.}
+% Note that we give propagators in the Feynman gauge, and so we should, in principle, also include the neutral Goldstone boson $G^0$ in order to maintain gauge invariance.
+% For all diagrams with a $Z$ boson, there would then be an equivalent diagram where the $Z$ boson is replaced by $G^0$.
+% Nevertheless, for the \gls{qed} corrections in this thesis, no new $Z$ bosons appear at higher orders, and so all diagrams with $G^0$ will be proportional to the $q\widebar{q}G^0$ coupling, which is proportional to the Yukawa coupling~\cite{Rosiek:1989sce}.
+% Although $G^0$ is, strictly speaking, necessary for gauge invariance, it belongs to a set of corrections which we do not consider, as we assume the quark masses to be negligibly small.
+
+% For all diagrams with the $Z$ boson, there would then be an equivalent diagram with $G^0$ instead.
+% Nevertheless, for the calculations covered in this thesis, there are no new $Z$ bosons appearing at higher orders, and we will not include diagrams where the $q\widebar{q}(\gamma/Z)$ coupling disappears.
+% Hence any diagram involving $G^0$ will be proportional to the $q\widebar{q}G^0$ coupling, which is proportional to the Yukawa coupling~\cite{Rosiek:1989sce}, which in turn is proportional to the quark masses, which we consider to be negligibly small.
+% Therefore, although the Goldstone boson should in principle be accounted for, it belongs to a set corrections which we do not consider.
+% Note that propagators will be given in the Feynman gauge, which means that we should in principle include the neutral Goldstone boson $G^0$ in order to maintain gauge invariance.
+% For all diagrams with the $Z$ boson, there would then be an equivalent diagram with $G^0$ instead.
+% Nevertheless, for the calculations covered in this thesis, there are no new $Z$ bosons appearing at higher orders, and we will not include diagrams where the $q\widebar{q}(\gamma/Z)$ coupling disappears.
+% Hence any diagram involving $G^0$ will be proportional to the $q\widebar{q}G^0$ coupling, which is proportional to the Yukawa coupling~\cite{Rosiek:1989sce}, which in turn is proportional to the quark masses, which we consider to be negligibly small.
+% Therefore, although the Goldstone boson should in principle be accounted for, it belongs to a set corrections which we do not consider.
+
 We can simplify the calculation of \gls{nlo} corrections by factoring the \gls{lo} cross section, splitting the diagram in \cref{fig:M_lo} into two subprocesses: an initial-state scattering $q\widebar{q}\to\gamma/Z$, followed by a subsequent decay $\gamma/Z\to\slepton_{iB}^*\slepton_{iA}$.
 We then consider \gls{nlo} corrections in two distinct ways: one where we allow corrections to the initial-state scattering while keeping the final-state fixed, and one where we allow corrections to the final-state decay while keeping the initial-state fixed.
 In \cref{fig:M_factored} we present the Feynman diagrams for these corrections, 
