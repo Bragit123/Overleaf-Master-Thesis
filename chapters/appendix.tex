@@ -6,9 +6,9 @@
 
 \section{Spinors: Weyl, Dirac and Majorana}
 \subsection*{Weyl Spinors}
-Consider the complexified special linear group $SL(2,\mathbb{C})$. There are two inequivalent fundamental representations of this group: the \emph{self-representation} of matrices $M$ acting on \emph{left-handed} Weyl spinors $\psi$, and the \emph{complex conjugate self-representation} of matrices $M^*$ acting on the \emph{right-handed} Weyl spinors $\widebar\psi$.
+Consider the complexified special linear group $SL(2,\mathbb{C})$. There are two inequivalent fundamental representations of this group: the \emph{self-representation} of matrices $M$ acting on \emph{left-handed} Weyl spinors $\phi$, and the \emph{complex conjugate self-representation} of matrices $M^*$ acting on the \emph{right-handed} Weyl spinors $\widebar\phi$.
 
-We write Weyl spinors as two-component vectors whose elements are Grassmann-valued. For left-handed Weyl spinors, we write $\phi_A$ with $A=1,2$, and for right-handed Weyl spinors we write $\widebar\phi_{\dot{A}}$ with dotted indices $\dot{A}=\dot{1}, \dot{2}$.
+We write Weyl spinors as two-component vectors whose elements are Grassmann-valued. For left-handed Weyl spinors we write $\phi_A$ with $A=1,2$, and for right-handed Weyl spinors we write $\widebar\phi_{\dot{A}}$ with dotted indices $\dot{A}=\dot{1}, \dot{2}$.
 Their dual representations are written with raised indices $\phi^A$ and $\widebar{\phi}^{\dot{A}}$.
 The indices can be raised and lowered by applying the tensors
 \begin{equation}\label{eq:weyl_eps_def}
@@ -41,7 +41,7 @@ In particular, any function $f(\phi_A)$ of Grassmann numbers can be expanded as
 \end{equation}
 where $c_0$ and $c_1$ are c-numbers, i.e.\ "classical" numbers---the ordinary, commuting (possibly complex) numbers.
 
-We define contractions between Weyl spinors as a sum over indices, with $\epsilon$ acting as a metric tensor. Given two Weyl spinors $\phi$ and $\chi$, we define their contraction as
+We define contractions between Weyl spinors as a sum over indices, with $\epsilon$ acting as a metric tensor, such that
 \begin{subequations}
 \begin{align}
     \phi\chi \equiv \phi^A\chi_A
@@ -87,18 +87,19 @@ and the Pauli matrices are given by
 It is straight-forward to show that $\widebar\sigma^\mu = (\mathbbm{1},-\vec\sigma)$ by checking the indices explicitly.
 
 \subsection*{Dirac and Majorana Spinors}
-We can also combine the left- and right-handed Weyl spinors to construct a four-component \emph{Majorana spinor}
+We can combine the left- and right-handed Weyl spinors to construct a four-component \emph{Majorana spinor}
 \begin{equation}
     \psi_a = \begin{pmatrix}
         \phi_A \\ \widebar\phi^{\dot{A}}
     \end{pmatrix}, \quad a=1,\ldots,4.
 \end{equation}
-To construct a \emph{Dirac spinor} we need a left-handed Weyl spinor $\phi$ and a \emph{different} right-handed Weyl spinor $\chi$
+To construct a \emph{Dirac spinor} we use a left-handed Weyl spinor $\phi$ and a \emph{different} right-handed Weyl spinor $\chi$:
 \begin{equation}\label{eq:dirac_spinor_weyl_form}
     \psi_a = \begin{pmatrix}
         \phi_A \\ \widebar\chi^{\dot{A}}
     \end{pmatrix}, \quad a=1,\ldots,4.
 \end{equation}
+
 To see the relation between Weyl spinors and Dirac/Majorana spinors, it is useful to consider the \emph{Weyl representation} of the Dirac gamma matrices, where
 \begin{equation}
     \gamma^\mu = \begin{pmatrix}
@@ -107,8 +108,7 @@ To see the relation between Weyl spinors and Dirac/Majorana spinors, it is usefu
         -\mathbbm{1} & 0 \\ 0 & \mathbbm{1}
     \end{pmatrix}.
 \end{equation}
-
-The left- and right-handed Weyl spinor components of the Dirac spinor in \cref{eq:dirac_spinor_weyl_form} can be extracted using the $\gamma^5$ matrix, which is easy to see in the Weyl representation:
+The left- and right-handed Weyl spinor components of the Dirac spinor in \cref{eq:dirac_spinor_weyl_form} can then be extracted using the $\gamma^5$ matrix:
 \begin{equation}
     \frac{1}{2}(1-\gamma^5) \psi = \begin{pmatrix}
         \phi_A \\ 0
@@ -137,10 +137,11 @@ We define differentiation with respect to Grassmann numbers by
 \begin{equation}\label{eq:grassmann_diff}
     \partial_A \theta^B \equiv \frac{\partial}{\partial\theta^A} \theta^B \equiv \delta_A^B, \quad \widebar\partial_{\dot{A}} \thetabar^{\dot{B}} \equiv \frac{\partial}{\partial\thetabar^{\dot{A}}} \thetabar^{\dot{B}} \equiv \delta_{\dot{A}}^{\dot{B}},
 \end{equation}
-with the product rule
+with the following product rule:
 \begin{equation}
-    \partial_A(\theta_1^B\theta_2^C) \equiv (\partial_A\theta_1^B)\theta_2^C - \theta_1^B \partial_A\theta_2^C.
+    \partial_A(\theta_1^B\theta_2^C) \equiv (\partial_A\theta_1^B)\theta_2^C - \theta_1^B \partial_A\theta_2^C,
 \end{equation}
+and likewise for $\thetabar^{\dot{A}}$.
 The differential operators $\partial_A$ and $\widebar\partial_{\dot{A}}$ are themselves Grassmann numbers, and hence anticommute with each other:
 \begin{equation}
     \{\partial_A, \partial_B\} = \{\widebar\partial_{\dot{A}}, \widebar\partial_{\dot{B}}\} = \{\partial_A, \widebar\partial_{\dot{B}}\} = 0.
@@ -165,14 +166,14 @@ This has the very useful property that for functions of superspace, the integral
 
 
 \section{Proof of \texorpdfstring{$(\theta\sigma^\mu\thetabar)(\theta\sigma^\nu\thetabar) = \frac{1}{2}g^{\mu\nu}\thetafour$}{(θσθ)(θσθ)= 1/2gμνθθθθ}}\label{app:weyl_proof}
-When deriving Feynman rules for sleptons we had use for the following identity for superspace coordinates:
+When deriving Feynman rules for sleptons in \cref{sec:feynman_rules}, we had use for the following identity for superspace coordinates:
 \begin{equation}
     (\theta\sigma^\mu\thetabar)(\theta\sigma^\nu\thetabar) = \frac{1}{2}g^{\mu\nu}\thetafour.
 \end{equation}
 We will now prove this identity using Weyl spinor algebra. This proof is largely based on calculations found in \cite{IntrSUSY2010}.
 
 First, consider the expression $\epsilon^{AB}\epsilon_{CD}$. It is non-zero only if $A\neq B$ and $C\neq D$, as apparent from \cref{eq:weyl_eps_def}.
-By explicit insertion we can see that
+By explicit insertion, we can see that
 \begin{equation}
     \epsilon^{AB}\epsilon_{CD} = \begin{cases}
         1, \quad & \text{if } (A,B,C,D) \in \{(1,2,2,1),(2,1,1,2)\}
@@ -199,7 +200,7 @@ and equivalently for dotted indices. More compactly, we can write
     \nonumber \\
     &= -\frac{1}{2}\epsilon^{AB}\epsilon_{CD}\theta^C\theta^D
     \nonumber \\
-    &= -\frac{1}{2}(\delta^B_C\delta^A_D - \delta^A_C\delta^B_D)\theta^C\theta^D
+    &= -\frac{1}{2}(\delta^A_D\delta^B_C - \delta^A_C\delta^B_D)\theta^C\theta^D
     \nonumber \\
     &= -\frac{1}{2}(\theta^B\theta^A - \theta^A\theta^B)
     \nonumber \\
@@ -211,7 +212,7 @@ and equivalently for right-handed Weyl spinors:
     \nonumber \\
     &= \frac{1}{2}\epsilon^{\dot{A}\dot{B}}\epsilon_{\dot{C}\dot{D}}\thetabar^{\dot{D}}\thetabar^{\dot{C}}
     \nonumber \\
-    &= \frac{1}{2}(\delta^{\dot{B}}_{\dot{C}}\delta^{\dot{A}}_{\dot{D}} - \delta^{\dot{A}}_{\dot{C}}\delta^{\dot{B}}_{\dot{D}})\thetabar^{\dot{D}}\thetabar^{\dot{C}}
+    &= \frac{1}{2}(\delta^{\dot{A}}_{\dot{D}}\delta^{\dot{B}}_{\dot{C}} - \delta^{\dot{A}}_{\dot{C}}\delta^{\dot{B}}_{\dot{D}})\thetabar^{\dot{D}}\thetabar^{\dot{C}}
     \nonumber \\
     &= \frac{1}{2}(\thetabar^{\dot{A}}\thetabar^{\dot{B}} - \thetabar^{\dot{B}}\thetabar^{\dot{A}})
     \nonumber \\
@@ -226,7 +227,7 @@ From these expressions, it follows that
     \nonumber \\
     &= -\frac{1}{2}\epsilon_{BC}\epsilon^{AC} \thetatwo
     \nonumber \\
-    &= -\frac{1}{2} (\delta^C_B\delta^A_C - \delta^A_B\delta^C_C) \thetatwo
+    &= -\frac{1}{2} (\delta^A_C\delta^C_B - \delta^A_B\delta^C_C) \thetatwo
     \nonumber \\
     &= -\frac{1}{2} (\delta^A_B - 2\delta^A_B) \thetatwo
     \nonumber \\
@@ -238,7 +239,7 @@ and equivalently for right-handed Weyl spinors:
     \nonumber \\
     &= \frac{1}{2}\epsilon_{\dot{B}\dot{C}}\epsilon^{\dot{A}\dot{C}} \thetabartwo
     \nonumber \\
-    &= \frac{1}{2} (\delta^{\dot{C}}_{\dot{B}}\delta^{\dot{A}}_{\dot{C}} - \delta^{\dot{A}}_{\dot{B}}\delta^{\dot{C}}_{\dot{C}}) \thetabartwo
+    &= \frac{1}{2} (\delta^{\dot{A}}_{\dot{C}}\delta^{\dot{C}}_{\dot{B}} - \delta^{\dot{A}}_{\dot{B}}\delta^{\dot{C}}_{\dot{C}}) \thetabartwo
     \nonumber \\
     &= \frac{1}{2} (\delta^{\dot{A}}_{\dot{B}} - 2\delta^{\dot{A}}_{\dot{B}}) \thetabartwo
     \nonumber \\
@@ -311,7 +312,7 @@ The gamma matrices $\gamma^\mu$ are $4\times4$ matrices\footnote{Note that they 
 \begin{equation}\label{eq:dirac_algebra}
     \{\gamma^\mu,\gamma^\nu\} = 2g^{\mu\nu}.
 \end{equation}
-Since the left-hand side is a $4\times4$ matrix, the right-hand side must be as well, hence there is an implicit unity matrix present.
+Since the left-hand side is a $4\times4$ matrix, the right-hand side must be as well, hence there is an implicit identity matrix present.
 
 In calculations involving the $Z$ boson, we also run into the chiral $\gamma^5$ matrix. In four dimensions, it is given by
 \begin{equation}\label{eq:gamma5_def_4}
@@ -334,7 +335,7 @@ From \cref{eq:dirac_algebra} we can show that, in $d$ dimensions,
     = \frac{1}{2} g_{\mu\nu} \{\gamma^\mu,\gamma^\nu\}
     = g_{\mu\nu}g^{\mu\nu} = d.
 \end{equation}
-Fruthermore, we can use \cref{eq:dirac_algebra} to move $\gamma^\mu$ past other gamma matrices, since
+Furthermore, we can use \cref{eq:dirac_algebra} to move $\gamma^\mu$ past other gamma matrices, since
 \begin{equation}
     \gamma^\mu\gamma^\nu = \{\gamma^\mu,\gamma^\nu\} - \gamma^\nu\gamma^\mu = 2g^{\mu\nu} - \gamma^\nu\gamma^\mu.
 \end{equation}
@@ -358,7 +359,7 @@ Using this, we can find the following relations:
 
 
 \section{Traces of Gamma Matrices}\label{app:gamma_traces}
-The trace of an odd number of gamma matrices is zero. This can be shown using the properties of $\gamma^5$ in \cref{eq:gamma5_properties}. We find
+The trace of an odd number of gamma matrices is zero. This can be shown using the properties of $\gamma^5$ in \cref{eq:gamma5_properties}, along with the cyclic property of traces. We find
 \begin{align}
     \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}] &= \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}\gamma^5\gamma^5]
     \nonumber \\
@@ -376,13 +377,13 @@ For an even number of gamma matrices, we can use the Dirac algebra in \cref{eq:d
 \end{equation}
 and by repeatedly anticommuting the first gamma matrix through the rest, and using the cyclic property of traces at the end, we find
 \begin{align}
-    \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma] &= 2g^{\mu\nu}\Tr[\gamma^\rho\gamma^\sigma] - \Tr[\gamma^\nu\gamma^\mu\gamma\rho\gamma^\sigma]
+    \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma] &= 2g^{\mu\nu}\Tr[\gamma^\rho\gamma^\sigma] - \Tr[\gamma^\nu\gamma^\mu\gamma^\rho\gamma^\sigma]
     \nonumber \\
-    &= 8g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}\Tr[\gamma^\nu\gamma^\rho\gamma^\mu\gamma^\sigma]
+    &= 8g^{\mu\nu}g^{\rho\sigma} - 2g^{\mu\rho}\Tr[\gamma^\nu\gamma^\sigma] + \Tr[\gamma^\nu\gamma^\rho\gamma^\mu\gamma^\sigma]
     \nonumber \\
-    &= 8g^{\mu\nu}g^{\rho\sigma} - g^{\mu\rho}\Tr[\gamma^\nu\gamma^\sigma] + \Tr[\gamma^\nu\gamma^\rho\gamma^\mu\gamma^\sigma]
+    &= 8g^{\mu\nu}g^{\rho\sigma} - 8g^{\mu\rho}g^{\nu\sigma} + 2g^{\mu\sigma} \Tr[\gamma^\nu\gamma^\rho] - \Tr[\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^\mu]
     \nonumber \\
-    &= 8g^{\mu\nu}g^{\rho\sigma} - 2g^{\mu\rho}g^{\nu\sigma} + 2g^{\mu\sigma} \Tr[\gamma^\nu\gamma^\rho] - \Tr[\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^\mu]
+    &= 8g^{\mu\nu}g^{\rho\sigma} - 8g^{\mu\rho}g^{\nu\sigma} + 8g^{\mu\sigma}g^{\nu\rho} - \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma].
     \nonumber \\
     \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma] &= 4g^{\mu\nu}g^{\rho\sigma} - 4g^{\mu\rho}g^{\nu\sigma} + 4g^{\mu\sigma}g^{\nu\rho}.
     \label{eq:trace_gamma_4}
@@ -433,20 +434,23 @@ as well as
     \Longrightarrow \Tr[\gamma^{\mu_1}\cdots\gamma^{\mu_{2n-1}}\gamma^5] &= 0, \quad n\in\mathbb{N},
 \end{align}
 i.e.\ that the trace of a $\gamma^5$ matrix and an odd number of gamma matrices is zero.
-In addition, we find from \cref{eq:gamma_contraction_2} that
+In addition, we find from \cref{eq:gamma_contraction_2} that (for $d\neq2$)
 \begin{align}\label{eq:trace_gamma5_2}
     \Tr[\gamma^\mu\gamma^\nu\gamma^5] &= \frac{1}{d}\Tr[\gamma^\mu\gamma^\nu\gamma^5\gamma_\rho\gamma^\rho]
-    = -\frac{1}{d}\Tr[\gamma^\rho\gamma^\mu\gamma^\nu\gamma_\rho\gamma^5]
-    = -\frac{1}{d}g^{\mu\nu}\Tr[\gamma^5]
-    = 0.
+    \nonumber \\
+    &= -\frac{1}{d}\Tr[\gamma^\rho\gamma^\mu\gamma^\nu\gamma_\rho\gamma^5]
+    \nonumber \\
+    &= \cancel{-\frac{1}{d}g^{\mu\nu}\Tr[\gamma^5]} - \frac{d-4}{d} \Tr[\gamma^\mu\gamma^\nu\gamma^5]
+    \nonumber \\
+    \Tr[\gamma^\mu\gamma^\nu\gamma^5] &= 0.
 \end{align}
 
-We now want to find the trace $\gamma^5$ with four gamma matrices. The argument that follows does, however, not work in $d$ dimensions.
+We now want to find the trace of $\gamma^5$ with four gamma matrices. The argument that follows does, however, not work in $d$ dimensions.
 We will therefore consider the four-dimensional case instead, and use the relation in \cref{eq:gamma5_def_4}. We can then write
 \begin{align}\label{eq:trace_gamma5_4_first}
     \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^5] &= i \Tr[\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^0\gamma^1\gamma^2\gamma^3].
 \end{align}
-Using \cref{eq:dirac_algebra} together with \cref{eq:trace_gamma5_2}, we can see that the gamma matrices in \cref{eq:trace_gamma5_4_first} effectively anticommute with each other. It directly follows that $\mu$, $\nu$, $\rho$ and $\sigma$ must be different (otherwise, they would commute. Since the indices are different and anticommute, the result of the trace must be proportional to the Levi-Civita tensor $\eps^{\mu\nu\rho\sigma}$. In the special case when $(\mu,\nu,\rho,\sigma)=(0,1,2,3)$, we have
+Using \cref{eq:dirac_algebra} together with \cref{eq:trace_gamma5_2}, we can see that the gamma matrices in \cref{eq:trace_gamma5_4_first} effectively anticommute with each other. It directly follows that $\mu$, $\nu$, $\rho$ and $\sigma$ must be different; otherwise, they would commute. Since the indices are different and anticommute, the result of the trace must be proportional to the Levi-Civita tensor $\eps^{\mu\nu\rho\sigma}$. In the special case when $(\mu,\nu,\rho,\sigma)=(0,1,2,3)$, we have
 \begin{equation}
     i \Tr[\gamma^0\gamma^1\gamma^2\gamma^3\gamma^0\gamma^1\gamma^2\gamma^3]
     = i \Tr[\gamma^0\gamma^0\gamma^1\gamma^1\gamma^2\gamma^2\gamma^3\gamma^3]
@@ -483,7 +487,7 @@ Given some function $f(z)$, we define its \emph{plus distribution} $f_+(z)$ by
     f_+(z) \equiv f(z) - \delta(1-z) \int_0^z dy\, f(y).
 \end{equation}
 As alluded to by its name, the plus distribution is a \emph{distribution}, just like the Dirac delta distribution, hence it must be integrated over in order to be well-defined.
-From this definition, it follows that for some function $g(z)$ we have
+From the definition in \cref{eq:plus_dist_def}, it follows that for some function $g(z)$ we have
 \begin{align}
     \int_0^1 dz\, g(z) f_+(z) &= \int_0^1 dz \Biggl[ g(z) f(z) - g(z) \delta(1-z) \int_0^z dy\, f(y) \Biggr]
     \nonumber \\
@@ -492,10 +496,10 @@ From this definition, it follows that for some function $g(z)$ we have
     &= \int_0^1 dz \, \Bigl[ g(z) - g(1) \Bigr] f(z).
     \label{eq:plus_dist_int_def}
 \end{align}
-\Cref{eq:plus_dist_int_def} is sometimes taken to be the defining property of plus distributions, rather than \cref{eq:plus_dist_def}.
+In the literature, \cref{eq:plus_dist_int_def} is sometimes taken to be the defining property of plus distributions, rather than \cref{eq:plus_dist_def}.
 
-The integrals we encounter in this thesis typically have more restricted integration bounds.
-It is therefore useful to consider the case with a more general lower bound. We find that
+The integrals we encounter in this thesis typically have more restricted integration bounds, where the lower limit takes some value $x\in(0,1)$.
+In this case, we find that
 \begin{align}
     \int_x^1 dz \, g(z) f_+(z)
     &= \int_x^1 dz \, g(z) \Biggl[ f(z) - \delta(1-z) \int_0^z dy \, f(y) \Biggr]
@@ -517,10 +521,9 @@ It is therefore useful to consider the case with a more general lower bound. We 
     - g(1) \int_0^x dz \, f(z)
     \nonumber \\
     \int_x^1 dz \, g(z) f_+(z) &= \int_x^1 dz \, \Bigl[ g(z)-g(1) \Bigr] f(z)
-    - g(1) \int_0^x dz \, f(z),
+    - g(1) \int_0^x dz \, f(z).
     \label{eq:plus_dist_int_x_to_1}
 \end{align}
-where we have assumed that $x<1$.
 
 
 In \cref{ch:parton_level} we had to expand the function $(1-z)^{-1-2\eps}$ in $\eps$. This can be done using plus distributions, resulting in
@@ -538,6 +541,7 @@ In \cref{ch:parton_level} we had to expand the function $(1-z)^{-1-2\eps}$ in $\
     \nonumber \\
     &= - \frac{1}{2\eps} \delta(1-z)
     + \plusdist - 2\eps \plusdistln
-    + \mathcal{O}(\eps^2).
+    + \mathcal{O}(\eps^2),
     \label{eq:plus_dist_expansion}
 \end{align}
+where we have used that $a^\eps = 1 + \eps\ln a + \mathcal{O}(\eps^2)$.
