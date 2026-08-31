@@ -114,13 +114,14 @@ The idea is very similar to that of renormalized perturbation theory encountered
 There we started by acknowledging that the fields and couplings appearing in the bare Lagrangian are not physically measurable.
 The same goes for the \glspl{pdf} defined in the preceding section.
 
-Consider the \emph{bare} (infinite) \glspl{pdf} $f_i^0(x)$. We can then define the \emph{renormalized} (finite) \glspl{pdf} $f_i(x)$ from
+Consider the \emph{bare} (infinite) \glspl{pdf} $f_i^0(x)$. We can then define the \emph{renormalized} (finite) \glspl{pdf} $f_i(x)$ from\footnote{This has a somewhat strange form involving a convolution and a sum over partons. Although not immediately obvious, this form is necessary in order to get the correct cancelation of divergent terms in the cross section.}
 \begin{equation}\label{eq:pdf_renormalized}
     f_i^0(x) = f_i(x) + \sum_k \int_x^1 \frac{d\xi}{\xi} f_k\biggl(\frac{x}{\xi}\biggr) \delta_{ik}(\xi),
 \end{equation}
-where the sum is over the various proton constituents---the partons---and $\delta_{ik}(\xi)$ takes on an analogous role to the counterterms appearing in renormalized perturbation theory in \cref{sec:renormalization}.\footnote{For our purposes it suffices to know that such counterterms can be constructed, and that they eliminate our collinear divergence. For more details on their exact form, see for example Ref.~\cite{Denner:2019vbn}.}
+where the sum is over the various proton constituents---the partons---and $\delta_{ik}(\xi)$ takes on an analogous role to the counterterms appearing in renormalized perturbation theory in \cref{sec:renormalization}.
 The renormalized $f_i(x)$ are then the \glspl{pdf} extracted from experiments, and the counterterms $\delta_{ik}(\xi)$ contain the infinite part of the bare \glspl{pdf} and can---just as for counterterms in the Lagrangian---be expanded in the renormalized couplings of the theory, starting at \gls{nlo}.
 For the \gls{qed} corrections covered in this thesis, this means that $\delta_{ik}(\xi)$ is $\mathcal{O}(\alpha)$.
+
 
 Similar to how we treated the Lagrangian in \cref{sec:renormalization}, we will consider the \glspl{pdf} appearing in the hadronic cross section in \cref{eq:hadron_xsec_general} to be the bare \glspl{pdf}.
 Using \cref{eq:pdf_renormalized}---and introducing the shorthand $\hat\sigma_{ij}\equiv\hat\sigma(ij\to\slepton^*\slepton+X)$---we can write the hadronic cross section in terms of renormalized \glspl{pdf} instead:
@@ -192,6 +193,16 @@ In this thesis we renormalize \glspl{pdf} in the \gls{msbar} scheme, since this 
 Note also that the \glspl{pdf} depend on scale, similar to the renormalized fields and couplings in the Lagrangian.
 To separate the two scales, we will denote the \emph{factorization scale} associated with \gls{pdf} renormalization by $\mu_F$, and the \emph{renormalization scale} encountered in \cref{sec:shifting_spacetime_dim} by $\mu_R$.
 
+In the \gls{msbar} scheme, the \gls{pdf} counterterms for (anti-)quark \glspl{pdf} at \gls{nlo} in \gls{qed} take the form~\cite{Denner:2019vbn}
+\begin{equation}
+    \delta_{qi}(\xi) = \frac{\alpha}{2\pi} \frac{(4\pi)^\eps}{\Gamma(1-\eps)}\biggl(\frac{\mu_F^2}{Q^2}\biggr) \frac{1}{\eps} P_{qi}(\xi),
+\end{equation}
+where $P_{qi}(\xi)$ are the DGLAP \emph{splitting functions}, named after Dokshitzer, Gribov, Lipatov, Altarelli and Parisi~\cite{Dokshitzer:1977sg,Gribov:1972ri,Altarelli:1977zs}.
+For our purposes---since we have only considered quark--anti-quark annihilation---the only relevant counterterm is $\delta_{q\widebar{q}}(\xi)$, with the \gls{qed} correction to the splitting function $P_{q\widebar{q}}(\xi)$ given by~\cite{deFlorian:2016gvk}
+\begin{equation}
+    P_{q\widebar{q}}(\xi) = Q_q^2 \biggl[ (1+\xi^2) \plusdist + \frac{3}{2}\delta(1-\xi) \biggr].
+\end{equation}
+
 
 
 \section{The Hadronic Cross Section}
@@ -243,7 +254,6 @@ In addition, part of the two-dimensional integral has been reduced to a one-dime
 
 \subsection{Hadron-Level Slepton Pair Production}\label{sec:hadronic_cross_section}
 We are now ready to write down the coefficient functions for the different contributions to slepton pair production at \gls{nlo} in \gls{qed}.
-% The coefficient functions we give here also carry a subindex denoting which contribution they belong to; \acrlong{lo}---denoted by $\mathrm{LO}$---or corrections to the initial- or final-state---denoted by $i$ and $f$, respectively.
 
 The \gls{lo} contribution to the partonic cross section is
 \begin{equation}
@@ -331,143 +341,3 @@ $g(Q^2,m_1^2,m_2^2)$, $I_1^r$ and $I_2^r$ were defined in \cref{eq:summary_g,eq:
 
 \Cref{eq:hadron_w_lo,eq:hadron_w_initial_state,eq:hadron_w_final_state} can now be inserted into \cref{eq:hadron_xsec_full_w} and integrated over numerically to obtain the hadronic cross section.
 This is the focus of the next chapter.
-
-
-
-% \section{The Hadronic Cross Section}
-% We are now ready to write down the hadronic cross section for slepton pair production in a form that is fit for numerical evaluation.
-% We start by extracting the different distributions that appear in the partonic cross section, giving
-% \begin{equation}\label{eq:parton_xsec_ws}
-%     \frac{d\hat\sigma^c}{dQ^2} = \frac{\hat\sigma_B^c}{x_1 x_2} \biggl\{
-%         \wsoft_c(z)\delta(1-z) + \wrad_c(z) + \sum_{f} \wf_c(z) f_+(z)
-%     \biggr\},
-% \end{equation}
-% where the sum is over all plus distributions, and we have defined
-% \begin{equation}
-%     \sigma_B^c \equiv x_1 x_2 \hat\sigma_0^c,
-% \end{equation}
-% where $c\in\{\mathrm{LO},i,f\}$ denotes the kind of contribution we are looking at (the \gls{lo} contribution or the initial- or final-state \gls{nlo} corrections).
-% With this definition, $\hat\sigma_0^{i/f}$ gives the initial- and final-state prefactors in \cref{eq:summary_sigma0i,eq:summary_sigma0f}.
-
-% The initial- and final-state prefactors $\hat\sigma_0^{i/f}$ are equal when $\shat=Q^2$ (they can safely be set to $d=4$ dimensions at this point\footnote{We do have a collinear divergence left in the initial-state correction, but since the prefactor $\hat\sigma_0^i$ is common to the \gls{lo} correction, its $\mathcal{O}(\eps)$ terms will not become relevant when removing the divergence with renormalized \glspl{pdf}, which we will do shortly.}), and we can choose which of them we want to use for $\hat\sigma_0^{\mathrm{LO}}$.
-% We will set $\hat\sigma_0^{\mathrm{LO}} = \hat\sigma_0^i$, since this completely removes the $x_1$ and $x_2$ dependence in $\sigma_B^{\mathrm{LO}}$.
-% This means that $\sigma_B^{\mathrm{LO}}$ is the Born cross section with
-% \begin{equation}
-%     \sigma_B^{\mathrm{LO}} = \sigma_B^i = x_1 x_2 \frac{8\pi\alpha^2 \kiabs^3}{3\NC\hat{s} Q^5} \fqliab(Q^2)
-%     = \frac{8\pi\alpha^2 \kiabs^3}{3\NC s Q^5} \fqliab(Q^2),
-% \end{equation}
-% where we now have the hadronic squared \gls{com} energy $s$ in the denominator, rather than the partonic $\shat$---hence no dependence on parton momentum fractions.
-% For final-state corrections, however, the momentum fraction dependence remains in
-% \begin{equation}
-%     \sigma_B^f = x_1 x_2 \frac{8\pi\alpha^2 \kiabs^3}{3\NC\hat{s}^3 Q} \fqliab(\hat{s})
-%     = \frac{8\pi\alpha^2 \kiabs^3}{3\NC s \hat{s}^2 Q} \fqliab(\hat{s}).
-% \end{equation}
-
-% In this thesis the only hard scattering process we have considered is quark--anti-quark annihilation. This limits the partons we have to sum over to get the full hadronic cross section. Inserting \cref{eq:parton_xsec_ws} into \cref{eq:hadron_xsec_general}, we have\footnote{In principle, we should sum over both quarks and anti-quarks. Nevertheless, the integrand is unchanged if we substitute $q \leftrightarrow \widebar{q}$, so we only need to sum over quarks, with the remaining terms accounted for by the factor $2$ in front of the sum.}
-% \begin{align}
-%     \frac{d\sigma^c}{dQ^2}
-%     &= 2 \sum_q \int_\tau^1 \frac{dx_1}{x_1} \int_{\tau/x_1}^1 \frac{dx_2}{x_2} f_q(x_1) f_{\widebar{q}}(x_2) x_1x_2 \frac{d\hat\sigma^c_{q\widebar{q}}}{dQ^2}
-%     \nonumber \\
-%     \begin{split}
-%         &= 2\sum_q \vastl\{
-%             \int_\tau^1 \frac{dx_1}{x_1} f_q(x_1) f_{\widebar{q}}\biggl(\frac{\tau}{x_1}\biggr) \hat\sigma_B^c \biggl[
-%                 \wsoft_c(1) + \sum_f \wf_c(1) F_f(x_1)
-%             \biggr]
-%             \\ &\hspace{4em}
-%             + \int_\tau^1 \frac{dx_1}{x_1} \int_{\tau/x_1}^1 \frac{dx_2}{x_2} f_q(x_1) \hat\sigma_B^c \Biggl[
-%                 f_{\widebar{q}}(x_2) \wrad_c\biggl(\frac{\tau}{x_1 x_2}\biggr)
-%                 \\ &\hspace{5em}
-%                 + \sum_f \biggl\{
-%                     f_{\widebar{q}}(x_2) \wf_c\biggl(\frac{\tau}{x_1 x_2}\biggr)
-%                     - \frac{\tau}{x_1 x_2} f_{\widebar{q}}\biggl(\frac{\tau}{x_1}\biggr) \wf_c(1)
-%                 \biggr\} f\biggl(\frac{\tau}{x_1 x_2}\biggr)
-%             \Biggr]
-%         \vastr\}.
-%         \label{eq:hadron_xsec_full_w}
-%     \end{split}
-% \end{align}
-% To get the full $\mathrm{LO}+\mathrm{NLO}$ contribution to the cross section, we can simply sum over $c \in \{\mathrm{LO},i,f\}$.
-
-% \subsection{Hadron-Level Slepton Pair Production}\label{sec:hadronic_cross_section}
-% We are now ready to write down the components of the hadronic cross section for slepton pair production at \gls{nlo} in \gls{qed}.
-% The \gls{lo} contribution to the partonic cross section is
-% \begin{equation}
-%     \frac{d\hat\sigma_{\mathrm{LO}}}{dQ^2} = \frac{\hat\sigma_B^{\mathrm{LO}}}{x_1 x_2}\delta(1-z),
-% \end{equation}
-% which in the language of \cref{eq:parton_xsec_ws} gives only one $w$-function:
-% \begin{equation}\label{eq:hadron_w_lo}
-%     \wsoft_{\mathrm{LO}}(z) = 1.
-% \end{equation}
-
-% The initial-state correction to the partonic cross section was found to be
-% \begin{equation}
-%     \begin{split}
-%         \frac{d\hat\sigma^i}{dQ^2} &= \frac{\hat\sigma^i_B}{x_1 x_2} \frac{\alpha Q_q^2}{\pi} G(\eps)
-%         \vastl\{
-%             \Biggl(\frac{\pi^2}{3} - 4\Biggr)\delta(1-z)
-%             - \frac{(1+z^2)\ln z}{1-z}
-%             \\ &\hspace{3em}
-%             + 2(1+z^2) \plusdistln
-%             - \frac{1}{\eps}\Biggl[ (1+z^2)\plusdist + \frac{3}{2}\delta(1-z) \Biggr]
-%         \vastr\}.
-%     \end{split}
-% \end{equation}
-% Using \cref{eq:summary_G_eps} we can write
-% \begin{equation}
-%     G(\eps) \, \frac{1}{\eps} = \biggl[ \frac{1}{\eps} + \ln(4\pi) - \gamma_E \biggr] + \ln\frac{\mu^2}{Q^2} + \mathcal{O}(\eps).
-% \end{equation}
-% The collinear divergence can be removed by the renormalized \glspl{pdf}, which in the \gls{msbar} scheme leaves only the $\ln(\mu^2/Q^2)$ term.
-% The initial-state $w$-functions after renormalizing the \glspl{pdf} are then
-% \begin{subequations}
-% \label{eq:hadron_w_initial_state}
-% \begin{align}
-%     \wsoft_i(z) &= \frac{\alpha Q_q^2}{\pi} \Biggl\{ \frac{\pi^2}{3} - 4 - \frac{3}{2} \ln\frac{\mu_F^2}{Q^2} \Biggr\},
-%     \\
-%     \wrad_i(z) &= -\frac{\alpha Q_q^2}{\pi} \frac{(1+z^2)\ln z}{1-z},
-%     \\
-%     w^{\frac{1}{1-z}}_i(z) &= -\frac{\alpha Q_q^2}{\pi} (1+z^2) \ln\frac{\mu_F^2}{Q^2},
-%     \\
-%     w^{\frac{\ln(1-z)}{1-z}}_i(z) &= 2 \frac{\alpha Q_q^2}{\pi} (1+z^2).
-% \end{align}
-% \end{subequations}
-
-% Lastly, we found the final-state partonic cross section to be
-% \begin{equation}
-%     \begin{split}
-%         \frac{d\hat\sigma^f}{dQ^2} &= \frac{\hat\sigma^f_B}{x_1 x_2} \frac{\alpha}{\pi} \vastl\{
-%             \frac{2(1-z)}{z\lambda}
-%             + \frac{2\lambda_z}{\lambda^{3/2}} \plusdist I^r_1
-%             \\ &\qquad
-%             + \delta(1-z) \Biggl[
-%                 \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
-%                 - \frac{1}{\sqrt{\lambda}} \Biggl(
-%                     \ln(4\lambda)
-%                     + \ln\frac{\mu^2}{Q^2}
-%                 \Biggr) I^r_1
-%                 + \frac{1}{\sqrt{\lambda}} I^r_2
-%             \Biggr]
-%         \vastr\}.
-%     \end{split}
-% \end{equation}
-% Here there are no collinear divergences to worry about, so writing down the $w$-functions is straight-forward:
-% \begin{subequations}
-% \label{eq:hadron_w_final_state}
-% \begin{align}
-%     \wsoft_f(z) &= \frac{\alpha}{\pi} \Biggl[
-%         \Re\Bigl\{ g^{\mathrm{finite}}(Q^2,m_1^2,m_2^2) \Bigr\}
-%         - \frac{1}{\sqrt{\lambda}} \Biggl(
-%             \ln(4\lambda)
-%             + \ln\frac{\mu_R^2}{Q^2}
-%         \Biggr) I^r_1
-%         + \frac{1}{\sqrt{\lambda}} I^r_2
-%     \Biggr],
-%     \\
-%     \wrad_f(z) &= \frac{\alpha}{\pi} \frac{2(1-z)}{z\lambda},
-%     \\
-%     w^{\frac{1}{1-z}}_f(z) &= \frac{\alpha}{\pi} \frac{2\lambda_z}{\lambda^{3/2}} I^r_1,
-% \end{align}
-% \end{subequations}
-% where $g(Q^2,m_1^2,m_2^2)$, $I_1^r$ and $I_2^r$ were defined in \cref{eq:summary_g,eq:summary_Ir1,eq:summary_Ir2}, and we remind the reader of the K\"allen function shorthands $\lambda \equiv \lambda(1,\mt_1^2,\mt_2^2)$ and $\lambda_z \equiv \lambda(1,z\mt_1^2,z\mt_2^2)$.
-
-% \Cref{eq:hadron_w_lo,eq:hadron_w_initial_state,eq:hadron_w_final_state} can now be inserted into \cref{eq:hadron_xsec_full_w} and integrated over numerically to obtain the hadronic cross section.
-% This is the focus of the next chapter.
