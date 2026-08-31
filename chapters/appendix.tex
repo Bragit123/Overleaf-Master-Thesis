@@ -8,7 +8,7 @@
 \subsection*{Weyl Spinors}
 Consider the complexified special linear group $SL(2,\mathbb{C})$. There are two inequivalent fundamental representations of this group: the \emph{self-representation} of matrices $M$ acting on \emph{left-handed} Weyl spinors $\phi$, and the \emph{complex conjugate self-representation} of matrices $M^*$ acting on the \emph{right-handed} Weyl spinors $\widebar\phi$.
 
-We write Weyl spinors as two-component vectors whose elements are Grassmann-valued. For left-handed Weyl spinors we write $\phi_A$ with $A=1,2$, and for right-handed Weyl spinors we write $\widebar\phi_{\dot{A}}$ with dotted indices $\dot{A}=\dot{1}, \dot{2}$.
+We write Weyl spinors as two-component vectors. For left-handed Weyl spinors we write $\phi_A$ with $A=1,2$, and for right-handed Weyl spinors we write $\widebar\phi_{\dot{A}}$ with dotted indices $\dot{A}=\dot{1}, \dot{2}$.
 Their dual representations are written with raised indices $\phi^A$ and $\widebar{\phi}^{\dot{A}}$.
 The indices can be raised and lowered by applying the tensors
 \begin{equation}\label{eq:weyl_eps_def}
@@ -19,7 +19,7 @@ The indices can be raised and lowered by applying the tensors
     \quad
     \epsilon^{AB} = \epsilon^{\dot{A}\dot{B}} = \begin{pmatrix}
         0 & 1 \\ -1 & 0
-    \end{pmatrix}.
+    \end{pmatrix},
 \end{equation}
 such that
 \begin{subequations}
@@ -31,7 +31,8 @@ such that
     \widebar\phi_{\dot{A}} \equiv \epsilon_{\dot{A}\dot{B}} \widebar\phi^{\dot{B}}.
 \end{align}
 \end{subequations}
-The Weyl spinor components---being Grassmann numbers---anticommute with each other, i.e.\ for Weyl spinors $\phi$ and $\chi$ we have
+
+Since we use spinors to describe fermionic particles, we will consider their components to be anticommuting Grassmann numbers, i.e.\ for Weyl spinors $\phi$ and $\chi$ we have
 \begin{equation}
     \{ \phi_A,\chi_B \} = \{ \widebar\phi_{\dot{A}},\widebar\chi_{\dot{B}} \} = \{ \phi_A, \widebar\chi_{\dot{A}} \} = 0.
 \end{equation}
@@ -132,7 +133,7 @@ which allows us to write contractions of Dirac spinors on Weyl-form as
 \end{equation}
 
 \section{Grassmann Calculus}
-In \cref{sec:super_space_field_lagrange} we introduced the superspace coordinates $\theta_A$ and $\thetabar_{\dot{A}}$, which are Weyl spinors and therefore have Grassmann-valued components.
+In \cref{sec:super_space_field_lagrange} we introduced the superspace coordinates $\theta_A$ and $\thetabar_{\dot{A}}$, which are Weyl spinors with Grassmann-valued components.
 We define differentiation with respect to Grassmann numbers by
 \begin{equation}\label{eq:grassmann_diff}
     \partial_A \theta^B \equiv \frac{\partial}{\partial\theta^A} \theta^B \equiv \delta_A^B, \quad \widebar\partial_{\dot{A}} \thetabar^{\dot{B}} \equiv \frac{\partial}{\partial\thetabar^{\dot{A}}} \thetabar^{\dot{B}} \equiv \delta_{\dot{A}}^{\dot{B}},
@@ -270,15 +271,12 @@ The last expression we need is the trace $\Tr[\sigma^\mu\widebar\sigma^\nu]$. Th
         [\sigma^i,\sigma^j] = 2i\epsilon^{ijk}\sigma_k, \quad \{\sigma^i,\sigma^j\} = 2\delta^{ij},
     \end{equation}
     together with the fact that the Pauli matrices are traceless, we can show that
-    \begin{align}
-        \Tr[\sigma^i\widebar\sigma^j] &= -\Tr[\sigma^i\sigma^j]
-        \nonumber \\
-        &= -\frac{1}{2}\Tr\Bigl[\{\sigma^i,\sigma^j\} + [\sigma^i,\sigma^j]\Bigr]
-        \nonumber \\
-        &= -\Tr\Bigl[ \delta^{ij} + i\eps^{ijk}\sigma_k \Bigr]
-        \nonumber \\
-        &= -2\delta^{ij}.
-    \end{align}
+    \begin{equation}
+        \Tr[\sigma^i\widebar\sigma^j] = -\Tr[\sigma^i\sigma^j]
+        = -\frac{1}{2}\Tr\Bigl[\{\sigma^i,\sigma^j\} + [\sigma^i,\sigma^j]\Bigr]
+        = -\Tr\Bigl[ \delta^{ij} + i\eps^{ijk}\sigma_k \Bigr]
+        = -2\delta^{ij}.
+    \end{equation}
 \end{itemize}
 Putting the different cases together, we can write the trace on a more convenient form:
 \begin{equation}\label{eq:weyl_proof_trace}
@@ -314,7 +312,7 @@ The gamma matrices $\gamma^\mu$ are $4\times4$ matrices\footnote{Note that they 
 \end{equation}
 Since the left-hand side is a $4\times4$ matrix, the right-hand side must be as well, hence there is an implicit identity matrix present.
 
-In calculations involving the $Z$ boson, we also run into the chiral $\gamma^5$ matrix. In four dimensions, it is given by
+In calculations involving axial currents---for instance, due to couplings with the $Z$ boson---we also run into the chiral $\gamma^5$ matrix. In four dimensions, it is given by
 \begin{equation}\label{eq:gamma5_def_4}
     \gamma^5 \equiv i\gamma^0\gamma^1\gamma^2\gamma^3 = \frac{i}{4!}\eps_{\mu\nu\rho\sigma}\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma,
 \end{equation}
@@ -469,7 +467,7 @@ Furthermore, it can be shown---still in four dimensions---that the trace of a $\
     \Bigl(\propto\eps^{\mu_1\mu_2\mu_3\mu_4} g^{\mu_5\mu_6}\cdots g^{\mu_{2n-1}\mu_{2n}}\Bigr).
 \end{equation}
 
-The traces involving $\gamma^5$ and an even number of four or more gamma matrices are useful, as they always become zero when contracted with tensors that are symmetric in the same indices that appear in the Levi-Civita tensor.
+The traces involving $\gamma^5$ and an even number of four or more gamma matrices always become zero when contracted with tensors that are symmetric in the same indices that appear in the Levi-Civita tensor, because of the anti-symmetry of the Levi-Civita tensor.
 As we saw in \cref{ch:parton_level}, this is always the case in our calculations.
 Consequently, any result containing such a trace with $\gamma^5$ can be safely solved in four spacetime dimensions (it is zero, and therefore can not give divergences that need to be regulated by changing the dimension).
 The remaining traces of an odd number of gamma matrices with $\gamma^5$ are still zero, even in \gls{ndr}, and can therefore be treated in $d$ dimensions.
@@ -511,9 +509,6 @@ In this case, we find that
     - g(1) \int_x^1 dz \, \delta(1-z) \int_0^z dy \, f(y)
     \nonumber \\
     &= \int_x^1 dz \, g(z) f(z)
-    - g(1) \int_x^1 dy \, \delta(1-y) \int_0^y dz \, f(z)
-    \nonumber \\
-    &= \int_x^1 dz \, g(z) f(z)
     - g(1) \int_0^1 dz \, f(z)
     \nonumber \\
     &= \int_x^1 dz \, g(z) f(z)
@@ -526,22 +521,34 @@ In this case, we find that
 \end{align}
 
 
-In \cref{ch:parton_level} we had to expand the function $(1-z)^{-1-2\eps}$ in $\eps$. This can be done using plus distributions, resulting in
+In \cref{ch:parton_level} we had to expand the function $(1-z)^{-1-2\eps}$ in $\eps$. This can be done using plus distributions.\footnote{Of course, rewriting the expression in this way assumes that the result will be integrated over at some point, or else it would not make sense to include the delta and plus distributions.}
+We start by adding and subtracting an integral over $y$ to get a form similar to \cref{eq:plus_dist_def}, and solve the integral in the first term:
 \begin{align}
     \frac{1}{(1-z)^{1+2\eps}}
     &= \delta(1-z) \int_0^z dy \, \frac{1}{(1-y)^{1+2\eps}} + \frac{1}{(1-z)^{1+2\eps}} - \delta(1-z) \int_0^z dy \, \frac{1}{(1-y)^{1+2\eps}}
     \nonumber \\
+    &= -\frac{1}{2\eps} \delta(1-z) + \frac{1}{(1-z)^{1+2\eps}} - \delta(1-z) \int_0^z dy \, \frac{1}{(1-y)^{1+2\eps}}.
+\end{align}
+Next, we expand the last two terms in $\eps$ using $a^\eps = 1 + \eps\ln a + \mathcal{O}(\eps^2)$, giving
+\begin{align}
     \begin{split}
-        &= -\delta(1-z) \frac{1}{2\eps}
-        + \frac{1}{1-z} - \delta(1-z) \int_0^z dy \, \frac{1}{1-y}
-        \nonumber \\ &\qquad
-        - 2\eps \Biggl\{ \frac{\ln(1-z)}{1-z} - \delta(1-z) \int_0^z dy \, \frac{\ln(1-y)}{1-y} \Biggr\}
-        + \mathcal{O}(\eps^2)
+        \frac{1}{(1-z)^{1+2\eps}}
+        &= -\frac{1}{2\eps} \delta(1-z) + \frac{1 - 2\eps\ln(1-z)}{1-z}
+        \\ &\qquad
+        - \delta(1-z) \int_0^z dy \, \frac{1 - 2\eps\ln(1-y)}{1-y} + \mathcal{O}(\eps^2).
     \end{split}
-    \nonumber \\
+    \\
+    \begin{split}
+        &= -\frac{1}{2\eps} \delta(1-z) + \biggl[ \frac{1}{1-z} - \delta(1-z) \int_0^z dy \, \frac{1}{1-y} \biggr]
+        \\ &\qquad
+        - 2\eps \biggl[ \frac{\ln(1-z)}{1-z} - \delta(1-z) \int_0^z dy \, \frac{\ln(1-z)}{1-z} \biggr] + \mathcal{O}(\eps^2).
+    \end{split}
+\end{align}
+Recognizing the plus distribution from the definition in \cref{eq:plus_dist_def}, we end up with
+\begin{align}
+    \frac{1}{(1-z)^{1+2\eps}}
     &= - \frac{1}{2\eps} \delta(1-z)
     + \plusdist - 2\eps \plusdistln
-    + \mathcal{O}(\eps^2),
+    + \mathcal{O}(\eps^2).
     \label{eq:plus_dist_expansion}
 \end{align}
-where we have used that $a^\eps = 1 + \eps\ln a + \mathcal{O}(\eps^2)$.
