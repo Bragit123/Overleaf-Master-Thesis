@@ -642,7 +642,7 @@ Using that $-g_{\mu\nu}$ is equal to the sum of polarizations $\eps_\mu\eps^*_\n
 To summarize this section: we have laid the groundwork for doing calculations at \gls{nlo}, by simplifying in two major ways:
 \begin{itemize}
     \item We have reduced what was originally a $2\to2(3)$~scattering process down to a $2\to1(2)$~scattering for initial-state corrections, given in \cref{eq:dsigmai_scalar}; and $1\to2(3)$ decay for final-state corrections, given in \cref{eq:dsigmaf_tensor}; greatly simplifying the phase space integration.
-    \item To begin with, we had to consider two versions of all diagrams, one with an intermediate photon, and one with a $Z$~boson. This has now been reduced to a single effective photon $\gamma^*$ which incorporates both vector bosons through the coupling $\fqliab(Q^2)$.
+    \item To begin with, we had to consider two versions of all diagrams; one with an intermediate photon, and one with a $Z$~boson. This has now been reduced to a single effective photon $\gamma^*$ which incorporates both vector bosons through the coupling $\fqliab(Q^2)$.
 \end{itemize}
 
 
@@ -748,7 +748,10 @@ Note also that if we set $Q^2 = \shat$ and $d=4$, \cref{eq:sigma0i,eq:sigma0f} g
 %%% NLO %%%
 %%%%%%%%%%%
 \section{Next-To-Leading Order Corrections}\label{sec:nlo}
-In this section we will compute corrections to slepton pair production at \gls{nlo} in \gls{qed}. Due to the amount of contributing diagrams, we have divided the section into three subparts, based on the type of corrections that appear---initial-state, final-state, and non-factorizable---where each part is further subdivided into corrections that contain virtual loops, and those involving real photon emission. Note that we will denote both loop momenta and the momentum of an emitted photon by $k$. This should not cause any confusion, as there are no diagrams at \gls{nlo} that contain both.
+In this section we will compute corrections to slepton pair production at \gls{nlo} in \gls{qed}.
+Due to the amount of contributing diagrams, we have divided the section into three subparts, based on the type of corrections that appear: initial-state, final-state, and non-factorizable corrections.
+Each part is then further subdivided into corrections that contain virtual loops, and those involving real photon emission. Note that we will denote both loop momenta and the momentum of an emitted photon by $k$. This should not cause any confusion, as there are no diagrams at \gls{nlo} that contain both.
+% Due to the amount of contributing diagrams, we have divided the section into three subparts, based on the type of corrections that appear---initial-state, final-state, and non-factorizable---where each part is further subdivided into corrections that contain virtual loops, and those involving real photon emission. Note that we will denote both loop momenta and the momentum of an emitted photon by $k$. This should not cause any confusion, as there are no diagrams at \gls{nlo} that contain both.
 
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -1558,9 +1561,9 @@ We can insert $L^{\mu\nu}$ from \cref{eq:L_munu_emis} into the differential cros
     \vastr\}.
 \end{split}
 \end{align}
-It is worth noting that only the factor $(1-z)^{d-5}$ gives a divergence.
-Remember from \cref{eq:xpm_lim} that $-1 < \xm < \xp < 1$, meaning that the remaining integration over $x$ in \cref{eq:dsigmaf_before_xint} is finite---the only poles of the integrand are at $x=\pm1$, which are outside the integration domain.
 
+It is worth noting that only the factor $(1-z)^{d-5}$ gives a divergence in \cref{eq:dsigmaf_before_xint}.
+To see this, remember from \cref{eq:xpm_lim} that $-1 < \xm < \xp < 1$, meaning that the remaining integration over $x$ in \cref{eq:dsigmaf_before_xint} is finite---the only poles of the integrand are at $x=\pm1$, which are outside the integration domain.
 To simplify the remaining $x$-integral, it is therefore useful to insert $d=4-2\eps$ already now, and expand the result around $\eps=0$.\footnote{Note that we omit the \gls{ir} subscript on $\eps$ since the real emission contribution has no \gls{uv} divergence.}
 Rewriting \cref{eq:dsigmaf_before_xint} in terms of $\eps$, we find
 \begin{align}
@@ -1580,6 +1583,7 @@ Rewriting \cref{eq:dsigmaf_before_xint} in terms of $\eps$, we find
 \label{eq:_Ir}
 \end{align}
 where we have introduced the shorthands $\lambda\equiv\lambda(1,\mt_1^2,\mt_2^2)$ and $\lambda_z\equiv\lambda(1,z\mt_1^2,z\mt_2^2)$ in order to declutter the notation.
+
 We can now expand the integral around $\eps=0$, including also the divergent factor $(1-z)^{-1-2\eps}$ to make sure that we do not miss out on finite contributions from $\eps$-terms in the integrand. Using the plus distribution relation in \cref{eq:plus_dist_expansion}, we find
 \begin{align}
     I^r &= (1-z)^{-1-2\eps} \int_{\xm}^{\xp} dx \frac{\Bigl[(\xp-x)(x-\xm)\Bigr]^{1-\eps}}{(1+x)^2 (1-x)^2}

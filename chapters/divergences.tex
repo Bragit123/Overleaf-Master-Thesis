@@ -1,7 +1,7 @@
 \chapter{Infinities and Where to Hide Them}\label{ch:divergences}
 
 In the previous chapter we introduced the \gls{mssm}, the model under consideration in this thesis.
-Before beginning calculations, we must also review some of the difficulties that arise when doing higher-order corrections in perturbative \gls{qft}.
+Before we calculate the cross section for slepton pair production in \cref{ch:parton_level}, we should review some of the difficulties that arise when doing this kind of higher-order corrections in perturbative \gls{qft}.
 This naturally leads to a discussion of divergences appearing from loops and emission diagrams.
 
 We will start by showing how divergences appear in loop diagrams by considering an example toy model---the complex $\phi^4$ theory---and show how we can regulate the emerging infinities by an infinitesimal shift in spacetime dimensions. We then show how we can get rid of \gls{uv} divergences by renormalizing the theory, before giving a short discussion of \gls{ir} divergences and how these are dealt with.
@@ -60,7 +60,7 @@ So far, no problems.
         \caption{}
         \label{fig:phi4_nlo_u}
     \end{subfigure}
-    \caption{Feynman diagrams for \acrshort{lo} and \acrshort{nlo} corrections to $\phi^-\phi^+\to\phi^-\phi^+$ in complex $\phi^4$ theory. The arrows on the line signify the direction of charge, so that $\phi^-$ and $\phi^+$ moves parallel and anti-parallel with the arrow, respectively.}
+    \caption{Feynman diagrams for \acrshort{lo} and \acrshort{nlo} corrections to $\phi^-\phi^+\to\phi^-\phi^+$ in complex $\phi^4$ theory. The arrows on the lines signify the direction of charge, so that $\phi^-$ and $\phi^+$ moves parallel and anti-parallel with the arrow, respectively.}
     \label{fig:phi4}
 \end{figure}
 
@@ -117,7 +117,7 @@ Notice also that we have set $i\eps=0$ since the poles in the denominator are no
 \begin{figure}
     \centering
     \inputtikz{figures/wick_rotation}
-    \caption{The Wick rotation for integration over the time-component $k^0$ of the loop momentum. The integral over the real line $(-\infty,\infty)$ is \emph{rotated} to the imaginary axis, which corresponds to a shift $k^0\to ik^0$.}
+    \caption{The Wick rotation for integration over the time-component $k^0$ of the loop momentum. The integral over the real line $(-\infty,\infty)$ is rotated to the imaginary axis, which corresponds to a shift $k^0\to ik^0$.}
     \label{fig:wick_rotation}
 \end{figure}
 
@@ -130,7 +130,7 @@ In the limit where $k_E\to\infty$, we can neglect $\Delta(x)$, and the integral 
     \int \frac{dk_E}{k_E} \xrightarrow[k_E\to\infty]{} \infty,
 \end{equation}
 thus the integral is \emph{divergent}.
-More specifically, since the divergence occurs in the high-energy limit when $k_E\to\infty$, we call this \pgls{uv} divergence.
+More specifically, since the divergence occurs in the high-energy limit when $k_E\to\infty$, we call this an \acrfull{uv} divergence.
 
 The goal of \gls{qft} calculations is to make predictions that can be compared with experiment. This means, of course, that we can not allow infinities to hang around in our theory, but must find ways to get rid of them, leaving only finite contributions.
 In the following section, we will see how we can use \emph{regularization} to extract the divergent behavior.
@@ -518,7 +518,7 @@ known as the \emph{Breit--Wigner propagator}~\cite{Schwartz:2014sze}.
 Not only does the Breit--Wigner propagator improve the accuracy of the two-point function for unstable particles by including some information about the all-order result, but by adding an imaginary component one also avoids the pole near resonance.
 Nevertheless, it can be shown that the addition of the decay width in the propagator by itself breaks gauge invariance~\cite{Denner:2019vbn}.
 
-In order to restore Gauge invariance, note that we can also obtain the Breit--Wigner propagator in \cref{eq:breit_wigner} by using the standard propagator, but allowing the particle's mass to be complex.
+In order to restore gauge invariance, note that we can also obtain the Breit--Wigner propagator in \cref{eq:breit_wigner} by using the standard propagator, but allowing the particle's mass to be complex.
 We then define the complex mass $\mu$ such that it satisfies
 \begin{equation}\label{eq:complex_mass}
     \mu^2 \equiv m_P^2 - im_P\Gamma.
@@ -629,7 +629,7 @@ This means that we must calculate the \emph{inclusive} cross section to make sur
 For instance, when we consider slepton pair production at the partonic level in \cref{ch:parton_level}, we will see that the \emph{virtual contribution} from loop diagrams at \gls{nlo} to the process $q\widebar{q}\to\slepton^*\slepton$ give soft divergences from photons appearing in the loops.
 To cancel these soft divergences, we must include also the \emph{real emission contribution} from tree-level diagrams to the process $q\widebar{q}\to\slepton^*\slepton\gamma$.
 Taking both the virtual $2\to2$ and real $2\to3$ diagrams into account, the soft divergences end up canceling.
-Of course, this will be demonstrated in far more detail in \cref{ch:parton_level}.
+Of course, this will be demonstrated in greater detail in \cref{ch:parton_level}.
 For now, it suffices to know that soft divergences disappear without the need for renormalization.
 
 

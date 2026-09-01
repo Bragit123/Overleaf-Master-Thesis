@@ -128,7 +128,7 @@ In our case, we will set both scales to be equal to the average mass of the prod
 \end{equation}
 where $m_{\tilde{\ell}_{iA/B}}$ is the mass of slepton $\slepton_{iA/B}$.
 The scale $\mu_0$ is dubbed the \emph{central scale}.
-Keeping everything else fixed, and varying $\mu_R$ and $\mu_F$ around the central scale then allows us to evaluate how much the finite-order cross section depends on the chosen scale, which can in turn be used to estimate the result's uncertainty due to missing higher order terms.
+Keeping everything else fixed and varying $\mu_R$ and $\mu_F$ around the central scale then allows us to evaluate how much the finite-order cross section depends on the chosen scale, which can in turn be used to estimate the result's uncertainty due to missing higher order terms.
 We will now turn to a more general discussion of scale and \gls{pdf} uncertainty estimates.
 
 
@@ -274,7 +274,7 @@ Following the procedure described for estimating the \gls{pdf} uncertainty, but 
 
 \section{Results and Discussion}
 
-\subsection{Leading-Order Comparison}
+\subsection{Leading Order Comparison}
 
 To the best of our knowledge, the \gls{qed} corrections done in this thesis has not been done previously.
 Present code libraries for supersymmetric production processes such as \texttt{Resummino}~\cite{Fiaschi:2023tkq} have been focused on increasing accuracies in \gls{qcd}, and do not provide higher-order \gls{qed} corrections, hence we can not compare our results at \gls{nlo} with existing code.
@@ -284,7 +284,7 @@ Present code libraries for supersymmetric production processes such as \texttt{R
 % However, present code libraries for supersymmetric production processes such as \texttt{Resummino}~\cite{Fiaschi:2023tkq} have been focused on increasing accuracies in \gls{qcd}, and do not include higher-order \gls{qed} corrections.
 Nevertheless, as a test of our numerical implementation's consistency, we can compare results at \gls{lo}.
 
-\begin{figure}[t!]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\linewidth]{Figures/plots/qed_rel_err_13600.pdf}
     \caption{Relative error of the \acrshort{lo} cross section found in this thesis compared to the one found with \texttt{smoking}~\cite{smoking}. The cross sections given here were computed at a \acrshort{com} energy of $\sqrt{s}=\qty{13.6}{TeV}$.}
@@ -357,7 +357,8 @@ It is unsurprising that the factorization scale also affects the \gls{lo} cross 
 % This means that most of the improvement we would expect to see in the scale dependence when going from \gls{lo} to \gls{nlo} is not shown in \cref{fig:xsec_scale_ratio}, since the \gls{lo} cross section technically also has some of the \gls{nlo} contribution built in.
 The dependence on the factorization scale is almost identical at \gls{lo} and \gls{nlo}, although the \gls{nlo} result is shifting ever so slightly towards a more stable curve.
 The \glspl{pdf} we have used are given at \gls{nlo}, since the \gls{lo} \glspl{pdf} are not available in the \texttt{PDF4LHC21\_40} \gls{pdf} set.
-Consequently, the \glspl{pdf} enter in the same way for the \gls{lo} and \gls{nlo} cross sections, and the only place left for the factorization scale to make a noticeable difference is in the $w$-functions in \cref{eq:hadron_w_initial_state,eq:hadron_w_final_state}, where it only appears for initial-state corrections which contribute considerably less to the \gls{nlo} cross section than the final-state corrections.\footnote{This will be shown shortly.}
+% Consequently, the \glspl{pdf} enter in the same way for the \gls{lo} and \gls{nlo} cross sections, and the only place left for the factorization scale to make a noticeable difference is in the coefficient functions in \cref{eq:hadron_w_initial_state,eq:hadron_w_final_state}, where it only appears for initial-state corrections which contribute considerably less to the \gls{nlo} cross section than the final-state corrections.\footnote{This will be shown shortly.}
+Consequently, the \glspl{pdf} enter in the same way for the \gls{lo} and \gls{nlo} cross sections, and the only place left for the factorization scale to make a noticeable difference is in the partonic cross section, where it only appears for the initial-state corrections in \cref{eq:hadron_w_initial_state}, which contribute considerably less to the \gls{nlo} cross section than the final-state corrections.\footnote{This will be shown shortly.}
 This means that most of the improvement we would expect to see in the scale dependence when going from \gls{lo} to \gls{nlo} is not shown in \cref{fig:xsec_scale_ratio}, since the \gls{lo} cross section technically also has some of the \gls{nlo} contribution built in.
 
 For higher order corrections in \gls{qcd}, the scale dependence changes more between \gls{lo} and \gls{nlo}; see, for instance, Ref.~\cite{Braseth:2025ylj}.
@@ -367,19 +368,19 @@ There the \gls{nlo} correction is larger, and one must take into account the run
 
 \subsection{The Total Cross Section}
 
-\begin{figure}[t!]
-    \centering
-    \includegraphics[width=\linewidth]{Figures/plots/xsec_over_mass_13600.pdf}
-    \caption{The cross section as a function of selectron mass for $pp\to\tilde{e}^*\tilde{e}+X$ at \acrshort{com} energy $\sqrt{s}=\qty{13.6}{TeV}$, along with scale and \acrshort{pdf} errors. The bottom subplot examines the \acrshort{nlo} cross section for left-handed selectrons more closely through its $K$-factor in comparison to the relative scale and \acrshort{pdf} errors.}
-    \label{fig:xsec_over_mass}
-\end{figure}
-
 We will consider the production of a pair of equal-mass selectrons in the process $pp\to\tilde{e}^*\tilde{e}+X$.
 The \gls{com} energy is set to $\sqrt{s}=\qty{13.6}{TeV}$, so as to match Run~\Romannum{3} at the \gls{lhc}.
 The total cross section for this process as a function of the selectron masses is shown in \cref{fig:xsec_over_mass}.
 The result is identical for smuons in this consideration, which differ from selectrons only by their mass.
 It is, however, worth noting that the same does not apply for the third-generation stau sparticles.
 Staus have non-zero off-diagonal terms in the mass mixing matrix as discussed in \cref{sec:slepton_masses}, and thus behave differently from the selectrons and smuons.
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\linewidth]{Figures/plots/xsec_over_mass_13600.pdf}
+    \caption{The cross section as a function of selectron mass for $pp\to\tilde{e}^*\tilde{e}+X$ at \acrshort{com} energy $\sqrt{s}=\qty{13.6}{TeV}$, along with scale and \acrshort{pdf} errors. The bottom subplot examines the \acrshort{nlo} cross section for left-handed selectrons more closely through its $K$-factor in comparison to the relative scale and \acrshort{pdf} errors.}
+    \label{fig:xsec_over_mass}
+\end{figure}
 
 The cross section in \cref{fig:xsec_over_mass} follows a decaying curve.
 The energy required to produce a pair of massive particles such as selectrons increases when their masses are higher, so higher masses at a fixed \gls{com} energy means that the production is less likely to happen.
@@ -391,7 +392,7 @@ Notice also how the cross section is larger for the left-handed selectrons than 
 This is because the right-handed selectrons do not couple to the $SU(2)_L$ gauge group, giving the left-handed selectrons slightly enhanced interactions in comparison.\footnote{Both left- and right-handed selectrons couple to the $Z$ boson, though, since it is a linear combination of the $B$ field from $U(1)_Y$ and the $W^3$ field from $SU(2)_L$. The coupling for left-handed selectrons is still stronger due to the $Z$ boson's underlying gauge structure.}
 % This is because the right-handed particles do not couple to the $SU(2)_L$ gauge group, giving the left-handed selectrons an advantage due to their slightly enhanced interactions.\footnote{Both left- and right-handed selectrons couple to the $Z$ boson, though, since it is a linear combination of the $B$ field from $U(1)_Y$ with the $W^3$ field from $SU(2)_L$.}
 
-\begin{figure}[t!]
+\begin{figure}[p]
     \centering
     \includegraphics[width=\linewidth]{Figures/plots/ratio_qed_pdf_13600.pdf}
     % \caption{Closer look at the comparison between the \gls{nlo} $K$-factor and relative \gls{pdf} error in \cref{fig:xsec_over_mass}.}
@@ -399,7 +400,7 @@ This is because the right-handed selectrons do not couple to the $SU(2)_L$ gauge
     \label{fig:ratio_qed_pdf}
 \end{figure}
 
-\begin{figure}[t!]
+\begin{figure}[p]
     \centering
     \includegraphics[width=\linewidth]{Figures/plots/pdf_over_s.pdf}
     \caption{Relative \acrshort{pdf} error for the production of left-handed selectrons at different \acrshort{com} energies. The black dashed line shows also the the \acrshort{nlo} \acrshort{qed} correction at $\sqrt{s}=\qty{80}{TeV}$ to give a comparison similar to that of \cref{fig:ratio_qed_pdf}.}
@@ -546,14 +547,10 @@ The sleptons are color neutral, and hence do not obtain \gls{qcd} corrections at
 % This is the main qualitative distinction between \gls{qed} and \gls{qcd} corrections, allowing more diagrams to contribute in \gls{qed}.
 In addition, since the sleptons are scalars rather than fermions, we had contributions to the final-state involving four-point interaction vertices, increasing the number of contributing diagrams further.
 Since we get an increased amount of contributing diagrams to final-state \gls{qed} corrections, which do not have any \gls{qcd} counterparts, we would not expect the approximation in \cref{eq:naive_fs_correction} to be particularly accurate.
-% Since the final-state corrections do not have any \gls{qcd} counterpart, and since they contain no additional quark couplings, \cref{eq:naive_is_correction} is not a good approximation.
-% A slightly better approximation would be to only substitute the strong coupling for the electromagnetic one, i.e.\ $\alpha \leftrightarrow \alpha_s$. This would give \gls{qed} corrections of approximately
-% although we would not expect this approximation to be particularly accurate, since the final-state corrections do not have any \gls{qcd} counterpart.
 
 In \cref{fig:xsec_ratio_qed_qcd} we have plotted the ratio of \gls{qed} to \gls{qcd} corrections at \gls{nlo} (only the correction, not including \gls{lo}), to see more clearly how they differ.
 We see that the naive expectation for initial-state corrections in \cref{eq:naive_is_correction} fits very well with the actual correction.
 The small deviation is expected, since we have given a very rough estimate for $\alpha_s$ and not taken its running into account.\footnote{The \gls{qcd} correction also includes supersymmetric corrections and the contribution from quark--gluon hard scattering, which also affect the result.}
-% The small deviation is expected, since the \gls{qcd} correction includes supersymmetric corrections, the contribution from quark--gluon hard scattering, and we have given a very rough estimate for $\alpha_s$ and not taken its running into account.
 The more general naive expectation of shifting only the coupling $\alpha_s\to\alpha$ is less accurate, which is not surprising given the discussion above.
 Nevertheless, it is closer to the full \gls{nlo}~\gls{qed} correction than the initial-state approximation.
 The true \gls{qed} correction is actually notably larger than the naive expectation suggests, at approximately \qty{16}{\percent} that of \gls{nlo}~\gls{qcd}.

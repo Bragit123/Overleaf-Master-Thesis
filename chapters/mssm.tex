@@ -3,7 +3,7 @@
 In this chapter we introduce the model being considered in this thesis, namely the \acrfull{mssm}.
 We will start by discussing the need for \gls{bsm} theories, and introduce how supersymmetry arises as an extension of special relativity, providing a framework for constructing such \gls{bsm} models.
 
-After introducing supersymmetry in general, we construct the \gls{mssm} as a broken supersymmetric model, by considering the necessary field content for it to encompass the Standard Model, and the Lagrangian terms allowed by these fields.
+After introducing supersymmetry in general, we construct the \gls{mssm} as a broken supersymmetric model by considering the necessary field content for it to encompass the Standard Model, and the Lagrangian terms allowed by these fields.
 We also briefly discuss how the \gls{mssm} solves some of the problems with the Standard Model.
 
 We then consider the phenomenology of scalar leptons---the sleptons---as they appear in the \gls{mssm}. We briefly review their masses, how they are searched for at hadron colliders, and derive the Feynman rules for slepton--gauge boson interactions, which will become necessary for calculations performed in \cref{ch:parton_level}.
@@ -12,6 +12,7 @@ This chapter makes use of Weyl spinors and Grassmann numbers. For a brief review
 
 The present chapter is largely based on Martin's review~\cite{Martin:1997ns} and the lecture notes by Tong~\cite{Tong:susy} and Raklev~\cite{Raklev:susy}.
 For more detailed calculations, the book by M\"uller-Kirsten and Wiedemann~\cite{IntrSUSY2010} has proved particularly useful.
+
 
 %%%%%%%%%%%%%%%%%%
 %%% SUSY Intro %%%
@@ -112,7 +113,7 @@ Such an algebra is defined by giving $\mathfrak{l}$ a multiplication $\circ:\mat
     + x_j \circ (x_k \circ x_i)(-1)^{ji}
     + x_k \circ (x_i \circ x_j)(-1)^{kj}
     = 0.
-    \tag{Generalized Jacobi identity}
+    \tag{Generalized Jacobi Identity}
 \end{align*}
 The supersymmetrization requirement allows us to include generators with anticommutators, in addition to the commutators of Lie algebras.
 
@@ -142,13 +143,13 @@ The supercharges have the property that they transform fermionic states into bos
     Q \ket{\text{Fermion}} = \ket{\text{Boson}}, \qquad Q\ket{\text{Boson}} = \ket{\text{Fermion}}.
 \end{equation}
 We refer to the bosonic and fermionic states that are related by this supersymmetric transformation as \emph{superpartners} of each other, and it can be shown that any theory which obeys supersymmetry has an equal number of fermionic and bosonic states~\cite{Tong:susy}.
-Apart from their spin, these superpartners have identical properties. In particular, they have the same mass, which will become relevant later.
+Apart from their spin, these superpartners have identical properties. In particular, they have the same mass.
 
 
 
 \subsection{Superspace, Superfields and the Superlagrangian}\label{sec:super_space_field_lagrange}
 When working with special relativity we use four-vectors in Minkowski space as a way to simplify calculations and make the symmetries of spacetime manifest.
-Much in the same way, we can simplify supersymmetric calculations by introducing superspace, a coordinate system which is constructed by adding four new Grassmann coordinates $\theta^A$ and $\widebar{\theta}_{\dot{A}}$, written as Weyl spinors, to the spacetime coordinates $x^\mu$.
+In the same way, we can simplify supersymmetric calculations by introducing superspace, a coordinate system which is constructed by adding four new Grassmann coordinates $\theta^A$ and $\widebar{\theta}_{\dot{A}}$, written as Weyl spinors, to the spacetime coordinates $x^\mu$.
 
 We can then parameterize supersymmetry transformations of functions $F(x,\theta,\thetabar)$ by infinitesimal Grassmann parameters $\alpha^A$ and $\widebar\alpha_{\dot{A}}$, giving
 \begin{equation}\label{eq:susy_transformation}
@@ -180,6 +181,7 @@ which can be shown to be invariant under supersymmetry transformation, i.e.\ tha
 \end{equation}
 
 We then define the left-handed scalar superfield $\Phi(x,\theta,\thetabar)$, the right-handed scalar superfield $\Phi^\dagger(x,\theta,\thetabar)$ and the vector superfield $V(x,\theta,\thetabar)$ to be functions of supercoordinates that satisfy
+\begin{subequations}
 \begin{align}
     \widebar{D}_{\dot{A}} \Phi(x,\theta,\thetabar) &= 0,
     \\
@@ -187,7 +189,9 @@ We then define the left-handed scalar superfield $\Phi(x,\theta,\thetabar)$, the
     \\
     V^\dagger(x,\theta,\thetabar) &= V(x,\theta,\thetabar).
 \end{align}
+\end{subequations}
 These superfields are closed, in the sense that multiplying or adding two superfields of the same kind produces a new superfield of that kind. In addition, from \cref{eq:covariant_susy_commute} and the fact that $\delta_s^\dagger=\delta_s$, we can show that these superfields are closed under supersymmetry transformations, in the sense that
+\begin{subequations}
 \begin{align}
     \widebar{D}_{\dot{A}}(\delta_s\Phi) &= \delta_s\widebar{D}_{\dot{A}}\Phi = 0,
     \\
@@ -195,6 +199,7 @@ These superfields are closed, in the sense that multiplying or adding two superf
     \\
     (\delta_s V)^\dagger &= \delta_s^\dagger V^\dagger = \delta_s V.
 \end{align}
+\end{subequations}
 
 
 When working with superfields, it is convenient to write them in a more explicit form.
@@ -268,7 +273,7 @@ where $F_{\mu\nu} \equiv \partial_\mu V_\nu - \partial_\nu V_\mu$ is the usual f
 The superfields in \cref{eq:superfields} can be shown to be representations of the super-Poincar\'e group.
 When acting on them with $\delta_s$, the component fields fully mix into each other, so we can not subdivide these superfields into smaller functions that are still closed under supersymmetry transformations. Consequently, $\Phi$, $\Phi^\dagger$ and $V$ are in fact \emph{irreducible representations}.
 
-It is worth noting that the superfields provide an equal amount of fermionic and bosonic \gls{dof} "for free", with the left- and right-handed scalar superfield giving two bosonic \gls{dof} from $A(x)$ and two fermionic \gls{dof} from $\psi(x)$, and the vector superfield giving two bosonic \gls{dof} from the (massless) vector $V_\mu(x)$ and two fermionic \gls{dof} from $\lambda(x)$.
+It is worth noting that the superfields provide an equal amount of fermionic and bosonic \gls{dof} "for free", with the left- and right-handed scalar superfields giving two bosonic \gls{dof} from $A(x)$ and two fermionic \gls{dof} from $\psi(x)$, and the vector superfield giving two bosonic \gls{dof} from the (massless) vector $V_\mu(x)$ and two fermionic \gls{dof} from $\lambda(x)$.
 We have not counted the $F(x)$ and $D(x)$ component fields here since, as we will soon see, they are \emph{auxiliary fields}---they have no derivative terms in the Lagrangian, and can be eliminated by the Euler--Lagrange equations.
 
 
@@ -276,7 +281,7 @@ We have not counted the $F(x)$ and $D(x)$ component fields here since, as we wil
 \subsubsection{The Superlagrangian}
 The supersymmetry transformation of the auxiliary fields $F(x)$ and $D(x)$ are surface terms, as shown in \cref{eq:scalar_susy_transformations,eq:vector_susy_transformations}.
 This is useful, because it allows us to construct field theories that are manifestly supersymmetric.
-We define the superlagrangian $\tilde{\mathcal{L}}(x,\theta,\thetabar)$ such that it is related to the ordinary field theory Lagrangian by
+We define the \emph{superlagrangian} $\tilde{\mathcal{L}}(x,\theta,\thetabar)$ such that it is related to the ordinary field theory Lagrangian $\mathcal{L}(x)$ by
 \begin{equation}
     \mathcal{L}(x) = \int d^4\theta \tilde{\mathcal{L}}(x,\theta,\thetabar).
 \end{equation}
@@ -296,7 +301,7 @@ Using dimensional analysis, and knowing that $[\theta]=-\frac{1}{2}$, we find th
 Requiring the superlagrangian to be renormalizable, this further constrains the K\"ahler potential and superpotentials to take the form
 \begin{subequations}
 \begin{align}
-    K[\Phi_i,\Phi_i^\dagger] &= \Phi_i^\dagger\Phi_i
+    K[\Phi_i,\Phi_i^\dagger] &= \Phi_i^\dagger\Phi_i,
     \\
     W[\Phi_i] &= t_i \Phi_i + m_{ij} \Phi_i\Phi_j + \lambda_{ijk} \Phi_i\Phi_j\Phi_k.
     \label{eq:superpotential_def}
@@ -364,7 +369,7 @@ where $V(A_i,A_i^*)$ is the \emph{scalar potential}, given by~\cite{Martin:1997n
     + \frac{1}{2}\sum_a q^2 (A_i^* T^a_{ij} A_j)^2.
 \end{equation}
 Here $W[A_1,\ldots,A_n]$ should be understood to be the superpotential, but replacing all scalar superfields by their scalar \emph{component} fields.
-We refer to the first and second terms in \cref{eq:susy_scalar_potential} as $F$- and $D$-terms, respecitvely.
+We refer to the first and second terms in \cref{eq:susy_scalar_potential} as $F$- and $D$-terms, respectively.
 
 Interactions between four scalars then come from the scalar superpotential.
 Looking again at the Yukawa interaction $\lambda\Phi_h \Phi_\phi\Phi_\chi$, we see that we have an $F$-term contribution to the Lagrangian of the form
@@ -440,7 +445,7 @@ Lastly, we also need a superfield for the Higgs boson. As it turns out, we will 
     \end{pmatrix}.
 \end{equation}
 The scalar fields contained in the Higgs superfields are complex, so the two Higgs doublets introduce eight real Higgs fields, three of which are Goldstone bosons that get "eaten" by the electroweak gauge bosons $W^\pm$ and $Z$ to acquire mass.
-In addition, the Higgs superfields give rise two four majorana fermions, the \emph{higgsinos}.
+In addition, the Higgs superfields give rise to four majorana fermions---the \emph{higgsinos}.
 The reason for introducing a second Higgs doublet in the \gls{mssm} is two-fold:
 \begin{description}
     \item[Quark masses:] In the Standard Model, the quarks acquire mass from their interaction with the Higgs field. For down-type quarks, this interaction is fairly straight-forward:
@@ -449,7 +454,7 @@ The reason for introducing a second Higgs doublet in the \gls{mssm} is two-fold:
     \end{equation}
     where $\Psi_Q$, $H$ and $\psi_d^R$ are the left-handed quark doublet, Higgs doublet, and right-handed down-quark singlet, respectively.
     This works because the Higgs doublet is proportional to\footnote{Given an appropriate choice of $SU(2)$ rotation.} $(0, v+h)$, where $v$ is the \gls{vev}, and $h$ is the Higgs field, thus for $h=0$ we get $(\widebar\Psi_Q H)\psi_d \propto v\widebar\psi_d^L\psi_d^R$, i.e.\ a mass term for down-type quarks.
-    For up-type quarks, one has to be more clever, in order to move the \gls{vev} to the upper component of the doublet, so that it can match with the up-quark field. This can be done by introducing $H^C \equiv -i(H^\dagger \sigma_2)^T$, where $\sigma_2$ is the Pauli matrix given in \cref{eq:pauli_matrices}. With this we can create mass terms for up-type quarks as
+    For up-type quarks, one has to be more clever, since we must move the \gls{vev} to the upper component of the doublet, so that it can match with the up-quark field. This can be done by introducing $H^C \equiv -i(H^\dagger \sigma_2)^T$, where $\sigma_2$ is the Pauli matrix given in \cref{eq:pauli_matrices}. With this, we can create mass terms for up-type quarks as
     \begin{equation}
         \mathcal{L}_{\mathrm{SM}} \supset -\lambda_u (\widebar\Psi_Q H^C)u + \text{h.c.}.
     \end{equation}
@@ -566,7 +571,7 @@ To deal with this, we introduce the \emph{$R$-parity}~\cite{Farrar:1978xj}, defi
 \end{equation}
 where $B$ is the particle's baryon number, $L$ the lepton number and $s$ the spin.
 It follows that $P_R=+1$ for all Standard Model particles, and $P_R=-1$ for all supersymmetric particles (the \emph{sparticles}).
-Requiring $R$-parity to be conserved removes all the terms on the second line in \cref{eq:mssm_superpotential_R_violated}, fixing the problem lepton and baryon number violation.
+Requiring $R$-parity to be conserved removes all the terms on the second line in \cref{eq:mssm_superpotential_R_violated}, fixing the problem of lepton and baryon number violation.
 The remaining $R$-parity conserving superpotential is then
 \begin{equation}\label{eq:mssm_superpotential}
     W = \mu H_u^Ti\sigma_2H_d + y_{ij}^e L_i^Ti\sigma_2H_d\widebar{E}_j + y_{ij}^u Q_i^Ti\sigma_2H_u\widebar{U}_j + y_{ij}^d Q_i^Ti\sigma_2H_d\widebar{D}_j.
@@ -600,7 +605,7 @@ From requiring gauge invariance, we find that the \gls{mssm} soft terms are
 where $m_{H_u}^2,m_{H_d}^2 \in \mathbb{R}$ and $M_i,a_{ij},b,m_{ij}^2 \in \mathbb{C}$, although the $m_{ij}^2$ must be hermitian in order for the Lagrangian to remain real.
 
 We see that the \gls{mssm}---after spontaneous supersymmetry breaking---introduces a large number of new parameters (\num{105}~\cite{Martin:1997ns}) that are not in the Standard Model.
-Some of these terms, howewer, lead to large contributions to flavor-changing neutral currents, such as $\mu^- \to e^-\gamma$~\cite{Martin:1997ns}, which are shown experimentally to be extremely rare, with $\operatorname{BR}(\mu^-\to e^-\gamma) < \num{1.5e-13}$ (taken from Ref.~\cite{MEGII:2025gzr}, assuming the branching ratio to be approximatelly identical for $\mu^-\to e^-\gamma$ and $\mu^+\to e^+\gamma$).
+Some of these terms, howewer, lead to large contributions to flavor-changing neutral currents, such as $\mu^- \to e^-\gamma$~\cite{Martin:1997ns}, which are shown experimentally to be extremely rare, with $\operatorname{BR}(\mu^-\to e^-\gamma) < \num{1.5e-13}$ (taken from Ref.~\cite{MEGII:2025gzr}, assuming the branching ratio to be approximately identical for $\mu^-\to e^-\gamma$ and $\mu^+\to e^+\gamma$).
 To reduce such contributions, we typically assume the soft masses $m_{ij}^2$ to be close to diagonal, and the soft Yukawa couplings $a_{ij}$ to be proportional to the Yukawa couplings $y_{ij}$.
 Although there are still many free parameters in the \gls{mssm} with these assumptions, the number is greatly reduced.
 
@@ -619,7 +624,7 @@ where we remind the reader that $\tilde{L}_i$ here refers to the doublet of scal
 
 In addition to the soft masses, the sleptons get masses from the $D$-terms in \cref{eq:susy_scalar_potential}, which contribute terms like $g^2(\tilde{L}_i^\dagger\sigma^a\tilde{L}_i)(H_u^\dagger\sigma^aH_u)$, and so on.\footnote{Here, $H_u$ refers to the scalar component field, not the superfield.}
 When the Higgs fields develop their \glspl{vev}, these give mass terms of the form $g^2(v_u^2+v_d^2)\slepton_{iL}^*\slepton_{iL}$ and $g'^2(v_u^2+v_d^2)(\slepton_{iL}^*\slepton_{iL}+\slepton_{iR}^*\slepton_{iR})$.
-The $F$-terms in \cref{eq:susy_scalar_potential} also contribute, both from the superpotential Yukawa terms $y_{ij}^e L_i^T i\sigma_2 H_d \widebar{E}_j$ when $L_i$ or $\widebar{E}_i$ is differentiated out, giving $v_d^2(y_{ij}^e)^2 (\slepton_{iL}^*\slepton_{iL} + \slepton_{iR}^*\slepton_{iR}^*)$, and from the combination of the Yukawa terms (with Higgs differentiated out) with the Higgs mass term $\mu H_u^T i\sigma_2 H_d$, giving $\mu (v_u+v_d) y_{ij}^e \slepton_{iL}^*\slepton_{iR}$.
+The $F$-terms in \cref{eq:susy_scalar_potential} also contribute, both from the superpotential Yukawa terms $y_{ij}^e L_i^T i\sigma_2 H_d \widebar{E}_j$ when $L_i$ or $\widebar{E}_i$ is differentiated out, giving $v_d^2(y_{ij}^e)^2 (\slepton_{iL}^*\slepton_{iL} + \slepton_{iR}^*\slepton_{iR})$, and from the combination of the Yukawa terms (with Higgs differentiated out) with the Higgs mass term $\mu H_u^T i\sigma_2 H_d$, giving $\mu (v_u+v_d) y_{ij}^e \slepton_{iL}^*\slepton_{iR}$.
 Finally, the soft Yukawa terms in \cref{eq:soft_terms} give additional mass terms $a_{ij}^e v_d \tilde{L}_i \slepton_{jR}^*$, where we remind the reader that $a_{ij}^e$ is assumed to be proportional to the Yukawa couplings $y_{ij}^e$.
 
 \subsubsection{Mass Mixing for Sleptons and Electroweakinos}
@@ -659,7 +664,7 @@ In addition to this making $\tilde\chi_1^0$ a great \gls{wimp} candidate for dar
 %%%%%%%%%%%%%%%%%%%%%
 \subsection{Feynman Rules for Sleptons}\label{sec:feynman_rules}
 
-In \cref{ch:parton_level} we will calculate \gls{qed} corrections to the parton-level cross section for $q\widebar{q}\to\slepton^*\slepton+X$. To do this, we will need the Feynman rules for interactions between sleptons and electroweak gauge bosons, which we derive in this section.
+In \cref{ch:parton_level} we will calculate \gls{qed} corrections to the parton level cross section for $q\widebar{q}\to\slepton^*\slepton+X$. To do this, we will need the Feynman rules for interactions between sleptons and electroweak gauge bosons, which we derive in this section.
 We will do this by locating the relevant terms in the superlagrangian, integrating over the Grassmann coordinates, and reading off the vertex rules.
 To read off an interaction vertex from a Lagrangian, we first extract the numerical factors (not including fields), multiply by symmetry factors, rewrite derivatives as $\partial^\mu\to-ip^\mu$, and multiply the term by $i$. With this convention for the derivatives, all momenta are considered to point \emph{into} the vertex.
 As an example, consider an interaction between two scalar fields $\phi$ and $\chi$, described by the Lagrangian term $\mathcal{L} \supset \lambda \phi\phi\partial_\mu\chi$. Its Feynman rule would be written
@@ -835,7 +840,7 @@ We can see that they coincide perfectly with Refs.~\cite{Richardson:2000nt,Rosie
 
 \begin{table}
     \centering
-    \caption{The Feynman rules for electroweak slepton--gauge boson interactions derived in \cref{sec:feynman_rules}, and the corresponding electroweak interactions of the Standard Model quarks~\cite{Richardson:2000nt}. $V^{1,2}_\mu$ and $s_{1,2}$ denote general vectors and charged scalars, $q$ and $\widebar{q}$ denote (same-flavor) quarks and anti-quarks, while $u_i$ and $d_i$ denote the $i$'th generation of up- and down-type quarks, respectively.}
+    \caption{Feynman rules for the electroweak slepton--gauge boson interactions derived in \cref{sec:feynman_rules}, and the electroweak interactions of the Standard Model quarks~\cite{Richardson:2000nt}. $V^{1,2}_\mu$ and $s_{1,2}$ denote general vectors and charged scalars, $q$ and $\widebar{q}$ denote (same-flavor) quarks and anti-quarks, while $u_i$ and $d_i$ denote the $i$'th generation of up- and down-type quarks, respectively.}
     \label{tab:slepton_rules}
     \renewcommand{\arraystretch}{1.8}
     \begin{tabular}{|c|c|c|}
@@ -1041,7 +1046,7 @@ where $\vec{p}_T^{\ell^\pm}$ is the observed transverse momentum of the leptons,
 \end{equation}
 where $E_T^{\ell^\pm} = \sqrt{(\vec{p}_T^{\ell^\pm})^2+m_{\ell^\pm}^2}$ and $\slashed{E}_T = \sqrt{\vec{\slashed{p}}_T^2 + m_{\tilde\chi_1^0}^2}$ are transverse energies, and $m_{\ell}$ and $m_{\tilde\chi_1^0}$ are the lepton and neutralino masses, respectively.
 The stransverse mass then has the property that $m_{T2} \leq m_{\slepton} - m_{\tilde\chi_1^0}$, where $m_{\slepton}$ is the mass of the slepton.
-For the production of $W$ bosons, which decay into leptons and neutrinos and hence give a similar signature as slepton production, this instead reads $m_{T2} \leq m_W$.
+For the production of $W$ bosons---which decay into leptons and neutrinos and hence give a similar signature as slepton production---this instead reads $m_{T2} \leq m_W$.
 Hence we can exclude Standard Model events by requiring $m_{T2} > m_W$, picking out only the supersymmetry events.
 
 When looking for sleptons at the \gls{lhc} using processes with production and subsequent decays, such as the example just discussed, one typically employs the narrow-width approximation; see, for instance, Refs.~\cite{ATLAS:2025evx,ATLAS:2022hbt,CMS:2019eln}.\footnote{Note that the narrow-width approximation is often not mentioned directly, but is implicitly assumed in discussions of sparticle branching ratios.}

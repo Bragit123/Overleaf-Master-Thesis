@@ -13,28 +13,12 @@ One of the most well-explored frameworks for constructing \gls{bsm} models is to
 This is known as supersymmetry.
 The smallest possible supersymmetric model---in the sense of containing the least amount of particles---that still contains all of the Standard Model is named the \acrfull{mssm}~\cite{Martin:1997ns}.
 
-% In the \gls{mssm}, each Standard Model particle receives at least one supersymmetric partner---or sparticle---with opposite spin-statistics, but otherwise identical properties. In particular, the sparticles should have the same mass as their Standard Model counterpart, which is in strong disagreement with experiments, where sparticles---despite many searches by the \gls{lhc} collaborations; see, for instance, Refs.~\cite{ATLAS:2025lhc,ATLAS:2026hnb,ATLAS:2025wln}---have yet to be observed.
-% To reconcile this disagreement, supersymmetry must be broken at low energies, allowing the sparticles to acquire higher masses than their Standard Model partners~\cite{Martin:1997ns}.
-
-% Supersymmetry breaking is not a problem in itself, and much like the Higgs mechanism, there are proposed models to explain how supersymmetry can be broken spontaneously~\cite{Hall:1983iz,Giudice:1998bp,Randall:1998uk}.
-% Nevertheless, since we do not know which mechanism is actually responsible, a more general approach is to "parameterize our ignorance" by introducing explicitly supersymmetry breaking terms in our Lagrangian.
-% Unfortunately, this leads to an abundance of new parameters, making comparison between model and experiment incredibly difficult.
-In the \gls{mssm}, each Standard Model particle receives at least one supersymmetric partner---or sparticle---with opposite spin-statistics, but otherwise identical properties. In particular, the sparticles should have the same mass as their Standard Model partners, and should therefore already have been observed.
+In the \gls{mssm}, each Standard Model particle receives at least one supersymmetric partner---or sparticle---with opposite spin-statistics, but otherwise identical properties.
+In particular, the sparticles should have the same mass as their Standard Model partners, and should therefore already have been observed.
 To explain the absence of sparticles in experiments, supersymmetry must therefore be broken at low energies, allowing the sparticles to acquire higher masses than their Standard Model partners.
-Unfortunately, this leads to an abundance of new parameters, making comparison between model and experiment incredibly difficult.
+Without knowing the breaking mechanism, this is accounted for by introducing explicitly supersymmetry breaking terms in the Lagrangian, which leads to an abundance of parameters, making comparison between model and experiment incredibly difficult.
 
-% In particular, the sparticles should have the same mass as their Standard Model counterpart, which is in strong disagreement with experiments
-% where sparticles---despite many searches by the \gls{lhc} collaborations; see, for instance, Refs.~\cite{ATLAS:2025lhc,ATLAS:2026hnb,ATLAS:2025wln}---have yet to be observed.
-% To reconcile this disagreement, supersymmetry must be broken at low energies, allowing the sparticles to acquire higher masses than their Standard Model partners~\cite{Martin:1997ns}.
-
-% Supersymmetry breaking is not a problem in itself, and much like the Higgs mechanism, there are proposed models to explain how supersymmetry can be broken spontaneously~\cite{Hall:1983iz,Giudice:1998bp,Randall:1998uk}.
-% Nevertheless, since we do not know which mechanism is actually responsible, a more general approach is to "parameterize our ignorance" by introducing explicitly supersymmetry breaking terms in our Lagrangian.
-% Unfortunately, this leads to an abundance of new parameters, making comparison between model and experiment incredibly difficult.
-
-Searching for supersymmetry at particle colliders such as the \gls{lhc} typically consists of calculating the cross section for different production processes at various points in parameter space, using statistical analysis and simulations of collisions to compare predictions with experimental data, to find which parameters can be confidently excluded~\cite{ATLAS:2024lda}.
-% One of the bottlenecks of these analyses is the evaluation of cross sections, which is computationally heavy to do by numerical methods.
-% It is therefore necessary to consider specific processes, and calculate their cross sections to higher orders in perturbation theory analytically.
-% This is the main topic of this thesis, where we consider the production of scalar leptons---the sleptons---in proton--proton collisions.
+Searching for supersymmetry at particle colliders such as the \gls{lhc} typically consists of calculating the cross section for different production processes at various points in parameter space, using statistical analysis and simulations of collisions to compare predictions with experimental data, to find which parameter values can be confidently excluded~\cite{ATLAS:2024lda}.
 In order to achieve stronger exclusion bounds in the parameter space, we want to reduce the theoretical uncertainty on the cross section.
 It is therefore necessary to consider specific processes, and calculate their cross sections to higher orders in perturbation theory analytically.
 This is the main topic of this thesis, where we consider the production of scalar leptons---the sleptons---in proton--proton collisions.
@@ -51,11 +35,11 @@ The main purpose of the research presented in this thesis is to provide an answe
 Higher-order \gls{qft} calculations are convoluted and time-consuming, and answering this question helps guide our efforts toward the contributions that matter most.
 
 We will consider a subset of the full electroweak corrections to slepton pair production in proton--proton collisions by calculating the inclusive cross section at \gls{nlo} in \gls{qed}. This process is---to the best of our knowledge---not considered in existing literature.
+
 Although the collision of protons is too complicated to be handled analytically in its entirety, it can be dealt with by means of factorization~\cite{Ellis:1996mzs}, writing the full hadronic cross section as a convolution between experimentally obtained \glspl{pdf} and perturbatively calculable partonic cross sections.
 The partonic cross sections are then regular cross sections for high-energy hard scattering processes between proton constituents---mostly quarks and gluons---and can be calculated analytically in \gls{qft}.
 
 The majority of the work presented in this thesis concerns itself with the calculation of the partonic cross section.
-% , for which we only consider quark--anti-quark annihilation.
 As is characteristic for higher-order \gls{qft} calculations, we will encounter various \gls{uv} and \gls{ir} divergences.
 These are dealt with using dimensional regularization~\cite{tHooft:1972tcz,Bollini:1972ui}, and eliminated using appropriate methods.
 After obtaining a finite result for the partonic cross section we integrate numerically over the \glspl{pdf} to obtain the full hadronic cross section.
@@ -66,7 +50,7 @@ When doing calculations we will encounter many Feynman diagrams. The diagrams pr
 \section*{Thesis Outline}
 The thesis is structured as follows:
 \begin{description}
-    \item[Chapter 1:] We start with a brief review of supersymmetry, its motivation and properties, with focus on the \gls{mssm} and sleptons. At the end of this chapter, we also derive the necessary Feynman rules for sleptons from the \gls{mssm} Lagrangian.
+    \item[Chapter 1:] We start with a brief review of supersymmetry, its motivation and properties, with focus on the \gls{mssm} and sleptons. We also derive the necessary Feynman rules for sleptons from the \gls{mssm} Lagrangian.
     
     \item[Chapter 2:] The Feynman diagrams considered in this thesis give rise to divergent behavior.
     In this chapter we provide a discussion of the different kinds of divergences that appear in our calculations, and how they can be removed to allow theoretical predictions to remain finite.
